@@ -211,7 +211,7 @@ governed_by:
 Evidence classification:
 
 ```yaml
-evidence_type: MEASURED
+evidence_type: THEORETICAL
 confidence: A
 ```
 
@@ -1495,6 +1495,8 @@ yet.
 | 1.0.0   | RESEARCHED | Initial MAT restructuring of the Hydrogen core |
 
 The quantitative core above is grounded in current-accessible NIST data: the NIST ASD v5.12 gives the ground configuration/term and `13.598434599702 eV` ionization energy; NIST's isotope table gives the atomic-weight interval and masses through ⁷H; NIST's Chemistry WebBook gives the H₂ ground-state spectroscopic constants; and the 2026 NIST boiling-point compilation explicitly distinguishes equilibrium H₂, normal H₂ and ortho-H₂. ([NIST][2])
+
+Evidence classification review, 14 September 2026: NIST prints this hydrogen ionisation energy in parentheses, denoting a theoretical value. The numerical value and uncertainty are retained, while the structured record's former `MEASURED` label is corrected to `THEORETICAL`. See the [dated ground-state extraction](0001-Hydrogen-H-Ionisation-Evaluation.md) and [NIST qualifier definitions](https://physics.nist.gov/PhysRefData/ASD/Html/iehelp.html). This correction applies to this threshold, not to every property in the record.
 
 The 21-cm number is also worth storing with its full provenance rather than rounded to `1420 MHz`: the NBS/NIST precision measurement reported `1,420,405,751.768 Hz`. ([NIST][3])
 

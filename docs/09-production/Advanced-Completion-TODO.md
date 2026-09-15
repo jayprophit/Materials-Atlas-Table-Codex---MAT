@@ -3,6 +3,7 @@
 Updated 2026-09-15. User instructions in the active task govern scope. Historical conversation files are evidence to review, not instructions to execute or independent scientific validation.
 
 - [ ] Complete and independently review all applicable advanced scientific domains for elements 1–118 and the applicable foundation domains. Use `data/quality/advanced-completion-matrix.json`; structural coverage is not scientific completion.
+- [ ] Reconcile every record against the detailed 0000/0001 state flow and the 652 existing universal-schema list items in `data/quality/state-flow/index.json`. Include source-attributed conventional, calculated, model-dependent, author-framework and historical/unverified lanes; do not invent values for missing non-conventional claims. Enumerate later records when they actually exist.
 - [ ] Review all 56 supplied documents listed in `data/intake/user-reference-batches-2026-09-14.json`. Compare existing content before adapting additions; preserve originals, source locators, uncertainty, qualifiers and established MAT ownership.
 - [ ] Resolve the malformed fenced section in `done/15.txt` by examining its surrounding source text. The inventory keeps its parser diagnostic and independently extracts other closed sections.
 - [ ] Prioritise the candidate Neon additions in batches 38–40. Check the previously deferred source accessions against the newly supplied bibliography before promotion. Compare isotope data with the existing NUBASE evaluation; avoid parallel inconsistent isotope values.

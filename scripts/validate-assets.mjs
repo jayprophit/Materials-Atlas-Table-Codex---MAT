@@ -1,7 +1,9 @@
 // Validates visual/table/graph manifests against schemas and the filesystem.
 // GENERATED/COMPLETE files must exist; unregistered files are reported.
 // Run: npm run validate:assets
-import { loadYaml, walkFiles, validateSchema, issue, warn, summary } from "./lib.mjs";
+import { loadYaml, walkFiles, validateSchema, issue, warn, summary, root } from "./lib.mjs";
+import {readFileSync} from 'node:fs';
+import {join} from 'node:path';
 
 let failed = 0;
 // Per-record filename sets so nested paths (images/scientific/…) resolve.
@@ -52,11 +54,15 @@ for (const { re, schema, kind } of sched) {
       if (g.data_filename) entries.push({ slot: g.graph_id || g.id || "", name: "data/" + g.data_filename, status: g.status || "", sub: "graphs/" });
     }
     for (const en of entries) {
-      if (!en.name || /\.png$/i.test(en.name)) {
-        if (en.name && DONE.test(en.status)) { issue(f, rec, en.slot, `${en.name} marked ${en.status} but PNGs are not verified on disk`, "mark photo slots SOURCE-IMAGE-REQUIRED until supplied"); failed++; }
-        continue;
-      }
+      if (!en.name) continue;
       const found = treeFiles(dir).has(en.name.split("/").pop());
+      if(found && /\.png$/i.test(en.name) && DONE.test(en.status)){
+        const path=walkFiles(dir).find(p=>p.endsWith('/'+en.name.split('/').pop()));
+        const bytes=readFileSync(join(root,path));
+        if(bytes.length<33||bytes.subarray(0,8).toString('hex')!=='89504e470d0a1a0a'||bytes.toString('ascii',12,16)!=='IHDR'||bytes.readUInt32BE(16)===0||bytes.readUInt32BE(20)===0){
+          issue(f,rec,en.slot,'Generated PNG has no valid PNG signature/dimensions','valid on-disk PNG plus separate visual/content review');failed++;
+        }
+      }
       if (DONE.test(en.status) && !found)
         { issue(f, rec, en.slot || en.name, `${en.name} marked ${en.status} but file is missing`, "status must agree with the filesystem"); failed++; }
       if (!DONE.test(en.status) && !PENDING.test(en.status) && found)

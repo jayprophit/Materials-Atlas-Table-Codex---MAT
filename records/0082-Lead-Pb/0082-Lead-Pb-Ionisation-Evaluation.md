@@ -1,0 +1,109 @@
+# Lead — Ground States and Ionisation Ladder
+
+<!-- generated-by: sync-ionisation-evaluation.mjs -->
+
+Dated NIST ASD 5.12 extraction, retrieved 14 September 2026. 82 charge-state rows and 82 numeric ionisation energies are present. This is scoped reference coverage; the element remains under scientific review.
+
+- [Parent Lead record](0082-Lead-Pb.md)
+- [Structured values and provenance](data/structured/0082-Lead-Pb-NIST-Ionisation-Evaluation.yaml)
+- [Retained source export](../../data/catalog/sources/nist-asd-ionisation-2026-09-14.csv) · SRC-000005
+- [NIST definitions and qualifiers](https://physics.nist.gov/PhysRefData/ASD/Html/iehelp.html)
+
+## State and evidence semantics
+
+Each threshold removes one electron from an isolated ground-state atom or ion of charge q, producing charge q+1. Electron count is calculated as Z−q. This is not a bulk work function or electrochemical potential. Square brackets retain semiempirical estimates; parentheses retain theoretical values. Unbracketed values retain their evaluated status. Ground configurations describe dominant calculated components and may have uncertain assignments. NIST notation is preserved. Numeric uncertainty is transcribed in eV; unavailable uncertainty remains UNKNOWN. No confidence level, isotope assignment or extra precision is inferred.
+
+## Source table
+
+| Spectrum | q | Ground configuration | Ground level | Energy / eV | Uncertainty / eV | Evidence | Source line |
+|---|---:|---|---|---|---|---|---:|
+| Pb I | 0 | 6s2.6p2 | (1/2,1/2)0 | 7.4166799 | 0.0000006 | EVALUATED-UNBRACKETED | 3323 |
+| Pb II | 1 | 6s2.6p | 2P*&lt;1/2&gt; | 15.032499 | 0.000007 | EVALUATED-UNBRACKETED | 3324 |
+| Pb III | 2 | 5d10.6s2 | 1S0 | 31.9373 | 0.0006 | EVALUATED-UNBRACKETED | 3325 |
+| Pb IV | 3 | 5d10.6s | 2S&lt;1/2&gt; | 42.33256 | 0.00010 | EVALUATED-UNBRACKETED | 3326 |
+| Pb V | 4 | 5d10 | 1S0 | [68.8] | 0.5 | SEMIEMPIRICAL | 3327 |
+| Pb VI | 5 | 5d9 | 2D&lt;5/2&gt; | (82.9) | 2.0 | THEORETICAL | 3328 |
+| Pb VII | 6 | 5d8 | 3F&lt;4&gt; | (100.1) | 2.0 | THEORETICAL | 3329 |
+| Pb VIII | 7 | 5d7 | 4F&lt;9/2&gt; | (120.0) | 2.1 | THEORETICAL | 3330 |
+| Pb IX | 8 | 5d6 | 5D&lt;4&gt; | (138.0) | 2.2 | THEORETICAL | 3331 |
+| Pb X | 9 | 5d5 | 6S&lt;5/2&gt; | (158.0) | 2.2 | THEORETICAL | 3332 |
+| Pb XI | 10 | 5d4 | 5D0 | (182.0) | 2.4 | THEORETICAL | 3333 |
+| Pb XII | 11 | 5d3 | 4F&lt;3/2&gt; | (203.0) | 2.5 | THEORETICAL | 3334 |
+| Pb XIII | 12 | 5d2 | 3F&lt;2&gt; | (224) | 3 | THEORETICAL | 3335 |
+| Pb XIV | 13 | 5d | 2D&lt;3/2&gt; | [245.1] | 2.2 | SEMIEMPIRICAL | 3336 |
+| Pb XV | 14 | 4f14 | 1S0 | [338.1] | 1.5 | SEMIEMPIRICAL | 3337 |
+| Pb XVI | 15 | 4f14.5p5 | 2P*&lt;3/2&gt; | (374) | 19 | THEORETICAL | 3338 |
+| Pb XVII | 16 | 4f14.5p4 | 3P&lt;2&gt; | (401) | 20 | THEORETICAL | 3339 |
+| Pb XVIII | 17 | 4f14.5p3 | 2P*&lt;3/2&gt; | (427) | 21 | THEORETICAL | 3340 |
+| Pb XIX | 18 | 4f14.5p2 | 3P0 | (478) | 24 | THEORETICAL | 3341 |
+| Pb XX | 19 | 4f14.5p | 2P*&lt;1/2&gt; | (507) | 25 | THEORETICAL | 3342 |
+| Pb XXI | 20 | 4f14 | 1S0 | (570) | 30 | THEORETICAL | 3343 |
+| Pb XXII | 21 | 4f13.5s2 | 2F*&lt;7/2&gt; | (610) | 30 | THEORETICAL | 3344 |
+| Pb XXIII | 22 | 4f13.5s | * | (650) | 30 | THEORETICAL | 3345 |
+| Pb XXIV | 23 | 4f13 | 2F*&lt;7/2&gt; | (690) | 30 | THEORETICAL | 3346 |
+| Pb XXV | 24 | 4f12 | UNKNOWN | (750) | 40 | THEORETICAL | 3347 |
+| Pb XXVI | 25 | 4f11 | 4I*&lt;15/2&gt; | (810) | 40 | THEORETICAL | 3348 |
+| Pb XXVII | 26 | 4f10 | 5I&lt;8&gt; | (870) | 40 | THEORETICAL | 3349 |
+| Pb XXVIII | 27 | 4f9 | 6H*&lt;15/2&gt; | (930) | 50 | THEORETICAL | 3350 |
+| Pb XXIX | 28 | 4f8 | 7F&lt;6&gt; | (990) | 50 | THEORETICAL | 3351 |
+| Pb XXX | 29 | 4f7 | 8S*&lt;7/2&gt; | (1050) | 50 | THEORETICAL | 3352 |
+| Pb XXXI | 30 | 4f6 | 7F0 | (1120) | 60 | THEORETICAL | 3353 |
+| Pb XXXII | 31 | 4f5 | 6H*&lt;5/2&gt; | (1180) | 60 | THEORETICAL | 3354 |
+| Pb XXXIII | 32 | 4f4 | 5I&lt;4&gt; | (1240) | 60 | THEORETICAL | 3355 |
+| Pb XXXIV | 33 | 4f3 | 4I*&lt;9/2&gt; | (1300) | 60 | THEORETICAL | 3356 |
+| Pb XXXV | 34 | 4f2 | 3H&lt;4&gt; | (1360) | 60 | THEORETICAL | 3357 |
+| Pb XXXVI | 35 | 4f | 2F*&lt;5/2&gt; | (1430) | 70 | THEORETICAL | 3358 |
+| Pb XXXVII | 36 | 4d10 | 1S0 | (1704) | 5 | THEORETICAL | 3359 |
+| Pb XXXVIII | 37 | 4d9 | 2D&lt;5/2&gt; | (1760) | 4 | THEORETICAL | 3360 |
+| Pb XXXIX | 38 | 4d8 | 3F&lt;4&gt; | (1819) | 4 | THEORETICAL | 3361 |
+| Pb XL | 39 | 4d7 | 4F&lt;9/2&gt; | (1884) | 4 | THEORETICAL | 3362 |
+| Pb XLI | 40 | 4d6 | 5D&lt;4&gt; | (1945) | 4 | THEORETICAL | 3363 |
+| Pb XLII | 41 | 4d-4.4d+ | (0,5/2)&lt;5/2&gt; | (2004) | 4 | THEORETICAL | 3364 |
+| Pb XLIII | 42 | 4d4 | 5D0 | (2101) | 4 | THEORETICAL | 3365 |
+| Pb XLIV | 43 | 4d3 | 4F&lt;3/2&gt; | (2163) | 4 | THEORETICAL | 3366 |
+| Pb XLV | 44 | 4d2 | 3F&lt;2&gt; | (2230) | 4 | THEORETICAL | 3367 |
+| Pb XLVI | 45 | 4d | 2D&lt;3/2&gt; | (2292) | 4 | THEORETICAL | 3368 |
+| Pb XLVII | 46 | 4p6 | 1S0 | (2543) | 4 | THEORETICAL | 3369 |
+| Pb XLVIII | 47 | 4p5 | 2P*&lt;3/2&gt; | (2605) | 4 | THEORETICAL | 3370 |
+| Pb XLIX | 48 | 4p4 | 3P&lt;2&gt; | (2671) | 4 | THEORETICAL | 3371 |
+| Pb L | 49 | 4p-2.4p+ | (0,3/2)*&lt;3/2&gt; | (2735) | 4 | THEORETICAL | 3372 |
+| Pb LI | 50 | 4p2 | 3P0 | (2965) | 4 | THEORETICAL | 3373 |
+| Pb LII | 51 | 4p | 2P*&lt;1/2&gt; | (3036) | 4 | THEORETICAL | 3374 |
+| Pb LIII | 52 | 4s2 | 1S0 | (3211) | 4 | THEORETICAL | 3375 |
+| Pb LIV | 53 | 4s | 2S&lt;1/2&gt; | [3282.1] | 2.0 | SEMIEMPIRICAL | 3376 |
+| Pb LV | 54 | 3d10 | 1S0 | (5414) | 5 | THEORETICAL | 3377 |
+| Pb LVI | 55 | 3d9 | 2D&lt;5/2&gt; | (5555) | 5 | THEORETICAL | 3378 |
+| Pb LVII | 56 | 3d8 | 3F&lt;4&gt; | (5703) | 5 | THEORETICAL | 3379 |
+| Pb LVIII | 57 | 3d7 | 4F&lt;9/2&gt; | (5862) | 6 | THEORETICAL | 3380 |
+| Pb LIX | 58 | 3d-4.3d+2 | (0,4)&lt;4&gt; | (6015) | 6 | THEORETICAL | 3381 |
+| Pb LX | 59 | 3d-4.3d+ | (0,5/2)&lt;5/2&gt; | (6162) | 7 | THEORETICAL | 3382 |
+| Pb LXI | 60 | 3d4 | 5D0 | (6442) | 10 | THEORETICAL | 3383 |
+| Pb LXII | 61 | 3d3 | 4F&lt;3/2&gt; | (6597) | 12 | THEORETICAL | 3384 |
+| Pb LXIII | 62 | 3d2 | 3F&lt;2&gt; | (6767) | 15 | THEORETICAL | 3385 |
+| Pb LXIV | 63 | 3d | 2D&lt;3/2&gt; | (6924) | 19 | THEORETICAL | 3386 |
+| Pb LXV | 64 | 3p6 | 1S0 | (7362) | 24 | THEORETICAL | 3387 |
+| Pb LXVI | 65 | 3p5 | 2P*&lt;3/2&gt; | (7500) | 30 | THEORETICAL | 3388 |
+| Pb LXVII | 66 | 3p4 | 3P&lt;2&gt; | (7650) | 40 | THEORETICAL | 3389 |
+| Pb LXVIII | 67 | 3p3 | 2P*&lt;3/2&gt; | (7790) | 40 | THEORETICAL | 3390 |
+| Pb LXIX | 68 | 3p2 | 3P0 | (8520) | 50 | THEORETICAL | 3391 |
+| Pb LXX | 69 | 3p | 2P*&lt;1/2&gt; | (8680) | 50 | THEORETICAL | 3392 |
+| Pb LXXI | 70 | 3s2 | 1S0 | (9000) | 60 | THEORETICAL | 3393 |
+| Pb LXXII | 71 | 3s | 2S&lt;1/2&gt; | (9150) | 60 | THEORETICAL | 3394 |
+| Pb LXXIII | 72 | 2p6 | 1S0 | (19590) | 70 | THEORETICAL | 3395 |
+| Pb LXXIV | 73 | 2p5 | 2P*&lt;3/2&gt; | (19970) | 90 | THEORETICAL | 3396 |
+| Pb LXXV | 74 | 2p4 | 3P&lt;2&gt; | (20380) | 90 | THEORETICAL | 3397 |
+| Pb LXXVI | 75 | 2p2&lt;1/2&gt;.2p&lt;3/2&gt; | (0,3/2)*&lt;3/2&gt; | (20750) | 100 | THEORETICAL | 3398 |
+| Pb LXXVII | 76 | 2p2 | 3P0 | (23460) | 110 | THEORETICAL | 3399 |
+| Pb LXXVIII | 77 | 2p | 2P*&lt;1/2&gt; | (23940) | 120 | THEORETICAL | 3400 |
+| Pb LXXIX | 78 | 2s2 | 1S0 | (24550) | 120 | THEORETICAL | 3401 |
+| Pb LXXX | 79 | 1s2.2s | 2S&lt;1/2&gt; | (24938.2) | 0.4 | THEORETICAL | 3402 |
+| Pb LXXXI | 80 | 1s2 | 1S0 | (99491.8) | 0.3 | THEORETICAL | 3403 |
+| Pb LXXXII | 81 | 1s | 2S&lt;1/2&gt; | (101336.7) | 0.3 | THEORETICAL | 3404 |
+
+## Remaining gaps
+
+Missing charge-state rows: none in the requested 0 to Z−1 range. Blank energies, where present, remain UNKNOWN. The raw bibliography keys allow tracing entries within NIST; the underlying papers have not all received independent claim-level review here. Isotope shifts, excited-state thresholds, material properties and later literature remain separate work.
+
+## Calculated energy equivalents
+
+The structured entries include f = E/h and the energy-equivalent vacuum wavelength λ = hc/E, converting eV to joules with the exact elementary charge. The [SI defining constants](../../data/constants/si-defining-constants.yaml) are registered as SRC-000302. Frequency uncertainty propagates linearly; wavelength uncertainty uses the first-order reciprocal derivative. Missing source uncertainty remains UNKNOWN. These are mathematical energy equivalents, not observed spectral lines, universal element frequencies or recoil-corrected photoionisation thresholds. Theoretical and semiempirical input status is retained; floating-point digits do not imply additional precision.

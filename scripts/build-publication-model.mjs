@@ -70,5 +70,9 @@ write(join(out,'publication-glossary.json'),{glossary:[],chapter:records.find(r=
 const pub=join(root,'studio/public');
 mkdirSync(pub,{recursive:true});
 cpSync(out,join(pub,'data/publication/generated'),{recursive:true});
-for(const name of ['records','docs','assets','book'])cpSync(join(root,name),join(pub,name),{recursive:true});
+for(const name of ['records','docs','assets','book','archive'])cpSync(join(root,name),join(pub,name),{recursive:true});
+// Citation destinations must resolve in the standalone Studio distribution too.
+// Private intake under .mat-local is deliberately outside these public roots.
+for(const name of ['catalog','constants','indexes','intake','navigation','quality','registries','schema','vocabularies'])
+ cpSync(join(root,'data',name),join(pub,'data',name),{recursive:true});
 console.log('Publication: '+records.length+' chapters, '+elements.length+' selectable elements; unresolved sources: '+missingSources.join(', '));
