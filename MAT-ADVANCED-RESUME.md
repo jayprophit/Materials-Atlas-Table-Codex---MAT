@@ -1,10 +1,10 @@
 # Advanced MAT enrichment — exact resume checkpoint
 
-Date: 14 September 2026. Overall request remains **PARTIAL**. No element is certified fully advanced.
+Updated: 15 September 2026. Overall request remains **PARTIAL**. No element is certified fully advanced.
 
 15 September steering: continue the original advanced-data task, with 22 distinct standalone images per element (both supplied sets: 9 + 13) added to the work list. See `docs/09-production/Advanced-Completion-TODO.md` and `data/quality/panel-image-plan.json`. All 56 newly specified local reference files are present; comparison and recovered bibliography candidates are under `data/intake/user-reference-*`. Batches 38–40 contain candidate Neon additions and bibliography entries previously unavailable from truncated conversation intake. Review these next, without treating historical CORE-VALIDATED statements as current validation. Original source files remain untouched.
 
-Canonical master: `C:/Users/jpowe/Desktop/Materials-Atlas-Table-Codex---MAT`, existing `main`, remote `https://github.com/jayprophit/Materials-Atlas-Table-Codex---MAT.git`. Starting local and fetched remote commit: `7be2bdfe2938d01387ddbff143e8ce5b9ee54f6c`, zero commits ahead/behind. The pre-existing untracked `AGENTS.md` and `docs/IMPLEMENTATION-LEDGER.md` must remain preserved.
+Canonical master: `C:/Users/jpowe/Desktop/Materials-Atlas-Table-Codex---MAT`, existing `main`, remote `https://github.com/jayprophit/Materials-Atlas-Table-Codex---MAT.git`. Starting local and fetched remote commit: `7be2bdfe2938d01387ddbff143e8ce5b9ee54f6c`, zero commits ahead/behind. The originally untracked `AGENTS.md` and `docs/IMPLEMENTATION-LEDGER.md` were preserved in commit `eb4a988`; do not overwrite later user edits.
 
 ## Completed scientific batch
 
@@ -22,7 +22,7 @@ Canonical master: `C:/Users/jpowe/Desktop/Materials-Atlas-Table-Codex---MAT`, ex
 
 Consolidation completed after the location update: all 15,639 inventoried files matched byte-for-byte in the relocated source area, with no nested Git found in the scanned scope. The verified cleanup removed 15,624 recoverable duplicates from `integration-archive/`, using pushed recovery commit `cad3533`. Fifteen unique local files and excluded private material remain. The final receipt supersedes the earlier zero-deletion preflight observation below. The source-supplied NIST CSV intentionally retains trailing whitespace under a file-specific whitespace attribute; SHA-256 verification remains enforced.
 
-15 September location update: `integration-archive/` was discovered inside the master, containing `MAT_integration_01`. It is retained as a local source area and excluded from Git to avoid committing duplicate publication trees and runtime material. `scripts/audit-relocated-archive.mjs` compares it read-only with the original SHA-256 inventory; see `data/quality/relocated-archive-audit-2026-09-15.json`. The old desktop archive path is absent. No archive files were deleted by this run. Broad staging initially failed on a long path in this source tree; stage canonical owners explicitly. Do not remove this area until its current bytes and remaining unique material have been reconciled against committed recovery.
+The desktop archive path is absent. The relocated source area was independently audited before cleanup; the retained audit is a pre-removal snapshot. The final removal receipt records 15,624 deletions after recovery verification. Do not rerun the pre-removal audit over the cleaned tree and interpret expected absences as data loss. Fifteen unique local files and excluded private material remain in the ignored source area; it is not a second repository.
 
 - [Original archive audit](data/quality/integration-archive-audit.json): 14,975 byte-identical files, 643 line-ending-only differences, 21 unique files, no archive `.git`.
 - Six historical discovery/integration reports retained under `archive/source-intake/integration-2026-09-14/`; their agent-generated claims are reference material, not scientific evidence.
@@ -31,13 +31,13 @@ Consolidation completed after the location update: all 15,639 inventoried files 
 
 ## Validation and build checkpoint
 
-15 September final batch: 11 integrity suites, 45 Node tests, 5 Studio unit tests and 5 Studio end-to-end tests passed. Studio/book/publication build passed with 631 chapters and 118 selectable elements. The prior Firefox reader accessibility-scan timeout remains unresolved and was not rerun in this batch. Archive recovery package was committed and pushed as `cad3533`; the secondary archive directory was found absent during recheck and this cleanup deleted zero files. See `data/quality/archive-removal-receipt.json` for the explicit unknown disposition, not a claim of successful deletion. The master repository remains at its verified original path.
+15 September final batch: 11 integrity suites, 45 Node tests, 5 Studio unit tests and 5 Studio end-to-end tests passed. Studio/book/publication build passed with 631 chapters and 118 selectable elements. The prior Firefox reader accessibility-scan timeout remains unresolved and was not rerun in this batch. Archive recovery package was committed and pushed as `cad3533`; the final verified relocated-area cleanup removed 15,624 files, as recorded in `data/quality/archive-removal-receipt.json`. The master repository remains at its verified original path.
 
 Initial eight-suite integrity run passed; initial Node suite passed 34 tests. The first enriched run passed ten integrity suites, 37 Node tests and five Studio tests; the first Studio/book/publication build passed. These runs preceded the final energy-equivalent addition and Hydrogen label correction. Final results belong in `data/quality/advanced-batch-2026-09-14.json` and local logs under `.mat-local/`; check those before asserting final acceptance.
 
 ## Resume in this order
 
-1. Inspect Git status, recent commits, fetched remote and this checkpoint. Preserve the two pre-existing untracked files and any later user edits. Do not re-import older archive files over master.
+1. Inspect Git status, recent commits, fetched remote and this checkpoint. Preserve existing instructions, ledger and any user edits. Do not re-import older archive files over master.
 2. Reproduce the current batch offline with `npm run sync:ionisation`; then `npm run build:advanced-completion`, `npm run build:coverage`, `npm run build:studio`. These build steps regenerate existing publication outputs and do not generate new visual art.
 3. Run `npm run validate`, `npm test`, `npm run test:studio`, `npm run test:e2e`, `npm run test:reader:browsers`, `npm run benchmark`, and `git diff --check`. Report every result independently. Rebuild the matrix if scientific input files changed.
 4. Finish pending committed-recovery verification and permitted archive duplicate removal, if the receipt is absent. Do not delete excluded private runtime material just to make the archive directory disappear. There is one canonical master repository; the residual archive is a reference/runtime area.
@@ -45,3 +45,12 @@ Initial eight-suite integrity run passed; initial Node suite passed 34 tests. Th
 6. Prioritise Q-values with isotope/state identity and mass-covariance treatment; isotope-specific NMR moments; actual spectroscopy with air/vacuum and state conventions; then state-specific lattice, phase, thermal, electrical, optical, mechanical and magnetic measurements with conditions. Continue anisotropy, deformation, defects, interfaces/corrosion, alloys/process history, high-P/T, superconductivity, electrochemistry, geochemistry, biology/toxicology, astrophysics, production/recycling, lineage, experiments, tables, graphs and locked visual manifests.
 7. Do not infer NOT APPLICABLE from missing data or short-lived nuclei alone. Preserve UNKNOWN/INSUFFICIENT DATA and separate evaluated, theoretical, semiempirical, historical and speculative lanes. NIST bibliography keys resolve within NIST; this run did not independently review every underlying paper.
 8. Commit coherent batches and push normally to the existing origin after checks. Record actual hashes and push results. No force-push, second checkout, nested `.git`, or broad scientific completion claim.
+
+
+## Standalone panels and quantitative charts — 15 September continuation
+
+Hydrogen A01 (atomic structure), A02 (probability cloud) and B09 (conceptual data object) are now separate inspected PNG assets, linked in `records/0001-Hydrogen-H/0001-Hydrogen-H-Standalone-Panels.md`. The review registry retains exact prompts, hashes, source context and visual inspection. The light/dark 9+13 requirement remains: 3 reviewed assets out of 2,596; A03 is the next light Hydrogen panel, and the other twelve dark panels remain pending. Image hashes catch exact duplicate files; visual inspection is still needed for near-duplicates and scientific accuracy.
+
+110 source-derived ionisation charts supplement the existing 118 element evaluation tables. Eight elements have no numeric energies in the retained extraction and receive no fabricated chart. These supplemental charts do not count as any of the 22 illustrative panels. Reproduce with `node scripts/build-ionisation-charts.mjs .mat-local/plots-env/Scripts/python.exe` (matplotlib 3.11.2), followed by `npm run sync:ionisation` to refresh chapter links. Chart and panel validators are included in the main integrity suite.
+
+After record or chapter edits, rebuild the state-flow and advanced-completion audits, coverage and publication. See `data/quality/visual-chart-batch-2026-09-15.json` for actual checks in this continuation. The scientific metric gaps and non-conventional evidence boundaries listed above remain in force.

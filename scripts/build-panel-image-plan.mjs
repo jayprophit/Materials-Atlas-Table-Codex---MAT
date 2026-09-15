@@ -1,5 +1,7 @@
 import { readdirSync, readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
+import { createHash } from 'node:crypto';
+import YAML from 'yaml';
 import { root } from './lib.mjs';
 
 // The user's two posters define separate deliverables, not replacement V-slot IDs.
@@ -33,6 +35,28 @@ const sets = [
 ];
 const records = readdirSync(join(root, 'records')).filter(x => /^\d{4}-/.test(x) && Number(x.slice(0,4)) >= 1 && Number(x.slice(0,4)) <= 118).sort();
 if (records.length !== 118) throw new Error('Expected 118 chemical-element records');
+const reviewPath = join(root, 'data/quality/panel-image-reviews.json');
+const reviews = existsSync(reviewPath) ? JSON.parse(readFileSync(reviewPath, 'utf8')).assets : [];
+const sourceText = readFileSync(join(root, 'data/registries/sources.yaml'), 'utf8');
+const sourceRegistry = YAML.parse(sourceText);
+const sourceIds = new Set((sourceRegistry.sources ?? []).map(s => s.source_id));
+const seen = new Set(), hashes = new Set();
+for (const r of reviews) {
+  const key = `${r.record_id}/${r.panel_id}`;
+  if (seen.has(key)) throw new Error(`Duplicate panel review: ${key}`);
+  seen.add(key);
+  if (!records.some(stem => `MAT:${stem.slice(0,4)}` === r.record_id) || !/^(A0[1-9]|B0[1-9]|B1[0-3])$/.test(r.panel_id)) throw new Error(`Unknown panel: ${key}`);
+  const stem = records.find(stem => `MAT:${stem.slice(0,4)}` === r.record_id);
+  if (r.asset_path !== `records/${stem}/images/panels/${stem}-PANEL-${r.panel_id}.png`) throw new Error(`Unexpected panel path: ${key}`);
+  const bytes = readFileSync(join(root, r.asset_path));
+  const hash = createHash('sha256').update(bytes).digest('hex');
+  if (hash !== r.sha256 || hashes.has(hash)) throw new Error(`Changed or duplicate panel image: ${key}`);
+  hashes.add(hash);
+  if (bytes.subarray(0,8).toString('hex') !== '89504e470d0a1a0a') throw new Error(`Not PNG: ${key}`);
+  if (r.review_status !== 'VISUALLY-REVIEWED' || !r.source_ids?.length || !r.alt_text || !r.prompt) throw new Error(`Incomplete review: ${key}`);
+  for (const id of r.source_ids) if (!sourceIds.has(id)) throw new Error(`Unregistered source ${id}: ${key}`);
+  if (!readFileSync(join(root, r.publication_page), 'utf8').includes(r.asset_path.split('/').slice(2).join('/'))) throw new Error(`Unwired panel: ${key}`);
+}
 const output = { schema_version: '1.0.0', authority: 'Explicit user clarification: both poster sets, each numbered panel delivered as a single image for its placeholder.',
   unit_of_delivery: 'One independently addressable image per numbered panel; internal sub-diagrams remain part of that panel. Additional component exports may supplement it.',
   architecture: 'Additive crosswalk to existing locked V01–V18; does not rename or replace those slots.',
@@ -41,13 +65,18 @@ const output = { schema_version: '1.0.0', authority: 'Explicit user clarificatio
   templates: sets.map(s => ({ ...s, panels: s.panels.map(([title, slots, brief], i) => ({ panel_id: `${s.id}${String(i+1).padStart(2,'0')}`, reference_label: title, locked_visual_slots: slots, adaptation_brief: brief })) })),
   elements: records.map(stem => ({ record_id: `MAT:${stem.slice(0,4)}`, stem, panels: sets.flatMap(s => s.panels.map(([title, slots], i) => {
     const id = `${s.id}${String(i+1).padStart(2,'0')}`;
-    return { panel_id: id, reference_label: title, locked_visual_slots: slots, planned_path: `records/${stem}/images/panels/${stem}-PANEL-${id}.png`, status: 'PENDING-INDIVIDUAL-ASSET-REVIEW', asset_path: null, source_ids: [], review: 'Existing assets have not yet been accepted against this exact standalone-panel requirement.' };
+    const reviewed = reviews.find(r => r.record_id === `MAT:${stem.slice(0,4)}` && r.panel_id === id);
+    return { panel_id: id, reference_label: title, locked_visual_slots: slots, planned_path: `records/${stem}/images/panels/${stem}-PANEL-${id}.png`, status: reviewed ? 'REVIEWED-STANDALONE-ASSET' : 'PENDING-INDIVIDUAL-ASSET-REVIEW', asset_path: reviewed?.asset_path ?? null, source_ids: reviewed?.source_ids ?? [], review: reviewed?.inspection ?? 'Existing assets have not yet been accepted against this exact standalone-panel requirement.' };
   })) })) };
-writeFileSync(join(root, 'data/quality/panel-image-plan.json'), JSON.stringify(output, null, 2)+'\n');
+const rendered = JSON.stringify(output, null, 2)+'\n';
+const check = process.argv.includes('--check');
+if (check) {
+  if (readFileSync(join(root, 'data/quality/panel-image-plan.json'), 'utf8').replace(/\r\n/g, '\n') !== rendered) throw new Error('Panel plan is stale; rebuild it.');
+} else writeFileSync(join(root, 'data/quality/panel-image-plan.json'), rendered);
 const policyPath = join(root, 'data/quality/visual-template-policy.json');
-if (existsSync(policyPath)) {
+if (!check && existsSync(policyPath)) {
   const policy = JSON.parse(readFileSync(policyPath, 'utf8'));
   policy.standalone_panel_contract = { sets: { A: 9, B: 13 }, per_element: 22, both_sets_required: true, plan: 'data/quality/panel-image-plan.json', delivery: output.unit_of_delivery, completion_rule: output.completion_rule };
   writeFileSync(policyPath, JSON.stringify(policy, null, 2)+'\n');
 }
-console.log(`Recorded ${records.length} elements × 22 separate panels = 2596 image deliverables; no unreviewed asset marked complete.`);
+console.log(`Recorded ${records.length} elements × 22 separate panels = 2596 image deliverables; ${reviews.length} reviewed standalone assets.`);
