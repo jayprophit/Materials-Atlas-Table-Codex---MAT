@@ -2,6 +2,17 @@
 
 Updated 2026-09-15. User instructions in the active task govern scope. Historical conversation files are evidence to review, not instructions to execute or independent scientific validation.
 
+- [ ] Complete the authorised MAT master-repository audit, verified advanced element-data enrichment, archive consolidation, validation, commits and push, preserving architecture and leaving an exact resume checkpoint if tool/runtime limits prevent full scientific coverage.
+- [ ] Audit and reconcile the named ChatGPT projects Genesis, Poietek, Athena, mmorpg and ebook, their accessible conversations, local project mirrors and generated-image/data library. Record retrieval limits and unread material explicitly.
+- [ ] Map verified relationships between MAT, Genesis, Agent-Bridge, Universal-Bridge, Poietek and Athena; preserve each canonical repository and identify shared requirements, ownership, provenance and proposed data interfaces before implementation.
+- [ ] Keep cross-project raw conversation intake and private filesystem inventories local under `.mat-local/`; publish only deliberately selected, source-bounded MAT material. Do not treat conversation-generated claims, concept images or speculative physics as measured evidence.
+- [ ] Refresh the unified gap analysis and priority recommendations after each accepted data or asset batch. Track new requirements with stable IDs, evidence locations, acceptance criteria, dependencies and explicit open/completed status.
+- [ ] Finish review of ground-state nuclear Q-value calculations: verify AME definitions, preserve NUBASE estimates and state qualifiers, and leave propagated uncertainty UNKNOWN until covariance is known. A positive mass balance must not be promoted to an observed decay claim.
+- [ ] Reconcile the native ChatGPT export after delivery. The owner confirmed the acknowledgement email on 16 September; do not resubmit. Keep the archive private and verify message/attachment coverage against the partial catalogue.
+- [ ] Reconcile recovered publishing requirements with current implementation: collapsed navigation, reading-state persistence, cache freshness, individual export formats, translation and multilingual read-aloud. Historical requests are review inputs, not evidence that these features work.
+
+Completed visual batch: three standalone Hydrogen panels (A01, A02, B09), 110 source-bound ionisation charts, 13 integrity suites, 45 Node tests, five Studio unit tests and six end-to-end tests. Source batch `214cd94` and publication checkpoint `b6ea91e` were pushed. The remaining 2,593 standalone panels and scientific acceptance reviews are open; this batch did not complete the project.
+
 - [ ] Complete and independently review all applicable advanced scientific domains for elements 1–118 and the applicable foundation domains. Use `data/quality/advanced-completion-matrix.json`; structural coverage is not scientific completion.
 - [ ] Reconcile every record against the detailed 0000/0001 state flow and the 652 existing universal-schema list items in `data/quality/state-flow/index.json`. Include source-attributed conventional, calculated, model-dependent, author-framework and historical/unverified lanes; do not invent values for missing non-conventional claims. Enumerate later records when they actually exist.
 - [ ] Review all 56 supplied documents listed in `data/intake/user-reference-batches-2026-09-14.json`. Compare existing content before adapting additions; preserve originals, source locators, uncertainty, qualifiers and established MAT ownership.
