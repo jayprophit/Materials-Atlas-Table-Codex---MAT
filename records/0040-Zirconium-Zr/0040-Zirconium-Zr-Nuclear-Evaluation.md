@@ -75,3 +75,7 @@ Source snapshot SHA-256: `1585a5eea86c5e17e90307c7e6e786d060049c4039e392a261ff6d
 ## Derived decay metrics
 
 The structured evaluation now includes a decay constant and mean lifetime for each positive numeric half-life. These use the single exponential model, \(\lambda=\ln(2)/T_{1/2}\) and \(\tau=T_{1/2}/\ln(2)\). Values retain the original time unit: a half-life in years produces a rate per source year, without silently assuming a calendar conversion. Inequalities reverse for the reciprocal decay constant. Estimates remain estimates. Stable or unavailable half-lives have no numeric result. Symmetric uncertainty is propagated to first order; asymmetric source uncertainties remain unpropagated and visible. These calculations add no new experimental evidence or significant figures.
+
+<!-- ame2020-companion -->
+
+[Atomic masses, Q-values and separation energies](0040-Zirconium-Zr-Mass-and-Reaction-Evaluation.md) are available in the separate AME2020 companion, with ground-state, estimate and uncertainty semantics.

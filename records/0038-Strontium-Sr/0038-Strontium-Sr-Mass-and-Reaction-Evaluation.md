@@ -1,0 +1,108 @@
+# Strontium — Atomic Masses and Reaction Energies
+
+<!-- generated-by: sync-ame2020.mjs -->
+
+**Dated evaluated data · scientific coverage remains partial.** 35 ground-state nuclides from AME2020. Values and uncertainties are transcribed from the retained unrounded analysis files; estimated quantities remain labelled.
+
+- [Parent Strontium record](0038-Strontium-Sr.md) · [NUBASE states and decays](0038-Strontium-Sr-Nuclear-Evaluation.md)
+- [Structured data](data/isotopes/0038-Strontium-Sr-AME2020-Evaluation.yaml)
+- [Original mass table](../../data/catalog/sources/ame2020-mass_1.mas20.txt) · [Original reaction table](../../data/catalog/sources/ame2020-rct1.mas20.txt)
+- [AME2020 methods](https://doi.org/10.1088/1674-1137/abddb0) (SRC-000303) · [Tables and definitions](https://doi.org/10.1088/1674-1137/abddaf) (SRC-000304)
+
+## Reading the data
+
+All table energies and uncertainties are in keV; binding energy is per nucleon. A # replaces a decimal point in the original estimated value. UNKNOWN (*) retains the source's not-calculable entry; it is neither zero nor automatically NOT APPLICABLE. Source lines are one-based in the retained files. Uncertainties remain those published by the evaluation, with no replacement by independent-mass quadrature.
+
+Atomic-mass conventions apply. Qα is total decay energy, not alpha-particle kinetic energy. Positive Q alone does not establish a decay branch, rate or observation. He-4's source Qα of zero is a bookkeeping identity. These tables describe ground-state combinations, not isomer or excited-daughter transitions. Nuclear state and daughter lookups are explicit in the structured companion. The binding quantity follows [Z M(¹H) + N mₙ − M(A,Z)]c²/A; it has not been converted to a bare-nucleus convention.
+
+## Mass and binding table
+
+| Nuclide | N | Atomic mass excess / keV | AME binding per nucleon / keV | Mass-file line |
+|---|---:|---|---|---:|
+| Sr-73 | 35 | -31950# ± 401# | 8102# ± 5# | 781 |
+| Sr-74 | 36 | -40827# ± 100# | 8221# ± 1# | 794 |
+| Sr-75 | 37 | -46618.702 ± 220.003 | 8296.5116 ± 2.9334 | 807 |
+| Sr-76 | 38 | -54247.645 ± 34.465 | 8393.9294 ± 0.4535 | 821 |
+| Sr-77 | 39 | -57803.443 ± 7.918 | 8435.9188 ± 0.1028 | 834 |
+| Sr-78 | 40 | -63173.949 ± 7.452 | 8500.0971 ± 0.0955 | 848 |
+| Sr-79 | 41 | -65479.664 ± 7.421 | 8523.8558 ± 0.0939 | 861 |
+| Sr-80 | 42 | -70311.467 ± 3.464 | 8578.5966 ± 0.0433 | 875 |
+| Sr-81 | 43 | -71528.134 ± 3.128 | 8587.3545 ± 0.0386 | 889 |
+| Sr-82 | 44 | -76010.062 ± 5.992 | 8635.7190 ± 0.0731 | 904 |
+| Sr-83 | 45 | -76797.616 ± 6.834 | 8638.4076 ± 0.0823 | 918 |
+| Sr-84 | 46 | -80649.580 ± 1.243 | 8677.5132 ± 0.0148 | 933 |
+| Sr-85 | 47 | -81103.290 ± 2.813 | 8675.7193 ± 0.0331 | 947 |
+| Sr-86 | 48 | -84523.09977 ± 0.00524 | 8708.4566 ± 0.0003 | 962 |
+| Sr-87 | 49 | -84880.07643 ± 0.00513 | 8705.2363 ± 0.0003 | 976 |
+| Sr-88 | 50 | -87921.62876 ± 0.00561 | 8732.5958 ± 0.0003 | 990 |
+| Sr-89 | 51 | -86209.026 ± 0.092 | 8705.9230 ± 0.0011 | 1004 |
+| Sr-90 | 52 | -85950.945 ± 1.449 | 8696.0043 ± 0.0161 | 1018 |
+| Sr-91 | 53 | -83651.950 ± 5.453 | 8663.8759 ± 0.0599 | 1032 |
+| Sr-92 | 54 | -82867.371 ± 3.423 | 8648.9070 ± 0.0372 | 1046 |
+| Sr-93 | 55 | -80085.844 ± 7.554 | 8612.7875 ± 0.0812 | 1060 |
+| Sr-94 | 56 | -78845.721 ± 1.663 | 8593.8344 ± 0.0177 | 1074 |
+| Sr-95 | 57 | -75117.284 ± 5.810 | 8549.0875 ± 0.0612 | 1089 |
+| Sr-96 | 58 | -72918.248 ± 8.466 | 8521.2041 ± 0.0882 | 1103 |
+| Sr-97 | 59 | -68580.674 ± 3.385 | 8471.8489 ± 0.0349 | 1118 |
+| Sr-98 | 60 | -66422.389 ± 3.226 | 8445.7385 ± 0.0329 | 1133 |
+| Sr-99 | 61 | -62518.527 ± 4.737 | 8402.5235 ± 0.0479 | 1147 |
+| Sr-100 | 62 | -59817.505 ± 6.918 | 8372.2012 ± 0.0692 | 1162 |
+| Sr-101 | 63 | -55324.914 ± 8.480 | 8324.7411 ± 0.0840 | 1177 |
+| Sr-102 | 64 | -52159.311 ± 67.068 | 8291.2213 ± 0.6575 | 1191 |
+| Sr-103 | 65 | -47280# ± 200# | 8242# ± 2# | 1206 |
+| Sr-104 | 66 | -43760# ± 300# | 8206# ± 3# | 1221 |
+| Sr-105 | 67 | -38190# ± 500# | 8152# ± 5# | 1236 |
+| Sr-106 | 68 | -34300# ± 600# | 8114# ± 6# | 1251 |
+| Sr-107 | 69 | -28250# ± 700# | 8057# ± 7# | 1267 |
+
+## Q-values and separation energies
+
+| Nuclide | Qβ− / keV | Qα / keV | S₂n / keV | S₂p / keV | Reaction-file line |
+|---|---|---|---|---|---:|
+| Sr-73 | UNKNOWN (*) | -2235# ± 500# | UNKNOWN (*) | 201# ± 421# | 780 |
+| Sr-74 | UNKNOWN (*) | -2152# ± 224# | UNKNOWN (*) | 1465# ± 100# | 793 |
+| Sr-75 | -14799# ± 372# | -2716.4067 ± 254.9171 | 30811# ± 457# | 4644.8860 ± 220.1015 | 806 |
+| Sr-76 | -15998# ± 302# | -2731.9792 ± 35.3840 | 29563# ± 105# | 6493.7436 ± 34.5240 | 820 |
+| Sr-77 | -11365# ± 203# | -3676.6012 ± 10.2935 | 27327.3776 ± 220.1456 | 8057.7537 ± 11.3298 | 833 |
+| Sr-78 | -11001# ± 298# | -3267.0212 ± 7.7192 | 25068.9400 ± 35.2617 | 8738.1856 ± 8.4639 | 847 |
+| Sr-79 | -7676.7291 ± 80.4515 | -3580.9484 ± 10.9887 | 23818.8571 ± 10.8520 | 9888.1548 ± 7.6749 | 860 |
+| Sr-80 | -9163.3050 ± 7.1389 | -3722.6774 ± 5.3014 | 23280.1541 ± 8.2177 | 10711.1263 ± 3.4775 | 874 |
+| Sr-81 | -5815.2156 ± 6.2451 | -3783.5986 ± 3.6894 | 22191.1061 ± 8.0537 | 11663.7867 ± 4.6796 | 888 |
+| Sr-82 | -7945.9650 ± 8.1324 | -4256.6950 ± 5.9996 | 21841.2311 ± 6.9210 | 12694.5496 ± 6.0319 | 903 |
+| Sr-83 | -4591.9435 ± 19.8444 | -4780.2418 ± 7.6688 | 21412.1175 ± 7.5155 | 13679.3586 ± 6.9174 | 917 |
+| Sr-84 | -6755.1411 ± 4.4114 | -5181.0413 ± 1.4241 | 20782.1541 ± 6.0285 | 14635.7273 ± 1.2432 | 932 |
+| Sr-85 | -3261.1584 ± 19.1729 | -5832.0065 ± 3.0111 | 20448.3103 ± 7.3899 | 15690.5885 ± 2.8132 | 946 |
+| Sr-86 | -5240.0000 ± 14.1421 | -6356.2206 ± 0.0056 | 20016.1556 ± 1.2432 | 16661.6966 ± 0.0039 | 961 |
+| Sr-87 | -1861.6894 ± 1.1278 | -7314.3490 ± 0.0091 | 19919.4229 ± 2.8132 | 17977.6779 ± 2.0000 | 975 |
+| Sr-88 | -3622.6000 ± 1.5000 | -7907.1994 ± 0.0044 | 19541.1651 ± 0.0057 | 19233.8950 ± 0.0043 | 989 |
+| Sr-89 | 1502.1757 ± 0.3510 | -7153.6017 ± 2.0021 | 17471.5862 ± 0.0921 | 20077.4377 ± 0.2629 | 1003 |
+| Sr-90 | 545.9674 ± 1.4060 | -5110.1848 ± 1.4488 | 14171.9522 ± 1.4488 | 20837.5915 ± 2.9836 | 1017 |
+| Sr-91 | 2699.3714 ± 5.2468 | -5367.3346 ± 5.4584 | 13585.5592 ± 5.4536 | 21694.0972 ± 5.8586 | 1031 |
+| Sr-92 | 1949.1237 ± 9.3841 | -5600.9911 ± 4.3038 | 13059.0620 ± 3.7174 | 22486.0534 ± 3.8975 | 1045 |
+| Sr-93 | 4141.3118 ± 11.6972 | -5974.9649 ± 7.8521 | 12576.5301 ± 9.3045 | 23689.8120 ± 7.8780 | 1059 |
+| Sr-94 | 3505.7517 ± 6.4220 | -6311.3773 ± 2.4971 | 12120.9863 ± 3.8059 | 24654.3344 ± 3.1721 | 1073 |
+| Sr-95 | 6090.6528 ± 7.2395 | -6568.2265 ± 6.2250 | 11174.0770 ± 9.5251 | 25559.2241 ± 6.3308 | 1088 |
+| Sr-96 | 5411.7380 ± 9.7257 | -6573.8352 ± 8.8869 | 10215.1631 ± 8.6281 | 26148.4102 ± 14.7756 | 1102 |
+| Sr-97 | 7534.7807 ± 7.5131 | -6869.5875 ± 4.2167 | 9606.0258 ± 6.7236 | 26999.6958 ± 18.9348 | 1117 |
+| Sr-98 | 5866.3591 ± 8.5504 | -7499.5245 ± 12.5318 | 9646.7767 ± 9.0600 | 27918.6490 ± 19.5455 | 1132 |
+| Sr-99 | 8125.2037 ± 8.1353 | -8784.5222 ± 19.2228 | 10080.4888 ± 5.8220 | 29672.9703 ± 130.4952 | 1146 |
+| Sr-100 | 7503.7365 ± 13.1453 | -9160.7388 ± 20.4811 | 9537.7522 ± 7.6328 | 30275# ± 300# | 1161 |
+| Sr-101 | 9729.8721 ± 11.0473 | -10326.3317 ± 130.6846 | 8949.0238 ± 9.7135 | 31503# ± 400# | 1176 |
+| Sr-102 | 9013.3301 ± 67.1916 | -10464# ± 307# | 8484.4428 ± 67.4234 | 32267# ± 405# | 1190 |
+| Sr-103 | 11177# ± 201# | -11305# ± 447# | 8098# ± 200# | 33278# ± 539# | 1205 |
+| Sr-104 | 10320# ± 361# | -11715# ± 500# | 7743# ± 307# | UNKNOWN (*) | 1220 |
+| Sr-105 | 12380# ± 640# | -12035# ± 707# | 7053# ± 539# | UNKNOWN (*) | 1235 |
+| Sr-106 | 11490# ± 781# | UNKNOWN (*) | 6683# ± 671# | UNKNOWN (*) | 1250 |
+| Sr-107 | 13720# ± 860# | UNKNOWN (*) | 6203# ± 860# | UNKNOWN (*) | 1266 |
+
+Qβ− comes from the mass-file line in the first table. The other three columns come from the reaction-file line. Definitions and original source strings are retained in the structured data.
+
+## Binding-energy chart
+
+![Strontium: AME2020 binding energy per nucleon versus mass number, with evaluated and estimated points distinguished.](graphs/0038-Strontium-Sr-GRAPH-AME2020-Binding-Energy.svg)
+
+Discrete source values and source-reported uncertainties. No interpolation, natural-abundance weighting or observed-decay claim is implied. This quantitative chart supplements the 22 separate illustrative panels.
+
+## Remaining review
+
+Later measurements, state-specific decay branches, isomer Q-values, additional reaction channels and full claim-level review remain open. Existing authored values retain their own provenance; this companion does not overwrite them.

@@ -1,0 +1,96 @@
+# Potassium — Atomic Masses and Reaction Energies
+
+<!-- generated-by: sync-ame2020.mjs -->
+
+**Dated evaluated data · scientific coverage remains partial.** 29 ground-state nuclides from AME2020. Values and uncertainties are transcribed from the retained unrounded analysis files; estimated quantities remain labelled.
+
+- [Parent Potassium record](0019-Potassium-K.md) · [NUBASE states and decays](0019-Potassium-K-Nuclear-Evaluation.md)
+- [Structured data](data/isotopes/0019-Potassium-K-AME2020-Evaluation.yaml)
+- [Original mass table](../../data/catalog/sources/ame2020-mass_1.mas20.txt) · [Original reaction table](../../data/catalog/sources/ame2020-rct1.mas20.txt)
+- [AME2020 methods](https://doi.org/10.1088/1674-1137/abddb0) (SRC-000303) · [Tables and definitions](https://doi.org/10.1088/1674-1137/abddaf) (SRC-000304)
+
+## Reading the data
+
+All table energies and uncertainties are in keV; binding energy is per nucleon. A # replaces a decimal point in the original estimated value. UNKNOWN (*) retains the source's not-calculable entry; it is neither zero nor automatically NOT APPLICABLE. Source lines are one-based in the retained files. Uncertainties remain those published by the evaluation, with no replacement by independent-mass quadrature.
+
+Atomic-mass conventions apply. Qα is total decay energy, not alpha-particle kinetic energy. Positive Q alone does not establish a decay branch, rate or observation. He-4's source Qα of zero is a bookkeeping identity. These tables describe ground-state combinations, not isomer or excited-daughter transitions. Nuclear state and daughter lookups are explicit in the structured companion. The binding quantity follows [Z M(¹H) + N mₙ − M(A,Z)]c²/A; it has not been converted to a bare-nucleus convention.
+
+## Mass and binding table
+
+| Nuclide | N | Atomic mass excess / keV | AME binding per nucleon / keV | Mass-file line |
+|---|---:|---|---|---:|
+| K-31 | 12 | 34260# ± 300# | 6487# ± 10# | 248 |
+| K-32 | 13 | 21990# ± 400# | 6920# ± 12# | 258 |
+| K-33 | 14 | 7540# ± 200# | 7392# ± 6# | 268 |
+| K-34 | 15 | -1220# ± 196# | 7670# ± 6# | 279 |
+| K-35 | 16 | -11172.893 ± 0.512 | 7965.8409 ± 0.0146 | 289 |
+| K-36 | 17 | -17417.182 ± 0.325 | 8142.2233 ± 0.0090 | 300 |
+| K-37 | 18 | -24800.201 ± 0.094 | 8339.8480 ± 0.0025 | 311 |
+| K-38 | 19 | -28800.760 ± 0.195 | 8438.0593 ± 0.0051 | 323 |
+| K-39 | 20 | -33807.19535 ± 0.00456 | 8557.0258 ± 0.0003 | 335 |
+| K-40 | 21 | -33535.497 ± 0.056 | 8538.0907 ± 0.0014 | 347 |
+| K-41 | 22 | -35559.54880 ± 0.00376 | 8576.0731 ± 0.0003 | 359 |
+| K-42 | 23 | -35022.031 ± 0.106 | 8551.2571 ± 0.0025 | 371 |
+| K-43 | 24 | -36575.394 ± 0.410 | 8576.2204 ± 0.0095 | 383 |
+| K-44 | 25 | -35781.498 ± 0.419 | 8546.7023 ± 0.0095 | 395 |
+| K-45 | 26 | -36615.643 ± 0.522 | 8554.6747 ± 0.0116 | 407 |
+| K-46 | 27 | -35413.929 ± 0.727 | 8518.0428 ± 0.0158 | 419 |
+| K-47 | 28 | -35711.982 ± 1.397 | 8514.8795 ± 0.0297 | 431 |
+| K-48 | 29 | -32284.482 ± 0.773 | 8434.2324 ± 0.0161 | 443 |
+| K-49 | 30 | -29611.496 ± 0.801 | 8372.2753 ± 0.0164 | 456 |
+| K-50 | 31 | -25727.853 ± 7.731 | 8288.5833 ± 0.1546 | 468 |
+| K-51 | 32 | -22515.457 ± 13.041 | 8221.3350 ± 0.2557 | 480 |
+| K-52 | 33 | -17137.628 ± 33.534 | 8115.0303 ± 0.6449 | 492 |
+| K-53 | 34 | -12295.722 ± 111.779 | 8022.8488 ± 2.1090 | 504 |
+| K-54 | 35 | -5150# ± 400# | 7891# ± 7# | 516 |
+| K-55 | 36 | 470# ± 500# | 7792# ± 9# | 528 |
+| K-56 | 37 | 7980# ± 600# | 7663# ± 11# | 540 |
+| K-57 | 38 | 14130# ± 600# | 7563# ± 11# | 553 |
+| K-58 | 39 | 21930# ± 700# | 7437# ± 12# | 566 |
+| K-59 | 40 | 28750# ± 800# | 7332# ± 14# | 580 |
+
+## Q-values and separation energies
+
+| Nuclide | Qβ− / keV | Qα / keV | S₂n / keV | S₂p / keV | Reaction-file line |
+|---|---|---|---|---|---:|
+| K-31 | UNKNOWN (*) | UNKNOWN (*) | UNKNOWN (*) | -5660# ± 354# | 247 |
+| K-32 | UNKNOWN (*) | -8705# ± 640# | UNKNOWN (*) | -2737# ± 400# | 257 |
+| K-33 | -23489# ± 447# | -8907# ± 275# | 42863# ± 361# | 3# ± 200# | 267 |
+| K-34 | -16110# ± 358# | -8320# ± 197# | 39353# ± 445# | 2463# ± 196# | 278 |
+| K-35 | -16363# ± 200# | -6563.2566 ± 3.4844 | 34856# ± 200# | 4747.4953 ± 0.6444 | 288 |
+| K-36 | -10966.0155 ± 40.0013 | -6507.3916 ± 0.6061 | 32340# ± 196# | 7555.0379 ± 0.3288 | 299 |
+| K-37 | -11664.1314 ± 0.6412 | -6221.7770 ± 0.4019 | 29769.9441 ± 0.5209 | 10364.6118 ± 0.1004 | 310 |
+| K-38 | -6742.2563 ± 0.0626 | -6785.5898 ± 0.2013 | 27526.2142 ± 0.3793 | 13856.6938 ± 0.1985 | 322 |
+| K-39 | -6524.4888 ± 0.5962 | -7218.5796 ± 0.0358 | 25149.6302 ± 0.0941 | 16623.5858 ± 0.0520 | 334 |
+| K-40 | 1310.9051 ± 0.0596 | -6438.4047 ± 0.0665 | 20877.3733 ± 0.2031 | 18315.3231 ± 0.1129 | 346 |
+| K-41 | -421.6406 ± 0.1377 | -6222.9130 ± 0.0519 | 17894.9896 ± 0.0051 | 20337.2730 ± 1.7321 | 358 |
+| K-42 | 3525.2626 ± 0.1825 | -7648.8307 ± 0.1445 | 17629.1700 ± 0.1199 | 22042.1544 ± 32.0657 | 370 |
+| K-43 | 1833.4783 ± 0.4687 | -9200.0923 ± 1.7799 | 17158.4817 ± 0.4099 | 23846.1449 ± 68.7247 | 382 |
+| K-44 | 5687.2319 ± 0.5303 | -10648.5952 ± 32.0682 | 16902.1032 ± 0.4324 | 25527.6701 ± 59.6171 | 394 |
+| K-45 | 4196.5868 ± 0.6369 | -11733.3678 ± 68.7255 | 16182.8853 ± 0.6634 | 27034.0751 ± 61.8607 | 406 |
+| K-46 | 7725.6802 ± 2.3490 | -13007.0756 ± 59.6201 | 15775.0678 ± 0.8388 | 29512.8982 ± 85.5695 | 418 |
+| K-47 | 6632.6837 ± 2.6237 | -13977.3871 ± 61.8743 | 15238.9744 ± 1.4914 | 32027.3794 ± 136.1705 | 430 |
+| K-48 | 11940.3857 ± 0.7734 | -14230.4245 ± 85.5699 | 13013.1887 ± 1.0610 | 33127.4754 ± 97.2518 | 442 |
+| K-49 | 11688.5069 ± 0.8205 | -13773.8671 ± 136.1657 | 10042.1501 ± 1.6106 | 34609# ± 200# | 455 |
+| K-50 | 13861.3774 ± 7.8919 | -14417.8198 ± 97.5556 | 9586.0068 ± 7.7700 | 36026# ± 500# | 467 |
+| K-51 | 13816.8529 ± 13.0517 | -15360# ± 201# | 9046.5971 ± 13.0659 | 37833# ± 400# | 479 |
+| K-52 | 17128.6431 ± 33.5405 | -15282# ± 501# | 7552.4120 ± 34.4135 | 39415# ± 401# | 491 |
+| K-53 | 17091.9853 ± 120.0471 | -15460# ± 415# | 5922.9015 ± 112.5375 | 41164# ± 708# | 503 |
+| K-54 | 20010# ± 403# | -15275# ± 565# | 4155# ± 401# | 42088# ± 806# | 515 |
+| K-55 | 19121# ± 525# | -16245# ± 860# | 3377# ± 513# | UNKNOWN (*) | 527 |
+| K-56 | 21491# ± 650# | -16804# ± 922# | 3012# ± 721# | UNKNOWN (*) | 539 |
+| K-57 | 20689# ± 721# | UNKNOWN (*) | 2483# ± 781# | UNKNOWN (*) | 552 |
+| K-58 | 23461# ± 860# | UNKNOWN (*) | 2193# ± 922# | UNKNOWN (*) | 565 |
+| K-59 | 22940# ± 1000# | UNKNOWN (*) | 1523# ± 1000# | UNKNOWN (*) | 579 |
+
+Qβ− comes from the mass-file line in the first table. The other three columns come from the reaction-file line. Definitions and original source strings are retained in the structured data.
+
+## Binding-energy chart
+
+![Potassium: AME2020 binding energy per nucleon versus mass number, with evaluated and estimated points distinguished.](graphs/0019-Potassium-K-GRAPH-AME2020-Binding-Energy.svg)
+
+Discrete source values and source-reported uncertainties. No interpolation, natural-abundance weighting or observed-decay claim is implied. This quantitative chart supplements the 22 separate illustrative panels.
+
+## Remaining review
+
+Later measurements, state-specific decay branches, isomer Q-values, additional reaction channels and full claim-level review remain open. Existing authored values retain their own provenance; this companion does not overwrite them.

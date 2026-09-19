@@ -1,0 +1,120 @@
+# Rhodium — Atomic Masses and Reaction Energies
+
+<!-- generated-by: sync-ame2020.mjs -->
+
+**Dated evaluated data · scientific coverage remains partial.** 41 ground-state nuclides from AME2020. Values and uncertainties are transcribed from the retained unrounded analysis files; estimated quantities remain labelled.
+
+- [Parent Rhodium record](0045-Rhodium-Rh.md) · [NUBASE states and decays](0045-Rhodium-Rh-Nuclear-Evaluation.md)
+- [Structured data](data/isotopes/0045-Rhodium-Rh-AME2020-Evaluation.yaml)
+- [Original mass table](../../data/catalog/sources/ame2020-mass_1.mas20.txt) · [Original reaction table](../../data/catalog/sources/ame2020-rct1.mas20.txt)
+- [AME2020 methods](https://doi.org/10.1088/1674-1137/abddb0) (SRC-000303) · [Tables and definitions](https://doi.org/10.1088/1674-1137/abddaf) (SRC-000304)
+
+## Reading the data
+
+All table energies and uncertainties are in keV; binding energy is per nucleon. A # replaces a decimal point in the original estimated value. UNKNOWN (*) retains the source's not-calculable entry; it is neither zero nor automatically NOT APPLICABLE. Source lines are one-based in the retained files. Uncertainties remain those published by the evaluation, with no replacement by independent-mass quadrature.
+
+Atomic-mass conventions apply. Qα is total decay energy, not alpha-particle kinetic energy. Positive Q alone does not establish a decay branch, rate or observation. He-4's source Qα of zero is a bookkeeping identity. These tables describe ground-state combinations, not isomer or excited-daughter transitions. Nuclear state and daughter lookups are explicit in the structured companion. The binding quantity follows [Z M(¹H) + N mₙ − M(A,Z)]c²/A; it has not been converted to a bare-nucleus convention.
+
+## Mass and binding table
+
+| Nuclide | N | Atomic mass excess / keV | AME binding per nucleon / keV | Mass-file line |
+|---|---:|---|---|---:|
+| Rh-88 | 43 | -36860# ± 400# | 8090# ± 5# | 997 |
+| Rh-89 | 44 | -45651# ± 361# | 8189# ± 4# | 1011 |
+| Rh-90 | 45 | -51634# ± 200# | 8254# ± 2# | 1025 |
+| Rh-91 | 46 | -58570# ± 298# | 8328# ± 3# | 1039 |
+| Rh-92 | 47 | -62999.095 ± 4.378 | 8373.4211 ± 0.0476 | 1053 |
+| Rh-93 | 48 | -69011.810 ± 2.629 | 8434.8255 ± 0.0283 | 1067 |
+| Rh-94 | 49 | -72907.623 ± 3.379 | 8472.4033 ± 0.0359 | 1081 |
+| Rh-95 | 50 | -78340.616 ± 3.886 | 8525.3707 ± 0.0409 | 1096 |
+| Rh-96 | 51 | -79687.732 ± 10.001 | 8534.6735 ± 0.1042 | 1110 |
+| Rh-97 | 52 | -82597.564 ± 35.463 | 8559.8949 ± 0.3656 | 1125 |
+| Rh-98 | 53 | -83175.219 ± 11.906 | 8560.8038 ± 0.1215 | 1140 |
+| Rh-99 | 54 | -85584.522 ± 19.451 | 8580.1959 ± 0.1965 | 1154 |
+| Rh-100 | 55 | -85591.130 ± 18.125 | 8575.1732 ± 0.1813 | 1169 |
+| Rh-101 | 56 | -87412.428 ± 5.841 | 8588.2172 ± 0.0578 | 1184 |
+| Rh-102 | 57 | -86783.316 ± 6.410 | 8576.9818 ± 0.0628 | 1198 |
+| Rh-103 | 58 | -88031.705 ± 2.301 | 8584.1927 ± 0.0223 | 1213 |
+| Rh-104 | 59 | -86959.344 ± 2.303 | 8568.9501 ± 0.0221 | 1228 |
+| Rh-105 | 60 | -87851.270 ± 2.502 | 8572.7053 ± 0.0238 | 1243 |
+| Rh-106 | 61 | -86362.656 ± 5.390 | 8553.9317 ± 0.0508 | 1258 |
+| Rh-107 | 62 | -86863.711 ± 12.051 | 8554.1040 ± 0.1126 | 1274 |
+| Rh-108 | 63 | -85031.156 ± 13.997 | 8532.6657 ± 0.1296 | 1289 |
+| Rh-109 | 64 | -84999.251 ± 4.040 | 8528.1404 ± 0.0371 | 1305 |
+| Rh-110 | 65 | -82828.693 ± 17.805 | 8504.2551 ± 0.1619 | 1320 |
+| Rh-111 | 66 | -82303.871 ± 6.853 | 8495.6267 ± 0.0617 | 1335 |
+| Rh-112 | 67 | -79731.052 ± 44.085 | 8468.8666 ± 0.3936 | 1351 |
+| Rh-113 | 68 | -78766.944 ± 7.132 | 8456.8165 ± 0.0631 | 1367 |
+| Rh-114 | 69 | -75710.275 ± 71.561 | 8426.6221 ± 0.6277 | 1383 |
+| Rh-115 | 70 | -74229.228 ± 7.319 | 8410.6538 ± 0.0636 | 1399 |
+| Rh-116 | 71 | -70735.742 ± 73.832 | 8377.6123 ± 0.6365 | 1415 |
+| Rh-117 | 72 | -68896.758 ± 8.895 | 8359.2766 ± 0.0760 | 1431 |
+| Rh-118 | 73 | -64886.840 ± 24.236 | 8322.8539 ± 0.2054 | 1447 |
+| Rh-119 | 74 | -62822.802 ± 9.315 | 8303.3953 ± 0.0783 | 1463 |
+| Rh-120 | 75 | -58620# ± 200# | 8266# ± 2# | 1479 |
+| Rh-121 | 76 | -56250.134 ± 619.444 | 8245.2397 ± 5.1194 | 1495 |
+| Rh-122 | 77 | -51880# ± 300# | 8208# ± 2# | 1512 |
+| Rh-123 | 78 | -49190# ± 400# | 8185# ± 3# | 1528 |
+| Rh-124 | 79 | -44710# ± 400# | 8148# ± 3# | 1544 |
+| Rh-125 | 80 | -41830# ± 500# | 8124# ± 4# | 1561 |
+| Rh-126 | 81 | -37200# ± 500# | 8087# ± 4# | 1577 |
+| Rh-127 | 82 | -33730# ± 600# | 8060# ± 5# | 1594 |
+| Rh-128 | 83 | -27340# ± 300# | 8010# ± 2# | 1611 |
+
+## Q-values and separation energies
+
+| Nuclide | Qβ− / keV | Qα / keV | S₂n / keV | S₂p / keV | Reaction-file line |
+|---|---|---|---|---|---:|
+| Rh-88 | UNKNOWN (*) | -1585# ± 565# | UNKNOWN (*) | -132# ± 500# | 996 |
+| Rh-89 | UNKNOWN (*) | -2226# ± 538# | UNKNOWN (*) | 2539# ± 361# | 1010 |
+| Rh-90 | -11924# ± 447# | -2488# ± 361# | 30916# ± 447# | 4541# ± 200# | 1024 |
+| Rh-91 | -12400# ± 300# | -3304# ± 298# | 29062# ± 468# | 5753# ± 298# | 1038 |
+| Rh-92 | -8220.0000 ± 345.0000 | -3753.7096 ± 5.9971 | 27508# ± 200# | 6852.3412 ± 4.4963 | 1052 |
+| Rh-93 | -10030.0000 ± 370.0000 | -4041.8688 ± 4.6363 | 26585# ± 298# | 7603.0943 ± 3.5344 | 1066 |
+| Rh-94 | -6805.3428 ± 5.4588 | -4607.8430 ± 3.5311 | 26051.1642 ± 5.5305 | 8559.8625 ± 4.5873 | 1080 |
+| Rh-95 | -8374.7035 ± 4.9281 | -4778.8750 ± 4.5477 | 25471.4430 ± 4.6913 | 9312.4425 ± 4.0154 | 1095 |
+| Rh-96 | -3504.3127 ± 10.8442 | -3186.9451 ± 10.4716 | 22922.7450 ± 10.5569 | 10107.3426 ± 10.7972 | 1109 |
+| Rh-97 | -4791.7118 ± 35.7924 | -1416.3640 ± 35.4776 | 20399.5839 ± 35.6754 | 11154.1515 ± 35.8247 | 1124 |
+| Rh-98 | -1854.2331 ± 12.8161 | -1441.8027 ± 12.5832 | 19630.1224 ± 15.5497 | 11931.5124 ± 12.9711 | 1139 |
+| Rh-99 | -3401.6603 ± 18.9153 | -1988.0827 ± 20.1023 | 19129.5936 ± 40.4467 | 12938.0274 ± 19.8811 | 1153 |
+| Rh-100 | -378.4577 ± 25.2879 | -2194.3977 ± 18.8416 | 18558.5476 ± 21.6861 | 13736.8583 ± 18.4370 | 1168 |
+| Rh-101 | -1980.2833 ± 3.9027 | -2612.9074 ± 7.1447 | 17970.5425 ± 20.3079 | 14662.5009 ± 5.9094 | 1183 |
+| Rh-102 | 1119.6470 ± 6.3962 | -2776.0181 ± 7.2441 | 17334.8222 ± 19.2202 | 15340.3070 ± 6.5467 | 1197 |
+| Rh-103 | -574.7252 ± 2.3928 | -3128.7521 ± 2.4642 | 16761.9136 ± 6.1774 | 16265.0549 ± 24.1066 | 1212 |
+| Rh-104 | 2435.7789 ± 2.6595 | -3363.3087 ± 2.6606 | 16318.6640 ± 6.7855 | 16964.3648 ± 9.4394 | 1227 |
+| Rh-105 | 566.6347 ± 2.3459 | -3931.5933 ± 24.1321 | 15962.2007 ± 3.3874 | 17825.2919 ± 9.9060 | 1242 |
+| Rh-106 | 3544.8865 ± 5.3348 | -4214.6509 ± 10.4317 | 15545.9485 ± 5.8527 | 18441.6295 ± 25.4323 | 1257 |
+| Rh-107 | 1508.9427 ± 12.1108 | -4684.7068 ± 15.5393 | 15155.0773 ± 12.3080 | 19155.3500 ± 37.2652 | 1273 |
+| Rh-108 | 4493.0596 ± 14.0405 | -4957.1026 ± 28.5525 | 14811.1355 ± 14.9987 | 19832.8453 ± 18.6004 | 1288 |
+| Rh-109 | 2607.2327 ± 4.1874 | -5137.8635 ± 35.4935 | 14278.1759 ± 12.7091 | 20827.2262 ± 9.5673 | 1304 |
+| Rh-110 | 5502.2116 ± 17.7967 | -5477.3562 ± 21.5959 | 13940.1732 ± 22.6472 | 21483.8044 ± 19.8052 | 1319 |
+| Rh-111 | 3682.0153 ± 6.8899 | -5978.8199 ± 11.0534 | 13447.2561 ± 7.9219 | 22598.9846 ± 11.8516 | 1334 |
+| Rh-112 | 6589.9874 ± 43.9269 | -6233.1373 ± 44.9491 | 13044.9952 ± 47.5444 | 23274.4305 ± 45.0968 | 1350 |
+| Rh-113 | 4823.5559 ± 9.8809 | -6909.0311 ± 12.0153 | 12605.7089 ± 9.8161 | 24320.2104 ± 12.7608 | 1366 |
+| Rh-114 | 7780.0712 ± 71.8915 | -7100.6275 ± 72.1886 | 12121.8594 ± 84.0467 | 25029.2853 ± 71.7734 | 1382 |
+| Rh-115 | 6196.5938 ± 15.3503 | -7629.4686 ± 12.8660 | 11604.9206 ± 10.1443 | 25995.6216 ± 8.0506 | 1398 |
+| Rh-116 | 9095.2839 ± 74.1690 | -7901.7262 ± 74.0374 | 11168.1033 ± 102.8181 | 26713.3905 ± 439.3922 | 1414 |
+| Rh-117 | 7527.1313 ± 11.4108 | -8510.1255 ± 9.5057 | 10810.1663 ± 11.4498 | 27678# ± 196# | 1430 |
+| Rh-118 | 10501.5182 ± 24.3424 | -8711.4614 ± 433.8223 | 10293.7333 ± 77.7013 | 28251# ± 299# | 1446 |
+| Rh-119 | 8584.4751 ± 12.4416 | -9451# ± 196# | 10068.6798 ± 12.8795 | 29261# ± 400# | 1462 |
+| Rh-120 | 11660# ± 200# | -9831# ± 359# | 9876# ± 202# | 29908# ± 447# | 1478 |
+| Rh-121 | 9932.2030 ± 619.4527 | -10535# ± 737# | 9569.9685 ± 619.5136 | 30658# ± 796# | 1494 |
+| Rh-122 | 12737# ± 301# | -11014# ± 500# | 9402# ± 361# | 31458# ± 583# | 1511 |
+| Rh-123 | 11239# ± 885# | -11446# ± 640# | 9083# ± 737# | 32228# ± 640# | 1527 |
+| Rh-124 | 13690# ± 500# | -12135# ± 640# | 8973# ± 500# | 32982# ± 500# | 1543 |
+| Rh-125 | 12130# ± 640# | -12714# ± 707# | 8782# ± 640# | UNKNOWN (*) | 1560 |
+| Rh-126 | 14590# ± 640# | -13320# ± 583# | 8633# ± 640# | UNKNOWN (*) | 1576 |
+| Rh-127 | 13490# ± 781# | UNKNOWN (*) | 8043# ± 781# | UNKNOWN (*) | 1593 |
+| Rh-128 | 17050# ± 583# | UNKNOWN (*) | 6283# ± 583# | UNKNOWN (*) | 1610 |
+
+Qβ− comes from the mass-file line in the first table. The other three columns come from the reaction-file line. Definitions and original source strings are retained in the structured data.
+
+## Binding-energy chart
+
+![Rhodium: AME2020 binding energy per nucleon versus mass number, with evaluated and estimated points distinguished.](graphs/0045-Rhodium-Rh-GRAPH-AME2020-Binding-Energy.svg)
+
+Discrete source values and source-reported uncertainties. No interpolation, natural-abundance weighting or observed-decay claim is implied. This quantitative chart supplements the 22 separate illustrative panels.
+
+## Remaining review
+
+Later measurements, state-specific decay branches, isomer Q-values, additional reaction channels and full claim-level review remain open. Existing authored values retain their own provenance; this companion does not overwrite them.

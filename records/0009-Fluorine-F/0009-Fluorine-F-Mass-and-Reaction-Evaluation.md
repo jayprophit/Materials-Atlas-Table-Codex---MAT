@@ -1,0 +1,76 @@
+# Fluorine — Atomic Masses and Reaction Energies
+
+<!-- generated-by: sync-ame2020.mjs -->
+
+**Dated evaluated data · scientific coverage remains partial.** 19 ground-state nuclides from AME2020. Values and uncertainties are transcribed from the retained unrounded analysis files; estimated quantities remain labelled.
+
+- [Parent Fluorine record](0009-Fluorine-F.md) · [NUBASE states and decays](0009-Fluorine-F-Nuclear-Evaluation.md)
+- [Structured data](data/isotopes/0009-Fluorine-F-AME2020-Evaluation.yaml)
+- [Original mass table](../../data/catalog/sources/ame2020-mass_1.mas20.txt) · [Original reaction table](../../data/catalog/sources/ame2020-rct1.mas20.txt)
+- [AME2020 methods](https://doi.org/10.1088/1674-1137/abddb0) (SRC-000303) · [Tables and definitions](https://doi.org/10.1088/1674-1137/abddaf) (SRC-000304)
+
+## Reading the data
+
+All table energies and uncertainties are in keV; binding energy is per nucleon. A # replaces a decimal point in the original estimated value. UNKNOWN (*) retains the source's not-calculable entry; it is neither zero nor automatically NOT APPLICABLE. Source lines are one-based in the retained files. Uncertainties remain those published by the evaluation, with no replacement by independent-mass quadrature.
+
+Atomic-mass conventions apply. Qα is total decay energy, not alpha-particle kinetic energy. Positive Q alone does not establish a decay branch, rate or observation. He-4's source Qα of zero is a bookkeeping identity. These tables describe ground-state combinations, not isomer or excited-daughter transitions. Nuclear state and daughter lookups are explicit in the structured companion. The binding quantity follows [Z M(¹H) + N mₙ − M(A,Z)]c²/A; it has not been converted to a bare-nucleus convention.
+
+## Mass and binding table
+
+| Nuclide | N | Atomic mass excess / keV | AME binding per nucleon / keV | Mass-file line |
+|---|---:|---|---|---:|
+| F-13 | 4 | 42030# ± 500# | 4297# ± 38# | 94 |
+| F-14 | 5 | 31964.403 ± 41.119 | 5285.2091 ± 2.9371 | 100 |
+| F-15 | 6 | 16566.752 ± 14.000 | 6497.4597 ± 0.9333 | 106 |
+| F-16 | 7 | 10675.182 ± 5.364 | 6964.0490 ± 0.3353 | 113 |
+| F-17 | 8 | 1951.701 ± 0.248 | 7542.3284 ± 0.0146 | 119 |
+| F-18 | 9 | 873.112 ± 0.463 | 7631.6383 ± 0.0257 | 126 |
+| F-19 | 10 | -1487.44512 ± 0.00082 | 7779.0192 ± 0.0002 | 133 |
+| F-20 | 11 | -17.463 ± 0.030 | 7720.1351 ± 0.0015 | 141 |
+| F-21 | 12 | -47.605 ± 1.800 | 7738.2934 ± 0.0857 | 149 |
+| F-22 | 13 | 2793.376 ± 12.399 | 7624.2954 ± 0.5636 | 157 |
+| F-23 | 14 | 3285.263 ± 33.320 | 7622.3447 ± 1.4487 | 166 |
+| F-24 | 15 | 7544.516 ± 97.670 | 7463.5831 ± 4.0696 | 174 |
+| F-25 | 16 | 11334.167 ± 96.442 | 7336.3065 ± 3.8577 | 183 |
+| F-26 | 17 | 18674.655 ± 107.027 | 7082.2497 ± 4.1164 | 191 |
+| F-27 | 18 | 25133.478 ± 120.198 | 6879.6662 ± 4.4518 | 200 |
+| F-28 | 19 | 33403.796 ± 120.347 | 6626.8567 ± 4.2981 | 209 |
+| F-29 | 20 | 40150.190 ± 525.363 | 6444.0314 ± 18.1160 | 218 |
+| F-30 | 21 | 48960# ± 500# | 6205# ± 17# | 228 |
+| F-31 | 22 | 56843# ± 535# | 6011# ± 17# | 238 |
+
+## Q-values and separation energies
+
+| Nuclide | Qβ− / keV | Qα / keV | S₂n / keV | S₂p / keV | Reaction-file line |
+|---|---|---|---|---|---:|
+| F-13 | UNKNOWN (*) | UNKNOWN (*) | UNKNOWN (*) | -3086# ± 500# | 93 |
+| F-14 | UNKNOWN (*) | -9260.5406 ± 402.1079 | UNKNOWN (*) | -48.3925 ± 41.1309 | 99 |
+| F-15 | -23648.6215 ± 68.1377 | -10223.8076 ± 14.8663 | 41606# ± 500# | 3356.6711 ± 14.0026 | 105 |
+| F-16 | -13311.5932 ± 21.1709 | -9087.8022 ± 5.4566 | 37431.8570 ± 41.4672 | 6766.1772 ± 5.3642 | 112 |
+| F-17 | -14548.7507 ± 0.4323 | -5818.6957 ± 0.3662 | 30757.6870 ± 14.0022 | 12727.6789 ± 0.2479 | 118 |
+| F-18 | -4444.5049 ± 0.5888 | -4415.2202 ± 0.4633 | 25944.7054 ± 5.3842 | 19388.7368 ± 2.3475 | 125 |
+| F-19 | -3239.4986 ± 0.1601 | -4013.7991 ± 0.0010 | 19581.7825 ± 0.2479 | 23935.4660 ± 15.0000 | 132 |
+| F-20 | 7024.4689 ± 0.0297 | -8126.2863 ± 2.3016 | 17033.2118 ± 0.4643 | 27708.5728 ± 18.5696 | 140 |
+| F-21 | 5684.1712 ± 1.8004 | -10342.5998 ± 15.1076 | 14702.7962 ± 1.8000 | 30481.8024 ± 16.5022 | 148 |
+| F-22 | 10818.0916 ± 12.3990 | -12744.7075 ± 22.3285 | 13331.7970 ± 12.3990 | 33551.0641 ± 79.8625 | 156 |
+| F-23 | 8439.3084 ± 33.3206 | -14995.9075 ± 37.1394 | 12809.7675 ± 33.3690 | 36524.5941 ± 138.1271 | 165 |
+| F-24 | 13496.1583 ± 97.6717 | -16646.8978 ± 125.5539 | 11391.4961 ± 98.4542 | 38798.2308 ± 229.5904 | 173 |
+| F-25 | 13369.6698 ± 100.7212 | -16322.6644 ± 165.1362 | 8093.7327 ± 102.0362 | 39964.2043 ± 431.4857 | 182 |
+| F-26 | 18193.5414 ± 108.6022 | -15515.0654 ± 233.7243 | 5012.4970 ± 144.8941 | 42841# ± 415# | 190 |
+| F-27 | 18082.5680 ± 150.6211 | -14011.8669 ± 437.4086 | 2343.3250 ± 154.1059 | 45427# ± 517# | 199 |
+| F-28 | 22104.0579 ± 174.2886 | -15959# ± 418# | 1413.4951 ± 59.6559 | UNKNOWN (*) | 208 |
+| F-29 | 21750.3873 ± 546.2212 | -18258# ± 727# | 1125.9238 ± 538.9373 | UNKNOWN (*) | 217 |
+| F-30 | 25680# ± 561# | UNKNOWN (*) | 586# ± 514# | UNKNOWN (*) | 227 |
+| F-31 | 25661# ± 597# | UNKNOWN (*) | -550# ± 100# | UNKNOWN (*) | 237 |
+
+Qβ− comes from the mass-file line in the first table. The other three columns come from the reaction-file line. Definitions and original source strings are retained in the structured data.
+
+## Binding-energy chart
+
+![Fluorine: AME2020 binding energy per nucleon versus mass number, with evaluated and estimated points distinguished.](graphs/0009-Fluorine-F-GRAPH-AME2020-Binding-Energy.svg)
+
+Discrete source values and source-reported uncertainties. No interpolation, natural-abundance weighting or observed-decay claim is implied. This quantitative chart supplements the 22 separate illustrative panels.
+
+## Remaining review
+
+Later measurements, state-specific decay branches, isomer Q-values, additional reaction channels and full claim-level review remain open. Existing authored values retain their own provenance; this companion does not overwrite them.

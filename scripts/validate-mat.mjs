@@ -5,6 +5,7 @@ const suites = [
   "scripts/validate-elements.mjs",
   "scripts/validate-ionisation.mjs",
   "scripts/validate-ionisation-charts.mjs",
+  "scripts/validate-ame2020.mjs",
   "scripts/validate-advanced-completion.mjs",
   "scripts/validate-unified-gap-analysis.mjs",
   "scripts/validate-state-flow.mjs",

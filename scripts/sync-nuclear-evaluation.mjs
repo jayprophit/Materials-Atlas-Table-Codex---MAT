@@ -34,7 +34,9 @@ for(const e of elements){
  `\n\n## Provenance and review\n\nSource snapshot SHA-256: \`${source.sha256}\`. Retrieved ${source.retrieved}. Every structured entry preserves the original line and its line number. The parser is checked against the source's published column specification and representative ground states, isomers, estimates and stable states. Post-2020 findings and supplied research batches retain separate provenance and review status.\n`;
  if(existsSync(join(root,chapter))&&!readFileSync(join(root,chapter),'utf8').includes('generated-by: sync-nuclear-evaluation.mjs'))throw new Error('Refusing to overwrite authored chapter '+chapter);
  const metrics=`\n## Derived decay metrics\n\nThe structured evaluation now includes a decay constant and mean lifetime for each positive numeric half-life. These use the single exponential model, \\(\\lambda=\\ln(2)/T_{1/2}\\) and \\(\\tau=T_{1/2}/\\ln(2)\\). Values retain the original time unit: a half-life in years produces a rate per source year, without silently assuming a calendar conversion. Inequalities reverse for the reciprocal decay constant. Estimates remain estimates. Stable or unavailable half-lives have no numeric result. Symmetric uncertainty is propagated to first order; asymmetric source uncertainties remain unpropagated and visible. These calculations add no new experimental evidence or significant figures.\n`;
- write(chapter,body+metrics);
+ const ameChapter=`${stem}-Mass-and-Reaction-Evaluation.md`;
+ const ameLink=existsSync(join(root,folder,ameChapter))?`\n<!-- ame2020-companion -->\n\n[Atomic masses, Q-values and separation energies](${ameChapter}) are available in the separate AME2020 companion, with ground-state, estimate and uncertainty semantics.\n`:'';
+ write(chapter,body+metrics+ameLink);
  // Connect newly available nuclear data at the existing baseline section.
  // Preserve the manuscript's BASELINE status and all authored material.
  const mainPath=join(root,e.chapterPath),main=readFileSync(mainPath,'utf8').replace(/\r\n/g,'\n');
