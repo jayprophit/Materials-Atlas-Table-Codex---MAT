@@ -1,0 +1,104 @@
+# Zinc — Atomic Masses and Reaction Energies
+
+<!-- generated-by: sync-ame2020.mjs -->
+
+**Dated evaluated data · scientific coverage remains partial.** 33 ground-state nuclides from AME2020. Values and uncertainties are transcribed from the retained unrounded analysis files; estimated quantities remain labelled.
+
+- [Parent Zinc record](0030-Zinc-Zn.md) · [NUBASE states and decays](0030-Zinc-Zn-Nuclear-Evaluation.md)
+- [Structured data](data/isotopes/0030-Zinc-Zn-AME2020-Evaluation.yaml)
+- [Original mass table](../../data/catalog/sources/ame2020-mass_1.mas20.txt) · [Original reaction table](../../data/catalog/sources/ame2020-rct1.mas20.txt)
+- [AME2020 methods](https://doi.org/10.1088/1674-1137/abddb0) (SRC-000303) · [Tables and definitions](https://doi.org/10.1088/1674-1137/abddaf) (SRC-000304)
+
+## Reading the data
+
+All table energies and uncertainties are in keV; binding energy is per nucleon. A # replaces a decimal point in the original estimated value. UNKNOWN (*) retains the source's not-calculable entry; it is neither zero nor automatically NOT APPLICABLE. Source lines are one-based in the retained files. Uncertainties remain those published by the evaluation, with no replacement by independent-mass quadrature.
+
+Atomic-mass conventions apply. Qα is total decay energy, not alpha-particle kinetic energy. Positive Q alone does not establish a decay branch, rate or observation. He-4's source Qα of zero is a bookkeeping identity. These tables describe ground-state combinations, not isomer or excited-daughter transitions. Nuclear state and daughter lookups are explicit in the structured companion. The binding quantity follows [Z M(¹H) + N mₙ − M(A,Z)]c²/A; it has not been converted to a bare-nucleus convention.
+
+## Mass and binding table
+
+| Nuclide | N | Atomic mass excess / keV | AME binding per nucleon / keV | Mass-file line |
+|---|---:|---|---|---:|
+| Zn-54 | 24 | -5702# ± 217# | 7742# ± 4# | 527 |
+| Zn-55 | 25 | -14270# ± 400# | 7904# ± 7# | 539 |
+| Zn-56 | 26 | -25390# ± 400# | 8106# ± 7# | 551 |
+| Zn-57 | 27 | -32550# ± 200# | 8231# ± 4# | 564 |
+| Zn-58 | 28 | -42298.871 ± 50.001 | 8395.9467 ± 0.8621 | 577 |
+| Zn-59 | 29 | -47215.678 ± 0.759 | 8473.7802 ± 0.0129 | 591 |
+| Zn-60 | 30 | -54174.470 ± 0.548 | 8583.0524 ± 0.0091 | 604 |
+| Zn-61 | 31 | -56348.906 ± 15.899 | 8610.3098 ± 0.2606 | 618 |
+| Zn-62 | 32 | -61168.088 ± 0.615 | 8679.3451 ± 0.0099 | 631 |
+| Zn-63 | 33 | -62213.429 ± 1.560 | 8686.2866 ± 0.0248 | 644 |
+| Zn-64 | 34 | -66004.018 ± 0.644 | 8735.9057 ± 0.0101 | 657 |
+| Zn-65 | 35 | -65912.024 ± 0.646 | 8724.2660 ± 0.0099 | 670 |
+| Zn-66 | 36 | -68899.229 ± 0.744 | 8759.6335 ± 0.0113 | 683 |
+| Zn-67 | 37 | -67880.376 ± 0.755 | 8734.1534 ± 0.0113 | 696 |
+| Zn-68 | 38 | -70007.154 ± 0.778 | 8755.6820 ± 0.0115 | 709 |
+| Zn-69 | 39 | -68417.906 ± 0.795 | 8722.7311 ± 0.0115 | 722 |
+| Zn-70 | 40 | -69564.748 ± 1.918 | 8729.8086 ± 0.0274 | 735 |
+| Zn-71 | 41 | -67328.786 ± 2.654 | 8689.0417 ± 0.0374 | 747 |
+| Zn-72 | 42 | -68145.495 ± 2.142 | 8691.8053 ± 0.0298 | 760 |
+| Zn-73 | 43 | -65593.411 ± 1.863 | 8648.3455 ± 0.0255 | 773 |
+| Zn-74 | 44 | -65756.720 ± 2.515 | 8642.7547 ± 0.0340 | 786 |
+| Zn-75 | 45 | -62558.916 ± 1.956 | 8592.4981 ± 0.0261 | 799 |
+| Zn-76 | 46 | -62303.024 ± 1.456 | 8582.2735 ± 0.0192 | 813 |
+| Zn-77 | 47 | -58789.203 ± 1.973 | 8530.0037 ± 0.0256 | 826 |
+| Zn-78 | 48 | -57483.242 ± 1.944 | 8507.3800 ± 0.0249 | 840 |
+| Zn-79 | 49 | -53432.302 ± 2.225 | 8450.5825 ± 0.0282 | 853 |
+| Zn-80 | 50 | -51648.619 ± 2.585 | 8423.5457 ± 0.0323 | 867 |
+| Zn-81 | 51 | -46199.669 ± 5.030 | 8351.9262 ± 0.0621 | 881 |
+| Zn-82 | 52 | -42313.960 ± 3.074 | 8301.1175 ± 0.0375 | 896 |
+| Zn-83 | 53 | -36290# ± 300# | 8226# ± 4# | 910 |
+| Zn-84 | 54 | -31830# ± 400# | 8171# ± 5# | 925 |
+| Zn-85 | 55 | -25100# ± 500# | 8090# ± 6# | 939 |
+| Zn-86 | 56 | -20062# ± 500# | 8032# ± 6# | 954 |
+
+## Q-values and separation energies
+
+| Nuclide | Qβ− / keV | Qα / keV | S₂n / keV | S₂p / keV | Reaction-file line |
+|---|---|---|---|---|---:|
+| Zn-54 | UNKNOWN (*) | -4667# ± 545# | UNKNOWN (*) | -2280# ± 200# | 526 |
+| Zn-55 | UNKNOWN (*) | -5044# ± 640# | UNKNOWN (*) | -783# ± 400# | 538 |
+| Zn-56 | -21550# ± 640# | -5255# ± 408# | 35830# ± 454# | 689# ± 400# | 550 |
+| Zn-57 | -17140# ± 447# | -5344# ± 202# | 34423# ± 447# | 1792# ± 200# | 563 |
+| Zn-58 | -18759# ± 304# | -5445.4753 ± 50.2177 | 33052# ± 403# | 2969.1645 ± 50.0012 | 576 |
+| Zn-59 | -13456# ± 170# | -4304.6330 ± 0.9649 | 30808# ± 200# | 5709.6597 ± 0.8361 | 590 |
+| Zn-60 | -14584# ± 200# | -2691.7371 ± 0.5440 | 28018.2349 ± 50.0017 | 8523.5409 ± 0.4141 | 603 |
+| Zn-61 | -9214.2438 ± 37.6786 | -2689.8611 ± 15.9069 | 25275.8638 ± 15.9143 | 9770.0152 ± 15.9001 | 617 |
+| Zn-62 | -9181.0666 ± 0.3763 | -3364.1330 ± 0.5447 | 23136.2545 ± 0.6851 | 11272.7873 ± 0.5413 | 630 |
+| Zn-63 | -5666.3294 ± 2.0330 | -3481.5119 ± 1.5579 | 22007.1591 ± 15.9557 | 12569.3422 ± 1.5575 | 643 |
+| Zn-64 | -7171.1912 ± 1.4825 | -3955.6904 ± 0.6596 | 20978.5655 ± 0.7833 | 13835.5202 ± 0.6449 | 656 |
+| Zn-65 | -3254.5380 ± 0.6305 | -4114.9114 ± 0.6632 | 19841.2316 ± 1.4850 | 14977.0752 ± 0.6496 | 669 |
+| Zn-66 | -5175.5000 ± 0.8000 | -4577.7049 ± 0.6897 | 19037.8470 ± 0.9142 | 16378.1370 ± 0.7161 | 682 |
+| Zn-67 | -1001.2201 ± 1.1196 | -4792.4005 ± 0.7066 | 18110.9877 ± 0.9285 | 17332.5218 ± 0.7464 | 695 |
+| Zn-68 | -2921.1000 ± 1.2000 | -5333.0365 ± 0.7579 | 17250.5619 ± 0.3028 | 18578.8032 ± 1.5995 | 708 |
+| Zn-69 | 909.9134 ± 1.4234 | -5717.0257 ± 0.7868 | 16680.1663 ± 0.2505 | 19253.1603 ± 2.9950 | 721 |
+| Zn-70 | -654.5979 ± 1.5737 | -5983.3706 ± 2.3728 | 15700.2298 ± 2.0428 | 20678.8678 ± 3.5444 | 734 |
+| Zn-71 | 2810.3405 ± 2.7748 | -6011.0138 ± 3.9219 | 15053.5160 ± 2.7689 | 21928.0724 ± 4.5745 | 746 |
+| Zn-72 | 442.7892 ± 2.2934 | -7106.5881 ± 3.6708 | 14723.3827 ± 2.8754 | 23509.5685 ± 3.0308 | 759 |
+| Zn-73 | 4105.9329 ± 2.5064 | -8039.6706 ± 4.1658 | 14407.2607 ± 3.2425 | 24765.1172 ± 2.9110 | 772 |
+| Zn-74 | 2292.9057 ± 3.9102 | -8967.7678 ± 3.3047 | 13753.8618 ± 3.3039 | 26108.5941 ± 3.3659 | 785 |
+| Zn-75 | 5901.7231 ± 2.0679 | -9577.5964 ± 2.9715 | 13108.1415 ± 2.7013 | 27028.6990 ± 3.1141 | 798 |
+| Zn-76 | 3993.6241 ± 2.4384 | -10501.8715 ± 2.6688 | 12688.9397 ± 2.9060 | 28181# ± 200# | 812 |
+| Zn-77 | 7203.1495 ± 3.1237 | -11105.9596 ± 3.1246 | 12372.9230 ± 2.7782 | 29127# ± 200# | 825 |
+| Zn-78 | 6220.8433 ± 2.2088 | -11208# ± 200# | 11322.8543 ± 2.4267 | 29871# ± 300# | 839 |
+| Zn-79 | 9116.0536 ± 2.5295 | -11617# ± 200# | 10785.7349 ± 2.9727 | 30660# ± 400# | 852 |
+| Zn-80 | 7575.0553 ± 3.8774 | -11883# ± 300# | 10308.0133 ± 3.2335 | 31347# ± 400# | 866 |
+| Zn-81 | 11428.2924 ± 5.9960 | -11274# ± 400# | 8910.0035 ± 5.5002 | 32618# ± 500# | 880 |
+| Zn-82 | 10616.7652 ± 3.9162 | -9859# ± 400# | 6807.9772 ± 4.0163 | 33652# ± 600# | 895 |
+| Zn-83 | 12967# ± 300# | -10555# ± 583# | 6233# ± 300# | 34778# ± 761# | 909 |
+| Zn-84 | 12264# ± 401# | -11015# ± 721# | 5659# ± 400# | 35688# ± 894# | 924 |
+| Zn-85 | 14644# ± 502# | -11435# ± 860# | 4953# ± 583# | UNKNOWN (*) | 938 |
+| Zn-86 | 13699# ± 640# | -11767# ± 944# | 4374# ± 640# | UNKNOWN (*) | 953 |
+
+Qβ− comes from the mass-file line in the first table. The other three columns come from the reaction-file line. Definitions and original source strings are retained in the structured data.
+
+## Binding-energy chart
+
+![Zinc: AME2020 binding energy per nucleon versus mass number, with evaluated and estimated points distinguished.](graphs/0030-Zinc-Zn-GRAPH-AME2020-Binding-Energy.svg)
+
+Discrete source values and source-reported uncertainties. No interpolation, natural-abundance weighting or observed-decay claim is implied. This quantitative chart supplements the 22 separate illustrative panels.
+
+## Remaining review
+
+Later measurements, state-specific decay branches, isomer Q-values, additional reaction channels and full claim-level review remain open. Existing authored values retain their own provenance; this companion does not overwrite them.

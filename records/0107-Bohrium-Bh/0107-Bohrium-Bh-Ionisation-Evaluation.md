@@ -1,0 +1,130 @@
+# Bohrium — Ground States and Ionisation Ladder
+
+<!-- generated-by: sync-ionisation-evaluation.mjs -->
+
+Dated NIST ASD 5.12 extraction, retrieved 14 September 2026. 96 charge-state rows and 72 numeric ionisation energies are present. This is scoped reference coverage; the element remains under scientific review.
+
+- [Parent Bohrium record](0107-Bohrium-Bh.md)
+- [Structured values and provenance](data/structured/0107-Bohrium-Bh-NIST-Ionisation-Evaluation.yaml)
+- [Retained source export](../../data/catalog/sources/nist-asd-ionisation-2026-09-14.csv) · SRC-000005
+- [NIST definitions and qualifiers](https://physics.nist.gov/PhysRefData/ASD/Html/iehelp.html)
+
+## State and evidence semantics
+
+Each threshold removes one electron from an isolated ground-state atom or ion of charge q, producing charge q+1. Electron count is calculated as Z−q. This is not a bulk work function or electrochemical potential. Square brackets retain semiempirical estimates; parentheses retain theoretical values. Unbracketed values retain their evaluated status. Ground configurations describe dominant calculated components and may have uncertain assignments. NIST notation is preserved. Numeric uncertainty is transcribed in eV; unavailable uncertainty remains UNKNOWN. No confidence level, isotope assignment or extra precision is inferred.
+
+## Source table
+
+| Spectrum | q | Ground configuration | Ground level | Energy / eV | Uncertainty / eV | Evidence | Source line |
+|---|---:|---|---|---|---|---|---:|
+| Bh I | 0 | 6d5.7s2 | &lt;5/2&gt; | [7.7] | 0.5 | SEMIEMPIRICAL | 5640 |
+| Bh II | 1 | 6d4.7s2 | 0 | [17.5] | 0.5 | SEMIEMPIRICAL | 5641 |
+| Bh III | 2 | 6d4.7s | &lt;1/2&gt; | [26.7] | 0.5 | SEMIEMPIRICAL | 5642 |
+| Bh IV | 3 | 6d4 | 0 | [37.3] | 0.5 | SEMIEMPIRICAL | 5643 |
+| Bh V | 4 | 6d3 | &lt;3/2&gt; | [49.0] | 0.5 | SEMIEMPIRICAL | 5644 |
+| Bh VI | 5 | 6d2 | &lt;2&gt; | [62.1] | 0.5 | SEMIEMPIRICAL | 5645 |
+| Bh VII | 6 | 5f14.6d | 2D&lt;3/2&gt; | [74.9] | 0.5 | SEMIEMPIRICAL | 5646 |
+| Bh VIII | 7 | 5f14 | 1S0 | (134.0) | 2.1 | THEORETICAL | 5647 |
+| Bh IX | 8 | 5f13 | 2F*&lt;7/2&gt; | (148.0) | 2.2 | THEORETICAL | 5648 |
+| Bh X | 9 | 5f12 | 3H&lt;6&gt; | (178.0) | 2.2 | THEORETICAL | 5649 |
+| Bh XI | 10 | 5f11 | 4I*&lt;15/2&gt; | (198.0) | 2.4 | THEORETICAL | 5650 |
+| Bh XII | 11 | 5f10 | 5I&lt;8&gt; | (228.0) | 2.5 | THEORETICAL | 5651 |
+| Bh XIII | 12 | 5f9 | 6H*&lt;15/2&gt; | (255) | 3 | THEORETICAL | 5652 |
+| Bh XIV | 13 | 5f8 | 7F&lt;6&gt; | (281) | 3 | THEORETICAL | 5653 |
+| Bh XV | 14 | 5f7 | 8S*&lt;7/2&gt; | (318) | 3 | THEORETICAL | 5654 |
+| Bh XVI | 15 | 5f6 | 7F0 | (337) | 3 | THEORETICAL | 5655 |
+| Bh XVII | 16 | 5f5 | 6H*&lt;5/2&gt; | (374) | 3 | THEORETICAL | 5656 |
+| Bh XVIII | 17 | 5f4 | 5I&lt;4&gt; | UNKNOWN | UNKNOWN | UNKNOWN | 5657 |
+| Bh XXX | 29 | 5d10 | 1S0 | (934) | 4 | THEORETICAL | 5658 |
+| Bh XXXI | 30 | 5d9 | 2D&lt;5/2&gt; | (969) | 4 | THEORETICAL | 5659 |
+| Bh XXXII | 31 | 5d8 | 3F&lt;4&gt; | (1008) | 4 | THEORETICAL | 5660 |
+| Bh XXXIII | 32 | 5d7 | 4F&lt;9/2&gt; | (1049) | 4 | THEORETICAL | 5661 |
+| Bh XXXIV | 33 | 5d6 | 5D&lt;4&gt; | (1088) | 5 | THEORETICAL | 5662 |
+| Bh XXXV | 34 | 5d5 | 6S&lt;5/2&gt; | (1126) | 5 | THEORETICAL | 5663 |
+| Bh XXXVI | 35 | 5d4 | 5D0 | (1197) | 5 | THEORETICAL | 5664 |
+| Bh XXXVII | 36 | 5d3 | 4F&lt;3/2&gt; | (1237) | 5 | THEORETICAL | 5665 |
+| Bh XXXVIII | 37 | 5d2 | 3F&lt;2&gt; | (1280) | 4 | THEORETICAL | 5666 |
+| Bh XXXIX | 38 | 5d | 2D&lt;3/2&gt; | (1320) | 4 | THEORETICAL | 5667 |
+| Bh XL | 39 | 4f14 | 1S0 | UNKNOWN | UNKNOWN | UNKNOWN | 5668 |
+| Bh XLI | 40 | 4f14.5p5 | 2P*&lt;3/2&gt; | UNKNOWN | UNKNOWN | UNKNOWN | 5669 |
+| Bh XLII | 41 | 4f14.5p4 | 3P&lt;2&gt; | UNKNOWN | UNKNOWN | UNKNOWN | 5670 |
+| Bh XLIII | 42 | 4f14.5p3 | 2P*&lt;3/2&gt; | UNKNOWN | UNKNOWN | UNKNOWN | 5671 |
+| Bh XLIV | 43 | 4f14.5p2 | 3P0 | UNKNOWN | UNKNOWN | UNKNOWN | 5672 |
+| Bh XLV | 44 | 4f14.5p | 2P*&lt;1/2&gt; | UNKNOWN | UNKNOWN | UNKNOWN | 5673 |
+| Bh XLVI | 45 | 4f14 | 1S0 | UNKNOWN | UNKNOWN | UNKNOWN | 5674 |
+| Bh XLVII | 46 | 4f14.5s | 2S&lt;1/2&gt; | UNKNOWN | UNKNOWN | UNKNOWN | 5675 |
+| Bh XLVIII | 47 | 4f14 | 1S0 | UNKNOWN | UNKNOWN | UNKNOWN | 5676 |
+| Bh XLIX | 48 | 4f13 | 2F*&lt;7/2&gt; | UNKNOWN | UNKNOWN | UNKNOWN | 5677 |
+| Bh L | 49 | 4f12 | UNKNOWN | UNKNOWN | UNKNOWN | UNKNOWN | 5678 |
+| Bh LI | 50 | 4f11 | 4I*&lt;15/2&gt; | UNKNOWN | UNKNOWN | UNKNOWN | 5679 |
+| Bh LII | 51 | 4f10 | 5I&lt;8&gt; | UNKNOWN | UNKNOWN | UNKNOWN | 5680 |
+| Bh LIII | 52 | 4f9 | 6H*&lt;15/2&gt; | UNKNOWN | UNKNOWN | UNKNOWN | 5681 |
+| Bh LIV | 53 | 4f8 | 7F&lt;6&gt; | UNKNOWN | UNKNOWN | UNKNOWN | 5682 |
+| Bh LV | 54 | 4f7 | 8S*&lt;7/2&gt; | UNKNOWN | UNKNOWN | UNKNOWN | 5683 |
+| Bh LVI | 55 | 4f6 | 7F0 | UNKNOWN | UNKNOWN | UNKNOWN | 5684 |
+| Bh LVII | 56 | 4f5 | 6H*&lt;5/2&gt; | UNKNOWN | UNKNOWN | UNKNOWN | 5685 |
+| Bh LVIII | 57 | 4f4 | 5I&lt;4&gt; | UNKNOWN | UNKNOWN | UNKNOWN | 5686 |
+| Bh LIX | 58 | 4f3 | 4I*&lt;9/2&gt; | UNKNOWN | UNKNOWN | UNKNOWN | 5687 |
+| Bh LX | 59 | 4f2 | 3H&lt;4&gt; | UNKNOWN | UNKNOWN | UNKNOWN | 5688 |
+| Bh LXI | 60 | 4f | 2F*&lt;5/2&gt; | UNKNOWN | UNKNOWN | UNKNOWN | 5689 |
+| Bh LXII | 61 | 4d10 | 1S0 | (4216) | 12 | THEORETICAL | 5690 |
+| Bh LXIII | 62 | 4d9 | 2D&lt;5/2&gt; | (4301) | 15 | THEORETICAL | 5691 |
+| Bh LXIV | 63 | 4d8 | 3F&lt;4&gt; | (4390) | 19 | THEORETICAL | 5692 |
+| Bh LXV | 64 | 4d7 | 4F&lt;9/2&gt; | (4486) | 24 | THEORETICAL | 5693 |
+| Bh LXVI | 65 | 4d6 | 5D&lt;4&gt; | (4580) | 30 | THEORETICAL | 5694 |
+| Bh LXVII | 66 | 4d-4.4d+ | (0,5/2)&lt;5/2&gt; | (4660) | 40 | THEORETICAL | 5695 |
+| Bh LXVIII | 67 | 4d4 | 5D0 | (4890) | 40 | THEORETICAL | 5696 |
+| Bh LXIX | 68 | 4d3 | 4F&lt;3/2&gt; | (4980) | 50 | THEORETICAL | 5697 |
+| Bh LXX | 69 | 4d2 | 3F&lt;2&gt; | (5080) | 50 | THEORETICAL | 5698 |
+| Bh LXXI | 70 | 4d | 2D&lt;3/2&gt; | (5170) | 60 | THEORETICAL | 5699 |
+| Bh LXXII | 71 | 4p6 | 1S0 | (5550) | 60 | THEORETICAL | 5700 |
+| Bh LXXIII | 72 | 4p5 | 2P*&lt;3/2&gt; | (5640) | 70 | THEORETICAL | 5701 |
+| Bh LXXIV | 73 | 4p4 | 3P&lt;2&gt; | (5740) | 90 | THEORETICAL | 5702 |
+| Bh LXXV | 74 | 4p-2.4p+ | (0,3/2)*&lt;3/2&gt; | (5830) | 90 | THEORETICAL | 5703 |
+| Bh LXXVI | 75 | 4p2 | 3P0 | (6650) | 100 | THEORETICAL | 5704 |
+| Bh LXXVII | 76 | 4p | 2P*&lt;1/2&gt; | (6760) | 110 | THEORETICAL | 5705 |
+| Bh LXXVIII | 77 | 4s2 | 1S0 | (7040) | 120 | THEORETICAL | 5706 |
+| Bh LXXIX | 78 | 4s | 2S&lt;1/2&gt; | (7140) | 120 | THEORETICAL | 5707 |
+| Bh LXXX | 79 | 3d10 | 1S0 | (10930) | 140 | THEORETICAL | 5708 |
+| Bh LXXXI | 80 | 3d9 | 2D&lt;5/2&gt; | (11130) | 150 | THEORETICAL | 5709 |
+| Bh LXXXII | 81 | 3d8 | 3F&lt;4&gt; | (11340) | 160 | THEORETICAL | 5710 |
+| Bh LXXXIII | 82 | 3d7 | 4F&lt;9/2&gt; | (11560) | 170 | THEORETICAL | 5711 |
+| Bh LXXXIV | 83 | 3d-4.3d+2 | (0,4)&lt;4&gt; | (11780) | 190 | THEORETICAL | 5712 |
+| Bh LXXXV | 84 | 3d-4.3d+ | (0,5/2)&lt;5/2&gt; | (11980) | 200 | THEORETICAL | 5713 |
+| Bh LXXXVI | 85 | 3d4 | 5D0 | (12610) | 220 | THEORETICAL | 5714 |
+| Bh LXXXVII | 86 | 3d3 | 4F&lt;3/2&gt; | (12830) | 240 | THEORETICAL | 5715 |
+| Bh LXXXVIII | 87 | 3d2 | 3F&lt;2&gt; | (13070) | 250 | THEORETICAL | 5716 |
+| Bh LXXXIX | 88 | 3d | 2D&lt;3/2&gt; | (13300) | 300 | THEORETICAL | 5717 |
+| Bh XC | 89 | 3p6 | 1S0 | (13900) | 300 | THEORETICAL | 5718 |
+| Bh XCI | 90 | 3p5 | 2P*&lt;3/2&gt; | (14100) | 300 | THEORETICAL | 5719 |
+| Bh XCII | 91 | 3p4 | 3P&lt;2&gt; | (14300) | 300 | THEORETICAL | 5720 |
+| Bh XCIII | 92 | 3p3 | 2P*&lt;3/2&gt; | (14500) | 400 | THEORETICAL | 5721 |
+| Bh XCIV | 93 | 3p2 | 3P0 | (17000) | 400 | THEORETICAL | 5722 |
+| Bh XCV | 94 | 3p | 2P*&lt;1/2&gt; | (17300) | 400 | THEORETICAL | 5723 |
+| Bh XCVI | 95 | 3s2 | 1S0 | (17700) | 400 | THEORETICAL | 5724 |
+| Bh XCVII | 96 | 3s | 2S&lt;1/2&gt; | (18000) | 400 | THEORETICAL | 5725 |
+| Bh XCVIII | 97 | 2p6 | 1S0 | (35200) | 400 | THEORETICAL | 5726 |
+| Bh XCIX | 98 | 2p5 | 2P*&lt;3/2&gt; | (35700) | 500 | THEORETICAL | 5727 |
+| Bh C | 99 | 2p4 | 3P&lt;2&gt; | (36300) | 500 | THEORETICAL | 5728 |
+| Bh CI | 100 | 2p2&lt;1/2&gt;.2p&lt;3/2&gt; | (0,3/2)*&lt;3/2&gt; | (36800) | 500 | THEORETICAL | 5729 |
+| Bh CII | 101 | 2p2 | 3P0 | (46100) | 500 | THEORETICAL | 5730 |
+| Bh CIII | 102 | 2p | 2P*&lt;1/2&gt; | (46900) | 500 | THEORETICAL | 5731 |
+| Bh CIV | 103 | 2s2 | 1S0 | (47800) | 500 | THEORETICAL | 5732 |
+| Bh CV | 104 | 1s2.2s | 2S&lt;1/2&gt; | UNKNOWN | UNKNOWN | UNKNOWN | 5733 |
+| Bh CVI | 105 | 1s2 | 1S0 | (187260) | 12 | THEORETICAL | 5734 |
+| Bh CVII | 106 | 1s | 2S&lt;1/2&gt; | (190329) | 12 | THEORETICAL | 5735 |
+
+## Remaining gaps
+
+Missing charge-state rows: 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28. Blank energies, where present, remain UNKNOWN. The raw bibliography keys allow tracing entries within NIST; the underlying papers have not all received independent claim-level review here. Isotope shifts, excited-state thresholds, material properties and later literature remain separate work.
+
+
+## Ionisation ladder chart
+
+![Discrete ground-state ionisation thresholds by initial charge, coloured by evidence status; logarithmic energy axis.](graphs/0107-Bohrium-Bh-GRAPH-NIST-Ionisation-Ladder.svg)
+
+Generated from the structured evaluation above. Missing energies occupy a separate axis strip, not zero energy. Reported uncertainties are shown where valid on the logarithmic axis; missing uncertainties remain unknown. The source table retains exact notation and source-line locators.
+
+## Calculated energy equivalents
+
+The structured entries include f = E/h and the energy-equivalent vacuum wavelength λ = hc/E, converting eV to joules with the exact elementary charge. The [SI defining constants](../../data/constants/si-defining-constants.yaml) are registered as SRC-000302. Frequency uncertainty propagates linearly; wavelength uncertainty uses the first-order reciprocal derivative. Missing source uncertainty remains UNKNOWN. These are mathematical energy equivalents, not observed spectral lines, universal element frequencies or recoil-corrected photoionisation thresholds. Theoretical and semiempirical input status is retained; floating-point digits do not imply additional precision.

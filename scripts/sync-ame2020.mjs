@@ -1,0 +1,53 @@
+// Add source-bound AME companions without rewriting authored element architecture.
+import {readFileSync,writeFileSync,mkdirSync,existsSync} from 'node:fs';
+import {join,dirname} from 'node:path';
+import {createHash} from 'node:crypto';
+import YAML from 'yaml';
+import {root} from './lib.mjs';
+import {parseAmeMass,parseAmeReactions,joinAmeTables,massSnapshot,reactionSnapshot,metricKeys} from './ame2020.mjs';
+import {parseNubase} from './nubase.mjs';
+const marker='generated-by: sync-ame2020.mjs',read=p=>readFileSync(join(root,p),'utf8'),hash=b=>createHash('sha256').update(b).digest('hex');
+const rows=joinAmeTables(parseAmeMass(read(massSnapshot)),parseAmeReactions(read(reactionSnapshot)));
+const catalogue=JSON.parse(read('data/catalog/elements-baseline.json')).elements;
+const nuclear=new Map(parseNubase(read('data/catalog/sources/nubase_4.mas20.txt')).filter(r=>r.state_index===0).map(r=>[`${r.Z}:${r.A}`,r]));
+const snapshots=[massSnapshot,reactionSnapshot].map(path=>({path,sha256:hash(readFileSync(join(root,path))),source_id:'SRC-000304',url:'https://www-nds.iaea.org/amdc/ame2020/'+path.split('/').at(-1).replace('ame2020-','')}));
+const outputs=[],index=[];
+function add(path,body){if(existsSync(join(root,path))&&!read(path).includes(marker))throw new Error('Refusing to replace authored AME output '+path);outputs.push({path,body});}
+const ref=(Z,A)=>nuclear.has(`${Z}:${A}`)&&Z>=1&&Z<=118?`MAT:${String(Z).padStart(4,'0')}:NUBASE2020:${A}:0`:null;
+const display=m=>m.value===null?'UNKNOWN (*)':`${m.raw} ± ${m.uncertainty_raw||'UNKNOWN'}`;
+for(const e of catalogue){
+ const stem=e.chapterPath.split('/')[1],folder='records/'+stem,selected=rows.filter(r=>r.Z===e.z);
+ if(!selected.length||selected.some(r=>r.symbol!==e.symbol))throw new Error('Missing/wrong element '+e.matId);
+ const dataPath=`${folder}/data/isotopes/${stem}-AME2020-Evaluation.yaml`,chapter=`${folder}/${stem}-Mass-and-Reaction-Evaluation.md`,chart=`${folder}/graphs/${stem}-GRAPH-AME2020-Binding-Energy.svg`;
+ const entries=selected.map(r=>{
+  const nuclearRef=ref(r.Z,r.A);if(!nuclearRef)throw new Error('Missing NUBASE ground-state owner '+e.matId+' '+r.A);
+  return {evaluation_entry_id:`${e.matId}:AME2020:${r.A}:0`,record_id:e.matId,nuclear_state_index:0,isotope_ref:`${e.matId}:ISO:${e.symbol}-${r.A}`,nubase_ground_state_ref:nuclearRef,...r,
+   channel_references:{beta_minus_daughter:{A:r.A,Z:r.Z+1,nubase_ground_state_ref:ref(r.Z+1,r.A)},alpha_daughter:{A:r.A-4,Z:r.Z-2,nubase_ground_state_ref:ref(r.Z-2,r.A-4)},scope:'Reference lookup only; an absent reference is not a fabricated isotope. Daughter state is ground state; observed branches and excited-state feeding are not asserted.'}};
+ });
+ const numeric=Object.fromEntries(metricKeys.map(k=>[k,entries.filter(r=>r[k].value!==null).length]));
+ const data={registry_id:e.matId+':REG:AME2020',record_id:e.matId,schema_version:'1.0.0',record_version:'1.0.0',status:'RESEARCHED-IN-PROGRESS',
+  evaluation:{source_ids:['SRC-000303','SRC-000304'],evaluation_year:2020,publication_year:2021,retrieved:'2026-09-16',snapshots,version:'AME2020 unrounded analysis files, dated 3 March 2021'},
+  interpretation:{scope:'Ground-state evaluated atomic masses and selected linear combinations. Dated evaluation, not a claim of latest research or observed decay.',
+   hash_marker:'AME replaces the decimal point with # for estimates partly based on trends from the mass surface; not a direct measurement. Raw value and uncertainty strings retained.',
+   asterisk:'Source not-calculable quantity -> numeric null, UNKNOWN; does not by itself establish physical non-applicability.',
+   uncertainty:'Source-reported uncertainties retained directly. No quadrature of independent masses substituted; covariance matrix is not supplied by this package.',
+   sign:'Signed energies retained. Positive Q is not proof of observed decay or a branching ratio; negative Q is not a missing value.',
+   alpha_particle:'Q_alpha uses neutral atomic masses including He-4; it is not the emitted alpha-particle kinetic energy or a bare-nucleus mass difference.',
+   helium4_zero:'He-4 Q_alpha = 0 in the source is a bookkeeping identity, not an observed decay to a physical A=0 nucleus.',
+   binding:'AME tabulated atomic-mass convention; not a silently electron-binding-corrected bare nuclear binding energy.',
+   isomers:'NUBASE ground-state reference is explicit. Isomer Q-values and branch-specific excitation corrections are outside this extraction.',
+   coverage:'Mass/reaction part 1 columns selected deliberately; reaction part 2, additional decay channels and newer evaluations remain pending.'},
+  equations:{mass_excess:'Delta = (M_atom - A*u)*c^2',binding_energy_per_nucleon:'B/A = [Z*M(1H) + N*m_n - M_atom(A,Z)]*c^2/A',q_beta_minus:'Q_beta_minus = [M_atom(A,Z) - M_atom(A,Z+1)]*c^2',q_alpha:'Q_alpha = [M_atom(A,Z) - M_atom(A-4,Z-2) - M_atom(4He)]*c^2',separation_two_neutrons:'S_2n = [M_atom(A-2,Z) + 2*m_n - M_atom(A,Z)]*c^2',separation_two_protons:'S_2p = [M_atom(A-2,Z-2) + 2*M_atom(1H) - M_atom(A,Z)]*c^2',application:'Definitions only: stored numbers and their uncertainties are transcribed from the evaluation, not recalculated here.'},
+  coverage:{ground_states:entries.length,numeric_by_metric:numeric,status:'PARTIAL'},entries};
+ add(dataPath,'# '+marker+'\n'+YAML.stringify(data,{lineWidth:120}));
+ const body=`# ${e.name} — Atomic Masses and Reaction Energies\n\n<!-- ${marker} -->\n\n**Dated evaluated data · scientific coverage remains partial.** ${entries.length} ground-state nuclides from AME2020. Values and uncertainties are transcribed from the retained unrounded analysis files; estimated quantities remain labelled.\n\n- [Parent ${e.name} record](${stem}.md) · [NUBASE states and decays](${stem}-Nuclear-Evaluation.md)\n- [Structured data](data/isotopes/${stem}-AME2020-Evaluation.yaml)\n- [Original mass table](../../${massSnapshot}) · [Original reaction table](../../${reactionSnapshot})\n- [AME2020 methods](https://doi.org/10.1088/1674-1137/abddb0) (SRC-000303) · [Tables and definitions](https://doi.org/10.1088/1674-1137/abddaf) (SRC-000304)\n\n## Reading the data\n\nAll table energies and uncertainties are in keV; binding energy is per nucleon. A # replaces a decimal point in the original estimated value. UNKNOWN (*) retains the source's not-calculable entry; it is neither zero nor automatically NOT APPLICABLE. Source lines are one-based in the retained files. Uncertainties remain those published by the evaluation, with no replacement by independent-mass quadrature.\n\nAtomic-mass conventions apply. Qα is total decay energy, not alpha-particle kinetic energy. Positive Q alone does not establish a decay branch, rate or observation. He-4's source Qα of zero is a bookkeeping identity. These tables describe ground-state combinations, not isomer or excited-daughter transitions. Nuclear state and daughter lookups are explicit in the structured companion. The binding quantity follows [Z M(¹H) + N mₙ − M(A,Z)]c²/A; it has not been converted to a bare-nucleus convention.\n\n## Mass and binding table\n\n| Nuclide | N | Atomic mass excess / keV | AME binding per nucleon / keV | Mass-file line |\n|---|---:|---|---|---:|\n`+entries.map(r=>`| ${e.symbol}-${r.A} | ${r.N} | ${display(r.mass_excess)} | ${display(r.binding_energy_per_nucleon)} | ${r.mass_source_line} |`).join('\n')+
+ `\n\n## Q-values and separation energies\n\n| Nuclide | Qβ− / keV | Qα / keV | S₂n / keV | S₂p / keV | Reaction-file line |\n|---|---|---|---|---|---:|\n`+entries.map(r=>`| ${e.symbol}-${r.A} | ${display(r.q_beta_minus)} | ${display(r.q_alpha)} | ${display(r.separation_two_neutrons)} | ${display(r.separation_two_protons)} | ${r.reaction_source_line} |`).join('\n')+
+ `\n\nQβ− comes from the mass-file line in the first table. The other three columns come from the reaction-file line. Definitions and original source strings are retained in the structured data.\n\n## Binding-energy chart\n\n![${e.name}: AME2020 binding energy per nucleon versus mass number, with evaluated and estimated points distinguished.](graphs/${stem}-GRAPH-AME2020-Binding-Energy.svg)\n\nDiscrete source values and source-reported uncertainties. No interpolation, natural-abundance weighting or observed-decay claim is implied. This quantitative chart supplements the 22 separate illustrative panels.\n\n## Remaining review\n\nLater measurements, state-specific decay branches, isomer Q-values, additional reaction channels and full claim-level review remain open. Existing authored values retain their own provenance; this companion does not overwrite them.\n`;
+ add(chapter,body);index.push({mat_id:e.matId,z:e.z,ground_states:entries.length,numeric_by_metric:numeric,data:dataPath,chapter,chart});
+ const nuclearPath=`${folder}/${stem}-Nuclear-Evaluation.md`,text=read(nuclearPath),tag='<!-- ame2020-companion -->';
+ if(!text.includes(tag))outputs.push({path:nuclearPath,body:text.trimEnd()+`\n\n${tag}\n\n[Atomic masses, Q-values and separation energies](${stem}-Mass-and-Reaction-Evaluation.md) are available in the separate AME2020 companion, with ground-state, estimate and uncertainty semantics.\n`});
+}
+for(const {path,body}of outputs){mkdirSync(dirname(join(root,path)),{recursive:true});writeFileSync(join(root,path),body);}
+const result={generated_by:marker,source_ids:['SRC-000303','SRC-000304'],snapshots,ground_states_including_neutron:rows.length,chemical_element_ground_states:rows.filter(r=>r.Z>0).length,neutron:'Retained source row; not mapped to MAT:0000 foundation.',elements:index};
+writeFileSync(join(root,'data/catalog/ame2020-evaluation-index.json'),JSON.stringify(result,null,2)+'\n');
+console.log(JSON.stringify({elements:index.length,ground_states:result.chemical_element_ground_states,numeric_by_metric:Object.fromEntries(metricKeys.map(k=>[k,index.reduce((n,e)=>n+e.numeric_by_metric[k],0)]))}));

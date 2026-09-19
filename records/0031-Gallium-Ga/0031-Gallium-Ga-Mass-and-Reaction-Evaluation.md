@@ -1,0 +1,104 @@
+# Gallium — Atomic Masses and Reaction Energies
+
+<!-- generated-by: sync-ame2020.mjs -->
+
+**Dated evaluated data · scientific coverage remains partial.** 33 ground-state nuclides from AME2020. Values and uncertainties are transcribed from the retained unrounded analysis files; estimated quantities remain labelled.
+
+- [Parent Gallium record](0031-Gallium-Ga.md) · [NUBASE states and decays](0031-Gallium-Ga-Nuclear-Evaluation.md)
+- [Structured data](data/isotopes/0031-Gallium-Ga-AME2020-Evaluation.yaml)
+- [Original mass table](../../data/catalog/sources/ame2020-mass_1.mas20.txt) · [Original reaction table](../../data/catalog/sources/ame2020-rct1.mas20.txt)
+- [AME2020 methods](https://doi.org/10.1088/1674-1137/abddb0) (SRC-000303) · [Tables and definitions](https://doi.org/10.1088/1674-1137/abddaf) (SRC-000304)
+
+## Reading the data
+
+All table energies and uncertainties are in keV; binding energy is per nucleon. A # replaces a decimal point in the original estimated value. UNKNOWN (*) retains the source's not-calculable entry; it is neither zero nor automatically NOT APPLICABLE. Source lines are one-based in the retained files. Uncertainties remain those published by the evaluation, with no replacement by independent-mass quadrature.
+
+Atomic-mass conventions apply. Qα is total decay energy, not alpha-particle kinetic energy. Positive Q alone does not establish a decay branch, rate or observation. He-4's source Qα of zero is a bookkeeping identity. These tables describe ground-state combinations, not isomer or excited-daughter transitions. Nuclear state and daughter lookups are explicit in the structured companion. The binding quantity follows [Z M(¹H) + N mₙ − M(A,Z)]c²/A; it has not been converted to a bare-nucleus convention.
+
+## Mass and binding table
+
+| Nuclide | N | Atomic mass excess / keV | AME binding per nucleon / keV | Mass-file line |
+|---|---:|---|---|---:|
+| Ga-56 | 25 | -3840# ± 500# | 7707# ± 9# | 552 |
+| Ga-57 | 26 | -15410# ± 400# | 7916# ± 7# | 565 |
+| Ga-58 | 27 | -23540# ± 300# | 8059# ± 5# | 578 |
+| Ga-59 | 28 | -33760# ± 170# | 8232# ± 3# | 592 |
+| Ga-60 | 29 | -39590# ± 200# | 8327# ± 3# | 605 |
+| Ga-61 | 30 | -47134.662 ± 37.994 | 8446.4313 ± 0.6228 | 619 |
+| Ga-62 | 31 | -51987.022 ± 0.637 | 8518.6449 ± 0.0103 | 632 |
+| Ga-63 | 32 | -56547.100 ± 1.304 | 8583.9267 ± 0.0207 | 645 |
+| Ga-64 | 33 | -58832.827 ± 1.429 | 8611.6317 ± 0.0223 | 658 |
+| Ga-65 | 34 | -62657.486 ± 0.791 | 8662.1601 ± 0.0122 | 671 |
+| Ga-66 | 35 | -63723.729 ± 1.092 | 8669.3631 ± 0.0166 | 684 |
+| Ga-67 | 36 | -66879.156 ± 1.176 | 8707.5330 ± 0.0176 | 697 |
+| Ga-68 | 37 | -67086.054 ± 1.430 | 8701.2195 ± 0.0210 | 710 |
+| Ga-69 | 38 | -69327.820 ± 1.197 | 8724.5798 ± 0.0174 | 723 |
+| Ga-70 | 39 | -68910.150 ± 1.201 | 8709.2808 ± 0.0172 | 736 |
+| Ga-71 | 40 | -70139.127 ± 0.811 | 8717.6050 ± 0.0114 | 748 |
+| Ga-72 | 41 | -68588.284 ± 0.818 | 8687.0893 ± 0.0114 | 761 |
+| Ga-73 | 42 | -69699.343 ± 1.677 | 8693.8740 ± 0.0230 | 774 |
+| Ga-74 | 43 | -68049.626 ± 2.994 | 8663.1676 ± 0.0405 | 787 |
+| Ga-75 | 44 | -68460.639 ± 0.671 | 8660.7565 ± 0.0089 | 800 |
+| Ga-76 | 45 | -66296.648 ± 1.956 | 8624.5272 ± 0.0257 | 814 |
+| Ga-77 | 46 | -65992.352 ± 2.422 | 8613.3907 ± 0.0315 | 827 |
+| Ga-78 | 47 | -63704.085 ± 1.051 | 8577.1043 ± 0.0135 | 841 |
+| Ga-79 | 48 | -62548.355 ± 1.208 | 8556.0725 ± 0.0153 | 854 |
+| Ga-80 | 49 | -59223.675 ± 2.891 | 8508.4545 ± 0.0361 | 868 |
+| Ga-81 | 50 | -57627.962 ± 3.264 | 8483.3576 ± 0.0403 | 882 |
+| Ga-82 | 51 | -52930.725 ± 2.426 | 8421.0494 ± 0.0296 | 897 |
+| Ga-83 | 52 | -49257.129 ± 2.612 | 8372.5756 ± 0.0315 | 911 |
+| Ga-84 | 53 | -44094.136 ± 29.808 | 8307.5250 ± 0.3549 | 926 |
+| Ga-85 | 54 | -39744.059 ± 37.260 | 8253.5687 ± 0.4384 | 940 |
+| Ga-86 | 55 | -33760# ± 400# | 8182# ± 5# | 955 |
+| Ga-87 | 56 | -28870# ± 500# | 8124# ± 6# | 969 |
+| Ga-88 | 57 | -22390# ± 500# | 8050# ± 6# | 983 |
+
+## Q-values and separation energies
+
+| Nuclide | Qβ− / keV | Qα / keV | S₂n / keV | S₂p / keV | Reaction-file line |
+|---|---|---|---|---|---:|
+| Ga-56 | UNKNOWN (*) | -4385# ± 781# | UNKNOWN (*) | -2822# ± 640# | 551 |
+| Ga-57 | UNKNOWN (*) | -4695# ± 640# | UNKNOWN (*) | -1648# ± 429# | 564 |
+| Ga-58 | -15960# ± 583# | -4725# ± 500# | 35843# ± 583# | -512# ± 300# | 577 |
+| Ga-59 | -17390# ± 434# | -4550# ± 231# | 34493# ± 434# | 1029# ± 170# | 591 |
+| Ga-60 | -12060# ± 361# | -3386# ± 200# | 32193# ± 361# | 2500# ± 200# | 604 |
+| Ga-61 | -13345# ± 302# | -2250.5640 ± 37.9963 | 29517# ± 175# | 5354.1501 ± 37.9965 | 618 |
+| Ga-62 | -9847# ± 140# | -2744.0868 ± 0.7216 | 28539# ± 200# | 8219.7017 ± 1.6724 | 631 |
+| Ga-63 | -9625.8787 ± 37.2826 | -2613.5612 ± 1.4070 | 25555.0735 ± 38.0159 | 9140.9792 ± 1.6140 | 644 |
+| Ga-64 | -4517.3237 ± 3.9905 | -2912.4803 ± 2.1469 | 22988.4409 ± 1.5465 | 10623.2256 ± 1.5464 | 657 |
+| Ga-65 | -6179.2631 ± 2.3046 | -3098.3398 ± 0.9320 | 22253.0230 ± 1.5253 | 11655.5604 ± 0.8138 | 670 |
+| Ga-66 | -2116.6879 ± 2.6376 | -3361.1014 ± 1.1582 | 21033.5382 ± 1.7870 | 12877.2526 ± 1.0555 | 683 |
+| Ga-67 | -4205.4380 ± 4.4066 | -3724.2037 ± 1.1877 | 20364.3056 ± 1.3953 | 14193.4209 ± 1.3145 | 696 |
+| Ga-68 | -107.2555 ± 2.3594 | -4086.5521 ± 1.4057 | 19504.9619 ± 1.4737 | 15405.7074 ± 1.5340 | 709 |
+| Ga-69 | -2227.1455 ± 0.5500 | -4489.0583 ± 1.3579 | 18591.2998 ± 1.6718 | 16586.2083 ± 1.4859 | 722 |
+| Ga-70 | 1651.8861 ± 1.4520 | -5076.7769 ± 1.3635 | 17966.7319 ± 1.8569 | 17921.0493 ± 1.9874 | 735 |
+| Ga-71 | -232.4698 ± 0.0934 | -5244.4890 ± 1.1615 | 16953.9431 ± 1.4442 | 18980.8479 ± 1.6155 | 747 |
+| Ga-72 | 3997.6263 ± 0.8217 | -5446.1568 ± 1.7824 | 15820.7698 ± 1.4512 | 20189.8454 ± 1.3562 | 760 |
+| Ga-73 | 1598.1889 ± 1.6777 | -6388.0384 ± 2.1826 | 15702.8530 ± 1.8625 | 21566.1512 ± 2.2433 | 773 |
+| Ga-74 | 5372.8249 ± 2.9941 | -7498.1613 ± 3.1834 | 15603.9783 ± 3.1038 | 22844.5618 ± 3.3040 | 786 |
+| Ga-75 | 3396.3337 ± 0.6727 | -8174.4206 ± 1.6343 | 14903.9318 ± 1.8058 | 24051.1365 ± 2.0544 | 799 |
+| Ga-76 | 6916.2501 ± 1.9562 | -8938.5575 ± 2.4039 | 14389.6581 ± 3.5764 | 24868.3775 ± 6.4516 | 813 |
+| Ga-77 | 5220.5176 ± 2.4225 | -9429.8235 ± 3.1043 | 13674.3494 ± 2.5130 | 26100.0752 ± 2.5260 | 826 |
+| Ga-78 | 8157.9729 ± 3.6884 | -10122.7886 ± 6.2370 | 13550.0735 ± 2.2204 | 27300.4000 ± 1.3918 | 840 |
+| Ga-79 | 6978.8242 ± 37.1467 | -10503.0519 ± 1.4052 | 12698.6390 ± 2.7064 | 28263.4695 ± 1.7104 | 853 |
+| Ga-80 | 10311.6397 ± 3.5409 | -10666.9630 ± 3.0319 | 11662.2253 ± 3.0754 | 29012.1426 ± 13.6416 | 867 |
+| Ga-81 | 8663.7335 ± 3.8508 | -11190.0495 ± 3.4809 | 11222.2424 ± 3.4774 | 29797.8649 ± 105.0301 | 881 |
+| Ga-82 | 12484.3497 ± 3.2960 | -10566.1672 ± 13.5507 | 9849.6870 ± 3.7688 | 30829# ± 300# | 896 |
+| Ga-83 | 11719.3136 ± 3.5592 | -9274.0056 ± 105.0119 | 7771.8031 ± 4.1751 | 31925# ± 300# | 910 |
+| Ga-84 | 14054.2989 ± 29.9760 | -9840# ± 301# | 7306.0471 ± 29.9064 | 32942# ± 401# | 925 |
+| Ga-85 | 13379.3679 ± 37.4459 | -10259# ± 302# | 6629.5664 ± 37.3512 | 33932# ± 502# | 939 |
+| Ga-86 | 15640# ± 593# | -10455# ± 565# | 5809# ± 401# | 34618# ± 640# | 954 |
+| Ga-87 | 14720# ± 583# | -10904# ± 707# | 5268# ± 502# | UNKNOWN (*) | 968 |
+| Ga-88 | 17129# ± 640# | -11095# ± 707# | 4773# ± 640# | UNKNOWN (*) | 982 |
+
+Qβ− comes from the mass-file line in the first table. The other three columns come from the reaction-file line. Definitions and original source strings are retained in the structured data.
+
+## Binding-energy chart
+
+![Gallium: AME2020 binding energy per nucleon versus mass number, with evaluated and estimated points distinguished.](graphs/0031-Gallium-Ga-GRAPH-AME2020-Binding-Energy.svg)
+
+Discrete source values and source-reported uncertainties. No interpolation, natural-abundance weighting or observed-decay claim is implied. This quantitative chart supplements the 22 separate illustrative panels.
+
+## Remaining review
+
+Later measurements, state-specific decay branches, isomer Q-values, additional reaction channels and full claim-level review remain open. Existing authored values retain their own provenance; this companion does not overwrite them.

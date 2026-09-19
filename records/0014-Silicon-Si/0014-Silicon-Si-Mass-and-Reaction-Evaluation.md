@@ -1,0 +1,86 @@
+# Silicon — Atomic Masses and Reaction Energies
+
+<!-- generated-by: sync-ame2020.mjs -->
+
+**Dated evaluated data · scientific coverage remains partial.** 24 ground-state nuclides from AME2020. Values and uncertainties are transcribed from the retained unrounded analysis files; estimated quantities remain labelled.
+
+- [Parent Silicon record](0014-Silicon-Si.md) · [NUBASE states and decays](0014-Silicon-Si-Nuclear-Evaluation.md)
+- [Structured data](data/isotopes/0014-Silicon-Si-AME2020-Evaluation.yaml)
+- [Original mass table](../../data/catalog/sources/ame2020-mass_1.mas20.txt) · [Original reaction table](../../data/catalog/sources/ame2020-rct1.mas20.txt)
+- [AME2020 methods](https://doi.org/10.1088/1674-1137/abddb0) (SRC-000303) · [Tables and definitions](https://doi.org/10.1088/1674-1137/abddaf) (SRC-000304)
+
+## Reading the data
+
+All table energies and uncertainties are in keV; binding energy is per nucleon. A # replaces a decimal point in the original estimated value. UNKNOWN (*) retains the source's not-calculable entry; it is neither zero nor automatically NOT APPLICABLE. Source lines are one-based in the retained files. Uncertainties remain those published by the evaluation, with no replacement by independent-mass quadrature.
+
+Atomic-mass conventions apply. Qα is total decay energy, not alpha-particle kinetic energy. Positive Q alone does not establish a decay branch, rate or observation. He-4's source Qα of zero is a bookkeeping identity. These tables describe ground-state combinations, not isomer or excited-daughter transitions. Nuclear state and daughter lookups are explicit in the structured companion. The binding quantity follows [Z M(¹H) + N mₙ − M(A,Z)]c²/A; it has not been converted to a bare-nucleus convention.
+
+## Mass and binding table
+
+| Nuclide | N | Atomic mass excess / keV | AME binding per nucleon / keV | Mass-file line |
+|---|---:|---|---|---:|
+| Si-22 | 8 | 33640# ± 500# | 6044# ± 23# | 162 |
+| Si-23 | 9 | 23950# ± 500# | 6554# ± 22# | 171 |
+| Si-24 | 10 | 10745.186 ± 19.472 | 7167.2329 ± 0.8113 | 179 |
+| Si-25 | 11 | 3827.322 ± 10.000 | 7480.1109 ± 0.4000 | 188 |
+| Si-26 | 12 | -7141.003 ± 0.108 | 7924.7083 ± 0.0041 | 196 |
+| Si-27 | 13 | -12384.505 ± 0.107 | 8124.3420 ± 0.0040 | 205 |
+| Si-28 | 14 | -21492.79711 ± 0.00051 | 8447.7445 ± 0.0002 | 214 |
+| Si-29 | 15 | -21895.08154 ± 0.00056 | 8448.6361 ± 0.0002 | 223 |
+| Si-30 | 16 | -24432.962 ± 0.022 | 8520.6549 ± 0.0008 | 233 |
+| Si-31 | 17 | -22949.037 ± 0.043 | 8458.2916 ± 0.0014 | 243 |
+| Si-32 | 18 | -24077.689 ± 0.298 | 8481.4690 ± 0.0093 | 253 |
+| Si-33 | 19 | -20514.328 ± 0.699 | 8361.0596 ± 0.0212 | 263 |
+| Si-34 | 20 | -19991.684 ± 0.801 | 8337.1659 ± 0.0236 | 274 |
+| Si-35 | 21 | -14391.480 ± 35.857 | 8169.5644 ± 1.0245 | 284 |
+| Si-36 | 22 | -12436.125 ± 71.797 | 8112.5199 ± 1.9944 | 295 |
+| Si-37 | 23 | -6571.512 ± 113.809 | 7952.9033 ± 3.0759 | 306 |
+| Si-38 | 24 | -4170.299 ± 104.793 | 7892.8297 ± 2.7577 | 318 |
+| Si-39 | 25 | 2320.352 ± 135.532 | 7730.9793 ± 3.4752 | 330 |
+| Si-40 | 26 | 5666.876 ± 121.991 | 7655.8247 ± 3.0498 | 342 |
+| Si-41 | 27 | 13200# ± 300# | 7482# ± 7# | 354 |
+| Si-42 | 28 | 16840# ± 300# | 7410# ± 7# | 366 |
+| Si-43 | 29 | 24330# ± 400# | 7251# ± 9# | 378 |
+| Si-44 | 30 | 29310# ± 500# | 7156# ± 11# | 390 |
+| Si-45 | 31 | 37090# ± 600# | 7004# ± 13# | 402 |
+
+## Q-values and separation energies
+
+| Nuclide | Qβ− / keV | Qα / keV | S₂n / keV | S₂p / keV | Reaction-file line |
+|---|---|---|---|---|---:|
+| Si-22 | UNKNOWN (*) | UNKNOWN (*) | UNKNOWN (*) | -1584# ± 500# | 161 |
+| Si-23 | UNKNOWN (*) | -10314# ± 504# | UNKNOWN (*) | 1532# ± 500# | 170 |
+| Si-24 | -23275# ± 501# | -9157.4242 ± 19.5610 | 39037# ± 501# | 3432.7702 ± 19.4727 | 178 |
+| Si-25 | -16363# ± 400# | -9501.4448 ± 10.0284 | 36265# ± 500# | 5276.9459 ± 10.0001 | 187 |
+| Si-26 | -18114# ± 196# | -9165.9328 ± 0.1922 | 34028.8250 ± 19.4724 | 7785.3673 ± 0.1079 | 195 |
+| Si-27 | -11725.4730 ± 9.0013 | -9335.7466 ± 0.1120 | 32354.4631 ± 10.0006 | 13769.6654 ± 0.1172 | 204 |
+| Si-28 | -14344.9407 ± 1.1473 | -9984.1348 ± 0.0129 | 30494.4299 ± 0.1076 | 19856.1957 ± 0.0293 | 213 |
+| Si-29 | -4942.2325 ± 0.3589 | -11127.2154 ± 0.0469 | 25653.2124 ± 0.1074 | 21886.4295 ± 0.0472 | 222 |
+| Si-30 | -4232.1065 ± 0.0615 | -10643.3347 ± 0.0364 | 19082.8014 ± 0.0217 | 23990.9590 ± 0.2617 | 232 |
+| Si-31 | 1491.5071 ± 0.0434 | -10787.3590 ± 0.0641 | 17196.5919 ± 0.0434 | 26914.6195 ± 0.3472 | 242 |
+| Si-32 | 227.1872 ± 0.3008 | -11482.6595 ± 0.3961 | 15787.3629 ± 0.2989 | 29774.2588 ± 1.3287 | 252 |
+| Si-33 | 5823.0223 ± 1.2947 | -12326.8839 ± 0.7789 | 13707.9268 ± 0.7000 | 31970.1183 ± 3.1523 | 262 |
+| Si-34 | 4557.0175 ± 1.1395 | -13535.2274 ± 1.5226 | 12056.6310 ± 0.8548 | 33740.7254 ± 3.3572 | 273 |
+| Si-35 | 10466.3291 ± 35.9049 | -13694.2441 ± 35.9889 | 10019.7882 ± 35.8642 | 33932.2951 ± 35.9561 | 283 |
+| Si-36 | 7814.9194 ± 72.9852 | -14032.1404 ± 71.8714 | 8587.0774 ± 71.8019 | 35337.3915 ± 72.1276 | 294 |
+| Si-37 | 12424.5003 ± 119.9691 | -13959.3009 ± 113.8405 | 8322.6681 ± 119.3244 | 36789.2402 ± 292.6997 | 305 |
+| Si-38 | 10451.2656 ± 127.4736 | -14918.5391 ± 105.0195 | 7876.8099 ± 127.0294 | 39128.4007 ± 698.1468 | 317 |
+| Si-39 | 15094.9874 ± 176.2324 | -15744.3500 ± 301.8106 | 7250.7722 ± 176.9791 | 40469.0679 ± 711.9665 | 329 |
+| Si-40 | 13806.0653 ± 147.8912 | -17138.1994 ± 700.9344 | 6305.4610 ± 160.8206 | 42985# ± 518# | 341 |
+| Si-41 | 18180# ± 323# | -17436# ± 761# | 5263# ± 329# | 44153# ± 594# | 353 |
+| Si-42 | 15748# ± 315# | -19659# ± 586# | 4970# ± 324# | 47288# ± 583# | 365 |
+| Si-43 | 19289# ± 500# | -20871# ± 650# | 5013# ± 500# | 48348# ± 640# | 377 |
+| Si-44 | 18200# ± 640# | -22664# ± 707# | 3672# ± 583# | UNKNOWN (*) | 389 |
+| Si-45 | 21130# ± 781# | -23435# ± 781# | 3382# ± 721# | UNKNOWN (*) | 401 |
+
+Qβ− comes from the mass-file line in the first table. The other three columns come from the reaction-file line. Definitions and original source strings are retained in the structured data.
+
+## Binding-energy chart
+
+![Silicon: AME2020 binding energy per nucleon versus mass number, with evaluated and estimated points distinguished.](graphs/0014-Silicon-Si-GRAPH-AME2020-Binding-Energy.svg)
+
+Discrete source values and source-reported uncertainties. No interpolation, natural-abundance weighting or observed-decay claim is implied. This quantitative chart supplements the 22 separate illustrative panels.
+
+## Remaining review
+
+Later measurements, state-specific decay branches, isomer Q-values, additional reaction channels and full claim-level review remain open. Existing authored values retain their own provenance; this companion does not overwrite them.

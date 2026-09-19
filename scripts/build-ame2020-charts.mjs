@@ -1,0 +1,11 @@
+import {readFileSync,writeFileSync,mkdirSync} from 'node:fs';
+import {join} from 'node:path';
+import {createHash} from 'node:crypto';
+import {spawnSync} from 'node:child_process';
+import YAML from 'yaml';
+import {root} from './lib.mjs';
+const index=JSON.parse(readFileSync(join(root,'data/catalog/ame2020-evaluation-index.json'),'utf8'));
+const rows=index.elements.map(e=>{const raw=readFileSync(join(root,e.data),'utf8').replace(/\r\n/g,'\n'),d=YAML.parse(raw);return {record_id:e.mat_id,stem:e.data.split('/')[1],z:e.z,input:e.data,input_sha256:createHash('sha256').update(raw).digest('hex'),chart:e.chart,entries:d.entries.map(r=>({A:r.A,...r.binding_energy_per_nucleon}))};});
+const input=join(root,'.mat-local/ame2020-chart-input.json');mkdirSync(join(root,'.mat-local'),{recursive:true});writeFileSync(input,JSON.stringify(rows));
+if(!process.argv[2])throw new Error('Pass a Python interpreter with matplotlib');
+const run=spawnSync(process.argv[2],[join(root,'scripts/plot-ame2020.py'),input,root],{stdio:'inherit'});if(run.status!==0)process.exitCode=run.status||1;

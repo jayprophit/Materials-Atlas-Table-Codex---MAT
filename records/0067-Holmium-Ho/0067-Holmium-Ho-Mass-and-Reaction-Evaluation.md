@@ -1,0 +1,116 @@
+# Holmium — Atomic Masses and Reaction Energies
+
+<!-- generated-by: sync-ame2020.mjs -->
+
+**Dated evaluated data · scientific coverage remains partial.** 39 ground-state nuclides from AME2020. Values and uncertainties are transcribed from the retained unrounded analysis files; estimated quantities remain labelled.
+
+- [Parent Holmium record](0067-Holmium-Ho.md) · [NUBASE states and decays](0067-Holmium-Ho-Nuclear-Evaluation.md)
+- [Structured data](data/isotopes/0067-Holmium-Ho-AME2020-Evaluation.yaml)
+- [Original mass table](../../data/catalog/sources/ame2020-mass_1.mas20.txt) · [Original reaction table](../../data/catalog/sources/ame2020-rct1.mas20.txt)
+- [AME2020 methods](https://doi.org/10.1088/1674-1137/abddb0) (SRC-000303) · [Tables and definitions](https://doi.org/10.1088/1674-1137/abddaf) (SRC-000304)
+
+## Reading the data
+
+All table energies and uncertainties are in keV; binding energy is per nucleon. A # replaces a decimal point in the original estimated value. UNKNOWN (*) retains the source's not-calculable entry; it is neither zero nor automatically NOT APPLICABLE. Source lines are one-based in the retained files. Uncertainties remain those published by the evaluation, with no replacement by independent-mass quadrature.
+
+Atomic-mass conventions apply. Qα is total decay energy, not alpha-particle kinetic energy. Positive Q alone does not establish a decay branch, rate or observation. He-4's source Qα of zero is a bookkeeping identity. These tables describe ground-state combinations, not isomer or excited-daughter transitions. Nuclear state and daughter lookups are explicit in the structured companion. The binding quantity follows [Z M(¹H) + N mₙ − M(A,Z)]c²/A; it has not been converted to a bare-nucleus convention.
+
+## Mass and binding table
+
+| Nuclide | N | Atomic mass excess / keV | AME binding per nucleon / keV | Mass-file line |
+|---|---:|---|---|---:|
+| Ho-140 | 73 | -29317# ± 500# | 7906# ± 4# | 1837 |
+| Ho-141 | 74 | -34364# ± 401# | 7943# ± 3# | 1854 |
+| Ho-142 | 75 | -37250# ± 401# | 7965# ± 3# | 1871 |
+| Ho-143 | 76 | -42048# ± 298# | 7999# ± 2# | 1888 |
+| Ho-144 | 77 | -44609.521 ± 8.477 | 8017.0977 ± 0.0589 | 1905 |
+| Ho-145 | 78 | -49120.113 ± 7.452 | 8048.5792 ± 0.0514 | 1923 |
+| Ho-146 | 79 | -51238.227 ± 6.587 | 8063.2426 ± 0.0451 | 1940 |
+| Ho-147 | 80 | -55757.101 ± 5.001 | 8094.0381 ± 0.0340 | 1957 |
+| Ho-148 | 81 | -57991.166 ± 83.834 | 8108.9797 ± 0.5664 | 1973 |
+| Ho-149 | 82 | -61645.854 ± 11.985 | 8133.2550 ± 0.0804 | 1990 |
+| Ho-150 | 83 | -61945.892 ± 14.168 | 8134.8423 ± 0.0945 | 2007 |
+| Ho-151 | 84 | -63622.746 ± 8.298 | 8145.5267 ± 0.0550 | 2024 |
+| Ho-152 | 85 | -63604.636 ± 12.528 | 8144.9193 ± 0.0824 | 2041 |
+| Ho-153 | 86 | -65012.074 ± 5.066 | 8153.6372 ± 0.0331 | 2057 |
+| Ho-154 | 87 | -64639.378 ± 8.216 | 8150.6825 ± 0.0534 | 2074 |
+| Ho-155 | 88 | -66039.799 ± 17.470 | 8159.2055 ± 0.1127 | 2090 |
+| Ho-156 | 89 | -65538.403 ± 38.424 | 8155.4280 ± 0.2463 | 2107 |
+| Ho-157 | 90 | -66832.862 ± 23.469 | 8163.1373 ± 0.1495 | 2124 |
+| Ho-158 | 91 | -66187.396 ± 27.106 | 8158.4709 ± 0.1716 | 2141 |
+| Ho-159 | 92 | -67329.620 ± 3.045 | 8165.1066 ± 0.0192 | 2158 |
+| Ho-160 | 93 | -66382.425 ± 15.016 | 8158.6004 ± 0.0939 | 2175 |
+| Ho-161 | 94 | -67196.294 ± 2.151 | 8163.1134 ± 0.0134 | 2192 |
+| Ho-162 | 95 | -66040.563 ± 3.102 | 8155.4126 ± 0.0192 | 2209 |
+| Ho-163 | 96 | -66378.027 ± 0.693 | 8156.9670 ± 0.0043 | 2226 |
+| Ho-164 | 97 | -64980.517 ± 1.390 | 8147.9234 ± 0.0085 | 2243 |
+| Ho-165 | 98 | -64898.017 ± 0.786 | 8146.9591 ± 0.0048 | 2260 |
+| Ho-166 | 99 | -63070.339 ± 0.786 | 8135.4933 ± 0.0047 | 2277 |
+| Ho-167 | 100 | -62279.459 ± 5.189 | 8130.3732 ± 0.0311 | 2294 |
+| Ho-168 | 101 | -60059.231 ± 30.001 | 8116.8061 ± 0.1786 | 2311 |
+| Ho-169 | 102 | -58796.010 ± 20.048 | 8109.0622 ± 0.1186 | 2328 |
+| Ho-170 | 103 | -56237.514 ± 50.019 | 8093.7902 ± 0.2942 | 2345 |
+| Ho-171 | 104 | -54517.822 ± 600.002 | 8083.6021 ± 3.5088 | 2362 |
+| Ho-172 | 105 | -51484# ± 196# | 8066# ± 1# | 2379 |
+| Ho-173 | 106 | -49351# ± 298# | 8054# ± 2# | 2395 |
+| Ho-174 | 107 | -45870# ± 300# | 8034# ± 2# | 2411 |
+| Ho-175 | 108 | -43300# ± 400# | 8019# ± 2# | 2426 |
+| Ho-176 | 109 | -39390# ± 500# | 7997# ± 3# | 2441 |
+| Ho-177 | 110 | -36280# ± 500# | 7980# ± 3# | 2456 |
+| Ho-178 | 111 | -32130# ± 500# | 7957# ± 3# | 2471 |
+
+## Q-values and separation energies
+
+| Nuclide | Qβ− / keV | Qα / keV | S₂n / keV | S₂p / keV | Reaction-file line |
+|---|---|---|---|---|---:|
+| Ho-140 | UNKNOWN (*) | 4157# ± 707# | UNKNOWN (*) | 295# ± 583# | 1836 |
+| Ho-141 | UNKNOWN (*) | 4178# ± 567# | UNKNOWN (*) | 812# ± 499# | 1853 |
+| Ho-142 | -9321# ± 641# | 3925# ± 500# | 24076# ± 641# | 1346# ± 895# | 1870 |
+| Ho-143 | -10887# ± 499# | 3658# ± 422# | 23826# ± 499# | 2085# ± 316# | 1887 |
+| Ho-144 | -8002# ± 196# | 3447.8415 ± 800.5328 | 23502# ± 401# | 2627.9406 ± 700.6089 | 1904 |
+| Ho-145 | -9880# ± 200# | 2995.8137 ± 105.5223 | 23215# ± 298# | 3278.8629 ± 51.7713 | 1922 |
+| Ho-146 | -6916.2074 ± 9.3987 | 2896.3793 ± 700.5885 | 22771.3425 ± 10.7348 | 3447.9814 ± 28.7106 | 1939 |
+| Ho-147 | -9149.2869 ± 38.5173 | 2237.1755 ± 51.4756 | 22779.6240 ± 8.9743 | 3935.3503 ± 111.0083 | 1956 |
+| Ho-148 | -6512.1694 ± 84.4583 | 1952.1055 ± 88.3693 | 22895.5755 ± 84.0928 | 4805.4643 ± 95.0824 | 1972 |
+| Ho-149 | -7904.2328 ± 30.4066 | 2328.9233 ± 111.5415 | 22031.3887 ± 12.9868 | 5481.1221 ± 14.4404 | 1989 |
+| Ho-150 | -4114.5689 ± 13.5910 | 3392.8365 ± 46.9677 | 20097.3616 ± 85.0232 | 5986.8871 ± 18.8648 | 2006 |
+| Ho-151 | -5356.4558 ± 18.4420 | 4695.0117 ± 1.8190 | 18119.5286 ± 14.5545 | 6712.0486 ± 8.9500 | 2023 |
+| Ho-152 | -3104.4174 ± 9.8150 | 4507.3953 ± 1.3374 | 17801.3801 ± 18.9078 | 7076.7890 ± 14.5200 | 2040 |
+| Ho-153 | -4545.3918 ± 9.8899 | 4051.6499 ± 3.5355 | 17531.9638 ± 9.6230 | 7966.4752 ± 6.3225 | 2056 |
+| Ho-154 | -2034.4045 ± 9.4621 | 4041.4946 ± 3.6300 | 17177.3788 ± 14.9668 | 8500.0169 ± 40.8327 | 2073 |
+| Ho-155 | -3830.6268 ± 18.4730 | 3158.8259 ± 17.9159 | 17170.3612 ± 18.1666 | 9304.1310 ± 17.8808 | 2089 |
+| Ho-156 | -1326.7201 ± 45.6391 | 2753.9849 ± 55.4572 | 17041.6606 ± 39.2779 | 9959.6383 ± 59.3919 | 2106 |
+| Ho-157 | -3419.2146 ± 33.6675 | 2055.8317 ± 23.7932 | 16935.6997 ± 29.2541 | 10160.3652 ± 25.4391 | 2123 |
+| Ho-158 | -883.5812 ± 37.0236 | 1544.3943 ± 52.7917 | 16791.6297 ± 47.0151 | 10674.3283 ± 27.3512 | 2140 |
+| Ho-159 | -2768.5000 ± 2.0000 | 1495.9032 ± 10.2315 | 16639.3940 ± 23.6606 | 11143.7141 ± 2.9952 | 2157 |
+| Ho-160 | -318.2488 ± 28.5197 | 1283.6691 ± 15.4654 | 16337.6649 ± 30.9729 | 11489.4841 ± 15.0527 | 2174 |
+| Ho-161 | -1994.9954 ± 9.0041 | 1142.6386 ± 2.3303 | 16009.3097 ± 3.6724 | 12241.6544 ± 2.3410 | 2191 |
+| Ho-162 | 293.6478 ± 3.1069 | 1005.4047 ± 3.2959 | 15800.7736 ± 15.3155 | 12782.0312 ± 3.2391 | 2208 |
+| Ho-163 | -1210.6141 ± 4.5755 | 729.6389 ± 1.0936 | 15324.3691 ± 2.1377 | 13494.1914 ± 1.2016 | 2225 |
+| Ho-164 | 962.0559 ± 1.3756 | 431.0405 ± 1.6760 | 15082.5907 ± 3.2127 | 13678.9116 ± 2.4765 | 2242 |
+| Ho-165 | -376.6648 ± 0.9575 | 138.8443 ± 1.3174 | 14662.6266 ± 0.7492 | 14880.2058 ± 4.0694 | 2259 |
+| Ho-166 | 1853.8057 ± 0.7792 | 384.2930 ± 2.1950 | 14232.4579 ± 1.1481 | 15543.2977 ± 2.0221 | 2276 |
+| Ho-167 | 1009.7971 ± 5.1890 | -108.6208 ± 6.5892 | 13524.0774 ± 5.2505 | 16268.5513 ± 5.4128 | 2293 |
+| Ho-168 | 2930.0000 ± 30.0000 | -379.1637 ± 30.0589 | 13131.5284 ± 30.0102 | 16828.3958 ± 30.0368 | 2310 |
+| Ho-169 | 2125.1534 ± 20.0483 | -632.0761 ± 20.1072 | 12659.1872 ± 20.6155 | 17490.8694 ± 20.1407 | 2327 |
+| Ho-170 | 3870.0000 ± 50.0000 | -853.6521 ± 50.0406 | 12320.9187 ± 58.3259 | 18034.2747 ± 50.1946 | 2344 |
+| Ho-171 | 3200.0000 ± 600.0000 | -1059.6558 ± 600.0048 | 11864.4487 ± 600.3333 | 18615# ± 671# | 2361 |
+| Ho-172 | 4999# ± 196# | -1127# ± 196# | 11389# ± 202# | 19352# ± 358# | 2378 |
+| Ho-173 | 4304# ± 357# | -1295# ± 423# | 10975# ± 670# | 20159# ± 499# | 2394 |
+| Ho-174 | 6080# ± 423# | -1585# ± 424# | 10529# ± 358# | 20757# ± 583# | 2410 |
+| Ho-175 | 5352# ± 566# | -1955# ± 565# | 10092# ± 499# | 21368# ± 640# | 2425 |
+| Ho-176 | 7241# ± 641# | -2125# ± 707# | 9663# ± 583# | 21998# ± 707# | 2440 |
+| Ho-177 | 6578# ± 709# | -2195# ± 707# | 9123# ± 640# | UNKNOWN (*) | 2455 |
+| Ho-178 | 8130# ± 778# | -2585# ± 707# | 8883# ± 707# | UNKNOWN (*) | 2470 |
+
+Qβ− comes from the mass-file line in the first table. The other three columns come from the reaction-file line. Definitions and original source strings are retained in the structured data.
+
+## Binding-energy chart
+
+![Holmium: AME2020 binding energy per nucleon versus mass number, with evaluated and estimated points distinguished.](graphs/0067-Holmium-Ho-GRAPH-AME2020-Binding-Energy.svg)
+
+Discrete source values and source-reported uncertainties. No interpolation, natural-abundance weighting or observed-decay claim is implied. This quantitative chart supplements the 22 separate illustrative panels.
+
+## Remaining review
+
+Later measurements, state-specific decay branches, isomer Q-values, additional reaction channels and full claim-level review remain open. Existing authored values retain their own provenance; this companion does not overwrite them.
