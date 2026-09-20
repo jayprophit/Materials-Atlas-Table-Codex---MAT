@@ -168,12 +168,54 @@ export function query({ symbol, mat_id, properties = [] } = {}) {
   };
 }
 
+export function startServer({ port = 8472, host = "127.0.0.1" } = {}) {
+  // Read-only loopback HTTP surface for the Aetherius MAT provider (P10).
+  // Binds loopback only; no writes, no query execution beyond record reads.
+  return import("node:http").then(({ createServer }) => {
+    const server = createServer((req, res) => {
+      const send = (status, obj) => {
+        res.writeHead(status, { "content-type": "application/json" });
+        res.end(JSON.stringify(obj));
+      };
+      try {
+        if (req.method !== "GET") return send(405, { error: "read-only service" });
+        const url = new URL(req.url || "/", "http://localhost");
+        if (url.pathname === "/health") {
+          return send(200, { ok: true, service: `mat-query-service/${SERVICE_VERSION}` });
+        }
+        if (url.pathname === "/query") {
+          const properties = url.searchParams.getAll("property");
+          return send(
+            200,
+            query({
+              symbol: url.searchParams.get("symbol"),
+              mat_id: url.searchParams.get("mat_id"),
+              properties,
+            }),
+          );
+        }
+        if (url.pathname === "/search") {
+          return send(200, { results: search(url.searchParams.get("q") || "") });
+        }
+        return send(404, { error: "unknown endpoint" });
+      } catch (error) {
+        return send(500, { error: String((error && error.message) || error) });
+      }
+    });
+    return new Promise((resolve, reject) => {
+      server.on("error", reject);
+      server.listen(port, host, () => resolve(server));
+    });
+  });
+}
+
 function printUsage() {
   console.log(`mat-query-service/${SERVICE_VERSION}
 Usage:
   node scripts/mat-query-service.mjs --symbol H --property ionization.first [--property atomic_weight]
   node scripts/mat-query-service.mjs --mat-id MAT:0026 --property density
   node scripts/mat-query-service.mjs --search iron [--json]
+  node scripts/mat-query-service.mjs --serve [--port 8472]
 Options: --json (default pretty), --pretty`);
 }
 
@@ -194,6 +236,13 @@ if (isMain) {
   } else if (get("--symbol") || get("--mat-id")) {
     const properties = getAll("--property");
     out(query({ symbol: get("--symbol"), mat_id: get("--mat-id"), properties }));
+  } else if (argv.includes("--serve")) {
+    const portIndex = argv.indexOf("--port");
+    const port = portIndex >= 0 ? Number(argv[portIndex + 1]) || 8472 : 8472;
+    startServer({ port }).then((server) => {
+      const address = server.address();
+      console.log(`mat-query-service listening on 127.0.0.1:${address.port}`);
+    });
   } else {
     printUsage();
     process.exitCode = 2;
