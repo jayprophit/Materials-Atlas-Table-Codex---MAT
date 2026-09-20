@@ -202,6 +202,9 @@ export function startServer({ port = 8472, host = "127.0.0.1" } = {}) {
         return send(500, { error: String((error && error.message) || error) });
       }
     });
+    // Warm the record index before accepting traffic so the first
+    // query does not pay the full scan cost under a client timeout.
+    recordIndex();
     return new Promise((resolve, reject) => {
       server.on("error", reject);
       server.listen(port, host, () => resolve(server));
