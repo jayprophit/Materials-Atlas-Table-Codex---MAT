@@ -54,7 +54,7 @@ No archive files were imported or deleted in this continuation. Earlier verified
 - Studio end-to-end checks: six passed, including exact-byte AME/NIST source delivery, five reviewed panels and representative scientific charts.
 - Reader checks: six passed across Chromium, Firefox and WebKit. The earlier Firefox timeout did not recur. This is automated regression evidence, not complete accessibility certification.
 - Production build passed: 753 chapters and 118 selectable elements, with no unresolved source IDs in the publication projection.
-- The final benchmark result is in `data/quality/benchmark.json`; the benchmark now includes all 15 integrity suites plus the core tests. It measures local search only, not browser/mobile or real-user performance.
+- Final benchmark: all 16 checks passed (15 integrity suites plus the core tests); 270 local-search samples had p95 16.18 ms against a 100 ms budget. See `data/quality/benchmark.json`. This measures local search only, not browser/mobile or real-user performance.
 - Native intake: 352 original objects and the retained input hash re-read and verified; all saved messages accounted for. Keyword/project and scientific content review remain pending.
 - `git diff --check` passed before staging.
 - The Studio dependency audit reported two moderate development-dependency findings for Vitest and its mocker (GHSA-82fw-gwwq-j7x9). The major-version fix is tracked as `MAT-PROGRAMME-DEPENDENCIES`; no forced dependency upgrade was made.
@@ -74,4 +74,6 @@ Logs are private under `.mat-local/*2026-09-25*` and `.mat-local/benchmark/`. Bu
 
 ## Delivery record
 
-Pending final commit and push record for this continuation. Update this section after successful delivery; do not infer a push from a local commit.
+Implementation/publication commit: `5cd78c56905e2f66133be4334676b03cfb97d117` — Publish verified AME2020 coverage and catalogue native project references. It contains 389 changed files and was successfully pushed to origin/main on 25 September. The push also preserved and delivered the pre-existing local `d42b67b` claim-registry commit; no force-push was used.
+
+This checkpoint and the dated batch receipt receive a following metadata commit recording that successful delivery. Resolve current HEAD normally before further work. Raw native-export contents and peer-repository inventories remain private, ignored and uncommitted. `check-book-sync` and clean local/remote alignment were verified after the implementation push.
