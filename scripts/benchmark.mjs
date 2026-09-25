@@ -8,7 +8,7 @@ import {searchDocuments} from '../book/reader-core.mjs';
 const root=join(import.meta.dirname,'..');
 const read=p=>JSON.parse(readFileSync(join(root,p),'utf8'));
 const suites=[['unit',['--test','scripts/tests/*.test.mjs']],
- ...['validate-records','validate-sources','validate-relationships','validate-assets','check-links','check-identifiers','check-book-sync','validate-elements','validate-ionisation','validate-advanced-completion','validate-state-flow'].map(s=>[s,['scripts/'+s+'.mjs']])];
+ ...['validate-records','validate-sources','validate-relationships','validate-assets','check-links','check-identifiers','check-book-sync','validate-elements','validate-ionisation','validate-ionisation-charts','validate-ame2020','validate-advanced-completion','validate-unified-gap-analysis','validate-panel-images','validate-state-flow'].map(s=>[s,['scripts/'+s+'.mjs']])];
 mkdirSync(join(root,'.mat-local/benchmark'),{recursive:true});
 const checks=[];
 for(const [name,args]of suites){

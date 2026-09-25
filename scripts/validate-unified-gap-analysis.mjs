@@ -4,6 +4,8 @@ import {createHash} from 'node:crypto';
 import {root} from './lib.mjs';
 const read=p=>JSON.parse(readFileSync(join(root,p),'utf8'));
 const report=read('data/quality/unified-gap-analysis.json'),ledger=read('data/quality/MAT-TODO.json'),advanced=read('data/quality/advanced-completion-matrix.json'),panels=read('data/quality/panel-image-plan.json');
+const ame=read('data/catalog/ame2020-evaluation-index.json'),ameCharts=read('data/quality/ame2020-chart-manifest.json');
+for(const path of ['data/catalog/ame2020-evaluation-index.json','data/quality/ame2020-chart-manifest.json'])if(!report.inputs.some(i=>i.path===path))throw new Error('Missing AME audit input '+path);
 for(const i of report.inputs)if(createHash('sha256').update(readFileSync(join(root,i.path),'utf8').replace(/\r\n/g,'\n')).digest('hex')!==i.sha256)throw new Error('Stale gap input '+i.path);
 if(report.records.length!==advanced.records.length||new Set(report.records.map(r=>r.record_id)).size!==advanced.records.length)throw new Error('Gap record coverage mismatch');
 const expected=[];
@@ -23,6 +25,11 @@ for(const r of report.records){
  if(!source)throw new Error('Unexpected record '+r.record_id);
  const domains=Object.values(source.domains).filter(d=>d.applicability!=='NOT APPLICABLE');
  if(r.domains_for_review!==domains.length)throw new Error('Domain review count mismatch '+r.record_id);
+ const mass=ame.elements.find(e=>e.mat_id===r.record_id),chart=ameCharts.elements.find(e=>e.record_id===r.record_id);
+ if(!mass){if(r.ame2020!==null)throw new Error('Foundation given chemical-element AME data');continue;}
+ if(r.ame2020?.ground_states!==mass.ground_states||r.ame2020?.data!==mass.data||r.ame2020?.chapter!==mass.chapter||r.ame2020?.chart_status!==chart?.status)throw new Error('AME coverage mismatch '+r.record_id);
+ for(const [key,value]of Object.entries(mass.numeric_by_metric))if(r.ame2020.numeric_by_metric[key]!==value)throw new Error('AME quantity mismatch '+r.record_id+' '+key);
 }
+if(report.summary.ame2020_ground_states!==ame.chemical_element_ground_states||report.summary.ame2020_charts!==ameCharts.elements.length||report.summary.ame2020_numeric_quantities!==ame.elements.reduce((n,e)=>n+Object.values(e.numeric_by_metric).reduce((a,b)=>a+b,0),0))throw new Error('AME gap summary mismatch');
 if(!ledger.tasks.find(t=>t.id==='MAT-PROGRAMME-MASTER')?.title.includes('Complete the authorised MAT master-repository audit'))throw new Error('Explicit owner objective missing');
 console.log(`Unified gap coverage: ${report.records.length} records, ${ledger.tasks.length} unique tracked work items.`);

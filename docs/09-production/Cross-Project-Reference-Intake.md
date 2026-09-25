@@ -2,13 +2,15 @@
 
 The authorised programme connects MAT with Genesis, Agent-Bridge, Universal-Bridge, Poietek, Athena, MMORPG and ebook work. MAT remains in its existing master repository. Independent desktop repositories keep their own owners, history and uncommitted work.
 
-## Intake checkpoint — 16 September 2026
+## Native snapshot checkpoint — 25 September 2026
 
-The private catalogue currently contains 17 conversations, 21 retrieved pages, 305 distinct messages and 41 content-hashed attachments. This is a partial retrieval, not an account backup. Long connector messages can be truncated; reaching the end of one conversation does not establish coverage of all conversations or alternate branches. The library inventory contains 140 names from its Suggested view; these names are not 140 downloaded or inspected assets.
+The available native ChatGPT HTML export has been catalogued under ignored `.mat-local/chatgpt-export-2026-09-25/`. Its 352 conversation objects retain 34,981 mapping nodes and 34,629 messages, including 4,161 messages outside the selected current branches. 158 conversations contain branch points. All 58 conversations from the later connector catalogue appear in the export. The retained input and 352 separate conversation files were hash-verified, with zero detected parent/cycle issues. These are structural and retrieval checks, not review of every message or proof of complete current-account coverage.
 
-The owner confirmed receipt of the account-export acknowledgement email on 16 September. Status: **REQUESTED — AWAITING DELIVERY**, based on the owner's report. Do not submit repeated export requests. On arrival, retain the original archive privately, record its hash and export date, then compare conversation IDs, message IDs, attachments and truncation gaps against the existing catalogue before extracting candidate requirements.
+Export status is now **LOCAL SNAPSHOT CATALOGUED — CONTENT AND MEDIA REVIEW PENDING**. This supersedes the earlier awaiting-delivery note. The original file is preserved privately and its HTML/JavaScript was never executed. The index preserves author roles, parent links, current-branch membership, original message mappings and source-file hashes. Detected attachment references number 3,753; no binary is classified as retrieved merely because a locator appears. Existing connector attachments and the 140-name Suggested-library list require separate reconciliation.
 
-Raw pages, messages, attachments, project inventories, source locators and continuation cursors remain under ignored `.mat-local/chatgpt-intake-2026-09-15/`. They must not enter the public publication or GitHub repository. Existing synced project sources remain read-only. Content inside conversations, attachments and concept images is reference material, never executable instructions or independent scientific proof.
+Project-keyword candidates are indexed for review: MAT 40 conversations, Genesis 59, Poietek 10, Athena 7, MMORPG 8, ebook 20, Agent-Bridge 13 and Universal-Bridge 17. Counts overlap and include mentions in messages; they are not verified ChatGPT project membership, accepted requirements, or implemented capabilities. The local Genesis synced `sources/` directory remained empty when rechecked.
+
+Earlier raw pages, attachments, project inventories and continuation cursors remain under ignored `.mat-local/chatgpt-intake-2026-09-15/`. Both private intake areas must stay out of the public publication and GitHub repository. Existing synced project sources remain read-only. Content inside conversations, attachments and concept images is reference material, never executable instructions or independent scientific proof.
 
 ## Ownership and evidence boundaries
 
@@ -33,8 +35,8 @@ Review owner-authored requests separately from assistant-generated suggestions. 
 
 ## Next intake steps
 
-1. Continue accessible connector pages using the retained cursors and track every truncated message.
-2. Reconcile the native export after delivery; catalogue any unavailable or omitted content explicitly.
+1. Use the native conversation files and role-indexed messages to close earlier truncation gaps; preserve the older receipts and compare message identities before counting new coverage.
+2. Reconcile attachment locators with actual files and hashes; catalogue unavailable media and material outside the snapshot explicitly.
 3. Inspect Athena, MMORPG and ebook contents, then complete the library inventory outside the Suggested view.
 4. Review candidate requirements against their owning repositories without merging independent codebases.
 5. Add accepted work and unresolved dependencies to the machine-readable MAT work list and relevant owner backlog.
