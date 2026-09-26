@@ -59,4 +59,4 @@ An initial link validation failure was repaired: Hydrogen A05 uses the actual do
 
 ## Delivery
 
-Batch receipt: data/quality/ame-scope-batch-2026-09-26.json. Implementation commit and push outcome will be recorded after successful delivery. Prior commits and private intake remain preserved.
+Batch receipt: data/quality/ame-scope-batch-2026-09-26.json. Implementation commit ab81fa5c544d2f255e4591f305a277d38d1865ee changed 730 files and was successfully pushed to origin/main on 26 September. Local and remote matched with a clean worktree after that push. A following metadata commit records this delivery. GitHub reported two moderate dependency alerts; the existing dependency-review task remains open. No force-push was used. Prior commits and private intake remain preserved.
