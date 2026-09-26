@@ -6,7 +6,7 @@
 
 - [Parent Phosphorus record](0015-Phosphorus-P.md) · [NUBASE states and decays](0015-Phosphorus-P-Nuclear-Evaluation.md)
 - [Structured data](data/isotopes/0015-Phosphorus-P-AME2020-Evaluation.yaml)
-- [Original mass table](../../data/catalog/sources/ame2020-mass_1.mas20.txt) · [Original reaction table](../../data/catalog/sources/ame2020-rct1.mas20.txt)
+- [Original mass table](../../data/catalog/sources/ame2020-mass_1.mas20.txt) · [Original reaction table 1](../../data/catalog/sources/ame2020-rct1.mas20.txt) · [Original reaction table 2](../../data/catalog/sources/ame2020-rct2.mas20.txt)
 - [AME2020 methods](https://doi.org/10.1088/1674-1137/abddb0) (SRC-000303) · [Tables and definitions](https://doi.org/10.1088/1674-1137/abddaf) (SRC-000304)
 
 ## Reading the data
@@ -73,7 +73,65 @@ Atomic-mass conventions apply. Qα is total decay energy, not alpha-particle kin
 | P-46 | 22200# ± 640# | -21575# ± 707# | 4412# ± 640# | UNKNOWN (*) | 414 |
 | P-47 | 21610# ± 721# | -21885# ± 848# | 3293# ± 781# | UNKNOWN (*) | 426 |
 
-Qβ− comes from the mass-file line in the first table. The other three columns come from the reaction-file line. Definitions and original source strings are retained in the structured data.
+## Additional decay-energy combinations
+
+| Nuclide | Q₂β− / keV | Q₄β− / keV | Qεp / keV | Qβ−n / keV | Part 1 / part 2 line |
+|---|---|---|---|---|---|
+| P-24 | UNKNOWN (*) | UNKNOWN (*) | 19983# ± 500# | UNKNOWN (*) | 179 / 182 |
+| P-25 | UNKNOWN (*) | UNKNOWN (*) | 12950# ± 400# | UNKNOWN (*) | 188 / 192 |
+| P-26 | UNKNOWN (*) | UNKNOWN (*) | 12600# ± 196# | UNKNOWN (*) | 196 / 200 |
+| P-27 | UNKNOWN (*) | UNKNOWN (*) | 4262.1360 ± 9.0004 | -36411# ± 600# | 205 / 209 |
+| P-28 | -35418# ± 500# | UNKNOWN (*) | 2760.0361 ± 1.1482 | -32710# ± 400# | 214 / 218 |
+| P-29 | -30975# ± 189# | UNKNOWN (*) | -7391.1007 ± 0.3622 | -29097.3700 ± 160.0004 | 223 / 227 |
+| P-30 | -24875.4035 ± 23.8761 | UNKNOWN (*) | -9282.0647 ± 0.3508 | -25177.7505 ± 13.0411 | 233 / 237 |
+| P-31 | -17405.9919 ± 3.4465 | -58701# ± 300# | -15865.3990 ± 1.9355 | -18452.6080 ± 0.2062 | 243 / 247 |
+| P-32 | -10970.1705 ± 0.5631 | -46295# ± 400# | -16643.1387 ± 2.2359 | -13333.6629 ± 0.2327 | 253 / 257 |
+| P-33 | -5334.0103 ± 1.1579 | -33878# ± 200# | -22526.9531 ± 7.2549 | -8393.1313 ± 1.0900 | 263 / 268 |
+| P-34 | -108.6158 ± 0.8119 | -23328# ± 196# | -23340.2905 ± 7.0331 | -6034.1613 ± 0.8104 | 274 / 279 |
+| P-35 | 4155.7224 ± 1.8666 | -13684.9159 ± 1.9355 | -29149.1615 ± 2.8130 | -2997.4378 ± 1.8669 | 284 / 289 |
+| P-36 | 9270.9633 ± 13.1137 | -2833.8631 ± 13.1177 | -27316.2861 ± 15.0373 | 523.8471 ± 13.1137 | 295 / 300 |
+| P-37 | 12765.5393 ± 37.9478 | 5804.1889 ± 37.9479 | -32235.3677 ± 154.2457 | 3596.8105 ± 37.9473 | 306 / 311 |
+| P-38 | 15176.5512 ± 72.5806 | 14179.1949 ± 72.5808 | -31720.1002 ± 194.3087 | 4203.5431 ± 72.5808 | 318 / 323 |
+| P-39 | 17025.5823 ± 112.6580 | 21032.5597 ± 112.6447 | -36533# ± 188# | 6015.2622 ± 112.8728 | 330 / 336 |
+| P-40 | 19418.6291 ± 89.5450 | 25396.3075 ± 83.6069 | -36918# ± 311# | 6952.1643 ± 97.4172 | 342 / 348 |
+| P-41 | 22327.4241 ± 138.4269 | 30579.7813 ± 120.1627 | -41089# ± 323# | 9786.7641 ± 120.2287 | 354 / 360 |
+| P-42 | 25923.6120 ± 112.1642 | 36113.8729 ± 95.0094 | -40787# ± 411# | 12029.1041 ± 95.0977 | 366 / 372 |
+| P-43 | 29200# ± 306# | 41616# ± 300# | -44239# ± 583# | 14607# ± 300# | 378 / 384 |
+| P-44 | 31589# ± 409# | 46891# ± 400# | -44449# ± 721# | 15234# ± 400# | 390 / 396 |
+| P-45 | 34223# ± 518# | 52576# ± 500# | UNKNOWN (*) | 17093# ± 500# | 402 / 409 |
+| P-46 | 36575# ± 510# | 58254# ± 500# | UNKNOWN (*) | 18109# ± 583# | 414 / 421 |
+| P-47 | 38391# ± 632# | 64522# ± 600# | UNKNOWN (*) | 20099# ± 721# | 426 / 433 |
+
+## Single-nucleon separation and reaction energies
+
+| Nuclide | Sₙ / keV | Sₚ / keV | Q(d,α) / keV | Q(p,α) / keV | Q(n,α) / keV | Part 2 line |
+|---|---|---|---|---|---|---:|
+| P-24 | UNKNOWN (*) | -2781# ± 707# | 11091# ± 707# | UNKNOWN (*) | 12577# ± 781# | 182 |
+| P-25 | 21901# ± 640# | -2156# ± 400# | 6951# ± 640# | -8586# ± 640# | 7635# ± 566# | 192 |
+| P-26 | 17288# ± 445# | 143# ± 196# | 10939# ± 197# | -8113# ± 537# | 9871# ± 196# | 200 |
+| P-27 | 19703# ± 196# | 807.0001 ± 9.0000 | 6224.4530 ± 13.4541 | -6540.1627 ± 21.4517 | 5036.1820 ± 9.0035 | 209 |
+| P-28 | 14560.1422 ± 9.0735 | 2052.3222 ± 1.1523 | 10703.9539 ± 1.1523 | -6111.1229 ± 10.0656 | 7414.5197 ± 1.1491 | 218 |
+| P-29 | 17876.3107 ± 1.2021 | 2749.0230 ± 0.3589 | 6142.4632 ± 0.3746 | -4947.7906 ± 0.3747 | 903.6925 ± 0.3649 | 227 |
+| P-30 | 11319.3249 ± 0.3648 | 5594.7454 ± 0.0652 | 12002.7482 ± 0.0652 | -2952.2954 ± 0.1256 | 2642.4099 ± 0.0806 | 237 |
+| P-31 | 12311.0066 ± 0.0652 | 7296.5531 ± 0.0216 | 8165.3441 ± 0.0007 | 1916.3079 ± 0.0007 | -1943.4227 ± 0.0486 | 247 |
+| P-32 | 7935.6500 ± 0.0400 | 8644.8100 ± 0.0590 | 10838.8931 ± 0.0455 | 2454.2604 ± 0.0400 | -450.7118 ± 0.3470 | 257 |
+| P-33 | 10103.7921 ± 1.0907 | 9548.6323 ± 1.1300 | 7322.4940 ± 1.0908 | 2959.6672 ± 1.0902 | -4826.8317 ± 2.2213 | 268 |
+| P-34 | 6282.6692 ± 1.3582 | 11323.3446 ± 1.0700 | 10239.7946 ± 0.8635 | 3264.3910 ± 0.8116 | -3951.5906 ± 2.3779 | 279 |
+| P-35 | 8380.4257 ± 2.0348 | 12155.0962 ± 2.0311 | 6367.3259 ± 1.9929 | 4083.9352 ± 1.8901 | -8112.0386 ± 7.4114 | 289 |
+| P-36 | 3464.5535 ± 13.2432 | 13148.5357 ± 38.1792 | 10451.4464 ± 13.1382 | 5127.3386 ± 13.1323 | -6107.2604 ± 14.8585 | 300 |
+| P-37 | 6816.2857 ± 40.1489 | 13848.8581 ± 81.2090 | 6106.2748 ± 52.2084 | 5859.7269 ± 37.9563 | -10351.9914 ± 38.0061 | 311 |
+| P-38 | 3696.8704 ± 81.9022 | 15339.0237 ± 134.9833 | 8525.3676 ± 102.0921 | 4633.9706 ± 80.9548 | -8751.4329 ± 72.9526 | 323 |
+| P-39 | 6224.3889 ± 134.0028 | 15893.3076 ± 153.8519 | 4507.6835 ± 160.1293 | 4525.5449 ± 133.5803 | -13078.6177 ± 187.1911 | 336 |
+| P-40 | 3435.8718 ± 140.2816 | 17748.5122 ± 159.2455 | 6741.9168 ± 134.0586 | 3296.3780 ± 141.2185 | -12302.3515 ± 198.6908 | 348 |
+| P-41 | 4911.8962 ± 146.3872 | 17935.6145 ± 171.2331 | 3410.6877 ± 181.1301 | 4054.5868 ± 159.4386 | -15803# ± 192# | 360 |
+| P-42 | 1999.7084 ± 153.1857 | 19397# ± 315# | 6135.7732 ± 154.6236 | 3635.5456 ± 165.5168 | -14751# ± 315# | 372 |
+| P-43 | 4123# ± 315# | 19088# ± 424# | 2551# ± 424# | 4237# ± 324# | -18134# ± 424# | 384 |
+| P-44 | 2002# ± 500# | 20509# ± 565# | 4981# ± 500# | 2774# ± 500# | -17834# ± 565# | 396 |
+| P-45 | 3221# ± 640# | 20639# ± 707# | 2341# ± 640# | 3985# ± 583# | -20383# ± 707# | 409 |
+| P-46 | 1191# ± 707# | 21539# ± 781# | 4241# ± 707# | 3375# ± 640# | -19783# ± 781# | 421 |
+| P-47 | 2101# ± 781# | UNKNOWN (*) | 2431# ± 848# | 4364# ± 781# | UNKNOWN (*) | 433 |
+
+Qβ− comes from the mass-file line in the first table. Qα, S₂n, S₂p, Q₂β−, Qεp and Qβ−n come from reaction part 1; Q₄β− and the last table come from part 2. Qεp is electron-capture/proton energy balance; Qβ−n is beta-minus/neutron energy balance. These are evaluated mass combinations, not observations of decay modes, cross sections or reaction rates. Light-nuclide zero entries can be bookkeeping identities, without a physical A=0 residual. Definitions and original source strings are retained in the structured data.
 
 ## Binding-energy chart
 
@@ -83,4 +141,4 @@ Discrete source values and source-reported uncertainties. No interpolation, natu
 
 ## Remaining review
 
-Later measurements, state-specific decay branches, isomer Q-values, additional reaction channels and full claim-level review remain open. Existing authored values retain their own provenance; this companion does not overwrite them.
+Later measurements, state-specific decay branches, isomer Q-values, reaction rates, applicability and full claim-level review remain open. Existing authored values retain their own provenance; this companion does not overwrite them.

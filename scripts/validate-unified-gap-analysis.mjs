@@ -9,9 +9,16 @@ for(const path of ['data/catalog/ame2020-evaluation-index.json','data/quality/am
 for(const i of report.inputs)if(createHash('sha256').update(readFileSync(join(root,i.path),'utf8').replace(/\r\n/g,'\n')).digest('hex')!==i.sha256)throw new Error('Stale gap input '+i.path);
 if(report.records.length!==advanced.records.length||new Set(report.records.map(r=>r.record_id)).size!==advanced.records.length)throw new Error('Gap record coverage mismatch');
 const expected=[];
+const proposed=read('data/catalog/proposed-elements-index.json');
+if(report.proposed_entries.length!==70||report.summary.requested_atomic_numbers!==188||report.summary.required_panels_all_scope!==4136)throw Error('Requested proposed scope missing');
+for(const e of proposed.entries){
+ const d=read(e.path);
+ for(const id of Object.keys(d.domains))expected.push('MAT-PROPOSED-'+String(e.z).padStart(4,'0')+'-DOMAIN-'+id);
+ for(const p of d.visual_plan.panels)expected.push('MAT-PROPOSED-'+String(e.z).padStart(4,'0')+'-PANEL-'+p.panel_id);
+}
 for(const r of advanced.records)for(const [id,d]of Object.entries(r.domains))if(d.applicability!=='NOT APPLICABLE')expected.push(`MAT-${r.mat_id.slice(4)}-DOMAIN-${id}`);
 for(const e of panels.elements)for(const p of e.panels)expected.push(`MAT-${e.record_id.slice(4)}-PANEL-${p.panel_id}`);
-const ids=new Set();for(const t of ledger.tasks){if(ids.has(t.id))throw new Error('Duplicate task '+t.id);ids.add(t.id);if(!t.acceptance||!t.owner)throw new Error('Task lacks acceptance/owner');if(t.kind==='SCIENTIFIC-REVIEW'&&t.status!=='OPEN')throw new Error('Scientific review auto-certified');}
+const ids=new Set();for(const t of ledger.tasks){if(ids.has(t.id))throw new Error('Duplicate task '+t.id);ids.add(t.id);if(!t.acceptance||!t.owner)throw new Error('Task lacks acceptance/owner');if((t.kind==='SCIENTIFIC-REVIEW'||t.kind.startsWith('PROPOSED-'))&&t.status!=='OPEN')throw new Error('Scientific review auto-certified');}
 for(const id of expected)if(!ids.has(id))throw new Error('Missing task '+id);
 for(const e of panels.elements)for(const p of e.panels){
  const task=ledger.tasks.find(t=>t.id===`MAT-${e.record_id.slice(4)}-PANEL-${p.panel_id}`);

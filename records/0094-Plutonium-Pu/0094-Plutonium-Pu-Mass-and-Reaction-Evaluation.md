@@ -6,7 +6,7 @@
 
 - [Parent Plutonium record](0094-Plutonium-Pu.md) · [NUBASE states and decays](0094-Plutonium-Pu-Nuclear-Evaluation.md)
 - [Structured data](data/isotopes/0094-Plutonium-Pu-AME2020-Evaluation.yaml)
-- [Original mass table](../../data/catalog/sources/ame2020-mass_1.mas20.txt) · [Original reaction table](../../data/catalog/sources/ame2020-rct1.mas20.txt)
+- [Original mass table](../../data/catalog/sources/ame2020-mass_1.mas20.txt) · [Original reaction table 1](../../data/catalog/sources/ame2020-rct1.mas20.txt) · [Original reaction table 2](../../data/catalog/sources/ame2020-rct2.mas20.txt)
 - [AME2020 methods](https://doi.org/10.1088/1674-1137/abddb0) (SRC-000303) · [Tables and definitions](https://doi.org/10.1088/1674-1137/abddaf) (SRC-000304)
 
 ## Reading the data
@@ -79,7 +79,71 @@ Atomic-mass conventions apply. Qα is total decay energy, not alpha-particle kin
 | Pu-246 | 401# ± 14# | 4350# ± 200# | 10553.8847 ± 14.9542 | UNKNOWN (*) | 3295 |
 | Pu-247 | 2057# ± 224# | 4305# ± 361# | 10111# ± 201# | UNKNOWN (*) | 3303 |
 
-Qβ− comes from the mass-file line in the first table. The other three columns come from the reaction-file line. Definitions and original source strings are retained in the structured data.
+## Additional decay-energy combinations
+
+| Nuclide | Q₂β− / keV | Q₄β− / keV | Qεp / keV | Qβ−n / keV | Part 1 / part 2 line |
+|---|---|---|---|---|---|
+| Pu-221 | UNKNOWN (*) | UNKNOWN (*) | 5627# ± 316# | UNKNOWN (*) | 3043 / 3086 |
+| Pu-222 | UNKNOWN (*) | UNKNOWN (*) | 3251# ± 308# | UNKNOWN (*) | 3055 / 3098 |
+| Pu-223 | UNKNOWN (*) | UNKNOWN (*) | 4559# ± 304# | UNKNOWN (*) | 3067 / 3110 |
+| Pu-224 | UNKNOWN (*) | UNKNOWN (*) | 1946# ± 306# | -15491# ± 424# | 3080 / 3124 |
+| Pu-225 | UNKNOWN (*) | UNKNOWN (*) | 3269# ± 300# | -15031# ± 500# | 3092 / 3136 |
+| Pu-226 | UNKNOWN (*) | UNKNOWN (*) | 969# ± 201# | -14832# ± 447# | 3104 / 3148 |
+| Pu-227 | UNKNOWN (*) | UNKNOWN (*) | 2152# ± 100# | -14271# ± 316# | 3116 / 3160 |
+| Pu-228 | UNKNOWN (*) | UNKNOWN (*) | -226.1957 ± 24.8048 | -14143# ± 202# | 3127 / 3171 |
+| Pu-229 | UNKNOWN (*) | UNKNOWN (*) | 885.9519 ± 62.0915 | -13526# ± 209# | 3138 / 3182 |
+| Pu-230 | UNKNOWN (*) | UNKNOWN (*) | -1567.4211 ± 15.5446 | -13319.5620 ± 107.3209 | 3148 / 3193 |
+| Pu-231 | -8961# ± 301# | UNKNOWN (*) | -595.4110 ± 22.4766 | -12635# ± 145# | 3158 / 3203 |
+| Pu-232 | -7972# ± 202# | UNKNOWN (*) | -2734.0081 ± 17.0793 | -12120# ± 300# | 3168 / 3213 |
+| Pu-233 | -7241.5039 ± 97.5152 | UNKNOWN (*) | -1846.5808 ± 54.1980 | -11439# ± 305# | 3178 / 3223 |
+| Pu-234 | -6372.4246 ± 18.3318 | UNKNOWN (*) | -3858.0958 ± 7.0815 | -11006# ± 114# | 3188 / 3233 |
+| Pu-235 | -5831# ± 104# | UNKNOWN (*) | -3251.5841 ± 20.4992 | -10351# ± 161# | 3198 / 3243 |
+| Pu-236 | -4951.3119 ± 17.6987 | UNKNOWN (*) | -5306.2452 ± 1.5913 | -9794.4120 ± 52.7955 | 3207 / 3252 |
+| Pu-237 | -4155.4891 ± 74.4156 | -12846.5930 ± 97.3599 | -4641.8908 ± 1.3073 | -9020# ± 119# | 3216 / 3262 |
+| Pu-238 | -3282.0550 ± 12.2417 | -11114# ± 298# | -6515.9559 ± 0.5829 | -8478# ± 59# | 3225 / 3271 |
+| Pu-239 | -2558.7424 ± 150.0674 | -9614# ± 120# | -6008.4834 ± 1.1871 | -7904.5197 ± 58.9009 | 3234 / 3280 |
+| Pu-240 | -1598.9029 ± 1.7335 | -7863.4001 ± 18.0591 | -7736.3198 ± 1.1796 | -7336.3588 ± 1.6706 | 3243 / 3289 |
+| Pu-241 | -746.6547 ± 1.1796 | -6372# ± 167# | -7049.3530 ± 2.6880 | -6626.3122 ± 13.7882 | 3252 / 3298 |
+| Pu-242 | -86.8228 ± 0.7717 | -4670.1055 ± 12.9139 | -8769# ± 196# | -6288.7773 ± 0.7009 | 3261 / 3307 |
+| Pu-243 | 572.6257 ± 2.6363 | -3235# ± 181# | -8154# ± 201# | -5784.7703 ± 2.4392 | 3270 / 3316 |
+| Pu-244 | 1354.1857 ± 2.4925 | -1672.0753 ± 3.4592 | -9963# ± 300# | -5440.3026 ± 2.6458 | 3278 / 3324 |
+| Pu-245 | 2173.6487 ± 13.6506 | -206.9786 ± 13.8166 | UNKNOWN (*) | -4772.2804 ± 13.6826 | 3287 / 3334 |
+| Pu-246 | 2777.8605 ± 14.9806 | 1304.5447 ± 15.0191 | UNKNOWN (*) | -4576.9627 ± 15.0652 | 3295 / 3342 |
+| Pu-247 | 3677# ± 200# | 3101# ± 201# | UNKNOWN (*) | -3855# ± 201# | 3303 / 3350 |
+
+## Single-nucleon separation and reaction energies
+
+| Nuclide | Sₙ / keV | Sₚ / keV | Q(d,α) / keV | Q(p,α) / keV | Q(n,α) / keV | Part 2 line |
+|---|---|---|---|---|---|---:|
+| Pu-221 | UNKNOWN (*) | 1834# ± 302# | 17203# ± 314# | UNKNOWN (*) | 19681# ± 300# | 3086 |
+| Pu-222 | 8941# ± 424# | 2140# ± 361# | 15295# ± 302# | 10487# ± 314# | 17410# ± 300# | 3098 |
+| Pu-223 | 7010# ± 424# | 2443# ± 302# | 16921# ± 361# | 10510# ± 302# | 18753# ± 316# | 3110 |
+| Pu-224 | 8912# ± 424# | 2667# ± 311# | 14717# ± 302# | 10234# ± 361# | 16407# ± 308# | 3124 |
+| Pu-225 | 7051# ± 424# | 3021# ± 301# | 16353# ± 311# | 9890# ± 302# | 17674# ± 304# | 3136 |
+| Pu-226 | 8742# ± 361# | 3277# ± 220# | 14308# ± 202# | 9835# ± 217# | 15231# ± 209# | 3148 |
+| Pu-227 | 6931# ± 224# | 3336# ± 143# | 15863# ± 135# | 9602# ± 104# | 16674# ± 101# | 3160 |
+| Pu-228 | 8733# ± 102# | 3760.1805 ± 80.4379 | 14001.7392 ± 104.6883 | 9353.7662 ± 94.5419 | 14382.2101 ± 25.3284 | 3171 |
+| Pu-229 | 6784.2032 ± 64.9558 | 3719# ± 117# | 15526.7125 ± 97.9857 | 9442.1022 ± 118.7037 | 15712.5285 ± 61.6145 | 3182 |
+| Pu-230 | 8534.0720 ± 62.3108 | 4158.1788 ± 102.1913 | 13818# ± 101# | 9217.2067 ± 78.3175 | 13533.5384 ± 16.6927 | 3193 |
+| Pu-231 | 6694.9109 ± 26.3229 | 4217.0096 ± 59.2437 | 15218.0064 ± 103.5418 | 9347# ± 103# | 14734.9783 ± 25.7993 | 3203 |
+| Pu-232 | 8018.9803 ± 27.7335 | 4551.7428 ± 53.8531 | 13835.1063 ± 57.5174 | 9423.5924 ± 102.5638 | 12796.6971 ± 17.8300 | 3213 |
+| Pu-233 | 6380.3971 ± 56.7266 | 4597# ± 114# | 15138.9562 ± 74.5000 | 9679.2754 ± 77.1851 | 14083.2210 ± 54.3434 | 3223 |
+| Pu-234 | 7773.1673 ± 54.5810 | 4887.5156 ± 51.4189 | 13701# ± 100# | 9590.3552 ± 51.5886 | 12190.4369 ± 7.2164 | 3233 |
+| Pu-235 | 6238.9580 ± 21.5888 | 5061.4303 ± 22.1235 | 14944.6226 ± 54.9044 | 9687# ± 102# | 13219.3033 ± 20.5389 | 3243 |
+| Pu-236 | 7352.1562 ± 20.5391 | 5430.5071 ± 1.7644 | 13657.5097 ± 8.4685 | 9817.0326 ± 50.9882 | 11628.7993 ± 2.4935 | 3252 |
+| Pu-237 | 5881.1640 ± 2.0756 | 5575.4024 ± 50.4315 | 14759.4251 ± 1.5728 | 10000.9119 ± 8.4276 | 12593.1050 ± 1.3392 | 3262 |
+| Pu-238 | 6999.8321 ± 1.3459 | 5997.4221 ± 0.4112 | 13495.8617 ± 50.4138 | 9984.1592 ± 0.8943 | 10890.7681 ± 0.2791 | 3271 |
+| Pu-239 | 5646.2465 ± 0.3079 | 6155.3486 ± 0.3683 | 14427.4276 ± 0.3092 | 10074.1814 ± 50.4144 | 11790.0400 ± 0.2493 | 3280 |
+| Pu-240 | 6534.2186 ± 0.2311 | 6474.6564 ± 0.9526 | 13381.5290 ± 0.2875 | 10117.7752 ± 0.2065 | 10381.5884 ± 0.4778 | 3289 |
+| Pu-241 | 5241.5220 ± 0.0300 | 6650.0846 ± 17.0151 | 14354.9177 ± 0.9529 | 10364.5732 ± 0.2859 | 11293.7854 ± 1.1667 | 3298 |
+| Pu-242 | 6309.5572 ± 0.6814 | 6887.2102 ± 100.0023 | 13111.4544 ± 17.0259 | 10269.9267 ± 1.1578 | 9790.6103 ± 1.0009 | 3307 |
+| Pu-243 | 5033.6330 ± 2.3895 | 6951.2860 ± 200.0143 | 14150.2530 ± 100.0296 | 10302.3877 ± 17.1532 | 10685.4662 ± 3.1023 | 3316 |
+| Pu-244 | 6019.8585 ± 2.9335 | 7289# ± 32# | 13099.9517 ± 200.0160 | 10354.9607 ± 100.0311 | 9255# ± 196# | 3324 |
+| Pu-245 | 4699.1662 ± 13.4164 | 7351# ± 101# | 14083# ± 34# | 10625.3517 ± 200.4654 | 10205# ± 201# | 3334 |
+| Pu-246 | 5854.7185 ± 20.0905 | 7744# ± 201# | 12866# ± 101# | 10453# ± 35# | 8561# ± 300# | 3342 |
+| Pu-247 | 4256# ± 201# | UNKNOWN (*) | 14071# ± 283# | 10834# ± 224# | UNKNOWN (*) | 3350 |
+
+Qβ− comes from the mass-file line in the first table. Qα, S₂n, S₂p, Q₂β−, Qεp and Qβ−n come from reaction part 1; Q₄β− and the last table come from part 2. Qεp is electron-capture/proton energy balance; Qβ−n is beta-minus/neutron energy balance. These are evaluated mass combinations, not observations of decay modes, cross sections or reaction rates. Light-nuclide zero entries can be bookkeeping identities, without a physical A=0 residual. Definitions and original source strings are retained in the structured data.
 
 ## Binding-energy chart
 
@@ -89,4 +153,4 @@ Discrete source values and source-reported uncertainties. No interpolation, natu
 
 ## Remaining review
 
-Later measurements, state-specific decay branches, isomer Q-values, additional reaction channels and full claim-level review remain open. Existing authored values retain their own provenance; this companion does not overwrite them.
+Later measurements, state-specific decay branches, isomer Q-values, reaction rates, applicability and full claim-level review remain open. Existing authored values retain their own provenance; this companion does not overwrite them.

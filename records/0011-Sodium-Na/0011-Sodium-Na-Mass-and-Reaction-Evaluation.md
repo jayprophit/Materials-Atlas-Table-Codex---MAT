@@ -6,7 +6,7 @@
 
 - [Parent Sodium record](0011-Sodium-Na.md) · [NUBASE states and decays](0011-Sodium-Na-Nuclear-Evaluation.md)
 - [Structured data](data/isotopes/0011-Sodium-Na-AME2020-Evaluation.yaml)
-- [Original mass table](../../data/catalog/sources/ame2020-mass_1.mas20.txt) · [Original reaction table](../../data/catalog/sources/ame2020-rct1.mas20.txt)
+- [Original mass table](../../data/catalog/sources/ame2020-mass_1.mas20.txt) · [Original reaction table 1](../../data/catalog/sources/ame2020-rct1.mas20.txt) · [Original reaction table 2](../../data/catalog/sources/ame2020-rct2.mas20.txt)
 - [AME2020 methods](https://doi.org/10.1088/1674-1137/abddb0) (SRC-000303) · [Tables and definitions](https://doi.org/10.1088/1674-1137/abddaf) (SRC-000304)
 
 ## Reading the data
@@ -71,7 +71,63 @@ Atomic-mass conventions apply. Qα is total decay energy, not alpha-particle kin
 | Na-38 | 27831# ± 875# | UNKNOWN (*) | 140# ± 292# | UNKNOWN (*) | 314 |
 | Na-39 | 27201# ± 903# | UNKNOWN (*) | -700# ± 283# | UNKNOWN (*) | 326 |
 
-Qβ− comes from the mass-file line in the first table. The other three columns come from the reaction-file line. Definitions and original source strings are retained in the structured data.
+## Additional decay-energy combinations
+
+| Nuclide | Q₂β− / keV | Q₄β− / keV | Qεp / keV | Qβ−n / keV | Part 1 / part 2 line |
+|---|---|---|---|---|---|
+| Na-17 | UNKNOWN (*) | UNKNOWN (*) | 16755.4268 ± 59.8565 | UNKNOWN (*) | 120 / 123 |
+| Na-18 | UNKNOWN (*) | UNKNOWN (*) | 15797.3195 ± 93.8816 | UNKNOWN (*) | 127 / 130 |
+| Na-19 | UNKNOWN (*) | UNKNOWN (*) | 4767.3009 ± 10.5453 | UNKNOWN (*) | 134 / 137 |
+| Na-20 | UNKNOWN (*) | UNKNOWN (*) | 1048.9626 ± 1.1090 | -33059.2235 ± 60.0113 | 142 / 145 |
+| Na-21 | -29275# ± 600# | UNKNOWN (*) | -9456.3652 ± 0.0517 | -27733.8694 ± 1.8635 | 150 / 153 |
+| Na-22 | -23383# ± 401# | UNKNOWN (*) | -12422.7573 ± 1.8048 | -24156.5602 ± 0.7659 | 158 / 161 |
+| Na-23 | -16277.9246 ± 0.3447 | UNKNOWN (*) | -19612.2004 ± 12.3990 | -17201.1852 ± 0.1593 | 167 / 170 |
+| Na-24 | -8369.0886 ± 0.2285 | -42438# ± 500# | -18992.1352 ± 33.3204 | -11015.5442 ± 0.0357 | 175 / 178 |
+| Na-25 | -441.8397 ± 1.2017 | -29548# ± 400# | -24191.3006 ± 97.6777 | -3495.5535 ± 1.2001 | 184 / 188 |
+| Na-26 | 5349.3590 ± 3.5023 | -17834# ± 196# | -25483.9183 ± 96.5059 | -1739.3165 ± 3.5020 | 192 / 196 |
+| Na-27 | 11679.0731 ± 3.7260 | -4858.7582 ± 9.7415 | -31481.4166 ± 107.0920 | 2625.4350 ± 3.7264 | 201 / 205 |
+| Na-28 | 15862.4042 ± 10.2466 | 6159.5412 ± 10.3105 | -33410.7642 ± 120.6337 | 5526.9609 ± 10.2465 | 210 / 214 |
+| Na-29 | 20887.7562 ± 7.3447 | 19632.8429 ± 7.3454 | -38012.7732 ± 120.5708 | 9628.6213 ± 7.3412 | 219 / 223 |
+| Na-30 | 24338.7863 ± 5.1079 | 28675.5257 ± 4.7274 | -38964.4916 ± 525.3839 | 11015.7117 ± 4.7395 | 229 / 233 |
+| Na-31 | 27196.7402 ± 14.1501 | 36686.5759 ± 13.9724 | -44003# ± 500# | 13056.0859 ± 14.0323 | 239 / 243 |
+| Na-32 | 29739.5200 ± 37.9438 | 42945.0279 ± 37.2598 | -45492# ± 536# | 13690.9853 ± 37.3863 | 249 / 253 |
+| Na-33 | 32277.4950 ± 449.9659 | 50117.4633 ± 449.9130 | UNKNOWN (*) | 16537.6956 ± 449.9235 | 259 / 264 |
+| Na-34 | 34677.7331 ± 599.4201 | 56228.8160 ± 599.4170 | UNKNOWN (*) | 18645.9235 ± 599.4224 | 270 / 275 |
+| Na-35 | 38055# ± 670# | 62689# ± 670# | UNKNOWN (*) | 21437# ± 670# | 280 / 285 |
+| Na-36 | 39952# ± 703# | 66154# ± 687# | UNKNOWN (*) | 22192# ± 738# | 291 / 296 |
+| Na-37 | 43325# ± 710# | 72130# ± 688# | UNKNOWN (*) | 24683# ± 974# | 302 / 307 |
+| Na-38 | 45436# ± 731# | 76527# ± 719# | UNKNOWN (*) | 25623# ± 1000# | 314 / 319 |
+| Na-39 | 48487# ± 801# | 82751# ± 751# | UNKNOWN (*) | 27831# ± 897# | 326 / 332 |
+
+## Single-nucleon separation and reaction energies
+
+| Nuclide | Sₙ / keV | Sₚ / keV | Q(d,α) / keV | Q(p,α) / keV | Q(n,α) / keV | Part 2 line |
+|---|---|---|---|---|---|---:|
+| Na-17 | UNKNOWN (*) | -3443.8336 ± 63.0353 | 5215.0130 ± 89.4470 | UNKNOWN (*) | 8401.5792 ± 72.4208 | 123 |
+| Na-18 | 17752.9059 ± 111.2102 | -1248.5688 ± 93.8810 | 11762.0238 ± 96.0891 | -10313.3267 ± 115.1540 | 14117.6419 ± 94.9194 | 130 |
+| Na-19 | 20179.9254 ± 94.4705 | -322.7961 ± 10.5385 | 7139.7395 ± 10.5411 | -6193.3353 ± 23.0308 | 7900.6049 ± 11.8222 | 137 |
+| Na-20 | 14150.2140 ± 10.5934 | 2190.5361 ± 1.1205 | 12243.6782 ± 1.1670 | -4785.9083 ± 1.1642 | 10545.1894 ± 1.1363 | 145 |
+| Na-21 | 17106.6639 ± 1.1098 | 2431.8963 ± 0.0423 | 6773.8961 ± 0.1656 | -2638.4195 ± 0.3658 | 2588.4323 ± 0.4652 | 153 |
+| Na-22 | 11067.8522 ± 0.1384 | 6738.5862 ± 0.1373 | 12571.3477 ± 0.1318 | -2069.3898 ± 0.2071 | 1952.4558 ± 0.1318 | 161 |
+| Na-23 | 12419.7801 ± 0.1318 | 8794.1088 ± 0.0178 | 6912.7299 ± 0.0385 | 2376.1338 ± 0.0024 | -3865.9881 ± 0.0298 | 170 |
+| Na-24 | 6959.3653 ± 0.0165 | 10552.8268 ± 0.1057 | 10317.6221 ± 0.0242 | 2177.9309 ± 0.0419 | -2723.8933 ± 1.8001 | 178 |
+| Na-25 | 9011.2310 ± 1.2001 | 10695.1423 ± 1.3049 | 6507.0384 ± 1.2045 | 3530.9573 ± 1.2001 | -6504.7873 ± 12.4569 | 188 |
+| Na-26 | 5574.2849 ± 3.7016 | 12114.2485 ± 29.2556 | 9801.6690 ± 3.5390 | 3157.3198 ± 3.5032 | -4499.6416 ± 33.5039 | 196 |
+| Na-27 | 6728.3282 ± 5.1134 | 13287.8752 ± 18.8017 | 7228.5194 ± 29.2834 | 5297.9071 ± 3.7614 | -7415.9042 ± 97.7414 | 205 |
+| Na-28 | 3541.8428 ± 10.9030 | 15328.1963 ± 91.3468 | 9241.3782 ± 21.0857 | 5911.2429 ± 30.7997 | -6676.0799 ± 96.9852 | 214 |
+| Na-29 | 4403.0090 ± 12.6022 | 15908.7153 ± 126.2809 | 6339.8909 ± 91.0663 | 7062.9355 ± 19.8354 | -10348.2590 ± 107.2783 | 223 |
+| Na-30 | 2276.6421 ± 8.7275 | 17214.1043 ± 149.5795 | 7885.7387 ± 126.1562 | 6287.8150 ± 90.8933 | -11012.4060 ± 120.2906 | 233 |
+| Na-31 | 4299.9564 ± 14.7503 | 18323.0595 ± 253.6356 | 4557.0355 ± 150.1563 | 5810.3485 ± 126.8395 | -15511.3624 ± 121.1558 | 243 |
+| Na-32 | 1677.1979 ± 39.7934 | 19830.4134 ± 268.7903 | 6070.8387 ± 255.9768 | 5104.4037 ± 154.0778 | -15863.6366 ± 526.6823 | 253 |
+| Na-33 | 2931.3567 ± 451.4519 | 20508# ± 675# | 3309.3261 ± 522.7623 | 5364.0482 ± 516.2909 | -19534# ± 673# | 264 |
+| Na-34 | 171.3166 ± 749.4802 | 21739# ± 848# | 5392# ± 783# | 5362.5757 ± 655.8659 | -19516# ± 803# | 275 |
+| Na-35 | 1920# ± 300# | 22299# ± 844# | 2412# ± 900# | 5697# ± 838# | UNKNOWN (*) | 285 |
+| Na-36 | -0# ± 150# | UNKNOWN (*) | 3772# ± 857# | 4636# ± 912# | UNKNOWN (*) | 296 |
+| Na-37 | 840# ± 212# | UNKNOWN (*) | UNKNOWN (*) | 5157# ± 857# | UNKNOWN (*) | 307 |
+| Na-38 | -700# ± 200# | UNKNOWN (*) | UNKNOWN (*) | UNKNOWN (*) | UNKNOWN (*) | 319 |
+| Na-39 | -0# ± 200# | UNKNOWN (*) | UNKNOWN (*) | UNKNOWN (*) | UNKNOWN (*) | 332 |
+
+Qβ− comes from the mass-file line in the first table. Qα, S₂n, S₂p, Q₂β−, Qεp and Qβ−n come from reaction part 1; Q₄β− and the last table come from part 2. Qεp is electron-capture/proton energy balance; Qβ−n is beta-minus/neutron energy balance. These are evaluated mass combinations, not observations of decay modes, cross sections or reaction rates. Light-nuclide zero entries can be bookkeeping identities, without a physical A=0 residual. Definitions and original source strings are retained in the structured data.
 
 ## Binding-energy chart
 
@@ -81,4 +137,4 @@ Discrete source values and source-reported uncertainties. No interpolation, natu
 
 ## Remaining review
 
-Later measurements, state-specific decay branches, isomer Q-values, additional reaction channels and full claim-level review remain open. Existing authored values retain their own provenance; this companion does not overwrite them.
+Later measurements, state-specific decay branches, isomer Q-values, reaction rates, applicability and full claim-level review remain open. Existing authored values retain their own provenance; this companion does not overwrite them.

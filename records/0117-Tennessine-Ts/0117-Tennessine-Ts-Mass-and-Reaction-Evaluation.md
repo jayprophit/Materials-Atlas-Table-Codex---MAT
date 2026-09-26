@@ -6,7 +6,7 @@
 
 - [Parent Tennessine record](0117-Tennessine-Ts.md) · [NUBASE states and decays](0117-Tennessine-Ts-Nuclear-Evaluation.md)
 - [Structured data](data/isotopes/0117-Tennessine-Ts-AME2020-Evaluation.yaml)
-- [Original mass table](../../data/catalog/sources/ame2020-mass_1.mas20.txt) · [Original reaction table](../../data/catalog/sources/ame2020-rct1.mas20.txt)
+- [Original mass table](../../data/catalog/sources/ame2020-mass_1.mas20.txt) · [Original reaction table 1](../../data/catalog/sources/ame2020-rct1.mas20.txt) · [Original reaction table 2](../../data/catalog/sources/ame2020-rct2.mas20.txt)
 - [AME2020 methods](https://doi.org/10.1088/1674-1137/abddb0) (SRC-000303) · [Tables and definitions](https://doi.org/10.1088/1674-1137/abddaf) (SRC-000304)
 
 ## Reading the data
@@ -33,7 +33,25 @@ Atomic-mass conventions apply. Qα is total decay energy, not alpha-particle kin
 | Ts-293 | -4374# ± 1053# | 11319.9999 ± 50.0000 | 13368# ± 980# | 4330# ± 1070# | 3589 |
 | Ts-294 | -2923# ± 811# | 11179.9999 ± 40.0000 | 13367# ± 894# | 4781# ± 917# | 3591 |
 
-Qβ− comes from the mass-file line in the first table. The other three columns come from the reaction-file line. Definitions and original source strings are retained in the structured data.
+## Additional decay-energy combinations
+
+| Nuclide | Q₂β− / keV | Q₄β− / keV | Qεp / keV | Qβ−n / keV | Part 1 / part 2 line |
+|---|---|---|---|---|---|
+| Ts-291 | UNKNOWN (*) | UNKNOWN (*) | 1572# ± 840# | UNKNOWN (*) | 3584 / 3635 |
+| Ts-292 | UNKNOWN (*) | UNKNOWN (*) | 2152# ± 993# | UNKNOWN (*) | 3587 / 3638 |
+| Ts-293 | UNKNOWN (*) | UNKNOWN (*) | 539# ± 1046# | UNKNOWN (*) | 3589 / 3640 |
+| Ts-294 | UNKNOWN (*) | UNKNOWN (*) | UNKNOWN (*) | -10477# ± 924# | 3591 / 3642 |
+
+## Single-nucleon separation and reaction energies
+
+| Nuclide | Sₙ / keV | Sₚ / keV | Q(d,α) / keV | Q(p,α) / keV | Q(n,α) / keV | Part 2 line |
+|---|---|---|---|---|---|---:|
+| Ts-291 | UNKNOWN (*) | 663# ± 813# | 17907# ± 780# | UNKNOWN (*) | 17634# ± 802# | 3635 |
+| Ts-292 | 6104# ± 896# | 912# ± 914# | 19304# ± 867# | 14028# ± 837# | 18584# ± 1025# | 3638 |
+| Ts-293 | 7264# ± 1026# | 994# ± 1090# | 17895# ± 997# | 14264# ± 954# | 17283# ± 977# | 3640 |
+| Ts-294 | 6103# ± 978# | 1460# ± 785# | 18975# ± 966# | 14017# ± 860# | 17863# ± 944# | 3642 |
+
+Qβ− comes from the mass-file line in the first table. Qα, S₂n, S₂p, Q₂β−, Qεp and Qβ−n come from reaction part 1; Q₄β− and the last table come from part 2. Qεp is electron-capture/proton energy balance; Qβ−n is beta-minus/neutron energy balance. These are evaluated mass combinations, not observations of decay modes, cross sections or reaction rates. Light-nuclide zero entries can be bookkeeping identities, without a physical A=0 residual. Definitions and original source strings are retained in the structured data.
 
 ## Binding-energy chart
 
@@ -43,4 +61,4 @@ Discrete source values and source-reported uncertainties. No interpolation, natu
 
 ## Remaining review
 
-Later measurements, state-specific decay branches, isomer Q-values, additional reaction channels and full claim-level review remain open. Existing authored values retain their own provenance; this companion does not overwrite them.
+Later measurements, state-specific decay branches, isomer Q-values, reaction rates, applicability and full claim-level review remain open. Existing authored values retain their own provenance; this companion does not overwrite them.

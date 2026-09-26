@@ -6,7 +6,7 @@
 
 - [Parent Argon record](0018-Argon-Ar.md) · [NUBASE states and decays](0018-Argon-Ar-Nuclear-Evaluation.md)
 - [Structured data](data/isotopes/0018-Argon-Ar-AME2020-Evaluation.yaml)
-- [Original mass table](../../data/catalog/sources/ame2020-mass_1.mas20.txt) · [Original reaction table](../../data/catalog/sources/ame2020-rct1.mas20.txt)
+- [Original mass table](../../data/catalog/sources/ame2020-mass_1.mas20.txt) · [Original reaction table 1](../../data/catalog/sources/ame2020-rct1.mas20.txt) · [Original reaction table 2](../../data/catalog/sources/ame2020-rct2.mas20.txt)
 - [AME2020 methods](https://doi.org/10.1088/1674-1137/abddb0) (SRC-000303) · [Tables and definitions](https://doi.org/10.1088/1674-1137/abddaf) (SRC-000304)
 
 ## Reading the data
@@ -77,7 +77,69 @@ Atomic-mass conventions apply. Qα is total decay energy, not alpha-particle kin
 | Ar-53 | 19086# ± 708# | -16025# ± 910# | 2862# ± 805# | UNKNOWN (*) | 502 |
 | Ar-54 | 17710# ± 894# | UNKNOWN (*) | 2203# ± 1000# | UNKNOWN (*) | 514 |
 
-Qβ− comes from the mass-file line in the first table. The other three columns come from the reaction-file line. Definitions and original source strings are retained in the structured data.
+## Additional decay-energy combinations
+
+| Nuclide | Q₂β− / keV | Q₄β− / keV | Qεp / keV | Qβ−n / keV | Part 1 / part 2 line |
+|---|---|---|---|---|---|
+| Ar-29 | UNKNOWN (*) | UNKNOWN (*) | 26607# ± 467# | UNKNOWN (*) | 226 / 230 |
+| Ar-30 | UNKNOWN (*) | UNKNOWN (*) | 17877# ± 179# | UNKNOWN (*) | 236 / 240 |
+| Ar-31 | UNKNOWN (*) | UNKNOWN (*) | 18096# ± 200# | UNKNOWN (*) | 246 / 250 |
+| Ar-32 | UNKNOWN (*) | UNKNOWN (*) | 9553.2081 ± 1.7846 | -44532# ± 300# | 256 / 260 |
+| Ar-33 | -40414# ± 400# | UNKNOWN (*) | 9342.2712 ± 0.4006 | -39445# ± 400# | 266 / 271 |
+| Ar-34 | -33268# ± 300# | UNKNOWN (*) | 918.5945 ± 0.0777 | -33990# ± 200# | 277 / 282 |
+| Ar-35 | -28238# ± 200# | UNKNOWN (*) | -404.5703 ± 0.6807 | -29898# ± 196# | 287 / 292 |
+| Ar-36 | -23780.3761 ± 40.0000 | UNKNOWN (*) | -8674.3035 ± 0.0486 | -27129.9671 ± 0.5130 | 298 / 303 |
+| Ar-37 | -17811.6089 ± 0.6671 | -56118# ± 400# | -7572.5090 ± 0.2732 | -21601.8153 ± 0.3852 | 309 / 314 |
+| Ar-38 | -12656.3234 ± 0.0636 | -46085# ± 300# | -15107.3719 ± 0.2781 | -17985.9435 ± 0.2164 | 321 / 326 |
+| Ar-39 | -5959.4888 ± 5.0354 | -35742# ± 200# | -13669.9505 ± 8.7429 | -12512.7537 ± 5.0038 | 333 / 339 |
+| Ar-40 | -193.4981 ± 0.0206 | -26046.4613 ± 68.2437 | -19166.1994 ± 50.0000 | -9304.0227 ± 0.0040 | 345 / 351 |
+| Ar-41 | 2070.3986 ± 0.3736 | -17369.9710 ± 27.9470 | -17518.6310 ± 3.9972 | -7603.3308 ± 0.3518 | 357 / 363 |
+| Ar-42 | 4124.6153 ± 5.7773 | -9318.3247 ± 5.7816 | -22703.0691 ± 7.0819 | -6934.4473 ± 5.7754 | 369 / 375 |
+| Ar-43 | 6399.0619 ± 5.3145 | -2694.2199 ± 7.8037 | -21661.0341 ± 6.0001 | -5059.0981 ± 5.3107 | 381 / 387 |
+| Ar-44 | 8795.4694 ± 1.6165 | 4875.3258 ± 1.7315 | -27766.7708 ± 5.2164 | -4169.1840 ± 1.6357 | 393 / 399 |
+| Ar-45 | 11041.4290 ± 0.6293 | 9239.4649 ± 0.9804 | -27855.5362 ± 5.2415 | -2060.6216 ± 0.6620 | 405 / 412 |
+| Ar-46 | 13368.3548 ± 3.2269 | 14357.0143 ± 2.3305 | -33720# ± 300# | -1226.9295 ± 2.3864 | 417 / 424 |
+| Ar-47 | 16977.3915 ± 2.5294 | 19570.3379 ± 1.2136 | -33296# ± 400# | 1975.3375 ± 1.4122 | 429 / 436 |
+| Ar-48 | 21869.9408 ± 16.7669 | 26138.0247 ± 16.7671 | -36844# ± 400# | 5285.7367 ± 16.8250 | 441 / 448 |
+| Ar-49 | 24240# ± 400# | 31504# ± 400# | -36739# ± 640# | 7153# ± 400# | 454 / 461 |
+| Ar-50 | 26359# ± 500# | 38202# ± 500# | -40910# ± 768# | 8310# ± 500# | 466 / 473 |
+| Ar-51 | 29843# ± 400# | 43243# ± 400# | UNKNOWN (*) | 11167# ± 400# | 478 / 486 |
+| Ar-52 | 32887# ± 600# | 48098# ± 600# | UNKNOWN (*) | 13065# ± 600# | 490 / 498 |
+| Ar-53 | 36178# ± 700# | 53672# ± 699# | UNKNOWN (*) | 15857# ± 699# | 502 / 510 |
+| Ar-54 | 37721# ± 802# | 58304# ± 800# | UNKNOWN (*) | 16785# ± 808# | 514 / 522 |
+
+## Single-nucleon separation and reaction energies
+
+| Nuclide | Sₙ / keV | Sₚ / keV | Q(d,α) / keV | Q(p,α) / keV | Q(n,α) / keV | Part 2 line |
+|---|---|---|---|---|---|---:|
+| Ar-29 | UNKNOWN (*) | -2410# ± 350# | UNKNOWN (*) | UNKNOWN (*) | 15935# ± 743# | 230 |
+| Ar-30 | 23969# ± 474# | -760# ± 128# | 4512# ± 531# | UNKNOWN (*) | 10227# ± 438# | 240 |
+| Ar-31 | 18817# ± 268# | 638# ± 201# | 8014# ± 275# | -12080# ± 539# | 12899# ± 256# | 250 |
+| Ar-32 | 21597# ± 200# | 2454.7709 ± 3.8744 | 3835.9071 ± 23.9416 | -11358# ± 189# | 6540.4733 ± 13.1605 | 260 |
+| Ar-33 | 15255.2606 ± 1.8146 | 3338.5601 ± 0.6899 | 8361.0646 ± 3.4697 | -9194.7873 ± 23.8794 | 10321.3618 ± 0.4505 | 271 |
+| Ar-34 | 17065.3159 ± 0.4080 | 4663.9237 ± 0.3984 | 5667.2201 ± 0.5670 | -6479.6851 ± 3.4474 | 6310.6409 ± 0.2420 | 282 |
+| Ar-35 | 12740.3140 ± 0.6839 | 5896.1740 ± 0.6813 | 8666.8584 ± 0.7846 | -4848.5277 ± 0.8822 | 8614.6506 ± 0.6803 | 292 |
+| Ar-36 | 15255.5716 ± 0.6808 | 8506.9817 ± 0.0446 | 4919.3505 ± 0.0557 | -4364.1470 ± 0.3917 | 2000.7182 ± 0.0270 | 303 |
+| Ar-37 | 8787.4546 ± 0.2084 | 8714.6419 ± 0.2100 | 8776.6598 ± 0.2099 | -1643.5378 ± 0.2124 | 4630.4129 ± 0.2115 | 314 |
+| Ar-38 | 11838.4660 ± 0.2841 | 10242.2461 ± 0.2017 | 5517.9883 ± 0.1982 | -837.2400 ± 0.1982 | -222.2147 ± 0.1991 | 326 |
+| Ar-39 | 6598.6867 ± 5.0038 | 10733.0505 ± 5.0010 | 9230.1634 ± 5.0003 | 1143.8678 ± 5.0001 | 3068.3477 ± 5.0035 | 339 |
+| Ar-40 | 9869.0227 ± 5.0000 | 12528.6531 ± 1.7321 | 5469.0229 ± 0.0980 | 1585.7069 ± 0.0518 | -2497.0719 ± 0.1983 | 351 |
+| Ar-41 | 6098.9277 ± 0.3473 | 12798.6622 ± 32.0674 | 7443.5154 ± 1.7666 | 1594.6615 ± 0.3609 | -559.8915 ± 7.1804 | 363 |
+| Ar-42 | 9426.4865 ± 5.7858 | 14404.4575 ± 68.9657 | 3845.9474 ± 32.5815 | 241.5951 ± 6.0295 | -5613.6042 ± 50.3324 | 375 |
+| Ar-43 | 5658.4507 ± 7.8450 | 14467.0120 ± 59.8516 | 6008.1879 ± 68.9283 | 412.0629 ± 32.5021 | -3525.5589 ± 6.6369 | 387 |
+| Ar-44 | 8734.7676 ± 5.5407 | 15802.7209 ± 61.8788 | 2869.3165 ± 59.6367 | -502.0135 ± 68.7417 | -8018.2781 ± 4.3939 | 399 |
+| Ar-45 | 5168.8590 ± 1.6644 | 16580.7989 ± 85.5680 | 5099.5163 ± 61.8606 | -74.9763 ± 59.6178 | -6486.6514 ± 2.8411 | 412 |
+| Ar-46 | 8071.7717 ± 2.3844 | 18797.6815 ± 136.1833 | 1418.5255 ± 85.5981 | -747.6892 ± 61.9023 | -11929.3922 ± 5.4888 | 424 |
+| Ar-47 | 3667.3371 ± 2.6248 | 18921.2963 ± 97.2563 | 3606.0775 ± 136.1688 | -24.2454 ± 85.5750 | -10516.6356 ± 5.3551 | 436 |
+| Ar-48 | 5058.9711 ± 16.8106 | 20063# ± 201# | 2090.8288 ± 98.6836 | 771.6727 ± 137.1918 | -13368# ± 300# | 448 |
+| Ar-49 | 2777# ± 400# | 20069# ± 640# | 3231# ± 447# | 1539# ± 411# | -12054# ± 565# | 461 |
+| Ar-50 | 4241# ± 640# | 21259# ± 640# | 1761# ± 707# | 1214# ± 539# | -14784# ± 640# | 473 |
+| Ar-51 | 1331# ± 640# | 21478# ± 565# | 3481# ± 565# | 2655# ± 640# | -13233# ± 640# | 486 |
+| Ar-52 | 2961# ± 721# | 22959# ± 922# | 1632# ± 721# | 2745# ± 721# | -16124# ± 837# | 498 |
+| Ar-53 | -99# ± 921# | 22858# ± 989# | 3211# ± 989# | 3955# ± 805# | UNKNOWN (*) | 510 |
+| Ar-54 | 2302# ± 1062# | UNKNOWN (*) | 911# ± 1063# | 3134# ± 1063# | UNKNOWN (*) | 522 |
+
+Qβ− comes from the mass-file line in the first table. Qα, S₂n, S₂p, Q₂β−, Qεp and Qβ−n come from reaction part 1; Q₄β− and the last table come from part 2. Qεp is electron-capture/proton energy balance; Qβ−n is beta-minus/neutron energy balance. These are evaluated mass combinations, not observations of decay modes, cross sections or reaction rates. Light-nuclide zero entries can be bookkeeping identities, without a physical A=0 residual. Definitions and original source strings are retained in the structured data.
 
 ## Binding-energy chart
 
@@ -87,4 +149,4 @@ Discrete source values and source-reported uncertainties. No interpolation, natu
 
 ## Remaining review
 
-Later measurements, state-specific decay branches, isomer Q-values, additional reaction channels and full claim-level review remain open. Existing authored values retain their own provenance; this companion does not overwrite them.
+Later measurements, state-specific decay branches, isomer Q-values, reaction rates, applicability and full claim-level review remain open. Existing authored values retain their own provenance; this companion does not overwrite them.

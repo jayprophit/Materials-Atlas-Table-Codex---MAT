@@ -4,13 +4,14 @@ import {createHash} from 'node:crypto';
 import YAML from 'yaml';
 import {R,root,validateSchema} from './lib.mjs';
 import {join} from 'node:path';
-import {parseAmeMass,parseAmeReactions,joinAmeTables,massSnapshot,reactionSnapshot,metricKeys} from './ame2020.mjs';
+import {parseAmeMass,parseAmeReactions,joinAmeTables,massSnapshot,reactionSnapshot,reaction2Snapshot,metricKeys} from './ame2020.mjs';
 import {parseNubase} from './nubase.mjs';
 const index=JSON.parse(R('data/catalog/ame2020-evaluation-index.json')),charts=JSON.parse(R('data/quality/ame2020-chart-manifest.json'));
+assert.deepEqual(index.metric_keys,metricKeys);assert.equal(metricKeys.length,15);assert.equal(index.snapshots.length,3);
 const sha=b=>createHash('sha256').update(b).digest('hex'),sources=new Set(YAML.parse(R('data/registries/sources.yaml')).sources.map(s=>s.source_id));
 for(const id of index.source_ids)assert(sources.has(id));
 for(const s of index.snapshots)assert.equal(sha(readFileSync(join(root,s.path))),s.sha256);
-const rows=joinAmeTables(parseAmeMass(R(massSnapshot)),parseAmeReactions(R(reactionSnapshot)));
+const rows=joinAmeTables(parseAmeMass(R(massSnapshot)),parseAmeReactions(R(reactionSnapshot)),parseAmeReactions(R(reaction2Snapshot),2));
 const groundIds=new Set(parseNubase(R('data/catalog/sources/nubase_4.mas20.txt')).filter(r=>r.state_index===0&&r.Z>0).map(r=>`MAT:${String(r.Z).padStart(4,'0')}:NUBASE2020:${r.A}:0`));
 assert.equal(index.elements.length,118);assert.equal(charts.elements.length,118);const ids=new Set();let count=0,numeric=0;
 for(let z=1;z<=118;z++){

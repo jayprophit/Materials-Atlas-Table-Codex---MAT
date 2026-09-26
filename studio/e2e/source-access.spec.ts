@@ -2,7 +2,7 @@ import {test,expect} from '@playwright/test';
 import {readFileSync} from 'node:fs';
 import {createHash} from 'node:crypto';
 test('dated scientific source files resolve as original bytes in the standalone publication',async({request})=>{
- for(const path of ['data/catalog/sources/nist-asd-ionisation-2026-09-14.csv','data/catalog/sources/ame2020-mass_1.mas20.txt','data/catalog/sources/ame2020-rct1.mas20.txt']){
+ for(const path of ['data/catalog/sources/nist-asd-ionisation-2026-09-14.csv','data/catalog/sources/ame2020-mass_1.mas20.txt','data/catalog/sources/ame2020-rct1.mas20.txt','data/catalog/sources/ame2020-rct2.mas20.txt','data/catalog/sources/nist-hydrogen-strong-lines-2026-09-26.html.txt']){
  const expected=readFileSync(new URL('../../'+path,import.meta.url));
  const response=await request.get('/'+path);
  expect(response.status()).toBe(200);
@@ -18,7 +18,9 @@ test('reviewed standalone panels and representative scientific charts are served
  const reviews=JSON.parse(readFileSync(new URL('../../data/quality/panel-image-reviews.json',import.meta.url),'utf8'));
  const charts=JSON.parse(readFileSync(new URL('../../data/quality/ionisation-chart-manifest.json',import.meta.url),'utf8'));
  const massCharts=JSON.parse(readFileSync(new URL('../../data/quality/ame2020-chart-manifest.json',import.meta.url),'utf8'));
+ const balmer=JSON.parse(readFileSync(new URL('../../data/quality/hydrogen-balmer-chart.json',import.meta.url),'utf8'));
  const assets=[...reviews.assets.map((a:any)=>({path:a.asset_path,sha256:a.sha256})),
+  {path:balmer.chart,sha256:balmer.sha256},
   ...charts.elements.filter((a:any)=>['MAT:0001','MAT:0013','MAT:0092','MAT:0110'].includes(a.record_id)).map((a:any)=>({path:a.chart,sha256:a.sha256})),
   ...massCharts.elements.filter((a:any)=>['MAT:0001','MAT:0013','MAT:0092','MAT:0118'].includes(a.record_id)).map((a:any)=>({path:a.chart,sha256:a.sha256}))];
  for(const asset of assets){
@@ -29,4 +31,19 @@ test('reviewed standalone panels and representative scientific charts are served
  }
  const plan=await (await request.get('/data/quality/panel-image-plan.json')).json();
  expect(plan.elements.flatMap((e:any)=>e.panels).filter((p:any)=>p.status==='REVIEWED-STANDALONE-ASSET')).toHaveLength(reviews.assets.length);
+});
+
+test('proposed research entries remain available separately from the recognised periodic table',async({request})=>{
+ const scopeResponse=await request.get('/data/quality/element-scope-0000-0188.json');
+ expect(scopeResponse.status()).toBe(200);expect(scopeResponse.headers()['content-type']).toContain('json');
+ const scope=await scopeResponse.json();expect(scope.entries).toHaveLength(188);
+ expect(scope.summary.recognised).toBe(118);expect(scope.summary.proposed).toBe(70);
+ for(const z of [119,188]){
+  const e=scope.entries.find((r:any)=>r.z===z),response=await request.get('/'+e.path);
+  expect(response.status()).toBe(200);expect(response.headers()['content-type']).toContain('json');
+  const proposed=await response.json();expect(proposed.recognition_status).toBe('PROPOSED-NOT-RECOGNISED');
+  expect(proposed.identity.electron_configuration.value).toBeNull();expect(proposed.visual_plan.panels).toHaveLength(22);
+ }
+ const periodic=await (await request.get('/data/publication/generated/publication-periodic.json')).json();
+ expect(periodic.standard.elements).toHaveLength(118);
 });

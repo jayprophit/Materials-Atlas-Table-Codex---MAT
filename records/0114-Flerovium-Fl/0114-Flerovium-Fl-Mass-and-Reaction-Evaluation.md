@@ -6,7 +6,7 @@
 
 - [Parent Flerovium record](0114-Flerovium-Fl.md) · [NUBASE states and decays](0114-Flerovium-Fl-Nuclear-Evaluation.md)
 - [Structured data](data/isotopes/0114-Flerovium-Fl-AME2020-Evaluation.yaml)
-- [Original mass table](../../data/catalog/sources/ame2020-mass_1.mas20.txt) · [Original reaction table](../../data/catalog/sources/ame2020-rct1.mas20.txt)
+- [Original mass table](../../data/catalog/sources/ame2020-mass_1.mas20.txt) · [Original reaction table 1](../../data/catalog/sources/ame2020-rct1.mas20.txt) · [Original reaction table 2](../../data/catalog/sources/ame2020-rct2.mas20.txt)
 - [AME2020 methods](https://doi.org/10.1088/1674-1137/abddb0) (SRC-000303) · [Tables and definitions](https://doi.org/10.1088/1674-1137/abddaf) (SRC-000304)
 
 ## Reading the data
@@ -41,7 +41,33 @@ Atomic-mass conventions apply. Qα is total decay energy, not alpha-particle kin
 | Fl-290 | -4061# ± 917# | 9856.1659 ± 30.4203 | 12329# ± 1035# | 6777# ± 990# | 3578 |
 | Fl-291 | -2680# ± 1015# | 9705# ± 989# | 12108# ± 866# | UNKNOWN (*) | 3581 |
 
-Qβ− comes from the mass-file line in the first table. The other three columns come from the reaction-file line. Definitions and original source strings are retained in the structured data.
+## Additional decay-energy combinations
+
+| Nuclide | Q₂β− / keV | Q₄β− / keV | Qεp / keV | Qβ−n / keV | Part 1 / part 2 line |
+|---|---|---|---|---|---|
+| Fl-284 | UNKNOWN (*) | UNKNOWN (*) | 153# ± 899# | UNKNOWN (*) | 3556 / 3606 |
+| Fl-285 | UNKNOWN (*) | UNKNOWN (*) | 1228# ± 863# | UNKNOWN (*) | 3560 / 3610 |
+| Fl-286 | UNKNOWN (*) | UNKNOWN (*) | -769# ± 747# | UNKNOWN (*) | 3564 / 3614 |
+| Fl-287 | UNKNOWN (*) | UNKNOWN (*) | 190# ± 933# | UNKNOWN (*) | 3567 / 3617 |
+| Fl-288 | UNKNOWN (*) | UNKNOWN (*) | -1742# ± 1035# | -10903# ± 882# | 3571 / 3621 |
+| Fl-289 | -6992# ± 717# | UNKNOWN (*) | -754# ± 866# | -10272# ± 740# | 3574 / 3624 |
+| Fl-290 | -6297# ± 892# | UNKNOWN (*) | UNKNOWN (*) | -10023# ± 1046# | 3578 / 3629 |
+| Fl-291 | -5744# ± 937# | UNKNOWN (*) | UNKNOWN (*) | -9363# ± 916# | 3581 / 3632 |
+
+## Single-nucleon separation and reaction energies
+
+| Nuclide | Sₙ / keV | Sₚ / keV | Q(d,α) / keV | Q(p,α) / keV | Q(n,α) / keV | Part 2 line |
+|---|---|---|---|---|---|---:|
+| Fl-284 | UNKNOWN (*) | 3073# ± 788# | 15761# ± 768# | 11833# ± 721# | 16479# ± 767# | 3606 |
+| Fl-285 | 5919# ± 770# | 2948# ± 669# | 17080# ± 595# | 12067# ± 568# | 17753# ± 680# | 3610 |
+| Fl-286 | 7398# ± 682# | 3451# ± 950# | 15726# ± 766# | 11907# ± 702# | 15915# ± 825# | 3614 |
+| Fl-287 | 5748# ± 826# | 3317# ± 854# | 16872# ± 991# | 12202# ± 816# | 17160# ± 981# | 3617 |
+| Fl-288 | 7083# ± 981# | 3827# ± 1040# | 15671# ± 964# | 12013# ± 1087# | 15477# ± 915# | 3621 |
+| Fl-289 | 5523# ± 918# | 3793# ± 866# | 16721# ± 872# | 12373# ± 780# | 16662# ± 866# | 3624 |
+| Fl-290 | 6806# ± 867# | 4109# ± 861# | 15472# ± 990# | 12140# ± 995# | 15007# ± 990# | 3629 |
+| Fl-291 | 5302# ± 990# | 4104# ± 842# | 16660# ± 860# | 12394# ± 989# | 16216# ± 989# | 3632 |
+
+Qβ− comes from the mass-file line in the first table. Qα, S₂n, S₂p, Q₂β−, Qεp and Qβ−n come from reaction part 1; Q₄β− and the last table come from part 2. Qεp is electron-capture/proton energy balance; Qβ−n is beta-minus/neutron energy balance. These are evaluated mass combinations, not observations of decay modes, cross sections or reaction rates. Light-nuclide zero entries can be bookkeeping identities, without a physical A=0 residual. Definitions and original source strings are retained in the structured data.
 
 ## Binding-energy chart
 
@@ -51,4 +77,4 @@ Discrete source values and source-reported uncertainties. No interpolation, natu
 
 ## Remaining review
 
-Later measurements, state-specific decay branches, isomer Q-values, additional reaction channels and full claim-level review remain open. Existing authored values retain their own provenance; this companion does not overwrite them.
+Later measurements, state-specific decay branches, isomer Q-values, reaction rates, applicability and full claim-level review remain open. Existing authored values retain their own provenance; this companion does not overwrite them.

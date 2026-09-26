@@ -6,7 +6,7 @@
 
 - [Parent Roentgenium record](0111-Roentgenium-Rg.md) · [NUBASE states and decays](0111-Roentgenium-Rg-Nuclear-Evaluation.md)
 - [Structured data](data/isotopes/0111-Roentgenium-Rg-AME2020-Evaluation.yaml)
-- [Original mass table](../../data/catalog/sources/ame2020-mass_1.mas20.txt) · [Original reaction table](../../data/catalog/sources/ame2020-rct1.mas20.txt)
+- [Original mass table](../../data/catalog/sources/ame2020-mass_1.mas20.txt) · [Original reaction table 1](../../data/catalog/sources/ame2020-rct1.mas20.txt) · [Original reaction table 2](../../data/catalog/sources/ame2020-rct2.mas20.txt)
 - [AME2020 methods](https://doi.org/10.1088/1674-1137/abddb0) (SRC-000303) · [Tables and definitions](https://doi.org/10.1088/1674-1137/abddaf) (SRC-000304)
 
 ## Reading the data
@@ -55,7 +55,47 @@ Atomic-mass conventions apply. Qα is total decay energy, not alpha-particle kin
 | Rg-285 | -1357# ± 785# | 8905# ± 848# | 11793# ± 905# | UNKNOWN (*) | 3557 |
 | Rg-286 | 61# ± 836# | 8630# ± 100# | 11602# ± 678# | UNKNOWN (*) | 3561 |
 
-Qβ− comes from the mass-file line in the first table. The other three columns come from the reaction-file line. Definitions and original source strings are retained in the structured data.
+## Additional decay-energy combinations
+
+| Nuclide | Q₂β− / keV | Q₄β− / keV | Qεp / keV | Qβ−n / keV | Part 1 / part 2 line |
+|---|---|---|---|---|---|
+| Rg-272 | UNKNOWN (*) | UNKNOWN (*) | 4384# ± 404# | UNKNOWN (*) | 3490 / 3539 |
+| Rg-273 | UNKNOWN (*) | UNKNOWN (*) | 2114# ± 629# | UNKNOWN (*) | 3496 / 3545 |
+| Rg-274 | UNKNOWN (*) | UNKNOWN (*) | 2541# ± 473# | UNKNOWN (*) | 3501 / 3550 |
+| Rg-275 | UNKNOWN (*) | UNKNOWN (*) | 856# ± 584# | UNKNOWN (*) | 3506 / 3555 |
+| Rg-276 | UNKNOWN (*) | UNKNOWN (*) | 1331# ± 739# | UNKNOWN (*) | 3511 / 3561 |
+| Rg-277 | UNKNOWN (*) | UNKNOWN (*) | -194# ± 709# | -10024# ± 686# | 3517 / 3567 |
+| Rg-278 | -8509# ± 448# | UNKNOWN (*) | 223# ± 768# | -9883# ± 418# | 3523 / 3573 |
+| Rg-279 | -7738# ± 734# | UNKNOWN (*) | -1334# ± 716# | -9192# ± 608# | 3529 / 3579 |
+| Rg-280 | -7354# ± 665# | UNKNOWN (*) | -988# ± 856# | -9206# ± 663# | 3535 / 3585 |
+| Rg-281 | -6477# ± 830# | UNKNOWN (*) | -2466# ± 979# | -8393# ± 969# | 3540 / 3590 |
+| Rg-282 | -5987# ± 711# | UNKNOWN (*) | -1947# ± 840# | -8277# ± 710# | 3545 / 3595 |
+| Rg-283 | -5183# ± 807# | UNKNOWN (*) | -3364# ± 812# | -7517# ± 872# | 3549 / 3599 |
+| Rg-284 | -4621# ± 731# | UNKNOWN (*) | UNKNOWN (*) | -7438# ± 793# | 3553 / 3603 |
+| Rg-285 | -4038# ± 980# | UNKNOWN (*) | UNKNOWN (*) | -6757# ± 970# | 3557 / 3607 |
+| Rg-286 | -3446# ± 747# | UNKNOWN (*) | UNKNOWN (*) | -6647# ± 683# | 3561 / 3611 |
+
+## Single-nucleon separation and reaction energies
+
+| Nuclide | Sₙ / keV | Sₚ / keV | Q(d,α) / keV | Q(p,α) / keV | Q(n,α) / keV | Part 2 line |
+|---|---|---|---|---|---|---:|
+| Rg-272 | UNKNOWN (*) | 468# ± 253# | 18802# ± 237# | 12802# ± 236# | 19120# ± 389# | 3539 |
+| Rg-273 | 7960# ± 463# | 487# ± 583# | 17643# ± 411# | 13067# ± 401# | 17822# ± 443# | 3545 |
+| Rg-274 | 6344# ± 451# | 962# ± 253# | 19240# ± 473# | 13523# ± 231# | 19158# ± 391# | 3550 |
+| Rg-275 | 7288# ± 493# | 1091# ± 592# | 17820# ± 468# | 14176# ± 616# | 17560# ± 659# | 3555 |
+| Rg-276 | 6080# ± 771# | 1568# ± 715# | 18900# ± 740# | 13965# ± 645# | 18251# ± 759# | 3561 |
+| Rg-277 | 7051# ± 785# | 1421# ± 721# | 17452# ± 580# | 14074# ± 609# | 16804# ± 602# | 3567 |
+| Rg-278 | 5958# ± 609# | 1861# ± 552# | 18692# ± 672# | 13719# ± 517# | 17400# ± 549# | 3573 |
+| Rg-279 | 6870# ± 574# | 1818# ± 662# | 17340# ± 576# | 14046# ± 692# | 16055# ± 679# | 3579 |
+| Rg-280 | 5907# ± 679# | 2427# ± 806# | 18346# ± 737# | 13658# ± 661# | 16524# ± 850# | 3585 |
+| Rg-281 | 6624# ± 939# | 2276# ± 1076# | 17020# ± 982# | 13946# ± 927# | 15213# ± 966# | 3590 |
+| Rg-282 | 5663# ± 972# | 2820# ± 767# | 18132# ± 951# | 13582# ± 844# | 15803# ± 892# | 3595 |
+| Rg-283 | 6433# ± 898# | 2699# ± 742# | 16818# ± 838# | 13924# ± 1009# | 14517# ± 905# | 3599 |
+| Rg-284 | 5481# ± 843# | 3148# ± 707# | 17891# ± 583# | 13561# ± 702# | 15217# ± 781# | 3603 |
+| Rg-285 | 6312# ± 781# | 3019# ± 781# | 16611# ± 781# | 13804# ± 671# | 13921# ± 748# | 3607 |
+| Rg-286 | 5291# ± 755# | UNKNOWN (*) | 17761# ± 678# | 13545# ± 678# | UNKNOWN (*) | 3611 |
+
+Qβ− comes from the mass-file line in the first table. Qα, S₂n, S₂p, Q₂β−, Qεp and Qβ−n come from reaction part 1; Q₄β− and the last table come from part 2. Qεp is electron-capture/proton energy balance; Qβ−n is beta-minus/neutron energy balance. These are evaluated mass combinations, not observations of decay modes, cross sections or reaction rates. Light-nuclide zero entries can be bookkeeping identities, without a physical A=0 residual. Definitions and original source strings are retained in the structured data.
 
 ## Binding-energy chart
 
@@ -65,4 +105,4 @@ Discrete source values and source-reported uncertainties. No interpolation, natu
 
 ## Remaining review
 
-Later measurements, state-specific decay branches, isomer Q-values, additional reaction channels and full claim-level review remain open. Existing authored values retain their own provenance; this companion does not overwrite them.
+Later measurements, state-specific decay branches, isomer Q-values, reaction rates, applicability and full claim-level review remain open. Existing authored values retain their own provenance; this companion does not overwrite them.

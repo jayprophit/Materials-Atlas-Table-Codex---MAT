@@ -6,7 +6,7 @@
 
 - [Parent Fluorine record](0009-Fluorine-F.md) · [NUBASE states and decays](0009-Fluorine-F-Nuclear-Evaluation.md)
 - [Structured data](data/isotopes/0009-Fluorine-F-AME2020-Evaluation.yaml)
-- [Original mass table](../../data/catalog/sources/ame2020-mass_1.mas20.txt) · [Original reaction table](../../data/catalog/sources/ame2020-rct1.mas20.txt)
+- [Original mass table](../../data/catalog/sources/ame2020-mass_1.mas20.txt) · [Original reaction table 1](../../data/catalog/sources/ame2020-rct1.mas20.txt) · [Original reaction table 2](../../data/catalog/sources/ame2020-rct2.mas20.txt)
 - [AME2020 methods](https://doi.org/10.1088/1674-1137/abddb0) (SRC-000303) · [Tables and definitions](https://doi.org/10.1088/1674-1137/abddaf) (SRC-000304)
 
 ## Reading the data
@@ -63,7 +63,55 @@ Atomic-mass conventions apply. Qα is total decay energy, not alpha-particle kin
 | F-30 | 25680# ± 561# | UNKNOWN (*) | 586# ± 514# | UNKNOWN (*) | 227 |
 | F-31 | 25661# ± 597# | UNKNOWN (*) | -550# ± 100# | UNKNOWN (*) | 237 |
 
-Qβ− comes from the mass-file line in the first table. The other three columns come from the reaction-file line. Definitions and original source strings are retained in the structured data.
+## Additional decay-energy combinations
+
+| Nuclide | Q₂β− / keV | Q₄β− / keV | Qεp / keV | Qβ−n / keV | Part 1 / part 2 line |
+|---|---|---|---|---|---|
+| F-13 | UNKNOWN (*) | UNKNOWN (*) | 17403# ± 500# | UNKNOWN (*) | 93 / 95 |
+| F-14 | UNKNOWN (*) | UNKNOWN (*) | 19329.9505 ± 41.1196 | UNKNOWN (*) | 99 / 101 |
+| F-15 | UNKNOWN (*) | UNKNOWN (*) | 6414.3643 ± 14.0000 | UNKNOWN (*) | 105 / 107 |
+| F-16 | UNKNOWN (*) | UNKNOWN (*) | 3284.7726 ± 5.3642 | -37611.5100 ± 66.8994 | 112 / 115 |
+| F-17 | -32767.8784 ± 59.6161 | UNKNOWN (*) | -11021.1770 ± 2.3147 | -30106.3918 ± 20.4815 | 118 / 121 |
+| F-18 | -24164.8794 ± 93.8824 | UNKNOWN (*) | -14285.9373 ± 15.0072 | -23698.6576 ± 0.5832 | 125 / 128 |
+| F-19 | -14416.8296 ± 10.5351 | UNKNOWN (*) | -21889.5836 ± 18.5695 | -14876.3806 ± 0.3634 | 132 / 135 |
+| F-20 | -6867.9517 ± 1.1094 | UNKNOWN (*) | -23162.6893 ± 16.4038 | -9840.8348 ± 0.1628 | 140 / 143 |
+| F-21 | 2137.2521 ± 1.8005 | -27137# ± 600# | -29103.0741 ± 78.9146 | -1076.9911 ± 1.8000 | 148 / 151 |
+| F-22 | 7974.7673 ± 12.3997 | -15408# ± 401# | -29727.5106 ± 134.6201 | 453.8342 ± 12.3991 | 156 / 159 |
+| F-23 | 12815.1169 ± 33.3204 | -3462.8077 ± 33.3222 | -35768.5122 ± 210.4340 | 3238.6611 ± 33.3204 | 165 / 168 |
+| F-24 | 15962.4166 ± 97.6703 | 7593.3280 ± 97.6706 | -36464.8842 ± 431.7618 | 4627.2428 ± 97.6704 | 173 / 176 |
+| F-25 | 20691.9805 ± 96.4499 | 20250.1408 ± 96.4424 | -42893# ± 412# | 9214.4912 ± 96.4438 | 182 / 186 |
+| F-26 | 25535.4354 ± 107.0844 | 30884.7944 ± 107.0272 | -44597# ± 514# | 12638.8399 ± 110.8984 | 190 / 194 |
+| F-27 | 30651.2685 ± 120.2555 | 42330.3415 ± 120.1977 | UNKNOWN (*) | 16581.0463 ± 121.6023 | 199 / 203 |
+| F-28 | 34392.1113 ± 120.7828 | 50254.5155 ± 120.3474 | UNKNOWN (*) | 18281.5680 ± 150.7406 | 208 / 212 |
+| F-29 | 37470.1964 ± 525.4139 | 58357.9526 ± 525.3628 | UNKNOWN (*) | 20779.1341 ± 540.2768 | 217 / 221 |
+| F-30 | 40486# ± 500# | 64824# ± 500# | UNKNOWN (*) | 22489# ± 522# | 227 / 231 |
+| F-31 | 44597# ± 535# | 71794# ± 535# | UNKNOWN (*) | 25491# ± 592# | 237 / 241 |
+
+## Single-nucleon separation and reaction energies
+
+| Nuclide | Sₙ / keV | Sₚ / keV | Q(d,α) / keV | Q(p,α) / keV | Q(n,α) / keV | Part 2 line |
+|---|---|---|---|---|---|---:|
+| F-13 | UNKNOWN (*) | -2728# ± 500# | 5002# ± 504# | UNKNOWN (*) | 8876# ± 640# | 95 |
+| F-14 | 18137# ± 502# | -1559.9999 ± 40.0000 | 10661.8748 ± 42.8340 | -10910.4554 ± 72.7689 | 13245.1610 ± 41.4217 | 101 |
+| F-15 | 23468.9686 ± 43.4368 | -1269.9999 ± 14.0000 | 4162.1275 ± 16.9337 | -10582.5276 ± 18.4392 | 4875.0863 ± 14.0357 | 107 |
+| F-16 | 13962.8884 ± 14.9925 | -530.5885 ± 5.3604 | 13378.2077 ± 5.3643 | -7576.1947 ± 10.9328 | 10976.1029 ± 5.3710 | 115 |
+| F-17 | 16794.7986 ± 5.3699 | 600.2676 ± 0.2479 | 9806.8861 ± 0.5493 | -1192.0247 ± 0.2491 | 4734.6867 ± 0.2479 | 121 |
+| F-18 | 9149.9069 ± 0.5254 | 5607.0944 ± 0.4633 | 16320.9217 ± 0.4633 | 2881.5455 ± 0.6745 | 6418.0766 ± 0.4633 | 128 |
+| F-19 | 10431.8757 ± 0.4633 | 7993.5998 ± 0.0010 | 10032.1261 ± 0.0010 | 8113.6122 ± 0.0008 | -1524.9501 ± 2.3014 | 135 |
+| F-20 | 6601.3362 ± 0.0297 | 10639.2921 ± 2.6371 | 11476.1601 ± 0.0297 | 5655.3562 ± 0.0297 | -2241.1398 ± 15.0000 | 143 |
+| F-21 | 8101.4601 ± 1.8002 | 11132.7480 ± 2.0058 | 7330.3440 ± 3.1927 | 5599.2663 ± 1.8000 | -7514.3705 ± 18.6566 | 151 |
+| F-22 | 5230.3370 ± 12.5290 | 12557.6290 ± 17.2550 | 9708.0112 ± 12.4305 | 4324.5732 ± 12.6763 | -7416.4770 ± 20.5625 | 159 |
+| F-23 | 7579.4305 ± 35.5526 | 13286.7398 ± 65.9564 | 5934.0366 ± 35.4154 | 4353.1469 ± 33.3322 | -12834.8322 ± 85.6419 | 168 |
+| F-24 | 3812.0656 ± 103.1976 | 14365.8258 ± 156.0553 | 8972.2908 ± 113.0464 | 4346.5373 ± 98.4047 | -12040.9973 ± 165.8564 | 176 |
+| F-25 | 4281.6671 ± 137.2612 | 14455.2086 ± 191.0097 | 7423.6032 ± 155.2898 | 6915.1899 ± 111.9872 | -14784.2355 ± 229.0707 | 186 |
+| F-26 | 730.8299 ± 144.0693 | 15943.3462 ± 196.7426 | 10885.0577 ± 196.5665 | 8917.3396 ± 162.0759 | -12399.3718 ± 433.9742 | 194 |
+| F-27 | 1612.4952 ± 59.3534 | 16816.5337 ± 204.0982 | 8515.2548 ± 204.2065 | 11497.1288 ± 204.0369 | -16158# ± 418# | 203 |
+| F-28 | -199.0000 ± 6.0000 | 18555# ± 514# | 9453.5625 ± 204.1864 | 10938.8211 ± 204.2947 | -16933# ± 517# | 212 |
+| F-29 | 1324.9238 ± 538.9707 | 19219# ± 874# | 6191# ± 725# | 10353.2049 ± 550.6492 | UNKNOWN (*) | 221 |
+| F-30 | -739# ± 725# | UNKNOWN (*) | 7591# ± 859# | 9155# ± 707# | UNKNOWN (*) | 231 |
+| F-31 | 189# ± 732# | UNKNOWN (*) | UNKNOWN (*) | 9627# ± 880# | UNKNOWN (*) | 241 |
+
+Qβ− comes from the mass-file line in the first table. Qα, S₂n, S₂p, Q₂β−, Qεp and Qβ−n come from reaction part 1; Q₄β− and the last table come from part 2. Qεp is electron-capture/proton energy balance; Qβ−n is beta-minus/neutron energy balance. These are evaluated mass combinations, not observations of decay modes, cross sections or reaction rates. Light-nuclide zero entries can be bookkeeping identities, without a physical A=0 residual. Definitions and original source strings are retained in the structured data.
 
 ## Binding-energy chart
 
@@ -73,4 +121,4 @@ Discrete source values and source-reported uncertainties. No interpolation, natu
 
 ## Remaining review
 
-Later measurements, state-specific decay branches, isomer Q-values, additional reaction channels and full claim-level review remain open. Existing authored values retain their own provenance; this companion does not overwrite them.
+Later measurements, state-specific decay branches, isomer Q-values, reaction rates, applicability and full claim-level review remain open. Existing authored values retain their own provenance; this companion does not overwrite them.

@@ -6,7 +6,7 @@
 
 - [Parent Aluminium record](0013-Aluminium-Al.md) · [NUBASE states and decays](0013-Aluminium-Al-Nuclear-Evaluation.md)
 - [Structured data](data/isotopes/0013-Aluminium-Al-AME2020-Evaluation.yaml)
-- [Original mass table](../../data/catalog/sources/ame2020-mass_1.mas20.txt) · [Original reaction table](../../data/catalog/sources/ame2020-rct1.mas20.txt)
+- [Original mass table](../../data/catalog/sources/ame2020-mass_1.mas20.txt) · [Original reaction table 1](../../data/catalog/sources/ame2020-rct1.mas20.txt) · [Original reaction table 2](../../data/catalog/sources/ame2020-rct2.mas20.txt)
 - [AME2020 methods](https://doi.org/10.1088/1674-1137/abddb0) (SRC-000303) · [Tables and definitions](https://doi.org/10.1088/1674-1137/abddaf) (SRC-000304)
 
 ## Reading the data
@@ -71,7 +71,63 @@ Atomic-mass conventions apply. Qα is total decay energy, not alpha-particle kin
 | Al-42 | 25150# ± 583# | -22340# ± 873# | 2973# ± 583# | UNKNOWN (*) | 364 |
 | Al-43 | 23940# ± 721# | -24132# ± 955# | 2463# ± 721# | UNKNOWN (*) | 376 |
 
-Qβ− comes from the mass-file line in the first table. The other three columns come from the reaction-file line. Definitions and original source strings are retained in the structured data.
+## Additional decay-energy combinations
+
+| Nuclide | Q₂β− / keV | Q₄β− / keV | Qεp / keV | Qβ−n / keV | Part 1 / part 2 line |
+|---|---|---|---|---|---|
+| Al-21 | UNKNOWN (*) | UNKNOWN (*) | 12950# ± 600# | UNKNOWN (*) | 152 / 155 |
+| Al-22 | UNKNOWN (*) | UNKNOWN (*) | 13097# ± 401# | UNKNOWN (*) | 160 / 163 |
+| Al-23 | UNKNOWN (*) | UNKNOWN (*) | 4640.4916 ± 0.3690 | -34963# ± 500# | 169 / 172 |
+| Al-24 | -34069# ± 500# | UNKNOWN (*) | 2192.0703 ± 0.2279 | -32070# ± 500# | 177 / 180 |
+| Al-25 | -29106# ± 400# | UNKNOWN (*) | -7787.0443 ± 0.0669 | -27732.4776 ± 19.4722 | 186 / 190 |
+| Al-26 | -23183# ± 196# | UNKNOWN (*) | -10141.2968 ± 1.2018 | -24108.7792 ± 10.0002 | 194 / 198 |
+| Al-27 | -16537.8313 ± 9.0008 | UNKNOWN (*) | -17625.0542 ± 3.5020 | -18127.1784 ± 0.1176 | 203 / 207 |
+| Al-28 | -9702.8631 ± 1.1483 | -45121# ± 500# | -18621.9000 ± 3.7260 | -12537.5323 ± 0.0970 | 212 / 216 |
+| Al-29 | -1254.9132 ± 0.4976 | -32230# ± 189# | -24508.4181 ± 10.2522 | -4786.2833 ± 0.3447 | 221 / 225 |
+| Al-30 | 4336.7394 ± 1.9366 | -20538.6641 ± 23.9544 | -25833.0814 ± 7.5876 | -2040.3530 ± 1.9355 | 231 / 235 |
+| Al-31 | 9489.8357 ± 2.2356 | -7916.1562 ± 4.1081 | -30714.3496 ± 5.2290 | 1410.9356 ± 2.2357 | 241 / 245 |
+| Al-32 | 13205.5079 ± 7.1726 | 2235.3375 ± 7.1945 | -30634.3709 ± 15.7058 | 3778.3509 ± 7.1726 | 251 / 255 |
+| Al-33 | 17839.9683 ± 7.0707 | 12505.9580 ± 6.9971 | -34426.5047 ± 37.9091 | 7508.9890 ± 6.9926 | 261 / 266 |
+| Al-34 | 21551.0828 ± 2.2553 | 21442.4671 ± 2.1052 | -34066.7027 ± 449.9166 | 9445.3913 ± 2.2176 | 272 / 277 |
+| Al-35 | 24634.0795 ± 7.5918 | 28789.8019 ± 7.3589 | -39192.8151 ± 599.4616 | 11696.6363 ± 7.4023 | 282 / 287 |
+| Al-36 | 26201.4290 ± 150.0788 | 35472.3923 ± 149.5048 | -39170# ± 687# | 12270.5464 ± 153.7447 | 293 / 298 |
+| Al-37 | 28805.5767 ± 184.1955 | 41571.1161 ± 180.2441 | -43382# ± 710# | 14174.3716 ± 194.0176 | 304 / 309 |
+| Al-38 | 31091# ± 167# | 46268# ± 150# | -43953# ± 703# | 14970# ± 188# | 316 / 321 |
+| Al-39 | 34264# ± 320# | 51290# ± 300# | -47705# ± 776# | 17589# ± 318# | 328 / 334 |
+| Al-40 | 36960# ± 311# | 56378# ± 302# | -48445# ± 801# | 18429# ± 329# | 340 / 346 |
+| Al-41 | 39570# ± 417# | 61897# ± 405# | UNKNOWN (*) | 20852# ± 418# | 352 / 358 |
+| Al-42 | 40898# ± 509# | 66822# ± 504# | UNKNOWN (*) | 20718# ± 583# | 364 / 370 |
+| Al-43 | 43230# ± 671# | 72430# ± 603# | UNKNOWN (*) | 23359# ± 671# | 376 / 382 |
+
+## Single-nucleon separation and reaction energies
+
+| Nuclide | Sₙ / keV | Sₚ / keV | Q(d,α) / keV | Q(p,α) / keV | Q(n,α) / keV | Part 2 line |
+|---|---|---|---|---|---|---:|
+| Al-21 | UNKNOWN (*) | -2323# ± 600# | 5962# ± 603# | UNKNOWN (*) | 7698# ± 607# | 155 |
+| Al-22 | 16960# ± 721# | -9# ± 401# | 11435# ± 401# | -8773# ± 405# | 10918# ± 401# | 163 |
+| Al-23 | 19525# ± 401# | 140.9136 ± 0.3797 | 6555.0275 ± 0.8295 | -5865.5676 ± 1.8946 | 5543.9848 ± 1.1613 | 172 |
+| Al-24 | 14868.2013 ± 0.4132 | 1864.1087 ± 0.2301 | 11061.9812 ± 0.2780 | -6088.6076 ± 0.7882 | 7782.4474 ± 0.2318 | 180 |
+| Al-25 | 16938.4799 ± 0.2369 | 2271.3669 ± 0.0650 | 7268.5076 ± 0.0721 | -3651.9324 ± 0.1719 | 1911.8197 ± 0.1468 | 190 |
+| Al-26 | 11365.4835 ± 0.0717 | 6306.3285 ± 0.0560 | 12434.2458 ± 0.0666 | -1872.4096 ± 0.0734 | 2966.1163 ± 0.0662 | 198 |
+| Al-27 | 13058.0422 ± 0.0814 | 8271.2911 ± 0.0557 | 6706.7254 ± 0.0667 | 1600.7697 ± 0.0491 | -3132.5607 ± 0.0501 | 207 |
+| Al-28 | 7725.1740 ± 0.0110 | 9553.0964 ± 0.0678 | 10074.6311 ± 0.0567 | 1206.1177 ± 0.0676 | -1846.5037 ± 1.2010 | 216 |
+| Al-29 | 9428.3609 ± 0.3481 | 10476.7878 ± 0.4322 | 7089.6389 ± 0.3479 | 2870.8365 ± 0.3459 | -5700.5797 ± 3.5186 | 225 |
+| Al-30 | 5727.6723 ± 1.9660 | 12540.7276 ± 1.9660 | 9866.6361 ± 1.9530 | 3586.5329 ± 1.9361 | -4699.9238 ± 4.1990 | 235 |
+| Al-31 | 7157.9103 ± 2.9571 | 13358.3073 ± 2.5835 | 6372.4583 ± 2.2620 | 4933.2920 ± 2.2508 | -8315.9913 ± 10.4875 | 245 |
+| Al-32 | 4219.9777 ± 7.5128 | 15266.1876 ± 7.8035 | 8492.8112 ± 7.2885 | 4377.0468 ± 7.1808 | -8132.9601 ± 10.2601 | 255 |
+| Al-33 | 5469.3317 ± 10.0126 | 14957.4524 ± 7.7095 | 5335.5768 ± 7.6326 | 5248.0456 ± 7.1052 | -11325.6497 ± 8.4351 | 266 |
+| Al-34 | 2571.5547 ± 7.2963 | 15249.4627 ± 3.3946 | 8542.0890 ± 3.8805 | 4988.5883 ± 3.7254 | -9597.2480 ± 14.1300 | 277 |
+| Al-35 | 5297.4290 ± 7.6539 | 15836.0248 ± 10.0830 | 5524.2045 ± 7.8260 | 5469.2263 ± 8.0487 | -13217.4790 ± 37.9795 | 287 |
+| Al-36 | 1897.2041 ± 149.6858 | 16978.3727 ± 308.3379 | 8337.8672 ± 149.6636 | 5851.5666 ± 149.5285 | -12183.3264 ± 474.1014 | 298 |
+| Al-37 | 4212.1380 ± 234.1786 | 17859.5661 ± 713.3830 | 4880.5854 ± 324.3586 | 6350.2955 ± 180.3759 | -16224.1478 ± 625.9297 | 309 |
+| Al-38 | 1411# ± 234# | 19031# ± 715# | 6800# ± 706# | 5694# ± 309# | -15715# ± 687# | 321 |
+| Al-39 | 3051# ± 335# | 19873# ± 586# | 3989# ± 761# | 5973# ± 753# | -18767# ± 750# | 334 |
+| Al-40 | 740# ± 424# | 21244# ± 594# | 5457# ± 586# | 5473# ± 761# | -18667# ± 750# | 346 |
+| Al-41 | 2302# ± 500# | 22249# ± 640# | 2526# ± 650# | 5380# ± 642# | -21669# ± 819# | 358 |
+| Al-42 | 672# ± 640# | 23399# ± 707# | 3151# ± 707# | 4079# ± 716# | -22340# ± 896# | 370 |
+| Al-43 | 1791# ± 781# | UNKNOWN (*) | 881# ± 781# | 3584# ± 781# | UNKNOWN (*) | 382 |
+
+Qβ− comes from the mass-file line in the first table. Qα, S₂n, S₂p, Q₂β−, Qεp and Qβ−n come from reaction part 1; Q₄β− and the last table come from part 2. Qεp is electron-capture/proton energy balance; Qβ−n is beta-minus/neutron energy balance. These are evaluated mass combinations, not observations of decay modes, cross sections or reaction rates. Light-nuclide zero entries can be bookkeeping identities, without a physical A=0 residual. Definitions and original source strings are retained in the structured data.
 
 ## Binding-energy chart
 
@@ -81,4 +137,4 @@ Discrete source values and source-reported uncertainties. No interpolation, natu
 
 ## Remaining review
 
-Later measurements, state-specific decay branches, isomer Q-values, additional reaction channels and full claim-level review remain open. Existing authored values retain their own provenance; this companion does not overwrite them.
+Later measurements, state-specific decay branches, isomer Q-values, reaction rates, applicability and full claim-level review remain open. Existing authored values retain their own provenance; this companion does not overwrite them.

@@ -6,7 +6,7 @@
 
 - [Parent Chlorine record](0017-Chlorine-Cl.md) · [NUBASE states and decays](0017-Chlorine-Cl-Nuclear-Evaluation.md)
 - [Structured data](data/isotopes/0017-Chlorine-Cl-AME2020-Evaluation.yaml)
-- [Original mass table](../../data/catalog/sources/ame2020-mass_1.mas20.txt) · [Original reaction table](../../data/catalog/sources/ame2020-rct1.mas20.txt)
+- [Original mass table](../../data/catalog/sources/ame2020-mass_1.mas20.txt) · [Original reaction table 1](../../data/catalog/sources/ame2020-rct1.mas20.txt) · [Original reaction table 2](../../data/catalog/sources/ame2020-rct2.mas20.txt)
 - [AME2020 methods](https://doi.org/10.1088/1674-1137/abddb0) (SRC-000303) · [Tables and definitions](https://doi.org/10.1088/1674-1137/abddaf) (SRC-000304)
 
 ## Reading the data
@@ -75,7 +75,67 @@ Atomic-mass conventions apply. Qα is total decay energy, not alpha-particle kin
 | Cl-51 | 20780# ± 806# | -16945# ± 922# | 2592# ± 806# | UNKNOWN (*) | 477 |
 | Cl-52 | 23739# ± 922# | UNKNOWN (*) | 1483# ± 806# | UNKNOWN (*) | 489 |
 
-Qβ− comes from the mass-file line in the first table. The other three columns come from the reaction-file line. Definitions and original source strings are retained in the structured data.
+## Additional decay-energy combinations
+
+| Nuclide | Q₂β− / keV | Q₄β− / keV | Qεp / keV | Qβ−n / keV | Part 1 / part 2 line |
+|---|---|---|---|---|---|
+| Cl-28 | UNKNOWN (*) | UNKNOWN (*) | 21640# ± 500# | UNKNOWN (*) | 216 / 220 |
+| Cl-29 | UNKNOWN (*) | UNKNOWN (*) | 13881# ± 189# | UNKNOWN (*) | 225 / 229 |
+| Cl-30 | UNKNOWN (*) | UNKNOWN (*) | 14338.4256 ± 23.8787 | -41366# ± 439# | 235 / 239 |
+| Cl-31 | -41295# ± 300# | UNKNOWN (*) | 5877.3324 ± 3.4471 | -37177# ± 179# | 245 / 249 |
+| Cl-32 | -35324# ± 400# | UNKNOWN (*) | 3816.8675 ± 0.5617 | -32731# ± 200# | 255 / 259 |
+| Cl-33 | -28544# ± 200# | UNKNOWN (*) | -3987.4348 ± 0.3928 | -26874.3058 ± 1.8125 | 265 / 270 |
+| Cl-34 | -23220# ± 196# | UNKNOWN (*) | -5391.7064 ± 1.0911 | -23127.1090 ± 0.4035 | 276 / 281 |
+| Cl-35 | -17840.6383 ± 0.5136 | -56113# ± 400# | -11753.8011 ± 0.8112 | -18706.5569 ± 0.0785 | 286 / 291 |
+| Cl-36 | -12104.8264 ± 0.3271 | -45672# ± 300# | -11953.1699 ± 1.8666 | -14546.0374 ± 0.6794 | 297 / 302 |
+| Cl-37 | -6961.3504 ± 0.1073 | -35542# ± 300# | -18799.4781 ± 13.1137 | -9601.3275 ± 0.0584 | 308 / 313 |
+| Cl-38 | -997.3562 ± 0.2185 | -25549# ± 200# | -18091.0746 ± 37.9479 | -6921.7552 ± 0.2166 | 320 / 325 |
+| Cl-39 | 4006.9774 ± 1.7321 | -15627.4918 ± 24.0624 | -22467.6243 ± 72.6012 | -3156.7093 ± 1.7430 | 332 / 338 |
+| Cl-40 | 5977.6784 ± 32.0656 | -7034.4658 ± 32.1900 | -22072.1539 ± 117.1197 | -2386.9411 ± 32.4530 | 344 / 350 |
+| Cl-41 | 8252.3572 ± 68.7235 | 1335.1684 ± 68.7235 | -26456.9733 ± 108.2267 | -338.6097 ± 68.7235 | 356 / 362 |
+| Cl-42 | 10190.2609 ± 59.6157 | 7289.2332 ± 59.6158 | -27140.9734 ± 134.1384 | 164.4217 ± 59.6166 | 368 / 374 |
+| Cl-43 | 12415.8838 ± 61.8599 | 12028.6394 ± 61.8865 | -32540.3238 ± 113.3722 | 2191.8495 ± 62.1275 | 380 / 386 |
+| Cl-44 | 15302.5243 ± 85.5675 | 17337.0615 ± 85.5844 | -32808# ± 312# | 3459.5192 ± 85.7310 | 392 / 398 |
+| Cl-45 | 18353.0990 ± 136.1644 | 22809.7768 ± 136.1650 | -36661# ± 422# | 6339.3978 ± 136.1726 | 404 / 411 |
+| Cl-46 | 21678.9807 ± 97.2514 | 28026.6944 ± 97.2511 | -36984# ± 510# | 7964.5344 ± 97.2501 | 416 / 423 |
+| Cl-47 | 26132# ± 200# | 34756# ± 200# | -39710# ± 539# | 12120# ± 200# | 428 / 435 |
+| Cl-48 | 28004# ± 500# | 40224# ± 500# | -40379# ± 781# | 13016# ± 500# | 440 / 447 |
+| Cl-49 | 30351# ± 400# | 47302# ± 400# | UNKNOWN (*) | 15023# ± 400# | 453 / 460 |
+| Cl-50 | 33428# ± 400# | 52237# ± 400# | UNKNOWN (*) | 16689# ± 565# | 465 / 472 |
+| Cl-51 | 36806# ± 700# | 57540# ± 700# | UNKNOWN (*) | 19449# ± 860# | 477 / 485 |
+| Cl-52 | 39497# ± 700# | 62883# ± 700# | UNKNOWN (*) | 20778# ± 806# | 489 / 497 |
+
+## Single-nucleon separation and reaction energies
+
+| Nuclide | Sₙ / keV | Sₚ / keV | Q(d,α) / keV | Q(p,α) / keV | Q(n,α) / keV | Part 2 line |
+|---|---|---|---|---|---|---:|
+| Cl-28 | UNKNOWN (*) | -3490# ± 300# | 11300# ± 781# | UNKNOWN (*) | 13726# ± 640# | 220 |
+| Cl-29 | 22319# ± 534# | -2660# ± 100# | 7242# ± 442# | -8794# ± 629# | 8696# ± 272# | 229 |
+| Cl-30 | 17419# ± 190# | -479.9999 ± 20.0000 | 11312.1517 ± 161.7716 | -7952# ± 401# | 10979.9821 ± 25.5162 | 239 |
+| Cl-31 | 19780.4181 ± 24.1235 | 264.2691 ± 3.4527 | 6770.6780 ± 13.4887 | -6243.7002 ± 160.0371 | 5759.7061 ± 3.6325 | 249 |
+| Cl-32 | 14371.4714 ± 3.4920 | 1581.1455 ± 0.5343 | 11435.3556 ± 0.5983 | -5376.2273 ± 13.0530 | 9264.5454 ± 0.6666 | 259 |
+| Cl-33 | 15739.9523 ± 0.6843 | 2276.7740 ± 0.3908 | 8749.9984 ± 0.4531 | -2080.0304 ± 0.4419 | 4843.9180 ± 0.3962 | 270 |
+| Cl-34 | 11508.0637 ± 0.3938 | 5143.1985 ± 0.0487 | 12286.2584 ± 0.0487 | -533.4991 ± 0.2343 | 5646.8608 ± 0.0487 | 281 |
+| Cl-35 | 12644.7639 ± 0.0506 | 6370.8132 ± 0.0424 | 8283.1337 ± 0.0355 | 1866.0607 ± 0.0355 | 937.7469 ± 0.0535 | 291 |
+| Cl-36 | 8579.7945 ± 0.0048 | 7964.7692 ± 0.0262 | 11120.4885 ± 0.0427 | 1927.9055 ± 0.0358 | 2461.7446 ± 1.0906 | 302 |
+| Cl-37 | 10310.8617 ± 0.0640 | 8386.3819 ± 0.1861 | 7795.4652 ± 0.0666 | 3034.1930 ± 0.0689 | -1566.4479 ± 0.8121 | 313 |
+| Cl-38 | 6107.8823 ± 0.0832 | 10190.6611 ± 0.2134 | 11576.8320 ± 0.2039 | 3912.1491 ± 0.1066 | 706.0955 ± 1.8681 | 325 |
+| Cl-39 | 8073.4201 ± 1.7333 | 10227.9731 ± 7.3779 | 7807.0150 ± 1.7424 | 5727.9781 ± 1.7413 | -3902.7711 ± 13.2275 | 338 |
+| Cl-40 | 5828.9185 ± 32.1123 | 11684.1178 ± 59.3986 | 10014.2045 ± 32.8578 | 4202.6627 ± 32.0661 | -2915.4038 ± 49.6813 | 350 |
+| Cl-41 | 7820.6912 ± 75.8361 | 11758.3130 ± 68.8387 | 6566.2871 ± 84.9877 | 4418.0795 ± 69.0967 | -7039.2247 ± 99.9542 | 362 |
+| Cl-42 | 5595.8963 ± 90.9777 | 13112.1609 ± 59.7563 | 8716.8869 ± 59.7485 | 3194.9571 ± 77.8076 | -6410.7320 ± 127.4474 | 374 |
+| Cl-43 | 7399.0588 ± 85.9098 | 13810.7339 ± 61.9216 | 5559.8765 ± 61.9941 | 3542.3944 ± 61.9865 | -10373.9190 ± 104.0028 | 386 |
+| Cl-44 | 4390.7810 ± 105.5845 | 15572.4840 ± 85.7107 | 7869.5813 ± 85.6121 | 3393.6618 ± 85.6645 | -9852.8037 ± 147.5151 | 398 |
+| Cl-45 | 5854.8891 ± 160.8169 | 16347.2794 ± 136.2633 | 4643.7231 ± 136.2541 | 4239.2584 ± 136.1920 | -13707.9845 ± 166.0339 | 411 |
+| Cl-46 | 3543.7223 ± 167.3254 | 17684# ± 315# | 6180.0944 ± 97.3885 | 3324.5670 ± 97.3757 | -13129# ± 315# | 423 |
+| Cl-47 | 3917# ± 223# | 17509# ± 447# | 4471# ± 361# | 4488# ± 200# | -15044# ± 447# | 435 |
+| Cl-48 | 2771# ± 539# | 18770# ± 640# | 5791# ± 640# | 3924# ± 583# | -14594# ± 707# | 447 |
+| Cl-49 | 3051# ± 640# | 18939# ± 640# | 4250# ± 565# | 4964# ± 565# | -16454# ± 640# | 460 |
+| Cl-50 | 1111# ± 565# | 19980# ± 707# | 6021# ± 640# | 5363# ± 565# | -15464# ± 721# | 472 |
+| Cl-51 | 1481# ± 806# | UNKNOWN (*) | 4610# ± 911# | 6764# ± 860# | UNKNOWN (*) | 485 |
+| Cl-52 | 2# ± 989# | UNKNOWN (*) | UNKNOWN (*) | 6833# ± 911# | UNKNOWN (*) | 497 |
+
+Qβ− comes from the mass-file line in the first table. Qα, S₂n, S₂p, Q₂β−, Qεp and Qβ−n come from reaction part 1; Q₄β− and the last table come from part 2. Qεp is electron-capture/proton energy balance; Qβ−n is beta-minus/neutron energy balance. These are evaluated mass combinations, not observations of decay modes, cross sections or reaction rates. Light-nuclide zero entries can be bookkeeping identities, without a physical A=0 residual. Definitions and original source strings are retained in the structured data.
 
 ## Binding-energy chart
 
@@ -85,4 +145,4 @@ Discrete source values and source-reported uncertainties. No interpolation, natu
 
 ## Remaining review
 
-Later measurements, state-specific decay branches, isomer Q-values, additional reaction channels and full claim-level review remain open. Existing authored values retain their own provenance; this companion does not overwrite them.
+Later measurements, state-specific decay branches, isomer Q-values, reaction rates, applicability and full claim-level review remain open. Existing authored values retain their own provenance; this companion does not overwrite them.

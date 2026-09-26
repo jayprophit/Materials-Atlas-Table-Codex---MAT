@@ -6,7 +6,7 @@
 
 - [Parent Carbon record](0006-Carbon-C.md) · [NUBASE states and decays](0006-Carbon-C-Nuclear-Evaluation.md)
 - [Structured data](data/isotopes/0006-Carbon-C-AME2020-Evaluation.yaml)
-- [Original mass table](../../data/catalog/sources/ame2020-mass_1.mas20.txt) · [Original reaction table](../../data/catalog/sources/ame2020-rct1.mas20.txt)
+- [Original mass table](../../data/catalog/sources/ame2020-mass_1.mas20.txt) · [Original reaction table 1](../../data/catalog/sources/ame2020-rct1.mas20.txt) · [Original reaction table 2](../../data/catalog/sources/ame2020-rct2.mas20.txt)
 - [AME2020 methods](https://doi.org/10.1088/1674-1137/abddb0) (SRC-000303) · [Tables and definitions](https://doi.org/10.1088/1674-1137/abddaf) (SRC-000304)
 
 ## Reading the data
@@ -57,7 +57,49 @@ Atomic-mass conventions apply. Qα is total decay energy, not alpha-particle kin
 | C-22 | 21846.3983 ± 311.0627 | UNKNOWN (*) | 34.9999 ± 20.0000 | UNKNOWN (*) | 153 |
 | C-23 | 27450# ± 1082# | UNKNOWN (*) | -2385# ± 1161# | UNKNOWN (*) | 162 |
 
-Qβ− comes from the mass-file line in the first table. The other three columns come from the reaction-file line. Definitions and original source strings are retained in the structured data.
+## Additional decay-energy combinations
+
+| Nuclide | Q₂β− / keV | Q₄β− / keV | Qεp / keV | Qβ−n / keV | Part 1 / part 2 line |
+|---|---|---|---|---|---|
+| C-8 | UNKNOWN (*) | UNKNOWN (*) | 12006.3005 ± 18.2431 | UNKNOWN (*) | 63 / 65 |
+| C-9 | UNKNOWN (*) | UNKNOWN (*) | 16680.3285 ± 2.1369 | UNKNOWN (*) | 68 / 70 |
+| C-10 | UNKNOWN (*) | UNKNOWN (*) | -2938.7490 ± 0.1039 | UNKNOWN (*) | 73 / 75 |
+| C-11 | -37089.5162 ± 60.0381 | UNKNOWN (*) | -9247.0606 ± 0.1005 | -36221.9485 ± 400.0000 | 78 / 80 |
+| C-12 | -32013.3349 ± 12.0002 | UNKNOWN (*) | -27466.1399 ± 0.2377 | -32436.9620 ± 5.0005 | 84 / 86 |
+| C-13 | -19990.4224 ± 9.5263 | UNKNOWN (*) | -29241.7232 ± 1.9086 | -22284.3768 ± 0.9999 | 90 / 92 |
+| C-14 | -4987.8879 ± 0.0254 | UNKNOWN (*) | -37928.1573 ± 10.1805 | -10396.9059 ± 0.2696 | 96 / 98 |
+| C-15 | 7017.5230 ± 0.9382 | -30342.2285 ± 66.6888 | -37370.3284 ± 132.2475 | -1061.5897 ± 0.8000 | 102 / 104 |
+| C-16 | 18431.1354 ± 3.5777 | -10292.6419 ± 20.7901 | -43420.6585 ± 165.8360 | 5521.3770 ± 3.5777 | 109 / 112 |
+| C-17 | 21840.6437 ± 17.3649 | 4531.4275 ± 17.3685 | -43704.2302 ± 166.7042 | 7276.6542 ± 17.5167 | 115 / 118 |
+| C-18 | 25702.0820 ± 30.0000 | 19601.6483 ± 30.0022 | UNKNOWN (*) | 8977.8688 ± 33.5410 | 122 / 125 |
+| C-19 | 29080.8967 ± 98.4248 | 30661.7010 ± 98.3896 | UNKNOWN (*) | 11229.2690 ± 100.1265 | 129 / 132 |
+| C-20 | 33707.3950 ± 230.6264 | 44545.4989 ± 230.6247 | UNKNOWN (*) | 13575.9936 ± 231.2074 | 137 / 140 |
+| C-21 | 37581# ± 596# | 51375# ± 596# | UNKNOWN (*) | 15805# ± 601# | 145 / 148 |
+| C-22 | 44328.1708 ± 238.3858 | 61635.9187 ± 231.4903 | UNKNOWN (*) | 20307.9695 ± 267.5007 | 153 / 156 |
+| C-23 | 49549# ± 1004# | 69325# ± 997# | UNKNOWN (*) | 24335# ± 1018# | 162 / 165 |
+
+## Single-nucleon separation and reaction energies
+
+| Nuclide | Sₙ / keV | Sₚ / keV | Q(d,α) / keV | Q(p,α) / keV | Q(n,α) / keV | Part 2 line |
+|---|---|---|---|---|---|---:|
+| C-8 | UNKNOWN (*) | -98.7453 ± 31.0700 | -1545# ± 2003# | UNKNOWN (*) | 3572# ± 2003# | 65 |
+| C-9 | 14224.6160 ± 18.3677 | 1299.5688 ± 2.3590 | 11945.2255 ± 25.2409 | -13545# ± 2003# | 16182.3397 ± 5.8518 | 70 |
+| C-10 | 21283.6164 ± 2.1378 | 4006.7840 ± 0.9054 | 3487.9110 ± 1.0023 | -7113.8246 ± 25.1504 | 5576.0775 ± 0.0998 | 75 |
+| C-11 | 13120.5940 ± 0.0922 | 8690.1847 ± 0.0615 | 8943.7182 ± 0.9046 | -7408.1168 ± 1.0016 | 11354.1276 ± 0.0693 | 80 |
+| C-12 | 18720.7151 ± 0.0596 | 15956.6792 ± 0.0121 | -1339.8036 ± 0.0149 | -7552.4306 ± 0.9026 | -5702.0487 ± 0.0765 | 86 |
+| C-13 | 4946.3087 ± 0.0005 | 17533.3596 ± 1.3214 | 5168.1082 ± 0.0121 | -4061.5461 ± 0.0149 | -3836.0750 ± 0.0809 | 92 |
+| C-14 | 8176.4341 ± 0.0038 | 20831.0258 ± 1.0001 | 361.3024 ± 1.3214 | -783.7597 ± 0.0127 | -11510.8733 ± 0.2377 | 98 |
+| C-15 | 1218.0662 ± 0.8000 | 21079.5118 ± 21.2284 | 4022.0042 ± 1.2807 | 1367.8025 ± 1.5447 | -9558.2141 ± 2.0694 | 104 |
+| C-16 | 4250.3301 ± 3.6661 | 22552.2174 ± 21.3311 | 741.2543 ± 21.5129 | 1996.2403 ± 3.7149 | -14318.5442 ± 10.7909 | 112 |
+| C-17 | 733.5717 ± 17.7296 | 23368.7903 ± 30.0839 | 2785.3070 ± 27.2719 | 2232.2488 ± 27.4143 | -13276.2208 ± 133.3803 | 118 |
+| C-18 | 4183.9319 ± 34.6632 | 26086.0271 ± 206.2966 | -1481.6261 ± 38.7750 | 825.9414 ± 36.6363 | -19260.1527 ± 168.4897 | 125 |
+| C-19 | 576.8292 ± 93.7043 | 26667.8564 ± 226.6358 | -591.7602 ± 226.5806 | 166.1109 ± 101.4100 | -19386.9820 ± 192.7933 | 132 |
+| C-20 | 2981.5058 ± 250.7354 | 29555.6549 ± 573.7540 | -3578.2661 ± 308.0115 | -1348.6998 ± 307.9709 | UNKNOWN (*) | 140 |
+| C-21 | -68# ± 639# | 31047# ± 809# | -3416# ± 795# | -1285# ± 630# | UNKNOWN (*) | 148 |
+| C-22 | 103# ± 640# | 32060.6549 ± 604.7261 | -5079.5587 ± 593.3748 | -1294.9925 ± 574.1025 | UNKNOWN (*) | 156 |
+| C-23 | -2488# ± 1023# | UNKNOWN (*) | -3501# ± 1143# | -367# ± 1137# | UNKNOWN (*) | 165 |
+
+Qβ− comes from the mass-file line in the first table. Qα, S₂n, S₂p, Q₂β−, Qεp and Qβ−n come from reaction part 1; Q₄β− and the last table come from part 2. Qεp is electron-capture/proton energy balance; Qβ−n is beta-minus/neutron energy balance. These are evaluated mass combinations, not observations of decay modes, cross sections or reaction rates. Light-nuclide zero entries can be bookkeeping identities, without a physical A=0 residual. Definitions and original source strings are retained in the structured data.
 
 ## Binding-energy chart
 
@@ -67,4 +109,4 @@ Discrete source values and source-reported uncertainties. No interpolation, natu
 
 ## Remaining review
 
-Later measurements, state-specific decay branches, isomer Q-values, additional reaction channels and full claim-level review remain open. Existing authored values retain their own provenance; this companion does not overwrite them.
+Later measurements, state-specific decay branches, isomer Q-values, reaction rates, applicability and full claim-level review remain open. Existing authored values retain their own provenance; this companion does not overwrite them.

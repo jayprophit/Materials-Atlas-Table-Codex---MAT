@@ -6,7 +6,7 @@
 
 - [Parent Silicon record](0014-Silicon-Si.md) · [NUBASE states and decays](0014-Silicon-Si-Nuclear-Evaluation.md)
 - [Structured data](data/isotopes/0014-Silicon-Si-AME2020-Evaluation.yaml)
-- [Original mass table](../../data/catalog/sources/ame2020-mass_1.mas20.txt) · [Original reaction table](../../data/catalog/sources/ame2020-rct1.mas20.txt)
+- [Original mass table](../../data/catalog/sources/ame2020-mass_1.mas20.txt) · [Original reaction table 1](../../data/catalog/sources/ame2020-rct1.mas20.txt) · [Original reaction table 2](../../data/catalog/sources/ame2020-rct2.mas20.txt)
 - [AME2020 methods](https://doi.org/10.1088/1674-1137/abddb0) (SRC-000303) · [Tables and definitions](https://doi.org/10.1088/1674-1137/abddaf) (SRC-000304)
 
 ## Reading the data
@@ -73,7 +73,65 @@ Atomic-mass conventions apply. Qα is total decay energy, not alpha-particle kin
 | Si-44 | 18200# ± 640# | -22664# ± 707# | 3672# ± 583# | UNKNOWN (*) | 389 |
 | Si-45 | 21130# ± 781# | -23435# ± 781# | 3382# ± 721# | UNKNOWN (*) | 401 |
 
-Qβ− comes from the mass-file line in the first table. The other three columns come from the reaction-file line. Definitions and original source strings are retained in the structured data.
+## Additional decay-energy combinations
+
+| Nuclide | Q₂β− / keV | Q₄β− / keV | Qεp / keV | Qβ−n / keV | Part 1 / part 2 line |
+|---|---|---|---|---|---|
+| Si-22 | UNKNOWN (*) | UNKNOWN (*) | 15447# ± 500# | UNKNOWN (*) | 161 / 164 |
+| Si-23 | UNKNOWN (*) | UNKNOWN (*) | 17061# ± 500# | UNKNOWN (*) | 170 / 173 |
+| Si-24 | UNKNOWN (*) | UNKNOWN (*) | 8929.8891 ± 19.4721 | UNKNOWN (*) | 178 / 181 |
+| Si-25 | UNKNOWN (*) | UNKNOWN (*) | 10471.9288 ± 10.0000 | -38264# ± 500# | 187 / 191 |
+| Si-26 | -34821# ± 600# | UNKNOWN (*) | -1237.1924 ± 0.1017 | -35402# ± 400# | 195 / 199 |
+| Si-27 | -29875# ± 400# | UNKNOWN (*) | -3458.9327 ± 0.1113 | -31429# ± 196# | 204 / 208 |
+| Si-28 | -25566.0000 ± 160.0000 | UNKNOWN (*) | -14195.1740 ± 0.0472 | -28905.0829 ± 9.0006 | 213 / 217 |
+| Si-29 | -18800.6581 ± 13.0409 | -59864# ± 439# | -14164.1071 ± 0.2608 | -22818.5432 ± 1.1473 | 222 / 226 |
+| Si-30 | -10373.7080 ± 0.2050 | -46504# ± 179# | -21109.5735 ± 0.3452 | -15551.4314 ± 0.3595 | 232 / 236 |
+| Si-31 | -3906.5059 ± 0.2333 | -34274# ± 200# | -21356.6359 ± 1.2956 | -10819.4995 ± 0.0721 | 242 / 246 |
+| Si-32 | 1937.8480 ± 0.2981 | -21877.3369 ± 1.7948 | -28244.5084 ± 3.0883 | -7708.4628 ± 0.2981 | 252 / 256 |
+| Si-33 | 6071.5302 ± 0.6986 | -11130.0332 ± 0.8053 | -26974.3984 ± 3.3342 | -4280.7698 ± 0.6998 | 262 / 267 |
+| Si-34 | 9940.0054 ± 0.8023 | -1613.3913 ± 0.8049 | -32243.5280 ± 2.7812 | -1725.6517 ± 1.3527 | 273 / 278 |
+| Si-35 | 14454.7297 ± 35.8574 | 8655.8086 ± 35.8638 | -30003.7753 ± 36.5139 | 2085.9034 ± 35.8665 | 283 / 288 |
+| Si-36 | 18228.0156 ± 71.7977 | 17795.4170 ± 71.7974 | -35364.8823 ± 279.0617 | 4350.3658 ± 71.8217 | 294 / 299 |
+| Si-37 | 20324.9138 ± 113.8095 | 24376.1667 ± 113.8095 | -34240.6426 ± 699.5569 | 5608.2145 ± 114.5623 | 305 / 310 |
+| Si-38 | 22690.9168 ± 105.0382 | 30544.5277 ± 104.7933 | -39670.7477 ± 706.7594 | 6754.3952 ± 111.4524 | 317 / 322 |
+| Si-39 | 25483.0235 ± 144.4612 | 35562.5472 ± 135.6246 | -39043# ± 521# | 8870.5985 ± 153.7432 | 329 / 335 |
+| Si-40 | 28504.7256 ± 122.0555 | 40706.7760 ± 121.9905 | -44397# ± 527# | 10370.1935 ± 166.0437 | 341 / 347 |
+| Si-41 | 32209# ± 300# | 46268# ± 300# | -43639# ± 583# | 13268# ± 311# | 353 / 359 |
+| Si-42 | 34477# ± 300# | 51262# ± 300# | -48550# ± 583# | 13748# ± 323# | 365 / 371 |
+| Si-43 | 36525# ± 400# | 56340# ± 400# | UNKNOWN (*) | 15167# ± 411# | 377 / 383 |
+| Si-44 | 38515# ± 500# | 61984# ± 500# | UNKNOWN (*) | 16199# ± 583# | 389 / 395 |
+| Si-45 | 40431# ± 671# | 66861# ± 600# | UNKNOWN (*) | 17909# ± 721# | 401 / 408 |
+
+## Single-nucleon separation and reaction energies
+
+| Nuclide | Sₙ / keV | Sₚ / keV | Q(d,α) / keV | Q(p,α) / keV | Q(n,α) / keV | Part 2 line |
+|---|---|---|---|---|---|---:|
+| Si-22 | UNKNOWN (*) | 739# ± 781# | UNKNOWN (*) | UNKNOWN (*) | 7448# ± 504# | 164 |
+| Si-23 | 17762# ± 707# | 1541# ± 641# | 7571# ± 781# | UNKNOWN (*) | 12118# ± 500# | 173 |
+| Si-24 | 21276# ± 501# | 3291.8566 ± 19.4751 | 3255# ± 401# | -11480# ± 600# | 5487.7372 ± 19.4867 | 181 |
+| Si-25 | 14989.1820 ± 21.8898 | 3412.8372 ± 10.0026 | 7790.0576 ± 10.0059 | -9510# ± 401# | 9873.7102 ± 10.0013 | 191 |
+| Si-26 | 19039.6430 ± 10.0006 | 5514.0004 ± 0.1111 | 3618.6159 ± 0.2520 | -9025.0192 ± 0.3611 | 3979.0735 ± 0.1122 | 199 |
+| Si-27 | 13314.8200 ± 0.1520 | 7463.3369 ± 0.1262 | 7242.2757 ± 0.1254 | -7471.6379 ± 0.2519 | 7195.4751 ± 0.1082 | 208 |
+| Si-28 | 17179.6099 ± 0.1074 | 11584.9046 ± 0.0474 | 1428.1493 ± 0.0662 | -7712.7680 ± 0.0648 | -2653.6129 ± 0.0469 | 217 |
+| Si-29 | 8473.6025 ± 0.0005 | 12333.3331 ± 0.0486 | 6012.5891 ± 0.0474 | -4820.8869 ± 0.0662 | -34.1358 ± 0.0293 | 226 |
+| Si-30 | 10609.1989 ± 0.0216 | 13514.1712 ± 0.3453 | 3128.5641 ± 0.0532 | -2372.0436 ± 0.0521 | -4199.9660 ± 0.0519 | 236 |
+| Si-31 | 6587.3930 ± 0.0376 | 14373.8919 ± 1.9360 | 5969.5320 ± 0.3474 | -1234.2627 ± 0.0652 | -2282.6896 ± 0.2644 | 246 |
+| Si-32 | 9199.9699 ± 0.3012 | 16415.9515 ± 2.2554 | 2497.2344 ± 1.9584 | -1005.8717 ± 0.4557 | -7818.9270 ± 0.4556 | 256 |
+| Si-33 | 4507.9570 ± 0.7596 | 16703.9307 ± 7.2064 | 5147.1877 ± 2.3422 | 213.8436 ± 2.0578 | -5986.5533 ± 1.4713 | 267 |
+| Si-34 | 7548.6740 ± 1.0629 | 18783.2730 ± 7.0320 | 1818.4914 ± 7.2171 | -176.9201 ± 2.3748 | -11223.1300 ± 3.1766 | 278 |
+| Si-35 | 2471.1141 ± 35.8663 | 18682.8324 ± 35.9191 | 4816.7090 ± 36.5316 | 1571.9435 ± 36.5677 | -7916.1772 ± 36.0053 | 288 |
+| Si-36 | 6115.9633 ± 80.2535 | 19501.3667 ± 72.1736 | 1272.3005 ± 71.8283 | 925.3120 ± 72.1365 | -11752.5960 ± 71.8468 | 299 |
+| Si-37 | 2206.7049 ± 134.5638 | 19810.8675 ± 187.8942 | 4363.0246 ± 114.0470 | 1290.1618 ± 113.8288 | -9248.4340 ± 114.0179 | 310 |
+| Si-38 | 5670.1051 ± 154.7067 | 21268.8346 ± 208.4935 | 590.1236 ± 182.5740 | 917.4858 ± 105.0511 | -14163.6829 ± 289.3133 | 322 |
+| Si-39 | 1580.6672 ± 171.3202 | 21438# ± 202# | 3221.5944 ± 225.5149 | 1234.0227 ± 201.7937 | -12413.4055 ± 703.4176 | 335 |
+| Si-40 | 4724.7939 ± 182.3478 | 23112# ± 324# | -92# ± 193# | 721.3668 ± 217.6456 | -16898.1994 ± 709.5132 | 347 |
+| Si-41 | 538# ± 324# | 22909# ± 424# | 2421# ± 424# | 1595# ± 335# | -15227# ± 586# | 359 |
+| Si-42 | 4432# ± 424# | 25040# ± 500# | -1270# ± 424# | 214# ± 424# | -20289# ± 594# | 371 |
+| Si-43 | 581# ± 500# | 24949# ± 640# | 450# ± 565# | 373# ± 500# | -19574# ± 640# | 383 |
+| Si-44 | 3091# ± 640# | 26249# ± 781# | -1969# ± 707# | -416# ± 640# | -23143# ± 707# | 395 |
+| Si-45 | 291# ± 781# | UNKNOWN (*) | -469# ± 848# | -36# ± 781# | UNKNOWN (*) | 408 |
+
+Qβ− comes from the mass-file line in the first table. Qα, S₂n, S₂p, Q₂β−, Qεp and Qβ−n come from reaction part 1; Q₄β− and the last table come from part 2. Qεp is electron-capture/proton energy balance; Qβ−n is beta-minus/neutron energy balance. These are evaluated mass combinations, not observations of decay modes, cross sections or reaction rates. Light-nuclide zero entries can be bookkeeping identities, without a physical A=0 residual. Definitions and original source strings are retained in the structured data.
 
 ## Binding-energy chart
 
@@ -83,4 +141,4 @@ Discrete source values and source-reported uncertainties. No interpolation, natu
 
 ## Remaining review
 
-Later measurements, state-specific decay branches, isomer Q-values, additional reaction channels and full claim-level review remain open. Existing authored values retain their own provenance; this companion does not overwrite them.
+Later measurements, state-specific decay branches, isomer Q-values, reaction rates, applicability and full claim-level review remain open. Existing authored values retain their own provenance; this companion does not overwrite them.

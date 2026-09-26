@@ -2,7 +2,7 @@
 registry_id: MAT:0049:REG:AME2020
 record_id: MAT:0049
 schema_version: 1.0.0
-record_version: 1.0.0
+record_version: 1.1.0
 status: RESEARCHED-IN-PROGRESS
 evaluation:
   source_ids:
@@ -15,11 +15,18 @@ evaluation:
     - path: data/catalog/sources/ame2020-mass_1.mas20.txt
       sha256: e8599c6d7f724fac91934e59f1b9de8fb8f63e820f4b39456b790665ed2a3307
       source_id: SRC-000304
+      retrieved: 2026-09-16
       url: https://www-nds.iaea.org/amdc/ame2020/mass_1.mas20.txt
     - path: data/catalog/sources/ame2020-rct1.mas20.txt
       sha256: e6ba1d2256f90053464c48e24d44691828dc49820ce64054aa418d834cc18e90
       source_id: SRC-000304
+      retrieved: 2026-09-16
       url: https://www-nds.iaea.org/amdc/ame2020/rct1.mas20.txt
+    - path: data/catalog/sources/ame2020-rct2.mas20.txt
+      sha256: de2d640979f7feecfc4ab845beef0e3d88a052564303d8cbf9b093fa13297f16
+      source_id: SRC-000304
+      retrieved: 2026-09-25
+      url: https://www-nds.iaea.org/amdc/ame2020/rct2.mas20.txt
   version: AME2020 unrounded analysis files, dated 3 March 2021
 interpretation:
   scope: Ground-state evaluated atomic masses and selected linear combinations. Dated evaluation, not a claim of latest
@@ -37,8 +44,15 @@ interpretation:
   binding: AME tabulated atomic-mass convention; not a silently electron-binding-corrected bare nuclear binding energy.
   isomers: NUBASE ground-state reference is explicit. Isomer Q-values and branch-specific excitation corrections are
     outside this extraction.
-  coverage: Mass/reaction part 1 columns selected deliberately; reaction part 2, additional decay channels and newer
-    evaluations remain pending.
+  reaction_definitions: All twelve Table III combinations are retained. Q_double_beta_minus and Q_quadruple_beta_minus are
+    ground-state mass differences, not evidence of observed multiple-beta decays. Q_electron_capture_proton denotes
+    epsilon-p; Q_beta_minus_neutron denotes beta-minus-neutron energy balance. Q_deuteron_alpha, Q_proton_alpha and
+    Q_neutron_alpha describe (d,alpha), (p,alpha) and (n,alpha) mass combinations, not cross sections or demonstrated
+    reaction routes.
+  light_identity_limits: Free-neutron S_n=0, H-1 S_p=0 and He-4 zero alpha/reaction entries include identity bookkeeping.
+    No A=0 residual nucleus or decay is asserted.
+  coverage: Three mass-file quantities and all twelve reaction-table quantities. Newer evaluations, isomer corrections,
+    actual decay branches and rates remain pending.
 equations:
   mass_excess: Delta = (M_atom - A*u)*c^2
   binding_energy_per_nucleon: B/A = [Z*M(1H) + N*m_n - M_atom(A,Z)]*c^2/A
@@ -46,6 +60,16 @@ equations:
   q_alpha: Q_alpha = [M_atom(A,Z) - M_atom(A-4,Z-2) - M_atom(4He)]*c^2
   separation_two_neutrons: S_2n = [M_atom(A-2,Z) + 2*m_n - M_atom(A,Z)]*c^2
   separation_two_protons: S_2p = [M_atom(A-2,Z-2) + 2*M_atom(1H) - M_atom(A,Z)]*c^2
+  q_double_beta_minus: Q_2beta_minus = [M_atom(A,Z) - M_atom(A,Z+2)]*c^2
+  q_electron_capture_proton: Q_epsilon_p = [M_atom(A,Z) - M_atom(A-1,Z-2) - M_atom(1H)]*c^2
+  q_beta_minus_neutron: Q_beta_minus_n = [M_atom(A,Z) - M_atom(A-1,Z+1) - m_n]*c^2
+  separation_neutron: S_n = [M_atom(A-1,Z) + m_n - M_atom(A,Z)]*c^2
+  separation_proton: S_p = [M_atom(A-1,Z-1) + M_atom(1H) - M_atom(A,Z)]*c^2
+  q_quadruple_beta_minus: Q_4beta_minus = [M_atom(A,Z) - M_atom(A,Z+4)]*c^2
+  q_deuteron_alpha: Q_d_alpha = [M_atom(A,Z) - M_atom(A-2,Z-1) + M_atom(2H) - M_atom(4He)]*c^2
+  q_proton_alpha: Q_p_alpha = [M_atom(A,Z) - M_atom(A-3,Z-1) + M_atom(1H) - M_atom(4He)]*c^2
+  q_neutron_alpha: Q_n_alpha = [M_atom(A,Z) - M_atom(A-3,Z-2) + m_n - M_atom(4He)]*c^2
+  source_locator: SRC-000304, Table III definitions, printed page 030003-102
   application: "Definitions only: stored numbers and their uncertainties are transcribed from the evaluation, not
     recalculated here."
 coverage:
@@ -57,6 +81,15 @@ coverage:
     separation_two_neutrons: 40
     separation_two_protons: 40
     q_alpha: 42
+    q_double_beta_minus: 36
+    q_electron_capture_proton: 39
+    q_beta_minus_neutron: 38
+    separation_neutron: 41
+    separation_proton: 41
+    q_quadruple_beta_minus: 32
+    q_deuteron_alpha: 42
+    q_proton_alpha: 41
+    q_neutron_alpha: 41
   status: PARTIAL
 entries:
   - evaluation_entry_id: MAT:0049:AME2020:96:0
@@ -157,6 +190,137 @@ entries:
       uncertainty_status: SOURCE-REPORTED
       source_id: SRC-000304
       source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1113
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_double_beta_minus:
+      value: null
+      unit: keV
+      uncertainty: null
+      raw: "*"
+      uncertainty_raw: ""
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: INSUFFICIENT DATA
+      null_state: UNKNOWN
+      null_reason: SOURCE-NOT-CALCULABLE
+      uncertainty_status: UNKNOWN
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1113
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_electron_capture_proton:
+      value: 14527
+      unit: keV
+      uncertainty: 640
+      raw: 14527#
+      uncertainty_raw: 640#
+      estimated: true
+      evidence_type: EVALUATED
+      value_status: ESTIMATED-FROM-SYSTEMATICS
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1113
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_beta_minus_neutron:
+      value: null
+      unit: keV
+      uncertainty: null
+      raw: "*"
+      uncertainty_raw: ""
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: INSUFFICIENT DATA
+      null_state: UNKNOWN
+      null_reason: SOURCE-NOT-CALCULABLE
+      uncertainty_status: UNKNOWN
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1113
+      reference_state: AME2020 ground-state atomic-mass convention
+    reaction2_source_line: 1129
+    reaction2_raw_line: "  96
+      In  49       *                 -1677#      755#          *                 13061#      707#          *                 \
+      13956#      641#"
+    separation_neutron:
+      value: null
+      unit: keV
+      uncertainty: null
+      raw: "*"
+      uncertainty_raw: ""
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: INSUFFICIENT DATA
+      null_state: UNKNOWN
+      null_reason: SOURCE-NOT-CALCULABLE
+      uncertainty_status: UNKNOWN
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1129
+      reference_state: AME2020 ground-state atomic-mass convention
+    separation_proton:
+      value: -1677
+      unit: keV
+      uncertainty: 755
+      raw: -1677#
+      uncertainty_raw: 755#
+      estimated: true
+      evidence_type: EVALUATED
+      value_status: ESTIMATED-FROM-SYSTEMATICS
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1129
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_quadruple_beta_minus:
+      value: null
+      unit: keV
+      uncertainty: null
+      raw: "*"
+      uncertainty_raw: ""
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: INSUFFICIENT DATA
+      null_state: UNKNOWN
+      null_reason: SOURCE-NOT-CALCULABLE
+      uncertainty_status: UNKNOWN
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1129
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_deuteron_alpha:
+      value: 13061
+      unit: keV
+      uncertainty: 707
+      raw: 13061#
+      uncertainty_raw: 707#
+      estimated: true
+      evidence_type: EVALUATED
+      value_status: ESTIMATED-FROM-SYSTEMATICS
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1129
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_proton_alpha:
+      value: null
+      unit: keV
+      uncertainty: null
+      raw: "*"
+      uncertainty_raw: ""
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: INSUFFICIENT DATA
+      null_state: UNKNOWN
+      null_reason: SOURCE-NOT-CALCULABLE
+      uncertainty_status: UNKNOWN
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1129
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_neutron_alpha:
+      value: 13956
+      unit: keV
+      uncertainty: 641
+      raw: 13956#
+      uncertainty_raw: 641#
+      estimated: true
+      evidence_type: EVALUATED
+      value_status: ESTIMATED-FROM-SYSTEMATICS
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1129
       reference_state: AME2020 ground-state atomic-mass convention
     channel_references:
       beta_minus_daughter:
@@ -268,6 +432,133 @@ entries:
       source_id: SRC-000304
       source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1128
       reference_state: AME2020 ground-state atomic-mass convention
+    q_double_beta_minus:
+      value: null
+      unit: keV
+      uncertainty: null
+      raw: "*"
+      uncertainty_raw: ""
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: INSUFFICIENT DATA
+      null_state: UNKNOWN
+      null_reason: SOURCE-NOT-CALCULABLE
+      uncertainty_status: UNKNOWN
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1128
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_electron_capture_proton:
+      value: 9833
+      unit: keV
+      uncertainty: 411
+      raw: 9833#
+      uncertainty_raw: 411#
+      estimated: true
+      evidence_type: EVALUATED
+      value_status: ESTIMATED-FROM-SYSTEMATICS
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1128
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_beta_minus_neutron:
+      value: null
+      unit: keV
+      uncertainty: null
+      raw: "*"
+      uncertainty_raw: ""
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: INSUFFICIENT DATA
+      null_state: UNKNOWN
+      null_reason: SOURCE-NOT-CALCULABLE
+      uncertainty_status: UNKNOWN
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1128
+      reference_state: AME2020 ground-state atomic-mass convention
+    reaction2_source_line: 1144
+    reaction2_raw_line: "  97
+      In  49   17371#      641#       -893#      573#          *                 10377#      693#      -2086#      641#      \
+      10659#      566#"
+    separation_neutron:
+      value: 17371
+      unit: keV
+      uncertainty: 641
+      raw: 17371#
+      uncertainty_raw: 641#
+      estimated: true
+      evidence_type: EVALUATED
+      value_status: ESTIMATED-FROM-SYSTEMATICS
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1144
+      reference_state: AME2020 ground-state atomic-mass convention
+    separation_proton:
+      value: -893
+      unit: keV
+      uncertainty: 573
+      raw: -893#
+      uncertainty_raw: 573#
+      estimated: true
+      evidence_type: EVALUATED
+      value_status: ESTIMATED-FROM-SYSTEMATICS
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1144
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_quadruple_beta_minus:
+      value: null
+      unit: keV
+      uncertainty: null
+      raw: "*"
+      uncertainty_raw: ""
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: INSUFFICIENT DATA
+      null_state: UNKNOWN
+      null_reason: SOURCE-NOT-CALCULABLE
+      uncertainty_status: UNKNOWN
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1144
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_deuteron_alpha:
+      value: 10377
+      unit: keV
+      uncertainty: 693
+      raw: 10377#
+      uncertainty_raw: 693#
+      estimated: true
+      evidence_type: EVALUATED
+      value_status: ESTIMATED-FROM-SYSTEMATICS
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1144
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_proton_alpha:
+      value: -2086
+      unit: keV
+      uncertainty: 641
+      raw: -2086#
+      uncertainty_raw: 641#
+      estimated: true
+      evidence_type: EVALUATED
+      value_status: ESTIMATED-FROM-SYSTEMATICS
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1144
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_neutron_alpha:
+      value: 10659
+      unit: keV
+      uncertainty: 566
+      raw: 10659#
+      uncertainty_raw: 566#
+      estimated: true
+      evidence_type: EVALUATED
+      value_status: ESTIMATED-FROM-SYSTEMATICS
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1144
+      reference_state: AME2020 ground-state atomic-mass convention
     channel_references:
       beta_minus_daughter:
         A: 97
@@ -376,6 +667,133 @@ entries:
       source_id: SRC-000304
       source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1143
       reference_state: AME2020 ground-state atomic-mass convention
+    q_double_beta_minus:
+      value: null
+      unit: keV
+      uncertainty: null
+      raw: "*"
+      uncertainty_raw: ""
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: INSUFFICIENT DATA
+      null_state: UNKNOWN
+      null_reason: SOURCE-NOT-CALCULABLE
+      uncertainty_status: UNKNOWN
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1143
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_electron_capture_proton:
+      value: 9709
+      unit: keV
+      uncertainty: 305
+      raw: 9709#
+      uncertainty_raw: 305#
+      estimated: true
+      evidence_type: EVALUATED
+      value_status: ESTIMATED-FROM-SYSTEMATICS
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1143
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_beta_minus_neutron:
+      value: null
+      unit: keV
+      uncertainty: null
+      raw: "*"
+      uncertainty_raw: ""
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: INSUFFICIENT DATA
+      null_state: UNKNOWN
+      null_reason: SOURCE-NOT-CALCULABLE
+      uncertainty_status: UNKNOWN
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1143
+      reference_state: AME2020 ground-state atomic-mass convention
+    reaction2_source_line: 1160
+    reaction2_raw_line: "  98
+      In  49   14588#      503#        461#      519#          *                 12376#      511#      -1986#      642#      \
+      11646#      503#"
+    separation_neutron:
+      value: 14588
+      unit: keV
+      uncertainty: 503
+      raw: 14588#
+      uncertainty_raw: 503#
+      estimated: true
+      evidence_type: EVALUATED
+      value_status: ESTIMATED-FROM-SYSTEMATICS
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1160
+      reference_state: AME2020 ground-state atomic-mass convention
+    separation_proton:
+      value: 461
+      unit: keV
+      uncertainty: 519
+      raw: 461#
+      uncertainty_raw: 519#
+      estimated: true
+      evidence_type: EVALUATED
+      value_status: ESTIMATED-FROM-SYSTEMATICS
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1160
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_quadruple_beta_minus:
+      value: null
+      unit: keV
+      uncertainty: null
+      raw: "*"
+      uncertainty_raw: ""
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: INSUFFICIENT DATA
+      null_state: UNKNOWN
+      null_reason: SOURCE-NOT-CALCULABLE
+      uncertainty_status: UNKNOWN
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1160
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_deuteron_alpha:
+      value: 12376
+      unit: keV
+      uncertainty: 511
+      raw: 12376#
+      uncertainty_raw: 511#
+      estimated: true
+      evidence_type: EVALUATED
+      value_status: ESTIMATED-FROM-SYSTEMATICS
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1160
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_proton_alpha:
+      value: -1986
+      unit: keV
+      uncertainty: 642
+      raw: -1986#
+      uncertainty_raw: 642#
+      estimated: true
+      evidence_type: EVALUATED
+      value_status: ESTIMATED-FROM-SYSTEMATICS
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1160
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_neutron_alpha:
+      value: 11646
+      unit: keV
+      uncertainty: 503
+      raw: 11646#
+      uncertainty_raw: 503#
+      estimated: true
+      evidence_type: EVALUATED
+      value_status: ESTIMATED-FROM-SYSTEMATICS
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1160
+      reference_state: AME2020 ground-state atomic-mass convention
     channel_references:
       beta_minus_daughter:
         A: 98
@@ -481,6 +899,133 @@ entries:
       uncertainty_status: SOURCE-REPORTED
       source_id: SRC-000304
       source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1157
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_double_beta_minus:
+      value: null
+      unit: keV
+      uncertainty: null
+      raw: "*"
+      uncertainty_raw: ""
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: INSUFFICIENT DATA
+      null_state: UNKNOWN
+      null_reason: SOURCE-NOT-CALCULABLE
+      uncertainty_status: UNKNOWN
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1157
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_electron_capture_proton:
+      value: 4401
+      unit: keV
+      uncertainty: 300
+      raw: 4401#
+      uncertainty_raw: 300#
+      estimated: true
+      evidence_type: EVALUATED
+      value_status: ESTIMATED-FROM-SYSTEMATICS
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1157
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_beta_minus_neutron:
+      value: null
+      unit: keV
+      uncertainty: null
+      raw: "*"
+      uncertainty_raw: ""
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: INSUFFICIENT DATA
+      null_state: UNKNOWN
+      null_reason: SOURCE-NOT-CALCULABLE
+      uncertainty_status: UNKNOWN
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1157
+      reference_state: AME2020 ground-state atomic-mass convention
+    reaction2_source_line: 1174
+    reaction2_raw_line: "  99
+      In  49   15541#      426#       1029#      303#          *                 10069#      515#       -940#      507#       \
+      8782#      311#"
+    separation_neutron:
+      value: 15541
+      unit: keV
+      uncertainty: 426
+      raw: 15541#
+      uncertainty_raw: 426#
+      estimated: true
+      evidence_type: EVALUATED
+      value_status: ESTIMATED-FROM-SYSTEMATICS
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1174
+      reference_state: AME2020 ground-state atomic-mass convention
+    separation_proton:
+      value: 1029
+      unit: keV
+      uncertainty: 303
+      raw: 1029#
+      uncertainty_raw: 303#
+      estimated: true
+      evidence_type: EVALUATED
+      value_status: ESTIMATED-FROM-SYSTEMATICS
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1174
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_quadruple_beta_minus:
+      value: null
+      unit: keV
+      uncertainty: null
+      raw: "*"
+      uncertainty_raw: ""
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: INSUFFICIENT DATA
+      null_state: UNKNOWN
+      null_reason: SOURCE-NOT-CALCULABLE
+      uncertainty_status: UNKNOWN
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1174
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_deuteron_alpha:
+      value: 10069
+      unit: keV
+      uncertainty: 515
+      raw: 10069#
+      uncertainty_raw: 515#
+      estimated: true
+      evidence_type: EVALUATED
+      value_status: ESTIMATED-FROM-SYSTEMATICS
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1174
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_proton_alpha:
+      value: -940
+      unit: keV
+      uncertainty: 507
+      raw: -940#
+      uncertainty_raw: 507#
+      estimated: true
+      evidence_type: EVALUATED
+      value_status: ESTIMATED-FROM-SYSTEMATICS
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1174
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_neutron_alpha:
+      value: 8782
+      unit: keV
+      uncertainty: 311
+      raw: 8782#
+      uncertainty_raw: 311#
+      estimated: true
+      evidence_type: EVALUATED
+      value_status: ESTIMATED-FROM-SYSTEMATICS
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1174
       reference_state: AME2020 ground-state atomic-mass convention
     channel_references:
       beta_minus_daughter:
@@ -588,6 +1133,131 @@ entries:
       source_id: SRC-000304
       source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1172
       reference_state: AME2020 ground-state atomic-mass convention
+    q_double_beta_minus:
+      value: null
+      unit: keV
+      uncertainty: null
+      raw: "*"
+      uncertainty_raw: ""
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: INSUFFICIENT DATA
+      null_state: UNKNOWN
+      null_reason: SOURCE-NOT-CALCULABLE
+      uncertainty_status: UNKNOWN
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1172
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_electron_capture_proton:
+      value: 5245.3656
+      unit: keV
+      uncertainty: 6.6521
+      raw: "5245.3656"
+      uncertainty_raw: "6.6521"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1172
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_beta_minus_neutron:
+      value: -24273
+      unit: keV
+      uncertainty: 582
+      raw: -24273#
+      uncertainty_raw: 582#
+      estimated: true
+      evidence_type: EVALUATED
+      value_status: ESTIMATED-FROM-SYSTEMATICS
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1172
+      reference_state: AME2020 ground-state atomic-mass convention
+    reaction2_source_line: 1189
+    reaction2_raw_line: " 100
+      In  49   10873#      298#       1535.9854    2.7396      *                 14169.0856   51.8448   1419.9360  420.\
+      1778  12372.2830   12.2225"
+    separation_neutron:
+      value: 10873
+      unit: keV
+      uncertainty: 298
+      raw: 10873#
+      uncertainty_raw: 298#
+      estimated: true
+      evidence_type: EVALUATED
+      value_status: ESTIMATED-FROM-SYSTEMATICS
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1189
+      reference_state: AME2020 ground-state atomic-mass convention
+    separation_proton:
+      value: 1535.9854
+      unit: keV
+      uncertainty: 2.7396
+      raw: "1535.9854"
+      uncertainty_raw: "2.7396"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1189
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_quadruple_beta_minus:
+      value: null
+      unit: keV
+      uncertainty: null
+      raw: "*"
+      uncertainty_raw: ""
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: INSUFFICIENT DATA
+      null_state: UNKNOWN
+      null_reason: SOURCE-NOT-CALCULABLE
+      uncertainty_status: UNKNOWN
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1189
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_deuteron_alpha:
+      value: 14169.0856
+      unit: keV
+      uncertainty: 51.8448
+      raw: "14169.0856"
+      uncertainty_raw: "51.8448"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1189
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_proton_alpha:
+      value: 1419.936
+      unit: keV
+      uncertainty: 420.1778
+      raw: "1419.9360"
+      uncertainty_raw: "420.1778"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1189
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_neutron_alpha:
+      value: 12372.283
+      unit: keV
+      uncertainty: 12.2225
+      raw: "12372.2830"
+      uncertainty_raw: "12.2225"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1189
+      reference_state: AME2020 ground-state atomic-mass convention
     channel_references:
       beta_minus_daughter:
         A: 100
@@ -694,6 +1364,131 @@ entries:
       source_id: SRC-000304
       source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1187
       reference_state: AME2020 ground-state atomic-mass convention
+    q_double_beta_minus:
+      value: null
+      unit: keV
+      uncertainty: null
+      raw: "*"
+      uncertainty_raw: ""
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: INSUFFICIENT DATA
+      null_state: UNKNOWN
+      null_reason: SOURCE-NOT-CALCULABLE
+      uncertainty_status: UNKNOWN
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1187
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_electron_capture_proton:
+      value: 2304.097
+      unit: keV
+      uncertainty: 12.6886
+      raw: "2304.0970"
+      uncertainty_raw: "12.6886"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1187
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_beta_minus_neutron:
+      value: -19468.0733
+      unit: keV
+      uncertainty: 240.2936
+      raw: "-19468.0733"
+      uncertainty_raw: "240.2936"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1187
+      reference_state: AME2020 ground-state atomic-mass convention
+    reaction2_source_line: 1204
+    reaction2_raw_line: " 101
+      In  49   12438.0733   11.8744   1639.2770   11.7819      *                 12097.0375   11.7690   3955.5785   53.\
+      0932  10167.9255   34.9126"
+    separation_neutron:
+      value: 12438.0733
+      unit: keV
+      uncertainty: 11.8744
+      raw: "12438.0733"
+      uncertainty_raw: "11.8744"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1204
+      reference_state: AME2020 ground-state atomic-mass convention
+    separation_proton:
+      value: 1639.277
+      unit: keV
+      uncertainty: 11.7819
+      raw: "1639.2770"
+      uncertainty_raw: "11.7819"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1204
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_quadruple_beta_minus:
+      value: null
+      unit: keV
+      uncertainty: null
+      raw: "*"
+      uncertainty_raw: ""
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: INSUFFICIENT DATA
+      null_state: UNKNOWN
+      null_reason: SOURCE-NOT-CALCULABLE
+      uncertainty_status: UNKNOWN
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1204
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_deuteron_alpha:
+      value: 12097.0375
+      unit: keV
+      uncertainty: 11.769
+      raw: "12097.0375"
+      uncertainty_raw: "11.7690"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1204
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_proton_alpha:
+      value: 3955.5785
+      unit: keV
+      uncertainty: 53.0932
+      raw: "3955.5785"
+      uncertainty_raw: "53.0932"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1204
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_neutron_alpha:
+      value: 10167.9255
+      unit: keV
+      uncertainty: 34.9126
+      raw: "10167.9255"
+      uncertainty_raw: "34.9126"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1204
+      reference_state: AME2020 ground-state atomic-mass convention
     channel_references:
       beta_minus_daughter:
         A: 101
@@ -798,6 +1593,129 @@ entries:
       uncertainty_status: SOURCE-REPORTED
       source_id: SRC-000304
       source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1201
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_double_beta_minus:
+      value: -19595
+      unit: keV
+      uncertainty: 400
+      raw: -19595#
+      uncertainty_raw: 400#
+      estimated: true
+      evidence_type: EVALUATED
+      value_status: ESTIMATED-FROM-SYSTEMATICS
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1201
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_electron_capture_proton:
+      value: 3350.5175
+      unit: keV
+      uncertainty: 6.6573
+      raw: "3350.5175"
+      uncertainty_raw: "6.6573"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1201
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_beta_minus_neutron:
+      value: -18460.5893
+      unit: keV
+      uncertainty: 300.0395
+      raw: "-18460.5893"
+      uncertainty_raw: "300.0395"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1201
+      reference_state: AME2020 ground-state atomic-mass convention
+    reaction2_source_line: 1218
+    reaction2_raw_line: " 102
+      In  49   10221.3123   12.5265   2147.4011    4.8096      *                 14210.5068    4.8706   4100.2914    4.\
+      8393  11663.9894    7.7565"
+    separation_neutron:
+      value: 10221.3123
+      unit: keV
+      uncertainty: 12.5265
+      raw: "10221.3123"
+      uncertainty_raw: "12.5265"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1218
+      reference_state: AME2020 ground-state atomic-mass convention
+    separation_proton:
+      value: 2147.4011
+      unit: keV
+      uncertainty: 4.8096
+      raw: "2147.4011"
+      uncertainty_raw: "4.8096"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1218
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_quadruple_beta_minus:
+      value: null
+      unit: keV
+      uncertainty: null
+      raw: "*"
+      uncertainty_raw: ""
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: INSUFFICIENT DATA
+      null_state: UNKNOWN
+      null_reason: SOURCE-NOT-CALCULABLE
+      uncertainty_status: UNKNOWN
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1218
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_deuteron_alpha:
+      value: 14210.5068
+      unit: keV
+      uncertainty: 4.8706
+      raw: "14210.5068"
+      uncertainty_raw: "4.8706"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1218
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_proton_alpha:
+      value: 4100.2914
+      unit: keV
+      uncertainty: 4.8393
+      raw: "4100.2914"
+      uncertainty_raw: "4.8393"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1218
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_neutron_alpha:
+      value: 11663.9894
+      unit: keV
+      uncertainty: 7.7565
+      raw: "11663.9894"
+      uncertainty_raw: "7.7565"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1218
       reference_state: AME2020 ground-state atomic-mass convention
     channel_references:
       beta_minus_daughter:
@@ -904,6 +1822,129 @@ entries:
       source_id: SRC-000304
       source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1216
       reference_state: AME2020 ground-state atomic-mass convention
+    q_double_beta_minus:
+      value: -17962
+      unit: keV
+      uncertainty: 300
+      raw: -17962#
+      uncertainty_raw: 300#
+      estimated: true
+      evidence_type: EVALUATED
+      value_status: ESTIMATED-FROM-SYSTEMATICS
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1216
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_electron_capture_proton:
+      value: 325.3334
+      unit: keV
+      uncertainty: 12.1413
+      raw: "325.3334"
+      uncertainty_raw: "12.1413"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1216
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_beta_minus_neutron:
+      value: -17768.8195
+      unit: keV
+      uncertainty: 100.5065
+      raw: "-17768.8195"
+      uncertainty_raw: "100.5065"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1216
+      reference_state: AME2020 ground-state atomic-mass convention
+    reaction2_source_line: 1234
+    reaction2_raw_line: " 103
+      In  49   12008.8195   10.0776   2261.6666    9.1330      *                 11914.8756    9.1033   4426.2536    9.\
+      1356   9151.9746   10.2784"
+    separation_neutron:
+      value: 12008.8195
+      unit: keV
+      uncertainty: 10.0776
+      raw: "12008.8195"
+      uncertainty_raw: "10.0776"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1234
+      reference_state: AME2020 ground-state atomic-mass convention
+    separation_proton:
+      value: 2261.6666
+      unit: keV
+      uncertainty: 9.133
+      raw: "2261.6666"
+      uncertainty_raw: "9.1330"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1234
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_quadruple_beta_minus:
+      value: null
+      unit: keV
+      uncertainty: null
+      raw: "*"
+      uncertainty_raw: ""
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: INSUFFICIENT DATA
+      null_state: UNKNOWN
+      null_reason: SOURCE-NOT-CALCULABLE
+      uncertainty_status: UNKNOWN
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1234
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_deuteron_alpha:
+      value: 11914.8756
+      unit: keV
+      uncertainty: 9.1033
+      raw: "11914.8756"
+      uncertainty_raw: "9.1033"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1234
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_proton_alpha:
+      value: 4426.2536
+      unit: keV
+      uncertainty: 9.1356
+      raw: "4426.2536"
+      uncertainty_raw: "9.1356"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1234
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_neutron_alpha:
+      value: 9151.9746
+      unit: keV
+      uncertainty: 10.2784
+      raw: "9151.9746"
+      uncertainty_raw: "10.2784"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1234
+      reference_state: AME2020 ground-state atomic-mass convention
     channel_references:
       beta_minus_daughter:
         A: 103
@@ -1008,6 +2049,129 @@ entries:
       uncertainty_status: SOURCE-REPORTED
       source_id: SRC-000304
       source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1231
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_double_beta_minus:
+      value: -16888
+      unit: keV
+      uncertainty: 102
+      raw: -16888#
+      uncertainty_raw: 102#
+      estimated: true
+      evidence_type: EVALUATED
+      value_status: ESTIMATED-FROM-SYSTEMATICS
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1231
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_electron_capture_proton:
+      value: 1331.0567
+      unit: keV
+      uncertainty: 7.0818
+      raw: "1331.0567"
+      uncertainty_raw: "7.0818"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1231
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_beta_minus_neutron:
+      value: -17162
+      unit: keV
+      uncertainty: 101
+      raw: -17162#
+      uncertainty_raw: 101#
+      estimated: true
+      evidence_type: EVALUATED
+      value_status: ESTIMATED-FROM-SYSTEMATICS
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1231
+      reference_state: AME2020 ground-state atomic-mass convention
+    reaction2_source_line: 1249
+    reaction2_raw_line: " 104
+      In  49    9621.5957   10.6772   2820.0194    6.0524      *                 14187.8339    6.0098   4517.8461    5.\
+      9645  10798.1117    7.5340"
+    separation_neutron:
+      value: 9621.5957
+      unit: keV
+      uncertainty: 10.6772
+      raw: "9621.5957"
+      uncertainty_raw: "10.6772"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1249
+      reference_state: AME2020 ground-state atomic-mass convention
+    separation_proton:
+      value: 2820.0194
+      unit: keV
+      uncertainty: 6.0524
+      raw: "2820.0194"
+      uncertainty_raw: "6.0524"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1249
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_quadruple_beta_minus:
+      value: null
+      unit: keV
+      uncertainty: null
+      raw: "*"
+      uncertainty_raw: ""
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: INSUFFICIENT DATA
+      null_state: UNKNOWN
+      null_reason: SOURCE-NOT-CALCULABLE
+      uncertainty_status: UNKNOWN
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1249
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_deuteron_alpha:
+      value: 14187.8339
+      unit: keV
+      uncertainty: 6.0098
+      raw: "14187.8339"
+      uncertainty_raw: "6.0098"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1249
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_proton_alpha:
+      value: 4517.8461
+      unit: keV
+      uncertainty: 5.9645
+      raw: "4517.8461"
+      uncertainty_raw: "5.9645"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1249
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_neutron_alpha:
+      value: 10798.1117
+      unit: keV
+      uncertainty: 7.534
+      raw: "10798.1117"
+      uncertainty_raw: "7.5340"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1249
       reference_state: AME2020 ground-state atomic-mass convention
     channel_references:
       beta_minus_daughter:
@@ -1114,6 +2278,129 @@ entries:
       source_id: SRC-000304
       source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1246
       reference_state: AME2020 ground-state atomic-mass convention
+    q_double_beta_minus:
+      value: -15625.091
+      unit: keV
+      uncertainty: 24.112
+      raw: "-15625.0910"
+      uncertainty_raw: "24.1120"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1246
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_electron_capture_proton:
+      value: -1813.0832
+      unit: keV
+      uncertainty: 11.0804
+      raw: "-1813.0832"
+      uncertainty_raw: "11.0804"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1246
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_beta_minus_neutron:
+      value: -16084.843
+      unit: keV
+      uncertainty: 11.7471
+      raw: "-16084.8430"
+      uncertainty_raw: "11.7471"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1246
+      reference_state: AME2020 ground-state atomic-mass convention
+    reaction2_source_line: 1264
+    reaction2_raw_line: " 105
+      In  49   11529.2255   11.7619   2961.1619   10.3821      *                 11721.8512   10.4052   4883.1746   10.\
+      3804   8252.5216   13.1055"
+    separation_neutron:
+      value: 11529.2255
+      unit: keV
+      uncertainty: 11.7619
+      raw: "11529.2255"
+      uncertainty_raw: "11.7619"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1264
+      reference_state: AME2020 ground-state atomic-mass convention
+    separation_proton:
+      value: 2961.1619
+      unit: keV
+      uncertainty: 10.3821
+      raw: "2961.1619"
+      uncertainty_raw: "10.3821"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1264
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_quadruple_beta_minus:
+      value: null
+      unit: keV
+      uncertainty: null
+      raw: "*"
+      uncertainty_raw: ""
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: INSUFFICIENT DATA
+      null_state: UNKNOWN
+      null_reason: SOURCE-NOT-CALCULABLE
+      uncertainty_status: UNKNOWN
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1264
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_deuteron_alpha:
+      value: 11721.8512
+      unit: keV
+      uncertainty: 10.4052
+      raw: "11721.8512"
+      uncertainty_raw: "10.4052"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1264
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_proton_alpha:
+      value: 4883.1746
+      unit: keV
+      uncertainty: 10.3804
+      raw: "4883.1746"
+      uncertainty_raw: "10.3804"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1264
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_neutron_alpha:
+      value: 8252.5216
+      unit: keV
+      uncertainty: 13.1055
+      raw: "8252.5216"
+      uncertainty_raw: "13.1055"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1264
+      reference_state: AME2020 ground-state atomic-mass convention
     channel_references:
       beta_minus_daughter:
         A: 105
@@ -1218,6 +2505,126 @@ entries:
       uncertainty_status: SOURCE-REPORTED
       source_id: SRC-000304
       source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1261
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_double_beta_minus:
+      value: -14134.8485
+      unit: keV
+      uncertainty: 14.3184
+      raw: "-14134.8485"
+      uncertainty_raw: "14.3184"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1261
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_electron_capture_proton:
+      value: -826.2724
+      unit: keV
+      uncertainty: 13.0382
+      raw: "-826.2724"
+      uncertainty_raw: "13.0382"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1261
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_beta_minus_neutron:
+      value: -15341.4664
+      unit: keV
+      uncertainty: 12.8551
+      raw: "-15341.4664"
+      uncertainty_raw: "12.8551"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1261
+      reference_state: AME2020 ground-state atomic-mass convention
+    reaction2_source_line: 1279
+    reaction2_raw_line: " 106 In  49    9038.8857   15.9522   3563.2713   12.3049
+      -37309#      400#      14071.0486   12.3403   4907.5318   12.3597   9840.9549   12.8951"
+    separation_neutron:
+      value: 9038.8857
+      unit: keV
+      uncertainty: 15.9522
+      raw: "9038.8857"
+      uncertainty_raw: "15.9522"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1279
+      reference_state: AME2020 ground-state atomic-mass convention
+    separation_proton:
+      value: 3563.2713
+      unit: keV
+      uncertainty: 12.3049
+      raw: "3563.2713"
+      uncertainty_raw: "12.3049"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1279
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_quadruple_beta_minus:
+      value: -37309
+      unit: keV
+      uncertainty: 400
+      raw: -37309#
+      uncertainty_raw: 400#
+      estimated: true
+      evidence_type: EVALUATED
+      value_status: ESTIMATED-FROM-SYSTEMATICS
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1279
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_deuteron_alpha:
+      value: 14071.0486
+      unit: keV
+      uncertainty: 12.3403
+      raw: "14071.0486"
+      uncertainty_raw: "12.3403"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1279
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_proton_alpha:
+      value: 4907.5318
+      unit: keV
+      uncertainty: 12.3597
+      raw: "4907.5318"
+      uncertainty_raw: "12.3597"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1279
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_neutron_alpha:
+      value: 9840.9549
+      unit: keV
+      uncertainty: 12.8951
+      raw: "9840.9549"
+      uncertainty_raw: "12.8951"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1279
       reference_state: AME2020 ground-state atomic-mass convention
     channel_references:
       beta_minus_daughter:
@@ -1324,6 +2731,126 @@ entries:
       source_id: SRC-000304
       source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1277
       reference_state: AME2020 ground-state atomic-mass convention
+    q_double_beta_minus:
+      value: -12913.4185
+      unit: keV
+      uncertainty: 10.5071
+      raw: "-12913.4185"
+      uncertainty_raw: "10.5071"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1277
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_electron_capture_proton:
+      value: -3913.2386
+      unit: keV
+      uncertainty: 10.1008
+      raw: "-3913.2386"
+      uncertainty_raw: "10.1008"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1277
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_beta_minus_neutron:
+      value: -14284.2874
+      unit: keV
+      uncertainty: 10.9138
+      raw: "-14284.2874"
+      uncertainty_raw: "10.9138"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1277
+      reference_state: AME2020 ground-state atomic-mass convention
+    reaction2_source_line: 1295
+    reaction2_raw_line: " 107 In  49   11029.8353   15.5723   3723.4852    9.7072
+      -34137#      300#      11477.9895    9.7529   5265.7795    9.7976   7196.2052   10.5260"
+    separation_neutron:
+      value: 11029.8353
+      unit: keV
+      uncertainty: 15.5723
+      raw: "11029.8353"
+      uncertainty_raw: "15.5723"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1295
+      reference_state: AME2020 ground-state atomic-mass convention
+    separation_proton:
+      value: 3723.4852
+      unit: keV
+      uncertainty: 9.7072
+      raw: "3723.4852"
+      uncertainty_raw: "9.7072"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1295
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_quadruple_beta_minus:
+      value: -34137
+      unit: keV
+      uncertainty: 300
+      raw: -34137#
+      uncertainty_raw: 300#
+      estimated: true
+      evidence_type: EVALUATED
+      value_status: ESTIMATED-FROM-SYSTEMATICS
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1295
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_deuteron_alpha:
+      value: 11477.9895
+      unit: keV
+      uncertainty: 9.7529
+      raw: "11477.9895"
+      uncertainty_raw: "9.7529"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1295
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_proton_alpha:
+      value: 5265.7795
+      unit: keV
+      uncertainty: 9.7976
+      raw: "5265.7795"
+      uncertainty_raw: "9.7976"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1295
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_neutron_alpha:
+      value: 7196.2052
+      unit: keV
+      uncertainty: 10.526
+      raw: "7196.2052"
+      uncertainty_raw: "10.5260"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1295
+      reference_state: AME2020 ground-state atomic-mass convention
     channel_references:
       beta_minus_daughter:
         A: 107
@@ -1429,6 +2956,126 @@ entries:
       source_id: SRC-000304
       source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1292
       reference_state: AME2020 ground-state atomic-mass convention
+    q_double_beta_minus:
+      value: -11674.4873
+      unit: keV
+      uncertainty: 10.2408
+      raw: "-11674.4873"
+      uncertainty_raw: "10.2408"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1292
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_electron_capture_proton:
+      value: -3002.0997
+      unit: keV
+      uncertainty: 8.9634
+      raw: "-3002.0997"
+      uncertainty_raw: "8.9634"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1292
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_beta_minus_neutron:
+      value: -13678.9075
+      unit: keV
+      uncertainty: 10.142
+      raw: "-13678.9075"
+      uncertainty_raw: "10.1420"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1292
+      reference_state: AME2020 ground-state atomic-mass convention
+    reaction2_source_line: 1311
+    reaction2_raw_line: " 108 In  49    8624.4794   12.9562   4418.4738    8.7992
+      -31349#      102#      13723.1316    8.7114   5078.0764    8.7526   8597.4223    9.7629"
+    separation_neutron:
+      value: 8624.4794
+      unit: keV
+      uncertainty: 12.9562
+      raw: "8624.4794"
+      uncertainty_raw: "12.9562"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1311
+      reference_state: AME2020 ground-state atomic-mass convention
+    separation_proton:
+      value: 4418.4738
+      unit: keV
+      uncertainty: 8.7992
+      raw: "4418.4738"
+      uncertainty_raw: "8.7992"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1311
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_quadruple_beta_minus:
+      value: -31349
+      unit: keV
+      uncertainty: 102
+      raw: -31349#
+      uncertainty_raw: 102#
+      estimated: true
+      evidence_type: EVALUATED
+      value_status: ESTIMATED-FROM-SYSTEMATICS
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1311
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_deuteron_alpha:
+      value: 13723.1316
+      unit: keV
+      uncertainty: 8.7114
+      raw: "13723.1316"
+      uncertainty_raw: "8.7114"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1311
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_proton_alpha:
+      value: 5078.0764
+      unit: keV
+      uncertainty: 8.7526
+      raw: "5078.0764"
+      uncertainty_raw: "8.7526"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1311
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_neutron_alpha:
+      value: 8597.4223
+      unit: keV
+      uncertainty: 9.7629
+      raw: "8597.4223"
+      uncertainty_raw: "9.7629"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1311
+      reference_state: AME2020 ground-state atomic-mass convention
     channel_references:
       beta_minus_daughter:
         A: 108
@@ -1533,6 +3180,126 @@ entries:
       uncertainty_status: SOURCE-REPORTED
       source_id: SRC-000304
       source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1308
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_double_beta_minus:
+      value: -10238.5393
+      unit: keV
+      uncertainty: 6.5938
+      raw: "-10238.5393"
+      uncertainty_raw: "6.5938"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1308
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_electron_capture_proton:
+      value: -6171.7053
+      unit: keV
+      uncertainty: 4.6321
+      raw: "-6171.7053"
+      uncertainty_raw: "4.6321"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1308
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_beta_minus_neutron:
+      value: -12490.895
+      unit: keV
+      uncertainty: 6.6821
+      raw: "-12490.8950"
+      uncertainty_raw: "6.6821"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1308
+      reference_state: AME2020 ground-state atomic-mass convention
+    reaction2_source_line: 1327
+    reaction2_raw_line: " 109 In  49   10441.0156    9.4231   4526.0742    3.8959
+      -28817.0205    7.8124  11211.6067    4.3025   5506.6822    4.1198   6099.2758    4.9850"
+    separation_neutron:
+      value: 10441.0156
+      unit: keV
+      uncertainty: 9.4231
+      raw: "10441.0156"
+      uncertainty_raw: "9.4231"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1327
+      reference_state: AME2020 ground-state atomic-mass convention
+    separation_proton:
+      value: 4526.0742
+      unit: keV
+      uncertainty: 3.8959
+      raw: "4526.0742"
+      uncertainty_raw: "3.8959"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1327
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_quadruple_beta_minus:
+      value: -28817.0205
+      unit: keV
+      uncertainty: 7.8124
+      raw: "-28817.0205"
+      uncertainty_raw: "7.8124"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1327
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_deuteron_alpha:
+      value: 11211.6067
+      unit: keV
+      uncertainty: 4.3025
+      raw: "11211.6067"
+      uncertainty_raw: "4.3025"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1327
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_proton_alpha:
+      value: 5506.6822
+      unit: keV
+      uncertainty: 4.1198
+      raw: "5506.6822"
+      uncertainty_raw: "4.1198"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1327
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_neutron_alpha:
+      value: 6099.2758
+      unit: keV
+      uncertainty: 4.985
+      raw: "6099.2758"
+      uncertainty_raw: "4.9850"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1327
       reference_state: AME2020 ground-state atomic-mass convention
     channel_references:
       beta_minus_daughter:
@@ -1640,6 +3407,126 @@ entries:
       source_id: SRC-000304
       source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1323
       reference_state: AME2020 ground-state atomic-mass convention
+    q_double_beta_minus:
+      value: -9020.225
+      unit: keV
+      uncertainty: 13.0007
+      raw: "-9020.2250"
+      uncertainty_raw: "13.0007"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1323
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_electron_capture_proton:
+      value: -5039.5099
+      unit: keV
+      uncertainty: 11.6175
+      raw: "-5039.5099"
+      uncertainty_raw: "11.6175"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1323
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_beta_minus_neutron:
+      value: -11911.1071
+      unit: keV
+      uncertainty: 14.0208
+      raw: "-11911.1071"
+      uncertainty_raw: "14.0208"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1323
+      reference_state: AME2020 ground-state atomic-mass convention
+    reaction2_source_line: 1342
+    reaction2_raw_line: " 110 In  49    8051.7618   12.2172   5254.6101   11.6532
+      -26002.1256   63.0078  13493.2602   11.6061   5384.4112   11.6719   7583.1323   11.7962"
+    separation_neutron:
+      value: 8051.7618
+      unit: keV
+      uncertainty: 12.2172
+      raw: "8051.7618"
+      uncertainty_raw: "12.2172"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1342
+      reference_state: AME2020 ground-state atomic-mass convention
+    separation_proton:
+      value: 5254.6101
+      unit: keV
+      uncertainty: 11.6532
+      raw: "5254.6101"
+      uncertainty_raw: "11.6532"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1342
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_quadruple_beta_minus:
+      value: -26002.1256
+      unit: keV
+      uncertainty: 63.0078
+      raw: "-26002.1256"
+      uncertainty_raw: "63.0078"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1342
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_deuteron_alpha:
+      value: 13493.2602
+      unit: keV
+      uncertainty: 11.6061
+      raw: "13493.2602"
+      uncertainty_raw: "11.6061"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1342
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_proton_alpha:
+      value: 5384.4112
+      unit: keV
+      uncertainty: 11.6719
+      raw: "5384.4112"
+      uncertainty_raw: "11.6719"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1342
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_neutron_alpha:
+      value: 7583.1323
+      unit: keV
+      uncertainty: 11.7962
+      raw: "7583.1323"
+      uncertainty_raw: "11.7962"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1342
+      reference_state: AME2020 ground-state atomic-mass convention
     channel_references:
       beta_minus_daughter:
         A: 110
@@ -1745,6 +3632,126 @@ entries:
       uncertainty_status: SOURCE-REPORTED
       source_id: SRC-000304
       source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1338
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_double_beta_minus:
+      value: -7555.3032
+      unit: keV
+      uncertainty: 9.4885
+      raw: "-7555.3032"
+      uncertainty_raw: "9.4885"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1338
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_electron_capture_proton:
+      value: -8223.7147
+      unit: keV
+      uncertainty: 3.6366
+      raw: "-8223.7147"
+      uncertainty_raw: "3.6366"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1338
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_beta_minus_neutron:
+      value: -10621.3753
+      unit: keV
+      uncertainty: 14.1962
+      raw: "-10621.3753"
+      uncertainty_raw: "14.1962"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1338
+      reference_state: AME2020 ground-state atomic-mass convention
+    reaction2_source_line: 1357
+    reaction2_raw_line: " 111 In  49    9993.3984   12.0410   5333.0514    3.4134
+      -23438.2551    5.8585  10823.0877    3.6257   5724.4280    3.6627   4861.1439    4.1743"
+    separation_neutron:
+      value: 9993.3984
+      unit: keV
+      uncertainty: 12.041
+      raw: "9993.3984"
+      uncertainty_raw: "12.0410"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1357
+      reference_state: AME2020 ground-state atomic-mass convention
+    separation_proton:
+      value: 5333.0514
+      unit: keV
+      uncertainty: 3.4134
+      raw: "5333.0514"
+      uncertainty_raw: "3.4134"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1357
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_quadruple_beta_minus:
+      value: -23438.2551
+      unit: keV
+      uncertainty: 5.8585
+      raw: "-23438.2551"
+      uncertainty_raw: "5.8585"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1357
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_deuteron_alpha:
+      value: 10823.0877
+      unit: keV
+      uncertainty: 3.6257
+      raw: "10823.0877"
+      uncertainty_raw: "3.6257"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1357
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_proton_alpha:
+      value: 5724.428
+      unit: keV
+      uncertainty: 3.6627
+      raw: "5724.4280"
+      uncertainty_raw: "3.6627"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1357
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_neutron_alpha:
+      value: 4861.1439
+      unit: keV
+      uncertainty: 4.1743
+      raw: "4861.1439"
+      uncertainty_raw: "4.1743"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1357
       reference_state: AME2020 ground-state atomic-mass convention
     channel_references:
       beta_minus_daughter:
@@ -1852,6 +3859,126 @@ entries:
       source_id: SRC-000304
       source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1354
       reference_state: AME2020 ground-state atomic-mass convention
+    q_double_beta_minus:
+      value: -6391.1536
+      unit: keV
+      uncertainty: 18.329
+      raw: "-6391.1536"
+      uncertainty_raw: "18.3290"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1354
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_electron_capture_proton:
+      value: -7063.6508
+      unit: keV
+      uncertainty: 4.4818
+      raw: "-7063.6508"
+      uncertainty_raw: "4.4818"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1354
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_beta_minus_neutron:
+      value: -10122.8642
+      unit: keV
+      uncertainty: 6.8115
+      raw: "-10122.8642"
+      uncertainty_raw: "6.8115"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1354
+      reference_state: AME2020 ground-state atomic-mass convention
+    reaction2_source_line: 1373
+    reaction2_raw_line: " 112 In  49    7669.3950    5.4540   6026.8508    4.2528
+      -20926.7882   11.0931  13068.6498    4.2553   5378.2589    4.5183   6375.7061    4.4343"
+    separation_neutron:
+      value: 7669.395
+      unit: keV
+      uncertainty: 5.454
+      raw: "7669.3950"
+      uncertainty_raw: "5.4540"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1373
+      reference_state: AME2020 ground-state atomic-mass convention
+    separation_proton:
+      value: 6026.8508
+      unit: keV
+      uncertainty: 4.2528
+      raw: "6026.8508"
+      uncertainty_raw: "4.2528"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1373
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_quadruple_beta_minus:
+      value: -20926.7882
+      unit: keV
+      uncertainty: 11.0931
+      raw: "-20926.7882"
+      uncertainty_raw: "11.0931"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1373
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_deuteron_alpha:
+      value: 13068.6498
+      unit: keV
+      uncertainty: 4.2553
+      raw: "13068.6498"
+      uncertainty_raw: "4.2553"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1373
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_proton_alpha:
+      value: 5378.2589
+      unit: keV
+      uncertainty: 4.5183
+      raw: "5378.2589"
+      uncertainty_raw: "4.5183"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1373
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_neutron_alpha:
+      value: 6375.7061
+      unit: keV
+      uncertainty: 4.4343
+      raw: "6375.7061"
+      uncertainty_raw: "4.4343"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1373
+      reference_state: AME2020 ground-state atomic-mass convention
     channel_references:
       beta_minus_daughter:
         A: 112
@@ -1956,6 +4083,126 @@ entries:
       uncertainty_status: SOURCE-REPORTED
       source_id: SRC-000304
       source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1370
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_double_beta_minus:
+      value: -4950.1579
+      unit: keV
+      uncertainty: 17.1928
+      raw: "-4950.1579"
+      uncertainty_raw: "17.1928"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1370
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_electron_capture_proton:
+      value: -10072.3655
+      unit: keV
+      uncertainty: 2.4292
+      raw: "-10072.3655"
+      uncertainty_raw: "2.4292"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1370
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_beta_minus_neutron:
+      value: -8783.3923
+      unit: keV
+      uncertainty: 0.2848
+      raw: "-8783.3923"
+      uncertainty_raw: "0.2848"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1370
+      reference_state: AME2020 ground-state atomic-mass convention
+    reaction2_source_line: 1390
+    reaction2_raw_line: " 113 In  49    9448.3147    4.2500   6081.2372    0.2387
+      -18247.6069    8.0131  10595.9306    0.3563   5844.9013    0.3807   3736.5849    1.2920"
+    separation_neutron:
+      value: 9448.3147
+      unit: keV
+      uncertainty: 4.25
+      raw: "9448.3147"
+      uncertainty_raw: "4.2500"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1390
+      reference_state: AME2020 ground-state atomic-mass convention
+    separation_proton:
+      value: 6081.2372
+      unit: keV
+      uncertainty: 0.2387
+      raw: "6081.2372"
+      uncertainty_raw: "0.2387"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1390
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_quadruple_beta_minus:
+      value: -18247.6069
+      unit: keV
+      uncertainty: 8.0131
+      raw: "-18247.6069"
+      uncertainty_raw: "8.0131"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1390
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_deuteron_alpha:
+      value: 10595.9306
+      unit: keV
+      uncertainty: 0.3563
+      raw: "10595.9306"
+      uncertainty_raw: "0.3563"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1390
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_proton_alpha:
+      value: 5844.9013
+      unit: keV
+      uncertainty: 0.3807
+      raw: "5844.9013"
+      uncertainty_raw: "0.3807"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1390
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_neutron_alpha:
+      value: 3736.5849
+      unit: keV
+      uncertainty: 1.292
+      raw: "3736.5849"
+      uncertainty_raw: "1.2920"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1390
       reference_state: AME2020 ground-state atomic-mass convention
     channel_references:
       beta_minus_daughter:
@@ -2063,6 +4310,126 @@ entries:
       source_id: SRC-000304
       source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1386
       reference_state: AME2020 ground-state atomic-mass convention
+    q_double_beta_minus:
+      value: -4073.1908
+      unit: keV
+      uncertainty: 19.7747
+      raw: "-4073.1908"
+      uncertainty_raw: "19.7747"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1386
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_electron_capture_proton:
+      value: -8831.9533
+      unit: keV
+      uncertainty: 16.6449
+      raw: "-8831.9533"
+      uncertainty_raw: "16.6449"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1386
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_beta_minus_neutron:
+      value: -8312.9959
+      unit: keV
+      uncertainty: 1.5923
+      raw: "-8312.9959"
+      uncertainty_raw: "1.5923"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1386
+      reference_state: AME2020 ground-state atomic-mass convention
+    reaction2_source_line: 1406
+    reaction2_raw_line: " 114 In  49    7274.0018    0.2534   6815.4918    0.3588
+      -15930.8724   20.0294  12715.8572    0.3426   5546.4951    0.4322   5292.0421    1.4788"
+    separation_neutron:
+      value: 7274.0018
+      unit: keV
+      uncertainty: 0.2534
+      raw: "7274.0018"
+      uncertainty_raw: "0.2534"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1406
+      reference_state: AME2020 ground-state atomic-mass convention
+    separation_proton:
+      value: 6815.4918
+      unit: keV
+      uncertainty: 0.3588
+      raw: "6815.4918"
+      uncertainty_raw: "0.3588"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1406
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_quadruple_beta_minus:
+      value: -15930.8724
+      unit: keV
+      uncertainty: 20.0294
+      raw: "-15930.8724"
+      uncertainty_raw: "20.0294"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1406
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_deuteron_alpha:
+      value: 12715.8572
+      unit: keV
+      uncertainty: 0.3426
+      raw: "12715.8572"
+      uncertainty_raw: "0.3426"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1406
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_proton_alpha:
+      value: 5546.4951
+      unit: keV
+      uncertainty: 0.4322
+      raw: "5546.4951"
+      uncertainty_raw: "0.4322"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1406
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_neutron_alpha:
+      value: 5292.0421
+      unit: keV
+      uncertainty: 1.4788
+      raw: "5292.0421"
+      uncertainty_raw: "1.4788"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1406
+      reference_state: AME2020 ground-state atomic-mass convention
     channel_references:
       beta_minus_daughter:
         A: 114
@@ -2167,6 +4534,126 @@ entries:
       uncertainty_status: SOURCE-REPORTED
       source_id: SRC-000304
       source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1402
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_double_beta_minus:
+      value: -2532.9444
+      unit: keV
+      uncertainty: 16.0253
+      raw: "-2532.9444"
+      uncertainty_raw: "16.0253"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1402
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_electron_capture_proton:
+      value: -11894.5169
+      unit: keV
+      uncertainty: 4.5643
+      raw: "-11894.5169"
+      uncertainty_raw: "4.5643"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1402
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_beta_minus_neutron:
+      value: -7047.9393
+      unit: keV
+      uncertainty: 0.0268
+      raw: "-7047.9393"
+      uncertainty_raw: "0.0268"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1402
+      reference_state: AME2020 ground-state atomic-mass convention
+    reaction2_source_line: 1422
+    reaction2_raw_line: " 115 In  49    9037.8675    0.3010   6810.3937    0.2762
+      -13198.5518   28.8763  10217.7369    0.2443   5902.5560    0.2501   2693.7747    2.4219"
+    separation_neutron:
+      value: 9037.8675
+      unit: keV
+      uncertainty: 0.301
+      raw: "9037.8675"
+      uncertainty_raw: "0.3010"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1422
+      reference_state: AME2020 ground-state atomic-mass convention
+    separation_proton:
+      value: 6810.3937
+      unit: keV
+      uncertainty: 0.2762
+      raw: "6810.3937"
+      uncertainty_raw: "0.2762"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1422
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_quadruple_beta_minus:
+      value: -13198.5518
+      unit: keV
+      uncertainty: 28.8763
+      raw: "-13198.5518"
+      uncertainty_raw: "28.8763"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1422
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_deuteron_alpha:
+      value: 10217.7369
+      unit: keV
+      uncertainty: 0.2443
+      raw: "10217.7369"
+      uncertainty_raw: "0.2443"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1422
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_proton_alpha:
+      value: 5902.556
+      unit: keV
+      uncertainty: 0.2501
+      raw: "5902.5560"
+      uncertainty_raw: "0.2501"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1422
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_neutron_alpha:
+      value: 2693.7747
+      unit: keV
+      uncertainty: 2.4219
+      raw: "2693.7747"
+      uncertainty_raw: "2.4219"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1422
       reference_state: AME2020 ground-state atomic-mass convention
     channel_references:
       beta_minus_daughter:
@@ -2273,6 +4760,126 @@ entries:
       source_id: SRC-000304
       source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1418
       reference_state: AME2020 ground-state atomic-mass convention
+    q_double_beta_minus:
+      value: -1427.7387
+      unit: keV
+      uncertainty: 5.1591
+      raw: "-1427.7387"
+      uncertainty_raw: "5.1591"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1418
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_electron_capture_proton:
+      value: -10556.1428
+      unit: keV
+      uncertainty: 18.2691
+      raw: "-10556.1428"
+      uncertainty_raw: "18.2691"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1418
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_beta_minus_neutron:
+      value: -6287.2308
+      unit: keV
+      uncertainty: 0.2202
+      raw: "-6287.2308"
+      uncertainty_raw: "0.2202"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1418
+      reference_state: AME2020 ground-state atomic-mass convention
+    reaction2_source_line: 1438
+    reaction2_raw_line: " 116 In  49    6784.7200    0.2200   7454.2498    0.6875
+      -10829.1047   75.0376  12475.9825    0.3531   5657.5832    0.3287   4423.4686   16.6443"
+    separation_neutron:
+      value: 6784.72
+      unit: keV
+      uncertainty: 0.22
+      raw: "6784.7200"
+      uncertainty_raw: "0.2200"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1438
+      reference_state: AME2020 ground-state atomic-mass convention
+    separation_proton:
+      value: 7454.2498
+      unit: keV
+      uncertainty: 0.6875
+      raw: "7454.2498"
+      uncertainty_raw: "0.6875"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1438
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_quadruple_beta_minus:
+      value: -10829.1047
+      unit: keV
+      uncertainty: 75.0376
+      raw: "-10829.1047"
+      uncertainty_raw: "75.0376"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1438
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_deuteron_alpha:
+      value: 12475.9825
+      unit: keV
+      uncertainty: 0.3531
+      raw: "12475.9825"
+      uncertainty_raw: "0.3531"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1438
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_proton_alpha:
+      value: 5657.5832
+      unit: keV
+      uncertainty: 0.3287
+      raw: "5657.5832"
+      uncertainty_raw: "0.3287"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1438
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_neutron_alpha:
+      value: 4423.4686
+      unit: keV
+      uncertainty: 16.6443
+      raw: "4423.4686"
+      uncertainty_raw: "16.6443"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1438
+      reference_state: AME2020 ground-state atomic-mass convention
     channel_references:
       beta_minus_daughter:
         A: 116
@@ -2377,6 +4984,127 @@ entries:
       uncertainty_status: SOURCE-REPORTED
       source_id: SRC-000304
       source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1434
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_double_beta_minus:
+      value: -303.4715
+      unit: keV
+      uncertainty: 9.7418
+      raw: "-303.4715"
+      uncertainty_raw: "9.7418"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1434
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_electron_capture_proton:
+      value: -13689.3421
+      unit: keV
+      uncertainty: 5.8694
+      raw: "-13689.3421"
+      uncertainty_raw: "5.8694"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1434
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_beta_minus_neutron:
+      value: -5488.3743
+      unit: keV
+      uncertainty: 4.8798
+      raw: "-5488.3743"
+      uncertainty_raw: "4.8798"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1434
+      reference_state: AME2020 ground-state atomic-mass convention
+    reaction2_source_line: 1455
+    reaction2_raw_line: " 117
+      In  49    8764.5947    4.8856   7519.5173    4.8815  -8504.4670   26.0194   9852.2516    4.9237   5935.9540    4.\
+      8883   1634.1778    6.6824"
+    separation_neutron:
+      value: 8764.5947
+      unit: keV
+      uncertainty: 4.8856
+      raw: "8764.5947"
+      uncertainty_raw: "4.8856"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1455
+      reference_state: AME2020 ground-state atomic-mass convention
+    separation_proton:
+      value: 7519.5173
+      unit: keV
+      uncertainty: 4.8815
+      raw: "7519.5173"
+      uncertainty_raw: "4.8815"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1455
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_quadruple_beta_minus:
+      value: -8504.467
+      unit: keV
+      uncertainty: 26.0194
+      raw: "-8504.4670"
+      uncertainty_raw: "26.0194"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1455
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_deuteron_alpha:
+      value: 9852.2516
+      unit: keV
+      uncertainty: 4.9237
+      raw: "9852.2516"
+      uncertainty_raw: "4.9237"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1455
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_proton_alpha:
+      value: 5935.954
+      unit: keV
+      uncertainty: 4.8883
+      raw: "5935.9540"
+      uncertainty_raw: "4.8883"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1455
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_neutron_alpha:
+      value: 1634.1778
+      unit: keV
+      uncertainty: 6.6824
+      raw: "1634.1778"
+      uncertainty_raw: "6.6824"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1455
       reference_state: AME2020 ground-state atomic-mass convention
     channel_references:
       beta_minus_daughter:
@@ -2483,6 +5211,127 @@ entries:
       source_id: SRC-000304
       source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1450
       reference_state: AME2020 ground-state atomic-mass convention
+    q_double_beta_minus:
+      value: 768.0271
+      unit: keV
+      uncertainty: 8.2915
+      raw: "768.0271"
+      uncertainty_raw: "8.2915"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1450
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_electron_capture_proton:
+      value: -12335.2298
+      unit: keV
+      uncertainty: 15.6295
+      raw: "-12335.2298"
+      uncertainty_raw: "15.6295"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1450
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_beta_minus_neutron:
+      value: -4901.7523
+      unit: keV
+      uncertainty: 7.7385
+      raw: "-4901.7523"
+      uncertainty_raw: "7.7385"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1450
+      reference_state: AME2020 ground-state atomic-mass convention
+    reaction2_source_line: 1471
+    reaction2_raw_line: " 118
+      In  49    6356.4596    6.0247   8098.7507    7.8171  -6257.1203   21.2263  12195.1193    7.7529   5720.3583    7.\
+      7795   3400.8122   19.8442"
+    separation_neutron:
+      value: 6356.4596
+      unit: keV
+      uncertainty: 6.0247
+      raw: "6356.4596"
+      uncertainty_raw: "6.0247"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1471
+      reference_state: AME2020 ground-state atomic-mass convention
+    separation_proton:
+      value: 8098.7507
+      unit: keV
+      uncertainty: 7.8171
+      raw: "8098.7507"
+      uncertainty_raw: "7.8171"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1471
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_quadruple_beta_minus:
+      value: -6257.1203
+      unit: keV
+      uncertainty: 21.2263
+      raw: "-6257.1203"
+      uncertainty_raw: "21.2263"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1471
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_deuteron_alpha:
+      value: 12195.1193
+      unit: keV
+      uncertainty: 7.7529
+      raw: "12195.1193"
+      uncertainty_raw: "7.7529"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1471
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_proton_alpha:
+      value: 5720.3583
+      unit: keV
+      uncertainty: 7.7795
+      raw: "5720.3583"
+      uncertainty_raw: "7.7795"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1471
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_neutron_alpha:
+      value: 3400.8122
+      unit: keV
+      uncertainty: 19.8442
+      raw: "3400.8122"
+      uncertainty_raw: "19.8442"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1471
+      reference_state: AME2020 ground-state atomic-mass convention
     channel_references:
       beta_minus_daughter:
         A: 118
@@ -2587,6 +5436,127 @@ entries:
       uncertainty_status: SOURCE-REPORTED
       source_id: SRC-000304
       source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1466
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_double_beta_minus:
+      value: 1776.8811
+      unit: keV
+      uncertainty: 10.117
+      raw: "1776.8811"
+      uncertainty_raw: "10.1170"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1466
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_electron_capture_proton:
+      value: -15433.8273
+      unit: keV
+      uncertainty: 7.7305
+      raw: "-15433.8273"
+      uncertainty_raw: "7.7305"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1466
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_beta_minus_neutron:
+      value: -4117.1334
+      unit: keV
+      uncertainty: 7.3245
+      raw: "-4117.1334"
+      uncertainty_raw: "7.3245"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1466
+      reference_state: AME2020 ground-state atomic-mass convention
+    reaction2_source_line: 1487
+    reaction2_raw_line: " 119
+      In  49    8541.7997    8.3842   8285.9804   21.2945  -3920.9269   22.9041   9430.5457    7.3795   5877.8858    7.\
+      3115    490.4079    8.0040"
+    separation_neutron:
+      value: 8541.7997
+      unit: keV
+      uncertainty: 8.3842
+      raw: "8541.7997"
+      uncertainty_raw: "8.3842"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1487
+      reference_state: AME2020 ground-state atomic-mass convention
+    separation_proton:
+      value: 8285.9804
+      unit: keV
+      uncertainty: 21.2945
+      raw: "8285.9804"
+      uncertainty_raw: "21.2945"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1487
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_quadruple_beta_minus:
+      value: -3920.9269
+      unit: keV
+      uncertainty: 22.9041
+      raw: "-3920.9269"
+      uncertainty_raw: "22.9041"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1487
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_deuteron_alpha:
+      value: 9430.5457
+      unit: keV
+      uncertainty: 7.3795
+      raw: "9430.5457"
+      uncertainty_raw: "7.3795"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1487
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_proton_alpha:
+      value: 5877.8858
+      unit: keV
+      uncertainty: 7.3115
+      raw: "5877.8858"
+      uncertainty_raw: "7.3115"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1487
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_neutron_alpha:
+      value: 490.4079
+      unit: keV
+      uncertainty: 8.004
+      raw: "490.4079"
+      uncertainty_raw: "8.0040"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1487
       reference_state: AME2020 ground-state atomic-mass convention
     channel_references:
       beta_minus_daughter:
@@ -2693,6 +5663,127 @@ entries:
       source_id: SRC-000304
       source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1482
       reference_state: AME2020 ground-state atomic-mass convention
+    q_double_beta_minus:
+      value: 2689.3924
+      unit: keV
+      uncertainty: 40.6322
+      raw: "2689.3924"
+      uncertainty_raw: "40.6322"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1482
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_electron_capture_proton:
+      value: -14370.9531
+      unit: keV
+      uncertainty: 42.6259
+      raw: "-14370.9531"
+      uncertainty_raw: "42.6259"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1482
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_beta_minus_neutron:
+      value: -3734.0742
+      unit: keV
+      uncertainty: 40.0154
+      raw: "-3734.0742"
+      uncertainty_raw: "40.0154"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1482
+      reference_state: AME2020 ground-state atomic-mass convention
+    reaction2_source_line: 1503
+    reaction2_raw_line: " 120
+      In  49    6100.4005   40.6522   9039.7732   54.9674  -1980.5805   42.7562  11684.7153   44.7311   5554.7114   40.\
+      0234   2100.5794   42.2465"
+    separation_neutron:
+      value: 6100.4005
+      unit: keV
+      uncertainty: 40.6522
+      raw: "6100.4005"
+      uncertainty_raw: "40.6522"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1503
+      reference_state: AME2020 ground-state atomic-mass convention
+    separation_proton:
+      value: 9039.7732
+      unit: keV
+      uncertainty: 54.9674
+      raw: "9039.7732"
+      uncertainty_raw: "54.9674"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1503
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_quadruple_beta_minus:
+      value: -1980.5805
+      unit: keV
+      uncertainty: 42.7562
+      raw: "-1980.5805"
+      uncertainty_raw: "42.7562"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1503
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_deuteron_alpha:
+      value: 11684.7153
+      unit: keV
+      uncertainty: 44.7311
+      raw: "11684.7153"
+      uncertainty_raw: "44.7311"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1503
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_proton_alpha:
+      value: 5554.7114
+      unit: keV
+      uncertainty: 40.0234
+      raw: "5554.7114"
+      uncertainty_raw: "40.0234"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1503
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_neutron_alpha:
+      value: 2100.5794
+      unit: keV
+      uncertainty: 42.2465
+      raw: "2100.5794"
+      uncertainty_raw: "42.2465"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1503
+      reference_state: AME2020 ground-state atomic-mass convention
     channel_references:
       beta_minus_daughter:
         A: 120
@@ -2797,6 +5888,127 @@ entries:
       uncertainty_status: SOURCE-REPORTED
       source_id: SRC-000304
       source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1498
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_double_beta_minus:
+      value: 3764.5638
+      unit: keV
+      uncertainty: 27.4981
+      raw: "3764.5638"
+      uncertainty_raw: "27.4981"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1498
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_electron_capture_proton:
+      value: -17472.0522
+      unit: keV
+      uncertainty: 27.7811
+      raw: "-17472.0522"
+      uncertainty_raw: "27.7811"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1498
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_beta_minus_neutron:
+      value: -2808.1703
+      unit: keV
+      uncertainty: 27.4103
+      raw: "-2808.1703"
+      uncertainty_raw: "27.4103"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1498
+      reference_state: AME2020 ground-state atomic-mass convention
+    reaction2_source_line: 1520
+    reaction2_raw_line: " 121
+      In  49    8178.1703   48.4904   9166.1987   27.6709    411.0561   27.7876   8853.1527   46.6096   5731.1112   33.\
+      9385   -634.3886   27.5340"
+    separation_neutron:
+      value: 8178.1703
+      unit: keV
+      uncertainty: 48.4904
+      raw: "8178.1703"
+      uncertainty_raw: "48.4904"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1520
+      reference_state: AME2020 ground-state atomic-mass convention
+    separation_proton:
+      value: 9166.1987
+      unit: keV
+      uncertainty: 27.6709
+      raw: "9166.1987"
+      uncertainty_raw: "27.6709"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1520
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_quadruple_beta_minus:
+      value: 411.0561
+      unit: keV
+      uncertainty: 27.7876
+      raw: "411.0561"
+      uncertainty_raw: "27.7876"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1520
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_deuteron_alpha:
+      value: 8853.1527
+      unit: keV
+      uncertainty: 46.6096
+      raw: "8853.1527"
+      uncertainty_raw: "46.6096"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1520
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_proton_alpha:
+      value: 5731.1112
+      unit: keV
+      uncertainty: 33.9385
+      raw: "5731.1112"
+      uncertainty_raw: "33.9385"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1520
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_neutron_alpha:
+      value: -634.3886
+      unit: keV
+      uncertainty: 27.534
+      raw: "-634.3886"
+      uncertainty_raw: "27.5340"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1520
       reference_state: AME2020 ground-state atomic-mass convention
     channel_references:
       beta_minus_daughter:
@@ -2903,6 +6115,127 @@ entries:
       source_id: SRC-000304
       source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1515
       reference_state: AME2020 ground-state atomic-mass convention
+    q_double_beta_minus:
+      value: 4762.8438
+      unit: keV
+      uncertainty: 50.1032
+      raw: "4762.8438"
+      uncertainty_raw: "50.1032"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1515
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_electron_capture_proton:
+      value: -16457.501
+      unit: keV
+      uncertainty: 51.5037
+      raw: "-16457.5010"
+      uncertainty_raw: "51.5037"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1515
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_beta_minus_neutron:
+      value: -2446.0528
+      unit: keV
+      uncertainty: 50.0549
+      raw: "-2446.0528"
+      uncertainty_raw: "50.0549"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1515
+      reference_state: AME2020 ground-state atomic-mass convention
+    reaction2_source_line: 1537
+    reaction2_raw_line: " 122
+      In  49    5808.0859   56.9720   9786.4953   50.0976   2507.9210   50.3079  11096.8116   50.1984   5269.6330   62.\
+      6630    720.8001   52.1740"
+    separation_neutron:
+      value: 5808.0859
+      unit: keV
+      uncertainty: 56.972
+      raw: "5808.0859"
+      uncertainty_raw: "56.9720"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1537
+      reference_state: AME2020 ground-state atomic-mass convention
+    separation_proton:
+      value: 9786.4953
+      unit: keV
+      uncertainty: 50.0976
+      raw: "9786.4953"
+      uncertainty_raw: "50.0976"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1537
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_quadruple_beta_minus:
+      value: 2507.921
+      unit: keV
+      uncertainty: 50.3079
+      raw: "2507.9210"
+      uncertainty_raw: "50.3079"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1537
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_deuteron_alpha:
+      value: 11096.8116
+      unit: keV
+      uncertainty: 50.1984
+      raw: "11096.8116"
+      uncertainty_raw: "50.1984"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1537
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_proton_alpha:
+      value: 5269.633
+      unit: keV
+      uncertainty: 62.663
+      raw: "5269.6330"
+      uncertainty_raw: "62.6630"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1537
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_neutron_alpha:
+      value: 720.8001
+      unit: keV
+      uncertainty: 52.174
+      raw: "720.8001"
+      uncertainty_raw: "52.1740"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1537
+      reference_state: AME2020 ground-state atomic-mass convention
     channel_references:
       beta_minus_daughter:
         A: 122
@@ -3007,6 +6340,127 @@ entries:
       uncertainty_status: SOURCE-REPORTED
       source_id: SRC-000304
       source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1531
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_double_beta_minus:
+      value: 5793.8569
+      unit: keV
+      uncertainty: 19.8342
+      raw: "5793.8569"
+      uncertainty_raw: "19.8342"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1531
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_electron_capture_proton:
+      value: -19611.8867
+      unit: keV
+      uncertainty: 43.0336
+      raw: "-19611.8867"
+      uncertainty_raw: "43.0336"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1531
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_beta_minus_neutron:
+      value: -1560.3988
+      unit: keV
+      uncertainty: 19.8527
+      raw: "-1560.3988"
+      uncertainty_raw: "19.8527"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1531
+      reference_state: AME2020 ground-state atomic-mass convention
+    reaction2_source_line: 1553
+    reaction2_raw_line: " 123
+      In  49    7928.9909   53.7971  10105.6205   19.9651   4513.5542   20.1295   8355.6099   19.9272   5392.3869   20.\
+      1793  -2131.1196   20.3301"
+    separation_neutron:
+      value: 7928.9909
+      unit: keV
+      uncertainty: 53.7971
+      raw: "7928.9909"
+      uncertainty_raw: "53.7971"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1553
+      reference_state: AME2020 ground-state atomic-mass convention
+    separation_proton:
+      value: 10105.6205
+      unit: keV
+      uncertainty: 19.9651
+      raw: "10105.6205"
+      uncertainty_raw: "19.9651"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1553
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_quadruple_beta_minus:
+      value: 4513.5542
+      unit: keV
+      uncertainty: 20.1295
+      raw: "4513.5542"
+      uncertainty_raw: "20.1295"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1553
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_deuteron_alpha:
+      value: 8355.6099
+      unit: keV
+      uncertainty: 19.9272
+      raw: "8355.6099"
+      uncertainty_raw: "19.9272"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1553
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_proton_alpha:
+      value: 5392.3869
+      unit: keV
+      uncertainty: 20.1793
+      raw: "5392.3869"
+      uncertainty_raw: "20.1793"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1553
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_neutron_alpha:
+      value: -2131.1196
+      unit: keV
+      uncertainty: 20.3301
+      raw: "-2131.1196"
+      uncertainty_raw: "20.3301"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1553
       reference_state: AME2020 ground-state atomic-mass convention
     channel_references:
       beta_minus_daughter:
@@ -3113,6 +6567,127 @@ entries:
       source_id: SRC-000304
       source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1547
       reference_state: AME2020 ground-state atomic-mass convention
+    q_double_beta_minus:
+      value: 6751.2903
+      unit: keV
+      uncertainty: 30.5691
+      raw: "6751.2903"
+      uncertainty_raw: "30.5691"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1547
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_electron_capture_proton:
+      value: -18588.1688
+      unit: keV
+      uncertainty: 44.6862
+      raw: "-18588.1688"
+      uncertainty_raw: "44.6862"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1547
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_beta_minus_neutron:
+      value: -1124.4139
+      unit: keV
+      uncertainty: 30.6475
+      raw: "-1124.4139"
+      uncertainty_raw: "30.6475"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1547
+      reference_state: AME2020 ground-state atomic-mass convention
+    reaction2_source_line: 1569
+    reaction2_raw_line: " 124
+      In  49    5510.0628   36.4222  10742.5662   30.6792   6496.7763   30.6253  10455.4129   30.6469   5070.1133   30.\
+      6222   -818.5454   32.8723"
+    separation_neutron:
+      value: 5510.0628
+      unit: keV
+      uncertainty: 36.4222
+      raw: "5510.0628"
+      uncertainty_raw: "36.4222"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1569
+      reference_state: AME2020 ground-state atomic-mass convention
+    separation_proton:
+      value: 10742.5662
+      unit: keV
+      uncertainty: 30.6792
+      raw: "10742.5662"
+      uncertainty_raw: "30.6792"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1569
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_quadruple_beta_minus:
+      value: 6496.7763
+      unit: keV
+      uncertainty: 30.6253
+      raw: "6496.7763"
+      uncertainty_raw: "30.6253"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1569
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_deuteron_alpha:
+      value: 10455.4129
+      unit: keV
+      uncertainty: 30.6469
+      raw: "10455.4129"
+      uncertainty_raw: "30.6469"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1569
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_proton_alpha:
+      value: 5070.1133
+      unit: keV
+      uncertainty: 30.6222
+      raw: "5070.1133"
+      uncertainty_raw: "30.6222"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1569
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_neutron_alpha:
+      value: -818.5454
+      unit: keV
+      uncertainty: 32.8723
+      raw: "-818.5454"
+      uncertainty_raw: "32.8723"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1569
+      reference_state: AME2020 ground-state atomic-mass convention
     channel_references:
       beta_minus_daughter:
         A: 124
@@ -3217,6 +6792,127 @@ entries:
       uncertainty_status: SOURCE-REPORTED
       source_id: SRC-000304
       source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1564
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_double_beta_minus:
+      value: 7842.7861
+      unit: keV
+      uncertainty: 3.0757
+      raw: "7842.7861"
+      uncertainty_raw: "3.0757"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1564
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_electron_capture_proton:
+      value: -21471.3282
+      unit: keV
+      uncertainty: 251.5096
+      raw: "-21471.3282"
+      uncertainty_raw: "251.5096"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1564
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_beta_minus_neutron:
+      value: -252.1504
+      unit: keV
+      uncertainty: 2.204
+      raw: "-252.1504"
+      uncertainty_raw: "2.2040"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1564
+      reference_state: AME2020 ground-state atomic-mass convention
+    reaction2_source_line: 1587
+    reaction2_raw_line: " 125
+      In  49    7615.8474   30.6118  11001.8424    3.1524   8423.7161    2.2279   7712.6825    3.2249   5064.1316    2.\
+      9013  -3659.7876   38.2322"
+    separation_neutron:
+      value: 7615.8474
+      unit: keV
+      uncertainty: 30.6118
+      raw: "7615.8474"
+      uncertainty_raw: "30.6118"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1587
+      reference_state: AME2020 ground-state atomic-mass convention
+    separation_proton:
+      value: 11001.8424
+      unit: keV
+      uncertainty: 3.1524
+      raw: "11001.8424"
+      uncertainty_raw: "3.1524"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1587
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_quadruple_beta_minus:
+      value: 8423.7161
+      unit: keV
+      uncertainty: 2.2279
+      raw: "8423.7161"
+      uncertainty_raw: "2.2279"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1587
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_deuteron_alpha:
+      value: 7712.6825
+      unit: keV
+      uncertainty: 3.2249
+      raw: "7712.6825"
+      uncertainty_raw: "3.2249"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1587
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_proton_alpha:
+      value: 5064.1316
+      unit: keV
+      uncertainty: 2.9013
+      raw: "5064.1316"
+      uncertainty_raw: "2.9013"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1587
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_neutron_alpha:
+      value: -3659.7876
+      unit: keV
+      uncertainty: 38.2322
+      raw: "-3659.7876"
+      uncertainty_raw: "38.2322"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1587
       reference_state: AME2020 ground-state atomic-mass convention
     channel_references:
       beta_minus_daughter:
@@ -3323,6 +7019,127 @@ entries:
       source_id: SRC-000304
       source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1580
       reference_state: AME2020 ground-state atomic-mass convention
+    q_double_beta_minus:
+      value: 8583.7585
+      unit: keV
+      uncertainty: 32.1216
+      raw: "8583.7585"
+      uncertainty_raw: "32.1216"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1580
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_electron_capture_proton:
+      value: -20578.4091
+      unit: keV
+      uncertainty: 433.165
+      raw: "-20578.4091"
+      uncertainty_raw: "433.1650"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1580
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_beta_minus_neutron:
+      value: 12.9622
+      unit: keV
+      uncertainty: 4.3973
+      raw: "12.9622"
+      uncertainty_raw: "4.3973"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1580
+      reference_state: AME2020 ground-state atomic-mass convention
+    reaction2_source_line: 1603
+    reaction2_raw_line: " 126
+      In  49    5468.3873    4.5500  11750.2580    5.0901  10101.1194    5.6429   9600.8664    4.9372   4468.8615    4.\
+      9838  -2594.3941   32.8707"
+    separation_neutron:
+      value: 5468.3873
+      unit: keV
+      uncertainty: 4.55
+      raw: "5468.3873"
+      uncertainty_raw: "4.5500"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1603
+      reference_state: AME2020 ground-state atomic-mass convention
+    separation_proton:
+      value: 11750.258
+      unit: keV
+      uncertainty: 5.0901
+      raw: "11750.2580"
+      uncertainty_raw: "5.0901"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1603
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_quadruple_beta_minus:
+      value: 10101.1194
+      unit: keV
+      uncertainty: 5.6429
+      raw: "10101.1194"
+      uncertainty_raw: "5.6429"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1603
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_deuteron_alpha:
+      value: 9600.8664
+      unit: keV
+      uncertainty: 4.9372
+      raw: "9600.8664"
+      uncertainty_raw: "4.9372"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1603
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_proton_alpha:
+      value: 4468.8615
+      unit: keV
+      uncertainty: 4.9838
+      raw: "4468.8615"
+      uncertainty_raw: "4.9838"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1603
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_neutron_alpha:
+      value: -2594.3941
+      unit: keV
+      uncertainty: 32.8707
+      raw: "-2594.3941"
+      uncertainty_raw: "32.8707"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1603
+      reference_state: AME2020 ground-state atomic-mass convention
     channel_references:
       beta_minus_daughter:
         A: 126
@@ -3427,6 +7244,127 @@ entries:
       uncertainty_status: SOURCE-REPORTED
       source_id: SRC-000304
       source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1597
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_double_beta_minus:
+      value: 9818.3971
+      unit: keV
+      uncertainty: 11.1383
+      raw: "9818.3971"
+      uncertainty_raw: "11.1383"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1597
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_electron_capture_proton:
+      value: -23448
+      unit: keV
+      uncertainty: 201
+      raw: -23448#
+      uncertainty_raw: 201#
+      estimated: true
+      evidence_type: EVALUATED
+      value_status: ESTIMATED-FROM-SYSTEMATICS
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1597
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_beta_minus_neutron:
+      value: 1063.9206
+      unit: keV
+      uncertainty: 14.6335
+      raw: "1063.9206"
+      uncertainty_raw: "14.6335"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1597
+      reference_state: AME2020 ground-state atomic-mass convention
+    reaction2_source_line: 1620
+    reaction2_raw_line: " 127
+      In  49    7141.8378   10.8443  11913.1408   10.2633  12103.3199   10.6331   7179.0003   10.4099   4683.5948   10.\
+      3360  -5003.5440  251.7022"
+    separation_neutron:
+      value: 7141.8378
+      unit: keV
+      uncertainty: 10.8443
+      raw: "7141.8378"
+      uncertainty_raw: "10.8443"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1620
+      reference_state: AME2020 ground-state atomic-mass convention
+    separation_proton:
+      value: 11913.1408
+      unit: keV
+      uncertainty: 10.2633
+      raw: "11913.1408"
+      uncertainty_raw: "10.2633"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1620
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_quadruple_beta_minus:
+      value: 12103.3199
+      unit: keV
+      uncertainty: 10.6331
+      raw: "12103.3199"
+      uncertainty_raw: "10.6331"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1620
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_deuteron_alpha:
+      value: 7179.0003
+      unit: keV
+      uncertainty: 10.4099
+      raw: "7179.0003"
+      uncertainty_raw: "10.4099"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1620
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_proton_alpha:
+      value: 4683.5948
+      unit: keV
+      uncertainty: 10.336
+      raw: "4683.5948"
+      uncertainty_raw: "10.3360"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1620
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_neutron_alpha:
+      value: -5003.544
+      unit: keV
+      uncertainty: 251.7022
+      raw: "-5003.5440"
+      uncertainty_raw: "251.7022"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1620
       reference_state: AME2020 ground-state atomic-mass convention
     channel_references:
       beta_minus_daughter:
@@ -3533,6 +7471,127 @@ entries:
       source_id: SRC-000304
       source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1614
       reference_state: AME2020 ground-state atomic-mass convention
+    q_double_beta_minus:
+      value: 10439.735
+      unit: keV
+      uncertainty: 18.8194
+      raw: "10439.7350"
+      uncertainty_raw: "18.8194"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1614
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_electron_capture_proton:
+      value: -22829
+      unit: keV
+      uncertainty: 200
+      raw: -22829#
+      uncertainty_raw: 200#
+      estimated: true
+      evidence_type: EVALUATED
+      value_status: ESTIMATED-FROM-SYSTEMATICS
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1614
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_beta_minus_neutron:
+      value: 1208.1431
+      unit: keV
+      uncertainty: 9.3191
+      raw: "1208.1431"
+      uncertainty_raw: "9.3191"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1614
+      reference_state: AME2020 ground-state atomic-mass convention
+    reaction2_source_line: 1637
+    reaction2_raw_line: " 128
+      In  49    5381.5379   10.0883  12737.8887    6.3398  13547.9135    3.8467   8776.4174    2.6563   4022.0286    3.\
+      1760  -4023.7755  433.1468"
+    separation_neutron:
+      value: 5381.5379
+      unit: keV
+      uncertainty: 10.0883
+      raw: "5381.5379"
+      uncertainty_raw: "10.0883"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1637
+      reference_state: AME2020 ground-state atomic-mass convention
+    separation_proton:
+      value: 12737.8887
+      unit: keV
+      uncertainty: 6.3398
+      raw: "12737.8887"
+      uncertainty_raw: "6.3398"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1637
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_quadruple_beta_minus:
+      value: 13547.9135
+      unit: keV
+      uncertainty: 3.8467
+      raw: "13547.9135"
+      uncertainty_raw: "3.8467"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1637
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_deuteron_alpha:
+      value: 8776.4174
+      unit: keV
+      uncertainty: 2.6563
+      raw: "8776.4174"
+      uncertainty_raw: "2.6563"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1637
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_proton_alpha:
+      value: 4022.0286
+      unit: keV
+      uncertainty: 3.176
+      raw: "4022.0286"
+      uncertainty_raw: "3.1760"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1637
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_neutron_alpha:
+      value: -4023.7755
+      unit: keV
+      uncertainty: 433.1468
+      raw: "-4023.7755"
+      uncertainty_raw: "433.1468"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1637
+      reference_state: AME2020 ground-state atomic-mass convention
     channel_references:
       beta_minus_daughter:
         A: 128
@@ -3637,6 +7696,127 @@ entries:
       uncertainty_status: SOURCE-REPORTED
       source_id: SRC-000304
       source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1631
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_double_beta_minus:
+      value: 11794.4954
+      unit: keV
+      uncertainty: 21.3165
+      raw: "11794.4954"
+      uncertainty_raw: "21.3165"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1631
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_electron_capture_proton:
+      value: -25413
+      unit: keV
+      uncertainty: 300
+      raw: -25413#
+      uncertainty_raw: 300#
+      estimated: true
+      evidence_type: EVALUATED
+      value_status: ESTIMATED-FROM-SYSTEMATICS
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1631
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_beta_minus_neutron:
+      value: 2455.2229
+      unit: keV
+      uncertainty: 17.7915
+      raw: "2455.2229"
+      uncertainty_raw: "17.7915"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1631
+      reference_state: AME2020 ground-state atomic-mass convention
+    reaction2_source_line: 1655
+    reaction2_raw_line: " 129
+      In  49    6716.0902    2.3737  12885.6148    6.7273  15672.2874    3.7189   6617.1173    6.5062   4284.8935    3.\
+      0320  -6468#      200#"
+    separation_neutron:
+      value: 6716.0902
+      unit: keV
+      uncertainty: 2.3737
+      raw: "6716.0902"
+      uncertainty_raw: "2.3737"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1655
+      reference_state: AME2020 ground-state atomic-mass convention
+    separation_proton:
+      value: 12885.6148
+      unit: keV
+      uncertainty: 6.7273
+      raw: "12885.6148"
+      uncertainty_raw: "6.7273"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1655
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_quadruple_beta_minus:
+      value: 15672.2874
+      unit: keV
+      uncertainty: 3.7189
+      raw: "15672.2874"
+      uncertainty_raw: "3.7189"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1655
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_deuteron_alpha:
+      value: 6617.1173
+      unit: keV
+      uncertainty: 6.5062
+      raw: "6617.1173"
+      uncertainty_raw: "6.5062"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1655
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_proton_alpha:
+      value: 4284.8935
+      unit: keV
+      uncertainty: 3.032
+      raw: "4284.8935"
+      uncertainty_raw: "3.0320"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1655
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_neutron_alpha:
+      value: -6468
+      unit: keV
+      uncertainty: 200
+      raw: -6468#
+      uncertainty_raw: 200#
+      estimated: true
+      evidence_type: EVALUATED
+      value_status: ESTIMATED-FROM-SYSTEMATICS
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1655
       reference_state: AME2020 ground-state atomic-mass convention
     channel_references:
       beta_minus_daughter:
@@ -3743,6 +7923,127 @@ entries:
       source_id: SRC-000304
       source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1648
       reference_state: AME2020 ground-state atomic-mass convention
+    q_double_beta_minus:
+      value: 12379.1571
+      unit: keV
+      uncertainty: 14.3246
+      raw: "12379.1571"
+      uncertainty_raw: "14.3246"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1648
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_electron_capture_proton:
+      value: -25325
+      unit: keV
+      uncertainty: 400
+      raw: -25325#
+      uncertainty_raw: 400#
+      estimated: true
+      evidence_type: EVALUATED
+      value_status: ESTIMATED-FROM-SYSTEMATICS
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1648
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_beta_minus_neutron:
+      value: 2612.7491
+      unit: keV
+      uncertainty: 17.3625
+      raw: "2612.7491"
+      uncertainty_raw: "17.3625"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1648
+      reference_state: AME2020 ground-state atomic-mass convention
+    reaction2_source_line: 1672
+    reaction2_raw_line: " 130
+      In  49    5142.9590    2.6625  14073.3591    5.6030  17029.6583    3.6261   8042.5224    6.6763   3698.7245    6.\
+      4535  -5610#      200#"
+    separation_neutron:
+      value: 5142.959
+      unit: keV
+      uncertainty: 2.6625
+      raw: "5142.9590"
+      uncertainty_raw: "2.6625"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1672
+      reference_state: AME2020 ground-state atomic-mass convention
+    separation_proton:
+      value: 14073.3591
+      unit: keV
+      uncertainty: 5.603
+      raw: "14073.3591"
+      uncertainty_raw: "5.6030"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1672
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_quadruple_beta_minus:
+      value: 17029.6583
+      unit: keV
+      uncertainty: 3.6261
+      raw: "17029.6583"
+      uncertainty_raw: "3.6261"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1672
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_deuteron_alpha:
+      value: 8042.5224
+      unit: keV
+      uncertainty: 6.6763
+      raw: "8042.5224"
+      uncertainty_raw: "6.6763"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1672
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_proton_alpha:
+      value: 3698.7245
+      unit: keV
+      uncertainty: 6.4535
+      raw: "3698.7245"
+      uncertainty_raw: "6.4535"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1672
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_neutron_alpha:
+      value: -5610
+      unit: keV
+      uncertainty: 200
+      raw: -5610#
+      uncertainty_raw: 200#
+      estimated: true
+      evidence_type: EVALUATED
+      value_status: ESTIMATED-FROM-SYSTEMATICS
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1672
+      reference_state: AME2020 ground-state atomic-mass convention
     channel_references:
       beta_minus_daughter:
         A: 130
@@ -3848,6 +8149,127 @@ entries:
       source_id: SRC-000304
       source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1666
       reference_state: AME2020 ground-state atomic-mass convention
+    q_double_beta_minus:
+      value: 13957.0424
+      unit: keV
+      uncertainty: 3.034
+      raw: "13957.0424"
+      uncertainty_raw: "3.0340"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1666
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_electron_capture_proton:
+      value: -29416
+      unit: keV
+      uncertainty: 424
+      raw: -29416#
+      uncertainty_raw: 424#
+      estimated: true
+      evidence_type: EVALUATED
+      value_status: ESTIMATED-FROM-SYSTEMATICS
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1666
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_beta_minus_neutron:
+      value: 4036.5294
+      unit: keV
+      uncertainty: 2.8934
+      raw: "4036.5294"
+      uncertainty_raw: "2.8934"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1666
+      reference_state: AME2020 ground-state atomic-mass convention
+    reaction2_source_line: 1690
+    reaction2_raw_line: " 131
+      In  49    6189.1576    2.8402  14195.7428   22.4644  19418.3580    2.2868   5808.5795    5.7493   4077.9310    6.\
+      7996  -7668#      300#"
+    separation_neutron:
+      value: 6189.1576
+      unit: keV
+      uncertainty: 2.8402
+      raw: "6189.1576"
+      uncertainty_raw: "2.8402"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1690
+      reference_state: AME2020 ground-state atomic-mass convention
+    separation_proton:
+      value: 14195.7428
+      unit: keV
+      uncertainty: 22.4644
+      raw: "14195.7428"
+      uncertainty_raw: "22.4644"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1690
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_quadruple_beta_minus:
+      value: 19418.358
+      unit: keV
+      uncertainty: 2.2868
+      raw: "19418.3580"
+      uncertainty_raw: "2.2868"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1690
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_deuteron_alpha:
+      value: 5808.5795
+      unit: keV
+      uncertainty: 5.7493
+      raw: "5808.5795"
+      uncertainty_raw: "5.7493"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1690
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_proton_alpha:
+      value: 4077.931
+      unit: keV
+      uncertainty: 6.7996
+      raw: "4077.9310"
+      uncertainty_raw: "6.7996"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1690
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_neutron_alpha:
+      value: -7668
+      unit: keV
+      uncertainty: 300
+      raw: -7668#
+      uncertainty_raw: 300#
+      estimated: true
+      evidence_type: EVALUATED
+      value_status: ESTIMATED-FROM-SYSTEMATICS
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1690
+      reference_state: AME2020 ground-state atomic-mass convention
     channel_references:
       beta_minus_daughter:
         A: 131
@@ -3952,6 +8374,127 @@ entries:
       uncertainty_status: SOURCE-REPORTED
       source_id: SRC-000304
       source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1683
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_double_beta_minus:
+      value: 17223.728
+      unit: keV
+      uncertainty: 60.0832
+      raw: "17223.7280"
+      uncertainty_raw: "60.0832"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1683
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_electron_capture_proton:
+      value: -28950
+      unit: keV
+      uncertainty: 504
+      raw: -28950#
+      uncertainty_raw: 504#
+      estimated: true
+      evidence_type: EVALUATED
+      value_status: ESTIMATED-FROM-SYSTEMATICS
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1683
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_beta_minus_neutron:
+      value: 6781.7072
+      unit: keV
+      uncertainty: 60.1416
+      raw: "6781.7072"
+      uncertainty_raw: "60.1416"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1683
+      reference_state: AME2020 ground-state atomic-mass convention
+    reaction2_source_line: 1707
+    reaction2_raw_line: " 132
+      In  49    2458.5024   60.0730  14488.7642   63.0398  23291.9481   60.1700   9416.8510   64.0600   5574.6433   60.\
+      2669  -4895#      404#"
+    separation_neutron:
+      value: 2458.5024
+      unit: keV
+      uncertainty: 60.073
+      raw: "2458.5024"
+      uncertainty_raw: "60.0730"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1707
+      reference_state: AME2020 ground-state atomic-mass convention
+    separation_proton:
+      value: 14488.7642
+      unit: keV
+      uncertainty: 63.0398
+      raw: "14488.7642"
+      uncertainty_raw: "63.0398"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1707
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_quadruple_beta_minus:
+      value: 23291.9481
+      unit: keV
+      uncertainty: 60.17
+      raw: "23291.9481"
+      uncertainty_raw: "60.1700"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1707
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_deuteron_alpha:
+      value: 9416.851
+      unit: keV
+      uncertainty: 64.06
+      raw: "9416.8510"
+      uncertainty_raw: "64.0600"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1707
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_proton_alpha:
+      value: 5574.6433
+      unit: keV
+      uncertainty: 60.2669
+      raw: "5574.6433"
+      uncertainty_raw: "60.2669"
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: EVALUATED
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1707
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_neutron_alpha:
+      value: -4895
+      unit: keV
+      uncertainty: 404
+      raw: -4895#
+      uncertainty_raw: 404#
+      estimated: true
+      evidence_type: EVALUATED
+      value_status: ESTIMATED-FROM-SYSTEMATICS
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1707
       reference_state: AME2020 ground-state atomic-mass convention
     channel_references:
       beta_minus_daughter:
@@ -4059,6 +8602,127 @@ entries:
       source_id: SRC-000304
       source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1700
       reference_state: AME2020 ground-state atomic-mass convention
+    q_double_beta_minus:
+      value: 21233
+      unit: keV
+      uncertainty: 200
+      raw: 21233#
+      uncertainty_raw: 200#
+      estimated: true
+      evidence_type: EVALUATED
+      value_status: ESTIMATED-FROM-SYSTEMATICS
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1700
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_electron_capture_proton:
+      value: -30579
+      unit: keV
+      uncertainty: 539
+      raw: -30579#
+      uncertainty_raw: 539#
+      estimated: true
+      evidence_type: EVALUATED
+      value_status: ESTIMATED-FROM-SYSTEMATICS
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1700
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_beta_minus_neutron:
+      value: 10785
+      unit: keV
+      uncertainty: 200
+      raw: 10785#
+      uncertainty_raw: 200#
+      estimated: true
+      evidence_type: EVALUATED
+      value_status: ESTIMATED-FROM-SYSTEMATICS
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1700
+      reference_state: AME2020 ground-state atomic-mass convention
+    reaction2_source_line: 1725
+    reaction2_raw_line: " 133
+      In  49    3350#      209#      14514#      209#      28167#      200#       8232#      201#       8291#      202#      \
+      -6146#      469#"
+    separation_neutron:
+      value: 3350
+      unit: keV
+      uncertainty: 209
+      raw: 3350#
+      uncertainty_raw: 209#
+      estimated: true
+      evidence_type: EVALUATED
+      value_status: ESTIMATED-FROM-SYSTEMATICS
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1725
+      reference_state: AME2020 ground-state atomic-mass convention
+    separation_proton:
+      value: 14514
+      unit: keV
+      uncertainty: 209
+      raw: 14514#
+      uncertainty_raw: 209#
+      estimated: true
+      evidence_type: EVALUATED
+      value_status: ESTIMATED-FROM-SYSTEMATICS
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1725
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_quadruple_beta_minus:
+      value: 28167
+      unit: keV
+      uncertainty: 200
+      raw: 28167#
+      uncertainty_raw: 200#
+      estimated: true
+      evidence_type: EVALUATED
+      value_status: ESTIMATED-FROM-SYSTEMATICS
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1725
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_deuteron_alpha:
+      value: 8232
+      unit: keV
+      uncertainty: 201
+      raw: 8232#
+      uncertainty_raw: 201#
+      estimated: true
+      evidence_type: EVALUATED
+      value_status: ESTIMATED-FROM-SYSTEMATICS
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1725
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_proton_alpha:
+      value: 8291
+      unit: keV
+      uncertainty: 202
+      raw: 8291#
+      uncertainty_raw: 202#
+      estimated: true
+      evidence_type: EVALUATED
+      value_status: ESTIMATED-FROM-SYSTEMATICS
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1725
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_neutron_alpha:
+      value: -6146
+      unit: keV
+      uncertainty: 469
+      raw: -6146#
+      uncertainty_raw: 469#
+      estimated: true
+      evidence_type: EVALUATED
+      value_status: ESTIMATED-FROM-SYSTEMATICS
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1725
+      reference_state: AME2020 ground-state atomic-mass convention
     channel_references:
       beta_minus_daughter:
         A: 133
@@ -4165,6 +8829,127 @@ entries:
       source_id: SRC-000304
       source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1717
       reference_state: AME2020 ground-state atomic-mass convention
+    q_double_beta_minus:
+      value: 22049
+      unit: keV
+      uncertainty: 200
+      raw: 22049#
+      uncertainty_raw: 200#
+      estimated: true
+      evidence_type: EVALUATED
+      value_status: ESTIMATED-FROM-SYSTEMATICS
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1717
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_electron_capture_proton:
+      value: -30179
+      unit: keV
+      uncertainty: 539
+      raw: -30179#
+      uncertainty_raw: 539#
+      estimated: true
+      evidence_type: EVALUATED
+      value_status: ESTIMATED-FROM-SYSTEMATICS
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1717
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_beta_minus_neutron:
+      value: 10833
+      unit: keV
+      uncertainty: 200
+      raw: 10833#
+      uncertainty_raw: 200#
+      estimated: true
+      evidence_type: EVALUATED
+      value_status: ESTIMATED-FROM-SYSTEMATICS
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1717
+      reference_state: AME2020 ground-state atomic-mass convention
+    reaction2_source_line: 1742
+    reaction2_raw_line: " 134
+      In  49    2351#      283#      15119#      283#      32074#      200#       9206#      209#       8106#      201#      \
+      -5573#      539#"
+    separation_neutron:
+      value: 2351
+      unit: keV
+      uncertainty: 283
+      raw: 2351#
+      uncertainty_raw: 283#
+      estimated: true
+      evidence_type: EVALUATED
+      value_status: ESTIMATED-FROM-SYSTEMATICS
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1742
+      reference_state: AME2020 ground-state atomic-mass convention
+    separation_proton:
+      value: 15119
+      unit: keV
+      uncertainty: 283
+      raw: 15119#
+      uncertainty_raw: 283#
+      estimated: true
+      evidence_type: EVALUATED
+      value_status: ESTIMATED-FROM-SYSTEMATICS
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1742
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_quadruple_beta_minus:
+      value: 32074
+      unit: keV
+      uncertainty: 200
+      raw: 32074#
+      uncertainty_raw: 200#
+      estimated: true
+      evidence_type: EVALUATED
+      value_status: ESTIMATED-FROM-SYSTEMATICS
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1742
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_deuteron_alpha:
+      value: 9206
+      unit: keV
+      uncertainty: 209
+      raw: 9206#
+      uncertainty_raw: 209#
+      estimated: true
+      evidence_type: EVALUATED
+      value_status: ESTIMATED-FROM-SYSTEMATICS
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1742
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_proton_alpha:
+      value: 8106
+      unit: keV
+      uncertainty: 201
+      raw: 8106#
+      uncertainty_raw: 201#
+      estimated: true
+      evidence_type: EVALUATED
+      value_status: ESTIMATED-FROM-SYSTEMATICS
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1742
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_neutron_alpha:
+      value: -5573
+      unit: keV
+      uncertainty: 539
+      raw: -5573#
+      uncertainty_raw: 539#
+      estimated: true
+      evidence_type: EVALUATED
+      value_status: ESTIMATED-FROM-SYSTEMATICS
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1742
+      reference_state: AME2020 ground-state atomic-mass convention
     channel_references:
       beta_minus_daughter:
         A: 134
@@ -4270,6 +9055,129 @@ entries:
       uncertainty_status: SOURCE-REPORTED
       source_id: SRC-000304
       source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1734
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_double_beta_minus:
+      value: 22580
+      unit: keV
+      uncertainty: 300
+      raw: 22580#
+      uncertainty_raw: 300#
+      estimated: true
+      evidence_type: EVALUATED
+      value_status: ESTIMATED-FROM-SYSTEMATICS
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1734
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_electron_capture_proton:
+      value: null
+      unit: keV
+      uncertainty: null
+      raw: "*"
+      uncertainty_raw: ""
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: INSUFFICIENT DATA
+      null_state: UNKNOWN
+      null_reason: SOURCE-NOT-CALCULABLE
+      uncertainty_status: UNKNOWN
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1734
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_beta_minus_neutron:
+      value: 11252
+      unit: keV
+      uncertainty: 300
+      raw: 11252#
+      uncertainty_raw: 300#
+      estimated: true
+      evidence_type: EVALUATED
+      value_status: ESTIMATED-FROM-SYSTEMATICS
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1734
+      reference_state: AME2020 ground-state atomic-mass convention
+    reaction2_source_line: 1759
+    reaction2_raw_line: " 135
+      In  49    3212#      361#      14939#      424#      36669#      300#       7740#      361#       8219#      306#      \
+      -7064#      583#"
+    separation_neutron:
+      value: 3212
+      unit: keV
+      uncertainty: 361
+      raw: 3212#
+      uncertainty_raw: 361#
+      estimated: true
+      evidence_type: EVALUATED
+      value_status: ESTIMATED-FROM-SYSTEMATICS
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1759
+      reference_state: AME2020 ground-state atomic-mass convention
+    separation_proton:
+      value: 14939
+      unit: keV
+      uncertainty: 424
+      raw: 14939#
+      uncertainty_raw: 424#
+      estimated: true
+      evidence_type: EVALUATED
+      value_status: ESTIMATED-FROM-SYSTEMATICS
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1759
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_quadruple_beta_minus:
+      value: 36669
+      unit: keV
+      uncertainty: 300
+      raw: 36669#
+      uncertainty_raw: 300#
+      estimated: true
+      evidence_type: EVALUATED
+      value_status: ESTIMATED-FROM-SYSTEMATICS
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1759
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_deuteron_alpha:
+      value: 7740
+      unit: keV
+      uncertainty: 361
+      raw: 7740#
+      uncertainty_raw: 361#
+      estimated: true
+      evidence_type: EVALUATED
+      value_status: ESTIMATED-FROM-SYSTEMATICS
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1759
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_proton_alpha:
+      value: 8219
+      unit: keV
+      uncertainty: 306
+      raw: 8219#
+      uncertainty_raw: 306#
+      estimated: true
+      evidence_type: EVALUATED
+      value_status: ESTIMATED-FROM-SYSTEMATICS
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1759
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_neutron_alpha:
+      value: -7064
+      unit: keV
+      uncertainty: 583
+      raw: -7064#
+      uncertainty_raw: 583#
+      estimated: true
+      evidence_type: EVALUATED
+      value_status: ESTIMATED-FROM-SYSTEMATICS
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1759
       reference_state: AME2020 ground-state atomic-mass convention
     channel_references:
       beta_minus_daughter:
@@ -4378,6 +9286,128 @@ entries:
       source_id: SRC-000304
       source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1751
       reference_state: AME2020 ground-state atomic-mass convention
+    q_double_beta_minus:
+      value: 23537
+      unit: keV
+      uncertainty: 300
+      raw: 23537#
+      uncertainty_raw: 300#
+      estimated: true
+      evidence_type: EVALUATED
+      value_status: ESTIMATED-FROM-SYSTEMATICS
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1751
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_electron_capture_proton:
+      value: null
+      unit: keV
+      uncertainty: null
+      raw: "*"
+      uncertainty_raw: ""
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: INSUFFICIENT DATA
+      null_state: UNKNOWN
+      null_reason: SOURCE-NOT-CALCULABLE
+      uncertainty_status: UNKNOWN
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1751
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_beta_minus_neutron:
+      value: 11591
+      unit: keV
+      uncertainty: 300
+      raw: 11591#
+      uncertainty_raw: 300#
+      estimated: true
+      evidence_type: EVALUATED
+      value_status: ESTIMATED-FROM-SYSTEMATICS
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1751
+      reference_state: AME2020 ground-state atomic-mass convention
+    reaction2_source_line: 1776
+    reaction2_raw_line: 0136
+      In  49    1931#      424#      15439#      500#      38575#      300#       9201#      424#       8034#      361#      -6243#      583#
+    separation_neutron:
+      value: 1931
+      unit: keV
+      uncertainty: 424
+      raw: 1931#
+      uncertainty_raw: 424#
+      estimated: true
+      evidence_type: EVALUATED
+      value_status: ESTIMATED-FROM-SYSTEMATICS
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1776
+      reference_state: AME2020 ground-state atomic-mass convention
+    separation_proton:
+      value: 15439
+      unit: keV
+      uncertainty: 500
+      raw: 15439#
+      uncertainty_raw: 500#
+      estimated: true
+      evidence_type: EVALUATED
+      value_status: ESTIMATED-FROM-SYSTEMATICS
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1776
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_quadruple_beta_minus:
+      value: 38575
+      unit: keV
+      uncertainty: 300
+      raw: 38575#
+      uncertainty_raw: 300#
+      estimated: true
+      evidence_type: EVALUATED
+      value_status: ESTIMATED-FROM-SYSTEMATICS
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1776
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_deuteron_alpha:
+      value: 9201
+      unit: keV
+      uncertainty: 424
+      raw: 9201#
+      uncertainty_raw: 424#
+      estimated: true
+      evidence_type: EVALUATED
+      value_status: ESTIMATED-FROM-SYSTEMATICS
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1776
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_proton_alpha:
+      value: 8034
+      unit: keV
+      uncertainty: 361
+      raw: 8034#
+      uncertainty_raw: 361#
+      estimated: true
+      evidence_type: EVALUATED
+      value_status: ESTIMATED-FROM-SYSTEMATICS
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1776
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_neutron_alpha:
+      value: -6243
+      unit: keV
+      uncertainty: 583
+      raw: -6243#
+      uncertainty_raw: 583#
+      estimated: true
+      evidence_type: EVALUATED
+      value_status: ESTIMATED-FROM-SYSTEMATICS
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1776
+      reference_state: AME2020 ground-state atomic-mass convention
     channel_references:
       beta_minus_daughter:
         A: 136
@@ -4484,6 +9514,132 @@ entries:
       uncertainty_status: SOURCE-REPORTED
       source_id: SRC-000304
       source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1768
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_double_beta_minus:
+      value: 24230
+      unit: keV
+      uncertainty: 403
+      raw: 24230#
+      uncertainty_raw: 403#
+      estimated: true
+      evidence_type: EVALUATED
+      value_status: ESTIMATED-FROM-SYSTEMATICS
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1768
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_electron_capture_proton:
+      value: null
+      unit: keV
+      uncertainty: null
+      raw: "*"
+      uncertainty_raw: ""
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: INSUFFICIENT DATA
+      null_state: UNKNOWN
+      null_reason: SOURCE-NOT-CALCULABLE
+      uncertainty_status: UNKNOWN
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1768
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_beta_minus_neutron:
+      value: 12269
+      unit: keV
+      uncertainty: 447
+      raw: 12269#
+      uncertainty_raw: 447#
+      estimated: true
+      evidence_type: EVALUATED
+      value_status: ESTIMATED-FROM-SYSTEMATICS
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct1.mas20.txt#line=1768
+      reference_state: AME2020 ground-state atomic-mass convention
+    reaction2_source_line: 1794
+    reaction2_raw_line: 0137
+      In  49    2931#      500#          *                 40526#      400#       7701#      565#       8494#      500#          *
+    separation_neutron:
+      value: 2931
+      unit: keV
+      uncertainty: 500
+      raw: 2931#
+      uncertainty_raw: 500#
+      estimated: true
+      evidence_type: EVALUATED
+      value_status: ESTIMATED-FROM-SYSTEMATICS
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1794
+      reference_state: AME2020 ground-state atomic-mass convention
+    separation_proton:
+      value: null
+      unit: keV
+      uncertainty: null
+      raw: "*"
+      uncertainty_raw: ""
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: INSUFFICIENT DATA
+      null_state: UNKNOWN
+      null_reason: SOURCE-NOT-CALCULABLE
+      uncertainty_status: UNKNOWN
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1794
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_quadruple_beta_minus:
+      value: 40526
+      unit: keV
+      uncertainty: 400
+      raw: 40526#
+      uncertainty_raw: 400#
+      estimated: true
+      evidence_type: EVALUATED
+      value_status: ESTIMATED-FROM-SYSTEMATICS
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1794
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_deuteron_alpha:
+      value: 7701
+      unit: keV
+      uncertainty: 565
+      raw: 7701#
+      uncertainty_raw: 565#
+      estimated: true
+      evidence_type: EVALUATED
+      value_status: ESTIMATED-FROM-SYSTEMATICS
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1794
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_proton_alpha:
+      value: 8494
+      unit: keV
+      uncertainty: 500
+      raw: 8494#
+      uncertainty_raw: 500#
+      estimated: true
+      evidence_type: EVALUATED
+      value_status: ESTIMATED-FROM-SYSTEMATICS
+      uncertainty_status: SOURCE-REPORTED
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1794
+      reference_state: AME2020 ground-state atomic-mass convention
+    q_neutron_alpha:
+      value: null
+      unit: keV
+      uncertainty: null
+      raw: "*"
+      uncertainty_raw: ""
+      estimated: false
+      evidence_type: EVALUATED
+      value_status: INSUFFICIENT DATA
+      null_state: UNKNOWN
+      null_reason: SOURCE-NOT-CALCULABLE
+      uncertainty_status: UNKNOWN
+      source_id: SRC-000304
+      source_locator: data/catalog/sources/ame2020-rct2.mas20.txt#line=1794
       reference_state: AME2020 ground-state atomic-mass convention
     channel_references:
       beta_minus_daughter:

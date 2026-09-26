@@ -1071,8 +1071,8 @@ Representative wavelengths include approximately:
 
 ```text
 Lyman-alpha ≈ 121.6 nm
-H-alpha      ≈ 656.3 nm
-H-beta       ≈ 486.1 nm
+H-alpha      ≈ 656.3 nm (air; rounded display label)
+H-beta       ≈ 486.1 nm (air; rounded display label)
 ```
 
 Exact component wavelengths depend on:
@@ -3288,3 +3288,6 @@ NIST's hydrogen thermophysical work also supports keeping **parahydrogen, normal
 ## Evaluated nuclear data and review
 
 The [NUBASE2020 nuclear state catalogue](0001-Hydrogen-H-Nuclear-Evaluation.md) provides 7 evaluated states with uncertainties, qualifiers and source-line provenance. This dated evaluation does not make the whole material record complete.
+
+
+[Balmer air-wavelength source table and quantitative chart](0001-Hydrogen-H-Balmer-Reference.md) retain selected fine components and explicit UNKNOWN wavelength uncertainty (SRC-000305).

@@ -6,7 +6,7 @@
 
 - [Parent Helium record](0002-Helium-He.md) · [NUBASE states and decays](0002-Helium-He-Nuclear-Evaluation.md)
 - [Structured data](data/isotopes/0002-Helium-He-AME2020-Evaluation.yaml)
-- [Original mass table](../../data/catalog/sources/ame2020-mass_1.mas20.txt) · [Original reaction table](../../data/catalog/sources/ame2020-rct1.mas20.txt)
+- [Original mass table](../../data/catalog/sources/ame2020-mass_1.mas20.txt) · [Original reaction table 1](../../data/catalog/sources/ame2020-rct1.mas20.txt) · [Original reaction table 2](../../data/catalog/sources/ame2020-rct2.mas20.txt)
 - [AME2020 methods](https://doi.org/10.1088/1674-1137/abddb0) (SRC-000303) · [Tables and definitions](https://doi.org/10.1088/1674-1137/abddaf) (SRC-000304)
 
 ## Reading the data
@@ -41,7 +41,33 @@ Atomic-mass conventions apply. Qα is total decay energy, not alpha-particle kin
 | He-9 | 15980.9213 ± 46.8169 | UNKNOWN (*) | 1279.9373 ± 47.4229 | UNKNOWN (*) | 64 |
 | He-10 | 16144.5191 ± 93.7152 | UNKNOWN (*) | -1444.8277 ± 92.8477 | UNKNOWN (*) | 69 |
 
-Qβ− comes from the mass-file line in the first table. The other three columns come from the reaction-file line. Definitions and original source strings are retained in the structured data.
+## Additional decay-energy combinations
+
+| Nuclide | Q₂β− / keV | Q₄β− / keV | Qεp / keV | Qβ−n / keV | Part 1 / part 2 line |
+|---|---|---|---|---|---|
+| He-3 | UNKNOWN (*) | UNKNOWN (*) | UNKNOWN (*) | UNKNOWN (*) | 40 / 42 |
+| He-4 | UNKNOWN (*) | UNKNOWN (*) | UNKNOWN (*) | -34313# ± 2000# | 43 / 45 |
+| He-5 | -25907# ± 2003# | UNKNOWN (*) | UNKNOWN (*) | -22163.2740 ± 213.0728 | 46 / 48 |
+| He-6 | -782.9387 ± 5.4480 | UNKNOWN (*) | UNKNOWN (*) | -2158.1098 ± 50.0000 | 50 / 52 |
+| He-7 | 10304.1299 ± 7.5598 | UNKNOWN (*) | UNKNOWN (*) | 3914.9290 ± 7.5595 | 55 / 57 |
+| He-8 | 26668.0112 ± 0.0955 | -3454.5863 ± 18.2435 | UNKNOWN (*) | 8631.2602 ± 0.0887 | 59 / 61 |
+| He-9 | 29587.3755 ± 46.8165 | 12024.8551 ± 46.8652 | UNKNOWN (*) | 11918.7038 ± 46.8165 | 64 / 66 |
+| He-10 | 36589.6601 ± 92.8477 | 33498.4737 ± 92.8477 | UNKNOWN (*) | 16170.9236 ± 92.8479 | 69 / 71 |
+
+## Single-nucleon separation and reaction energies
+
+| Nuclide | Sₙ / keV | Sₚ / keV | Q(d,α) / keV | Q(p,α) / keV | Q(n,α) / keV | Part 2 line |
+|---|---|---|---|---|---|---:|
+| He-3 | UNKNOWN (*) | 5493.4751 ± 0.0001 | 18353.0548 ± 0.0002 | UNKNOWN (*) | 20577.6211 ± 0.0005 | 42 |
+| He-4 | 20577.6211 ± 0.0005 | 19813.8661 ± 0.0002 | 0.0 ± 0.0 | 0.0000 ± 0.0000 | -0.0000 ± 0.0000 | 45 |
+| He-5 | -735.0000 ± 20.0000 | 20678.8661 ± 101.9804 | 6992.2301 ± 20.0000 | 2959.5663 ± 20.0000 | UNKNOWN (*) | 48 |
+| He-6 | 1710.4569 ± 20.0001 | 22589.3230 ± 89.4427 | 3681.7732 ± 100.0000 | 7506.3394 ± 0.0532 | UNKNOWN (*) | 52 |
+| He-7 | -409.7143 ± 7.5593 | 23091.5681 ± 254.2392 | 3891.4875 ± 89.7616 | 6316.0537 ± 100.2853 | UNKNOWN (*) | 57 |
+| He-8 | 2534.7627 ± 7.5600 | 24814# ± 1004# | 444.7654 ± 254.1268 | 3581.2910 ± 89.4428 | UNKNOWN (*) | 61 |
+| He-9 | -1254.8254 ± 46.8165 | UNKNOWN (*) | 2512# ± 1005# | 3924.1570 ± 258.4032 | UNKNOWN (*) | 66 |
+| He-10 | -190.0023 ± 103.9830 | UNKNOWN (*) | UNKNOWN (*) | 4926# ± 1008# | UNKNOWN (*) | 71 |
+
+Qβ− comes from the mass-file line in the first table. Qα, S₂n, S₂p, Q₂β−, Qεp and Qβ−n come from reaction part 1; Q₄β− and the last table come from part 2. Qεp is electron-capture/proton energy balance; Qβ−n is beta-minus/neutron energy balance. These are evaluated mass combinations, not observations of decay modes, cross sections or reaction rates. Light-nuclide zero entries can be bookkeeping identities, without a physical A=0 residual. Definitions and original source strings are retained in the structured data.
 
 ## Binding-energy chart
 
@@ -51,4 +77,4 @@ Discrete source values and source-reported uncertainties. No interpolation, natu
 
 ## Remaining review
 
-Later measurements, state-specific decay branches, isomer Q-values, additional reaction channels and full claim-level review remain open. Existing authored values retain their own provenance; this companion does not overwrite them.
+Later measurements, state-specific decay branches, isomer Q-values, reaction rates, applicability and full claim-level review remain open. Existing authored values retain their own provenance; this companion does not overwrite them.

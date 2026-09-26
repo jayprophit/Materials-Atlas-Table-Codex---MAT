@@ -6,7 +6,7 @@
 
 - [Parent Bohrium record](0107-Bohrium-Bh.md) · [NUBASE states and decays](0107-Bohrium-Bh-Nuclear-Evaluation.md)
 - [Structured data](data/isotopes/0107-Bohrium-Bh-AME2020-Evaluation.yaml)
-- [Original mass table](../../data/catalog/sources/ame2020-mass_1.mas20.txt) · [Original reaction table](../../data/catalog/sources/ame2020-rct1.mas20.txt)
+- [Original mass table](../../data/catalog/sources/ame2020-mass_1.mas20.txt) · [Original reaction table 1](../../data/catalog/sources/ame2020-rct1.mas20.txt) · [Original reaction table 2](../../data/catalog/sources/ame2020-rct2.mas20.txt)
 - [AME2020 methods](https://doi.org/10.1088/1674-1137/abddb0) (SRC-000303) · [Tables and definitions](https://doi.org/10.1088/1674-1137/abddaf) (SRC-000304)
 
 ## Reading the data
@@ -63,7 +63,55 @@ Atomic-mass conventions apply. Qα is total decay energy, not alpha-particle kin
 | Bh-277 | -275# ± 748# | UNKNOWN (*) | 10823# ± 848# | UNKNOWN (*) | 3513 |
 | Bh-278 | 1150# ± 500# | UNKNOWN (*) | 10722# ± 721# | UNKNOWN (*) | 3519 |
 
-Qβ− comes from the mass-file line in the first table. The other three columns come from the reaction-file line. Definitions and original source strings are retained in the structured data.
+## Additional decay-energy combinations
+
+| Nuclide | Q₂β− / keV | Q₄β− / keV | Qεp / keV | Qβ−n / keV | Part 1 / part 2 line |
+|---|---|---|---|---|---|
+| Bh-260 | UNKNOWN (*) | UNKNOWN (*) | 3843# ± 204# | UNKNOWN (*) | 3411 / 3459 |
+| Bh-261 | UNKNOWN (*) | UNKNOWN (*) | 2118# ± 202# | UNKNOWN (*) | 3418 / 3466 |
+| Bh-262 | UNKNOWN (*) | UNKNOWN (*) | 2655# ± 144# | UNKNOWN (*) | 3425 / 3473 |
+| Bh-263 | UNKNOWN (*) | UNKNOWN (*) | 954# ± 337# | UNKNOWN (*) | 3431 / 3479 |
+| Bh-264 | UNKNOWN (*) | UNKNOWN (*) | 1559# ± 244# | -11791# ± 265# | 3438 / 3487 |
+| Bh-265 | -10229# ± 499# | UNKNOWN (*) | -156# ± 336# | -11239# ± 241# | 3444 / 3493 |
+| Bh-266 | -9569# ± 189# | UNKNOWN (*) | 433# ± 276# | -10867# ± 164# | 3451 / 3500 |
+| Bh-267 | -9026# ± 568# | UNKNOWN (*) | -1264# ± 386# | -10446# ± 264# | 3457 / 3506 |
+| Bh-268 | -8444# ± 447# | UNKNOWN (*) | -596# ± 535# | -10022# ± 393# | 3464 / 3513 |
+| Bh-269 | -7823# ± 487# | UNKNOWN (*) | -2871# ± 648# | -9562# ± 480# | 3470 / 3519 |
+| Bh-270 | -6479# ± 354# | UNKNOWN (*) | -2208# ± 691# | -8335# ± 326# | 3476 / 3525 |
+| Bh-271 | -5241# ± 506# | UNKNOWN (*) | -3827# ± 691# | -7325# ± 457# | 3481 / 3530 |
+| Bh-272 | -4694# ± 720# | -13986# ± 581# | UNKNOWN (*) | -6975# ± 599# | 3486 / 3535 |
+| Bh-273 | -4099# ± 780# | -12202# ± 767# | UNKNOWN (*) | -6393# ± 830# | 3492 / 3541 |
+| Bh-274 | -3487# ± 690# | -10850# ± 615# | UNKNOWN (*) | -6077# ± 688# | 3497 / 3546 |
+| Bh-275 | -2986# ± 714# | -9614# ± 748# | UNKNOWN (*) | -5697# ± 762# | 3502 / 3551 |
+| Bh-276 | -2362# ± 802# | -8436# ± 869# | UNKNOWN (*) | -5613# ± 844# | 3507 / 3557 |
+| Bh-277 | -1908# ± 894# | -7307# ± 761# | UNKNOWN (*) | -5157# ± 937# | 3513 / 3563 |
+| Bh-278 | -1396# ± 703# | -6150# ± 557# | UNKNOWN (*) | -5076# ± 599# | 3519 / 3569 |
+
+## Single-nucleon separation and reaction energies
+
+| Nuclide | Sₙ / keV | Sₚ / keV | Q(d,α) / keV | Q(p,α) / keV | Q(n,α) / keV | Part 2 line |
+|---|---|---|---|---|---|---:|
+| Bh-260 | UNKNOWN (*) | 685# ± 267# | 18538# ± 457# | UNKNOWN (*) | 18615# ± 256# | 3459 |
+| Bh-261 | 8115# ± 266# | 757.0568 ± 180.9722 | 17271# ± 255# | 12648# ± 450# | 17218.1090 ± 201.9085 | 3466 |
+| Bh-262 | 6898.6091 ± 202.4649 | 1041.8568 ± 94.8937 | 18415.4303 ± 95.3127 | 12597# ± 204# | 17907.4996 ± 108.9772 | 3473 |
+| Bh-263 | 7827# ± 319# | 1162# ± 306# | 17202# ± 306# | 12812# ± 306# | 16470# ± 319# | 3479 |
+| Bh-264 | 6610# ± 353# | 1526# ± 201# | 18299# ± 179# | 12817# ± 178# | 17296# ± 209# | 3487 |
+| Bh-265 | 7634# ± 298# | 1677# ± 370# | 16911# ± 257# | 12890# ± 240# | 15788# ± 279# | 3493 |
+| Bh-266 | 6362# ± 289# | 1979# ± 214# | 18032# ± 326# | 12773# ± 188# | 16640# ± 234# | 3500 |
+| Bh-267 | 7411# ± 309# | 2141# ± 359# | 16682# ± 297# | 12846# ± 386# | 15150# ± 353# | 3506 |
+| Bh-268 | 6130# ± 463# | 2389# ± 463# | 17800# ± 454# | 12777# ± 406# | 15971# ± 442# | 3513 |
+| Bh-269 | 7301# ± 534# | 2611# ± 600# | 16382# ± 456# | 12724# ± 447# | 14383# ± 469# | 3519 |
+| Bh-270 | 5319# ± 479# | 2752# ± 474# | 18141# ± 556# | 13287# ± 397# | 15862# ± 479# | 3525 |
+| Bh-271 | 6442# ± 486# | 2861# ± 598# | 16877# ± 532# | 13923# ± 606# | 14446# ± 654# | 3530 |
+| Bh-272 | 5143# ± 656# | 3119# ± 795# | 18067# ± 702# | 13959# ± 647# | 15286# ± 820# | 3535 |
+| Bh-273 | 6176# ± 844# | 3126# ± 953# | 16777# ± 882# | 14116# ± 799# | 13933# ± 871# | 3541 |
+| Bh-274 | 4993# ± 873# | 3447# ± 703# | 17952# ± 902# | 14009# ± 827# | UNKNOWN (*) | 3546 |
+| Bh-275 | 6053# ± 833# | UNKNOWN (*) | 16571# ± 721# | 14124# ± 916# | UNKNOWN (*) | 3551 |
+| Bh-276 | 4901# ± 848# | UNKNOWN (*) | UNKNOWN (*) | 13894# ± 721# | UNKNOWN (*) | 3557 |
+| Bh-277 | 5921# ± 848# | UNKNOWN (*) | UNKNOWN (*) | UNKNOWN (*) | UNKNOWN (*) | 3563 |
+| Bh-278 | 4801# ± 721# | UNKNOWN (*) | UNKNOWN (*) | UNKNOWN (*) | UNKNOWN (*) | 3569 |
+
+Qβ− comes from the mass-file line in the first table. Qα, S₂n, S₂p, Q₂β−, Qεp and Qβ−n come from reaction part 1; Q₄β− and the last table come from part 2. Qεp is electron-capture/proton energy balance; Qβ−n is beta-minus/neutron energy balance. These are evaluated mass combinations, not observations of decay modes, cross sections or reaction rates. Light-nuclide zero entries can be bookkeeping identities, without a physical A=0 residual. Definitions and original source strings are retained in the structured data.
 
 ## Binding-energy chart
 
@@ -73,4 +121,4 @@ Discrete source values and source-reported uncertainties. No interpolation, natu
 
 ## Remaining review
 
-Later measurements, state-specific decay branches, isomer Q-values, additional reaction channels and full claim-level review remain open. Existing authored values retain their own provenance; this companion does not overwrite them.
+Later measurements, state-specific decay branches, isomer Q-values, reaction rates, applicability and full claim-level review remain open. Existing authored values retain their own provenance; this companion does not overwrite them.

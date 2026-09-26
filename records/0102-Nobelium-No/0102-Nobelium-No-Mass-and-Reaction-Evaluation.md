@@ -6,7 +6,7 @@
 
 - [Parent Nobelium record](0102-Nobelium-No.md) · [NUBASE states and decays](0102-Nobelium-No-Nuclear-Evaluation.md)
 - [Structured data](data/isotopes/0102-Nobelium-No-AME2020-Evaluation.yaml)
-- [Original mass table](../../data/catalog/sources/ame2020-mass_1.mas20.txt) · [Original reaction table](../../data/catalog/sources/ame2020-rct1.mas20.txt)
+- [Original mass table](../../data/catalog/sources/ame2020-mass_1.mas20.txt) · [Original reaction table 1](../../data/catalog/sources/ame2020-rct1.mas20.txt) · [Original reaction table 2](../../data/catalog/sources/ame2020-rct2.mas20.txt)
 - [AME2020 methods](https://doi.org/10.1088/1674-1137/abddb0) (SRC-000303) · [Tables and definitions](https://doi.org/10.1088/1674-1137/abddaf) (SRC-000304)
 
 ## Reading the data
@@ -59,7 +59,51 @@ Atomic-mass conventions apply. Qα is total decay energy, not alpha-particle kin
 | No-263 | -540# ± 539# | 7000# ± 400# | 11469# ± 529# | UNKNOWN (*) | 3426 |
 | No-264 | -1364# ± 734# | 6820# ± 400# | 11233# ± 692# | UNKNOWN (*) | 3433 |
 
-Qβ− comes from the mass-file line in the first table. The other three columns come from the reaction-file line. Definitions and original source strings are retained in the structured data.
+## Additional decay-energy combinations
+
+| Nuclide | Q₂β− / keV | Q₄β− / keV | Qεp / keV | Qβ−n / keV | Part 1 / part 2 line |
+|---|---|---|---|---|---|
+| No-248 | UNKNOWN (*) | UNKNOWN (*) | 1727# ± 288# | UNKNOWN (*) | 3318 / 3365 |
+| No-249 | UNKNOWN (*) | UNKNOWN (*) | 2600# ± 280# | UNKNOWN (*) | 3326 / 3373 |
+| No-250 | UNKNOWN (*) | UNKNOWN (*) | 758# ± 201# | UNKNOWN (*) | 3333 / 3380 |
+| No-251 | UNKNOWN (*) | UNKNOWN (*) | 1488# ± 181# | UNKNOWN (*) | 3340 / 3387 |
+| No-252 | UNKNOWN (*) | UNKNOWN (*) | -376.4089 ± 17.0469 | -13030# ± 200# | 3348 / 3395 |
+| No-253 | -9283# ± 410# | UNKNOWN (*) | 253.1143 ± 8.5667 | -12250# ± 185# | 3355 / 3402 |
+| No-254 | -8478# ± 283# | UNKNOWN (*) | -1911.2078 ± 9.7178 | -11871.4774 ± 164.8171 | 3363 / 3411 |
+| No-255 | -7518# ± 181# | UNKNOWN (*) | -1379.5586 ± 14.1671 | -10905.2713 ± 92.3856 | 3370 / 3418 |
+| No-256 | -6398.9466 ± 19.3453 | UNKNOWN (*) | -3266.3905 ± 8.4147 | -10195.5777 ± 19.2409 | 3378 / 3426 |
+| No-257 | -5619.3243 ± 12.4077 | UNKNOWN (*) | -2526.7032 ± 6.8603 | -9570.8568 ± 83.1342 | 3385 / 3433 |
+| No-258 | -4867# ± 101# | -13818# ± 424# | -4402# ± 100# | -9259# ± 109# | 3392 / 3440 |
+| No-259 | -4288# ± 73# | -12440# ± 181# | -3636# ± 200# | -8774# ± 102# | 3399 / 3447 |
+| No-260 | -3538# ± 283# | -10938# ± 201# | -5383# ± 347# | -8312# ± 212# | 3406 / 3454 |
+| No-261 | -2863# ± 211# | -9550# ± 201# | -4600# ± 478# | -7893# ± 236# | 3413 / 3461 |
+| No-262 | -2291# ± 424# | -8268# ± 361# | UNKNOWN (*) | -7527# ± 412# | 3420 / 3468 |
+| No-263 | -1627# ± 513# | -7066# ± 499# | UNKNOWN (*) | -7048# ± 529# | 3426 / 3474 |
+| No-264 | -1064# ± 692# | -5772# ± 655# | UNKNOWN (*) | -6730# ± 632# | 3433 / 3482 |
+
+## Single-nucleon separation and reaction energies
+
+| Nuclide | Sₙ / keV | Sₚ / keV | Q(d,α) / keV | Q(p,α) / keV | Q(n,α) / keV | Part 2 line |
+|---|---|---|---|---|---|---:|
+| No-248 | UNKNOWN (*) | 2536# ± 305# | 15284# ± 343# | 10228# ± 343# | 16143# ± 297# | 3365 |
+| No-249 | 6973# ± 358# | 2450# ± 335# | 16562# ± 348# | 10535# ± 382# | 17242# ± 280# | 3373 |
+| No-250 | 8292# ± 344# | 2904# ± 259# | 15329# ± 272# | 10494# ± 288# | 15540# ± 270# | 3380 |
+| No-251 | 6788# ± 270# | 2839# ± 202# | 16379# ± 244# | 10765# ± 258# | 16598# ± 181# | 3387 |
+| No-252 | 8049# ± 181# | 3384.3495 ± 21.0780 | 15183.0370 ± 91.3935 | 10554.4738 ± 164.6869 | 14998.6299 ± 11.1322 | 3395 |
+| No-253 | 6583.9925 ± 11.5430 | 3397.3932 ± 91.5478 | 16102.7541 ± 20.1426 | 10823.6108 ± 91.1823 | 15932.9054 ± 10.4266 | 3402 |
+| No-254 | 7706.7022 ± 11.8367 | 3738# ± 33# | 14967.0008 ± 91.7959 | 10620.6182 ± 21.2417 | 14410.9058 ± 17.2489 | 3411 |
+| No-255 | 5982.6960 ± 17.0463 | 3930# ± 101# | 16350# ± 34# | 11208.8710 ± 92.3608 | 15641.7254 ± 14.9855 | 3418 |
+| No-256 | 7060.2061 ± 15.9464 | 4307.9942 ± 9.2904 | 15081# ± 100# | 11514# ± 32# | 14123.8995 ± 7.5641 | 3426 |
+| No-257 | 5647.2996 ± 9.6548 | 4498# ± 124# | 16115.8024 ± 8.2416 | 11659# ± 100# | 14990.9452 ± 6.3058 | 3433 |
+| No-258 | 6841# ± 100# | 4804# ± 100# | 14732# ± 159# | 11499# ± 100# | 13323# ± 100# | 3440 |
+| No-259 | 5469# ± 100# | 4899.9399 ± 7.0750 | 15797.7161 ± 6.4404 | 11487# ± 124# | 14240.9868 ± 6.7364 | 3447 |
+| No-260 | 6541# ± 200# | 5243# ± 224# | 14630# ± 200# | 11481# ± 200# | 12666# ± 200# | 3454 |
+| No-261 | 5226# ± 283# | 5384# ± 374# | 15602# ± 224# | 11629# ± 200# | 13675# ± 283# | 3461 |
+| No-262 | 6425# ± 412# | 5766# ± 624# | 14262# ± 480# | 11401# ± 374# | 12043# ± 459# | 3468 |
+| No-263 | 5043# ± 608# | 5827# ± 664# | 15261# ± 706# | 11443# ± 583# | 13010# ± 655# | 3474 |
+| No-264 | 6190# ± 767# | UNKNOWN (*) | 14054# ± 741# | 11296# ± 780# | UNKNOWN (*) | 3482 |
+
+Qβ− comes from the mass-file line in the first table. Qα, S₂n, S₂p, Q₂β−, Qεp and Qβ−n come from reaction part 1; Q₄β− and the last table come from part 2. Qεp is electron-capture/proton energy balance; Qβ−n is beta-minus/neutron energy balance. These are evaluated mass combinations, not observations of decay modes, cross sections or reaction rates. Light-nuclide zero entries can be bookkeeping identities, without a physical A=0 residual. Definitions and original source strings are retained in the structured data.
 
 ## Binding-energy chart
 
@@ -69,4 +113,4 @@ Discrete source values and source-reported uncertainties. No interpolation, natu
 
 ## Remaining review
 
-Later measurements, state-specific decay branches, isomer Q-values, additional reaction channels and full claim-level review remain open. Existing authored values retain their own provenance; this companion does not overwrite them.
+Later measurements, state-specific decay branches, isomer Q-values, reaction rates, applicability and full claim-level review remain open. Existing authored values retain their own provenance; this companion does not overwrite them.

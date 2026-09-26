@@ -9,7 +9,7 @@ Generated from actual record files. File and field counts show where material ex
 | Record | Manuscript status | Sections | Data files | Calculations | Experiments | Tables | Graphs | Visual files | Models | Source IDs | Nuclear states |
 |---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
 | [MAT:0000 Origin State](../../records/0000-Origin-State/0000-Origin-State.md) | RESEARCHED | 73 | 5 | 2 | 1 | 1 | 2 | 15 | 3 | 4 | NOT_APPLICABLE |
-| [MAT:0001 Hydrogen](../../records/0001-Hydrogen-H/0001-Hydrogen-H.md) | RESEARCHED | 120 | 20 | 3 | 1 | 9 | 12 | 23 | 4 | 42 | 7 |
+| [MAT:0001 Hydrogen](../../records/0001-Hydrogen-H/0001-Hydrogen-H.md) | RESEARCHED | 120 | 21 | 3 | 1 | 9 | 13 | 24 | 4 | 43 | 7 |
 | [MAT:0002 Helium](../../records/0002-Helium-He/0002-Helium-He.md) | RESEARCHED | 50 | 20 | 3 | 1 | 10 | 9 | 26 | 4 | 19 | 8 |
 | [MAT:0003 Lithium](../../records/0003-Lithium-Li/0003-Lithium-Li.md) | RESEARCHED | 95 | 27 | 4 | 1 | 10 | 14 | 28 | 5 | 17 | 16 |
 | [MAT:0004 Beryllium](../../records/0004-Beryllium-Be/0004-Beryllium-Be.md) | RESEARCHED | 76 | 27 | 5 | 1 | 9 | 11 | 26 | 5 | 18 | 21 |

@@ -6,7 +6,7 @@
 
 - [Parent Boron record](0005-Boron-B.md) · [NUBASE states and decays](0005-Boron-B-Nuclear-Evaluation.md)
 - [Structured data](data/isotopes/0005-Boron-B-AME2020-Evaluation.yaml)
-- [Original mass table](../../data/catalog/sources/ame2020-mass_1.mas20.txt) · [Original reaction table](../../data/catalog/sources/ame2020-rct1.mas20.txt)
+- [Original mass table](../../data/catalog/sources/ame2020-mass_1.mas20.txt) · [Original reaction table 1](../../data/catalog/sources/ame2020-rct1.mas20.txt) · [Original reaction table 2](../../data/catalog/sources/ame2020-rct2.mas20.txt)
 - [AME2020 methods](https://doi.org/10.1088/1674-1137/abddb0) (SRC-000303) · [Tables and definitions](https://doi.org/10.1088/1674-1137/abddaf) (SRC-000304)
 
 ## Reading the data
@@ -57,7 +57,49 @@ Atomic-mass conventions apply. Qα is total decay energy, not alpha-particle kin
 | B-20 | 31898.0019 ± 593.0377 | UNKNOWN (*) | -1466.2927 ± 583.2574 | UNKNOWN (*) | 136 |
 | B-21 | 32740# ± 817# | UNKNOWN (*) | -2470.0001 ± 190.0000 | UNKNOWN (*) | 144 |
 
-Qβ− comes from the mass-file line in the first table. The other three columns come from the reaction-file line. Definitions and original source strings are retained in the structured data.
+## Additional decay-energy combinations
+
+| Nuclide | Q₂β− / keV | Q₄β− / keV | Qεp / keV | Qβ−n / keV | Part 1 / part 2 line |
+|---|---|---|---|---|---|
+| B-6 | UNKNOWN (*) | UNKNOWN (*) | 28352# ± 2003# | UNKNOWN (*) | 53 / 55 |
+| B-7 | UNKNOWN (*) | UNKNOWN (*) | 6300.7013 ± 25.1503 | UNKNOWN (*) | 58 / 60 |
+| B-8 | UNKNOWN (*) | UNKNOWN (*) | 725.4933 ± 0.9999 | UNKNOWN (*) | 62 / 64 |
+| B-9 | UNKNOWN (*) | UNKNOWN (*) | -15818.2898 ± 0.9038 | -30719.1014 ± 18.2653 | 67 / 69 |
+| B-10 | -26749.4168 ± 400.0000 | UNKNOWN (*) | -20193.2654 ± 0.1869 | -24931.6787 ± 2.1367 | 72 / 74 |
+| B-11 | -15697.9358 ± 5.0005 | UNKNOWN (*) | -31673.8905 ± 12.7213 | -15102.2829 ± 0.0714 | 77 / 79 |
+| B-12 | -3968.6702 ± 1.6571 | UNKNOWN (*) | -34647.8317 ± 1.4574 | -5351.3172 ± 1.3228 | 83 / 85 |
+| B-13 | 11216.4669 ± 1.0358 | -25468# ± 500# | -39736.5997 ± 30.0230 | 8490.6300 ± 1.0001 | 89 / 91 |
+| B-14 | 20800.2691 ± 21.2133 | -8300.7168 ± 46.2683 | -40606.1800 ± 73.1463 | 12467.3585 ± 21.2133 | 95 / 97 |
+| B-15 | 28855.9414 ± 21.0290 | 12390.6273 ± 25.2630 | UNKNOWN (*) | 17866.1681 ± 21.0290 | 101 / 103 |
+| B-16 | 31427.7916 ± 24.6739 | 26436.5170 ± 25.1451 | UNKNOWN (*) | 19167.2355 ± 24.5793 | 108 / 111 |
+| B-17 | 35846.2430 ± 204.6541 | 41764.6204 ± 204.1038 | UNKNOWN (*) | 21950.8705 ± 204.1350 | 114 / 117 |
+| B-18 | 38679.4724 ± 205.0076 | 50919.5273 ± 204.1654 | UNKNOWN (*) | 22689.4423 ± 204.9020 | 121 / 124 |
+| B-19 | 43913.9955 ± 525.6187 | 61257.6957 ± 525.3627 | UNKNOWN (*) | 26779.6669 ± 526.2185 | 128 / 131 |
+| B-20 | 47635.0708 ± 552.0237 | 69419.0319 ± 546.3570 | UNKNOWN (*) | 28916.4961 ± 555.1454 | 136 / 139 |
+| B-21 | 53150.9714 ± 574.5213 | 78430.4920 ± 558.6673 | UNKNOWN (*) | 32808.0020 ± 604.3953 | 144 / 147 |
+
+## Single-nucleon separation and reaction energies
+
+| Nuclide | Sₙ / keV | Sₚ / keV | Q(d,α) / keV | Q(p,α) / keV | Q(n,α) / keV | Part 2 line |
+|---|---|---|---|---|---|---:|
+| B-6 | UNKNOWN (*) | -2892# ± 2832# | UNKNOWN (*) | UNKNOWN (*) | 24299# ± 2830# | 55 |
+| B-7 | 27715# ± 2003# | -2012.5479 ± 25.7336 | 1249# ± 2003# | UNKNOWN (*) | 7999.7651 ± 213.6177 | 60 |
+| B-8 | 12826.3018 ± 25.1702 | 136.3997 ± 1.0024 | 15257.3422 ± 5.5388 | -9353# ± 2003# | 16889.0843 ± 50.0100 | 64 |
+| B-9 | 18576.4012 ± 1.3470 | -185.8431 ± 0.9033 | 7358.2952 ± 0.9054 | -1094.4928 ± 5.5220 | 3976.0076 ± 0.9026 | 69 |
+| B-10 | 8437.1932 ± 0.9027 | 6586.8113 ± 0.0779 | 17819.7460 ± 0.0384 | 1145.6682 ± 0.0724 | 2789.9082 ± 0.0155 | 74 |
+| B-11 | 11454.2206 ± 0.0192 | 11228.7495 ± 0.0818 | 8030.0643 ± 0.0774 | 8590.0917 ± 0.0374 | -6631.6942 ± 0.0489 | 79 |
+| B-12 | 3369.6283 ± 1.3215 | 14096.7420 ± 1.3426 | 11472.7184 ± 1.3239 | 6885.0022 ± 1.3236 | -5939.1049 ± 1.3345 | 85 |
+| B-13 | 4878.7679 ± 1.6572 | 15804.7845 ± 2.1547 | 7095.5863 ± 1.0279 | 8818.5167 ± 1.0033 | -10844.2774 ± 12.7606 | 91 |
+| B-14 | 969.5802 ± 21.2369 | 17284.3647 ± 23.5297 | 9296.7314 ± 21.2990 | 8350.5723 ± 21.2147 | -11418.1705 ± 21.2222 | 97 |
+| B-15 | 2777.6245 ± 29.8701 | 18286.0941 ± 133.9066 | 6009.1069 ± 23.3636 | 8743.6732 ± 21.1154 | -14405.7950 ± 36.6414 | 103 |
+| B-16 | -83.0012 ± 14.6047 | 20003.0929 ± 167.6075 | 7868.0033 ± 134.5075 | 8316.6744 ± 26.5922 | -14222.7938 ± 74.1881 | 111 |
+| B-17 | 1466.6951 ± 205.5768 | 21019.7880 ± 262.9583 | 4601.3082 ± 262.9583 | 8625.8744 ± 243.2017 | UNKNOWN (*) | 117 |
+| B-18 | -5.0000 ± 5.0000 | UNKNOWN (*) | 5056.3082 ± 263.0058 | 6830.8744 ± 263.0058 | UNKNOWN (*) | 124 |
+| B-19 | 93.7073 ± 563.6393 | UNKNOWN (*) | UNKNOWN (*) | 7187.1671 ± 550.9035 | UNKNOWN (*) | 131 |
+| B-20 | -1560.0000 ± 150.0000 | UNKNOWN (*) | UNKNOWN (*) | UNKNOWN (*) | UNKNOWN (*) | 139 |
+| B-21 | -910.0000 ± 242.0744 | UNKNOWN (*) | UNKNOWN (*) | UNKNOWN (*) | UNKNOWN (*) | 147 |
+
+Qβ− comes from the mass-file line in the first table. Qα, S₂n, S₂p, Q₂β−, Qεp and Qβ−n come from reaction part 1; Q₄β− and the last table come from part 2. Qεp is electron-capture/proton energy balance; Qβ−n is beta-minus/neutron energy balance. These are evaluated mass combinations, not observations of decay modes, cross sections or reaction rates. Light-nuclide zero entries can be bookkeeping identities, without a physical A=0 residual. Definitions and original source strings are retained in the structured data.
 
 ## Binding-energy chart
 
@@ -67,4 +109,4 @@ Discrete source values and source-reported uncertainties. No interpolation, natu
 
 ## Remaining review
 
-Later measurements, state-specific decay branches, isomer Q-values, additional reaction channels and full claim-level review remain open. Existing authored values retain their own provenance; this companion does not overwrite them.
+Later measurements, state-specific decay branches, isomer Q-values, reaction rates, applicability and full claim-level review remain open. Existing authored values retain their own provenance; this companion does not overwrite them.

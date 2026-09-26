@@ -1,34 +1,25 @@
 # Advanced MAT enrichment — exact resume checkpoint
 
-Updated: 25 September 2026. Overall request remains **PARTIAL**. This checkpoint supersedes the earlier September checkpoints, which remain recoverable in Git. No element is certified fully advanced.
+Updated: 26 September 2026. Overall request remains PARTIAL. No element is certified fully advanced.
 
-## Canonical repository and continuity
+## Canonical repository
 
-Canonical master: `C:/Users/jpowe/Desktop/Projects/Materials-Atlas-Table-Codex---MAT`. The earlier direct Desktop path is absent. The existing repository was relocated; do not recreate the old path or initialise another Git repository.
+Master: C:/Users/jpowe/Desktop/Projects/Materials-Atlas-Table-Codex---MAT. Existing main branch, origin https://github.com/jayprophit/Materials-Atlas-Table-Codex---MAT.git. Initial HEAD 4cbdb191f109007bfde9855811ced45f382f0870 matched fetched origin/main with a clean worktree. One worktree; preserve history and later edits. Do not recreate the old Desktop root or initialise another repository.
 
-Branch: `main`. Remote: `https://github.com/jayprophit/Materials-Atlas-Table-Codex---MAT.git`. On resuming this batch, HEAD was `d42b67b2ad23328b0a2ffff6dac5d61e74884ebf`, the worktree was clean, and fetched origin/main was `6ef96759074183f6bdfa9d5a7102e79f315fdeb9` (one local commit ahead). Preserve the intervening query-service, claim-registry and recovery work. One Git worktree was listed at the new master path.
+## Scientific and visual coverage
 
-The AME data and two new panels were already preserved in commit `742c6fae5586980dac65df60ca2d9059d8339423` and the subsequent restoration history. This continuation verifies their source fidelity, publishes them, updates coverage, and preserves later work. Delivery hashes and push outcome are recorded after the batch commit below.
+- Foundation 0000 and 118 recognised chemical elements remain canonical. Atomic numbers 119–188 now have 70 separate MAT-PROPOSED research entries. They are not recognised elements. Their physical properties remain UNKNOWN, applicability INSUFFICIENT DATA, with no accepted physical predictions. Systematic names follow IUPAC; neutral electron counts are identity definitions, not observed atoms.
+- AME2020 now covers 15 evaluated quantities over 3,557 chemical-element ground-state nuclides: 48,974 numeric values and 4,381 explicit missing cells. This adds 28,660 numeric values. Each of 118 elements has four tables (472 total) and its own binding-energy chart (118). Source reaction table 2 is retained exactly; source 304 now covers both reaction tables. Signed Q, source uncertainties, original lines and # estimates survive. No covariance was invented. Isomer corrections and actual branch evidence remain open.
+- Existing NUBASE2020 coverage of 5,842 states and NIST ASD coverage of 6,019 rows (5,847 numeric, 172 UNKNOWN; Z=1–110) remain. The 11,694 energy-equivalent calculations are not observed lines; Z=111–118 remain insufficient in that extraction.
+- Hydrogen A05 is a new individually reviewed light-style Balmer illustration made with built-in image generation using the user's poster reference. Exact prompts, revision and hashes are in data/quality/panel-image-reviews.json. Six panels are reviewed: A01–A05 and B09. A05 explicitly labels schematic spacing/brightness. Its separate calibrated SVG and companion table use eight NIST AIR entries with exact angstrom-to-nm conversion; missing source uncertainties remain UNKNOWN.
+- There are 229 quantitative charts: 118 binding, 110 ionisation and one Hydrogen Balmer. These do not count as the 22 illustrations per element. Across the 188 requested identities, 4,136 panels are required, six reviewed and 4,130 pending. Both 9-light and 13-dark sets remain required, with unique state-specific content.
+- Sources 305–307 add NIST Hydrogen and IUPAC nomenclature/recognised-scope evidence. Naming rules do not supply proposed-element physical properties. Conventional, calculated, model-dependent, historical and author-proposed layers remain distinct.
 
-## Scientific and visual scope now present
+## Completion and work list
 
-- 119 record packages: foundation 0000 and chemical elements 0001–0118. No later canonical element record was found. All 118 elements remain partially advanced.
-- NUBASE2020: 5,842 evaluated states, with the existing qualifier-aware decay calculations and explicit ground/isomer identities retained.
-- NIST ASD extraction: 6,019 rows for Z=1–110, 5,847 numeric energies and 172 UNKNOWN energies. Z=111–118 have INSUFFICIENT DATA in that extraction. Existing 11,694 SI energy-equivalent calculations are not observed spectral lines.
-- AME2020: 3,557 chemical-element ground-state nuclides and six selected evaluated quantities. Counts: mass excess 3,557; binding energy per nucleon 3,557; beta-minus Q 3,262; two-neutron separation energy 3,321; two-proton separation energy 3,203; alpha Q 3,414. Total 20,314 numeric quantities plus 1,028 explicit missing quantities.
-- AME source accessions `SRC-000303` and `SRC-000304` identify the methods/evaluation papers. The original mass and reaction tables, raw lines, source locators, hashes, units, source uncertainties and # estimate markers are retained. Published uncertainties are transcribed directly; independent-mass quadrature was not substituted. Signed Q, null, and genuine zero remain distinct. Positive Q is not an observed decay branch.
-- Each element has its own AME YAML registry, companion chapter and binding-energy SVG. There are 118 AME charts and 236 corresponding Markdown tables, in addition to the 110 ionisation charts. The AME extraction is a dated 2020 evaluation, not a claim of latest 2026 research.
-- Five reviewed standalone Hydrogen illustrations: A01, A02, A03, A04 and B09. A03 is H₂ bonding; A04 contains the three isotope diagrams as one isotope-section image. Exact prompts, source context, file hashes and visual-review notes are in `data/quality/panel-image-reviews.json`. Built-in image generation used the supplied posters as the primary references. Quantitative charts do not count as these illustrations.
-- The required total remains 2,596 separate images: 118 × (9 light panels + 13 dark panels). 2,591 images remain open. The next light Hydrogen slot is A05; dark B01–B08 and B10–B13 remain open. Preserve the locked V01–V18 architecture and the additive panel crosswalk.
-- The state-flow audit retains 652 existing universal-schema list items across the records. Conventional, evaluated, calculated, model-dependent, historical and author-proposed evidence remain distinct. No speculative framework was promoted into established science.
+Use data/quality/element-scope-0000-0188.json for all 188 identities and 36 domain statuses each, with foundation separate. Recognised records retain their 652-item state-flow audits; the proposed catalogue inherits the same review profile with all requirements pending. Advanced-completion, state-flow, unified-gap and MAT-TODO files remain the authoritative review queues.
 
-## Completion, gaps and work list
-
-Use `data/quality/advanced-completion-matrix.json`, `data/quality/state-flow/index.json`, `data/quality/unified-gap-analysis.json`, `data/quality/MAT-TODO.json` and `docs/09-production/Advanced-Completion-TODO.md`.
-
-The work-item inventory now has 6,862 unique entries: 4,248 element-domain reviews, nine foundation reviews, 2,596 individual panel slots and nine programme objectives. Five panel tasks are complete and 6,857 work items are open. These are review/task counts, not a scientific-completion percentage.
-
-AME coverage and chart status are now explicit per element in the unified gap report. Domain acceptance still requires claim-level support and state/condition review. Nuclear data does not fill missing materials, biological or engineering domains. All 56 supplied reference documents remain in the intake review queue; candidate Neon/Aluminium additions require comparison with current canonical values and original bibliography.
+There are 10,923 work items: 4,248 recognised domain reviews, nine foundation reviews, 2,520 proposed domain reviews, 2,596 recognised panel slots, 1,540 proposed panel slots and ten programme objectives. Six complete, 10,917 open. Scientific status: zero fully advanced, 118 partial, 70 proposed pending. Counts are not scientific-completion percentages.
 
 ## Native conversation export recovered
 
@@ -46,34 +37,26 @@ Earlier pages and cursors remain under `.mat-local/chatgpt-intake-2026-09-15/`. 
 
 No archive files were imported or deleted in this continuation. Earlier verified consolidation is recorded in `data/quality/archive-removal-receipt.json`: 15,624 recoverable duplicates removed after the recovery materials were committed and pushed as `cad3533`. Fifteen unique files and excluded private material remain in the ignored integration source area. It is not another master repository. Do not rerun the pre-removal audit and interpret expected absences as loss, or delete the private residual material to make the directory disappear.
 
-## Verification on 25 September
 
-- All 15 integrity suites passed, covering sources, schema, identifiers, links, relationships, element coverage, source-bound AME/NIST data, figures, completion/state-flow freshness and publication synchronisation.
-- Core tests: 78 passed, including three new private-export parser tests.
-- Studio unit tests: five passed. Its missing local dependencies were restored from the existing lockfile.
-- Studio end-to-end checks: six passed, including exact-byte AME/NIST source delivery, five reviewed panels and representative scientific charts.
-- Reader checks: six passed across Chromium, Firefox and WebKit. The earlier Firefox timeout did not recur. This is automated regression evidence, not complete accessibility certification.
-- Production build passed: 753 chapters and 118 selectable elements, with no unresolved source IDs in the publication projection.
-- Final benchmark: all 16 checks passed (15 integrity suites plus the core tests); 270 local-search samples had p95 16.18 ms against a 100 ms budget. See `data/quality/benchmark.json`. This measures local search only, not browser/mobile or real-user performance.
-- Native intake: 352 original objects and the retained input hash re-read and verified; all saved messages accounted for. Keyword/project and scientific content review remain pending.
-- `git diff --check` passed before staging.
-- The Studio dependency audit reported two moderate development-dependency findings for Vitest and its mocker (GHSA-82fw-gwwq-j7x9). The major-version fix is tracked as `MAT-PROGRAMME-DEPENDENCIES`; no forced dependency upgrade was made.
+## Verification on 26 September
 
-Logs are private under `.mat-local/*2026-09-25*` and `.mat-local/benchmark/`. Build/test status does not complete the scientific programme.
+All 18 benchmark checks passed: 17 integrity suites and 81 core tests. Studio unit tests: five passed. Studio end-to-end: seven passed. Production build: 755 chapters, 118 selectable recognised elements, zero unresolved source IDs. Local search p95 24.86 ms against 100 ms budget, 270 samples; this is not browser or field performance.
+
+The initial reader run passed four Chromium/WebKit tests and failed both Firefox tests (sidebar state and page navigation timeouts). The original reader-browser-results.json remains retained. Isolated Firefox retry: two failures, zero passes. Record count and Neon content stayed blank, teardown timed out, and Firefox logged SWGL framebuffer/Juggler errors. Root cause remains unresolved. Do not claim complete reader readiness. Manual assistive-technology, print, rights and independent scientific review remain open. The previous dependency advisory remains queued; no dependency upgrade or new audit was performed in this batch.
+
+An initial link validation failure was repaired: Hydrogen A05 uses the actual double-hyphen heading anchor. The final links and freshness checks passed. Logs and the initial failed benchmark are private under .mat-local/. No raw conversation data or peer repository changes are included.
 
 ## Exact next steps
 
-1. Recheck current HEAD, Git status, remote and this file at the relocated master path. Preserve later work and local changes; never restore an old master over current content.
-2. Start with Hydrogen A05: verify the actual Balmer line data, spectral medium, emitting state and source precision, then create its separate light-style illustration. Continue both 9+13 image sets, one individually reviewed panel per placeholder.
-3. Continue the remaining Hydrogen domain gaps using the existing 0000/0001 flow and mature records. Reconcile the supplied Neon/Aluminium blocks and bibliography before promotion. Do not duplicate the completed nuclear/ionisation/AME packages.
-4. Extend AME only where supported: other reaction columns, state-specific/isomer corrections and branch evidence. Follow with isotope-specific NMR, actual spectroscopy, state-specific lattice/phases/material properties, anisotropy/deformation/defects, surfaces/corrosion, alloys/process history, extreme conditions, quantum behaviour, electrochemistry, geochemistry, biological/toxicological evidence, production/recycling, relationships, lineage and experiments.
-5. Review the private native catalogue and attachment queue using `REVIEW-NEXT.md`. Compare owner requests with current owning repositories and keep assistant/conversation claims as reference inputs until independently supported.
-6. After scientific record edits, rebuild state-flow, advanced-completion, coverage, panel plan (if assets changed), unified gaps and the publication. Run the relevant validators/tests; keep UNKNOWN, NOT APPLICABLE and INSUFFICIENT DATA distinct.
-7. Resolve the development-dependency advisory in a separate tested change, and complete manual accessibility/print/visual-rights and scientific review.
-8. Commit coherent batches and push normally. No force-push, second checkout, nested Git repository, fabricated metric or broad completion claim.
+1. Recheck HEAD, status, remote and this checkpoint at the canonical root. Preserve later work.
+2. Next image: Hydrogen A06 (water). Verify species, geometry, conditions and sources, then produce one reviewed panel. Sixteen Hydrogen slots remain, followed by the other elements' unique 22-panel sets. Do not use composite posters as completed individual placeholders.
+3. Continue claim-level materials, isotope-specific NMR, spectroscopy, phases, anisotropy, defects, surfaces, alloys/process history, extreme conditions, quantum behaviour, electrochemistry, geochemistry, biology, refining/recycling, relationships, lineage and experiments. Review all 56 supplied documents, especially candidate Neon/Aluminium content, against original sources before promotion.
+4. Research proposed entries independently using peer-reviewed models and explicit assumptions. The pending-only builder deliberately refuses to overwrite accepted claims/assets. Extend the claim schema safely before inserting physical predictions; never copy recognised element values into these entries.
+5. Review the private export and attachment queue via REVIEW-NEXT.md. Keyword mentions do not prove project membership. Keep synced Genesis sources read-only and raw exports out of Git.
+6. Regenerate in dependency order: scientific sync; plots if inputs changed; panel plan; state-flow; advanced matrix; proposed catalogue/scope; unified gaps; coverage; book/publication. Run relevant tests plus all integrity suites and build. Preserve UNKNOWN, NOT APPLICABLE and INSUFFICIENT DATA.
+7. Resolve Firefox repeatability, dependency advisory, manual accessibility, print/rights and scientific review in bounded verified batches. Preserve failure evidence.
+8. Commit coherent batches and push normally. No force-push, nested repository, fabricated values, duplicated placeholder imagery or broad completion claim.
 
-## Delivery record
+## Delivery
 
-Implementation/publication commit: `5cd78c56905e2f66133be4334676b03cfb97d117` — Publish verified AME2020 coverage and catalogue native project references. It contains 389 changed files and was successfully pushed to origin/main on 25 September. The push also preserved and delivered the pre-existing local `d42b67b` claim-registry commit; no force-push was used.
-
-This checkpoint and the dated batch receipt receive a following metadata commit recording that successful delivery. Resolve current HEAD normally before further work. Raw native-export contents and peer-repository inventories remain private, ignored and uncommitted. `check-book-sync` and clean local/remote alignment were verified after the implementation push.
+Batch receipt: data/quality/ame-scope-batch-2026-09-26.json. Implementation commit and push outcome will be recorded after successful delivery. Prior commits and private intake remain preserved.

@@ -32,6 +32,12 @@ Species: neutral molecular Hydrogen, H₂. The NIST Chemistry WebBook molecular 
 
 Nucleon counts and stable/radioactive classifications follow the ground-state entries for ¹H, ²H and ³H in NUBASE2020 (SRC-000008). A neutral Hydrogen atom has one electron because Z = 1 and q = 0 (SRC-000005). The nuclei are schematic and not to scale. Abundances vary with material and are deliberately not supplied by this diagram. The three isotope sub-diagrams are components of this single A04 asset.
 
+## A05 — Spectral Emission (Balmer Series)
+
+![Hydrogen Balmer air-wavelength schematic: four rounded visible-line labels; schematic spacing, colours and brightness, not a calibrated intensity spectrum.](images/panels/0001-Hydrogen-H-PANEL-A05.png)
+
+The NIST Handbook (SRC-000305) supplies the **air** wavelengths of neutral H I. The four one-decimal labels are display approximations; fine components are retained separately in the [source table and quantitative chart](0001-Hydrogen-H-Balmer-Reference.md). The illustration has schematic spacing and brightness, so it must not be used to extract wavelengths or intensities.
+
 ## B09 — 3D Extruded Data Object
 
 ![Hydrogen conceptual data sculpture with identity, properties and connections rings. Not a physical model of an atom.](images/panels/0001-Hydrogen-H-PANEL-B09.png)
@@ -40,4 +46,4 @@ This standalone dark blueprint panel follows the supplied template's data-object
 
 ## Remaining panels
 
-A05–A09, B01–B08 and B10–B13 remain pending. Their exact separate-image requirements and crosswalk to V01–V18 are tracked in the panel image plan. Neither the supplied composite posters nor existing supplementary artwork count as these separate deliverables.
+A06–A09, B01–B08 and B10–B13 remain pending. Their exact separate-image requirements and crosswalk to V01–V18 are tracked in the panel image plan. Neither the supplied composite posters nor existing supplementary artwork count as these separate deliverables.

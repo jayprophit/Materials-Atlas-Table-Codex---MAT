@@ -6,7 +6,7 @@
 
 - [Parent Livermorium record](0116-Livermorium-Lv.md) · [NUBASE states and decays](0116-Livermorium-Lv-Nuclear-Evaluation.md)
 - [Structured data](data/isotopes/0116-Livermorium-Lv-AME2020-Evaluation.yaml)
-- [Original mass table](../../data/catalog/sources/ame2020-mass_1.mas20.txt) · [Original reaction table](../../data/catalog/sources/ame2020-rct1.mas20.txt)
+- [Original mass table](../../data/catalog/sources/ame2020-mass_1.mas20.txt) · [Original reaction table 1](../../data/catalog/sources/ame2020-rct1.mas20.txt) · [Original reaction table 2](../../data/catalog/sources/ame2020-rct2.mas20.txt)
 - [AME2020 methods](https://doi.org/10.1088/1674-1137/abddb0) (SRC-000303) · [Tables and definitions](https://doi.org/10.1088/1674-1137/abddaf) (SRC-000304)
 
 ## Reading the data
@@ -35,7 +35,27 @@ Atomic-mass conventions apply. Qα is total decay energy, not alpha-particle kin
 | Lv-292 | -5488# ± 1014# | 10791.1897 ± 12.1669 | 13037# ± 942# | 5176# ± 1035# | 3586 |
 | Lv-293 | -3860# ± 933# | 10677.3271 ± 64.3790 | 12819# ± 808# | 5510# ± 869# | 3588 |
 
-Qβ− comes from the mass-file line in the first table. The other three columns come from the reaction-file line. Definitions and original source strings are retained in the structured data.
+## Additional decay-energy combinations
+
+| Nuclide | Q₂β− / keV | Q₄β− / keV | Qεp / keV | Qβ−n / keV | Part 1 / part 2 line |
+|---|---|---|---|---|---|
+| Lv-289 | UNKNOWN (*) | UNKNOWN (*) | 2251# ± 913# | UNKNOWN (*) | 3576 / 3626 |
+| Lv-290 | UNKNOWN (*) | UNKNOWN (*) | 273# ± 752# | UNKNOWN (*) | 3580 / 3631 |
+| Lv-291 | UNKNOWN (*) | UNKNOWN (*) | 1224# ± 938# | UNKNOWN (*) | 3583 / 3634 |
+| Lv-292 | UNKNOWN (*) | UNKNOWN (*) | -656# ± 1035# | -11592# ± 968# | 3586 / 3637 |
+| Lv-293 | -8234# ± 876# | UNKNOWN (*) | UNKNOWN (*) | -11125# ± 844# | 3588 / 3639 |
+
+## Single-nucleon separation and reaction energies
+
+| Nuclide | Sₙ / keV | Sₚ / keV | Q(d,α) / keV | Q(p,α) / keV | Q(n,α) / keV | Part 2 line |
+|---|---|---|---|---|---|---:|
+| Lv-289 | UNKNOWN (*) | 2498# ± 735# | 17420# ± 670# | UNKNOWN (*) | 18498# ± 745# | 3626 |
+| Lv-290 | 7501# ± 747# | 2944# ± 953# | 16072# ± 770# | 12143# ± 708# | 16745# ± 828# | 3631 |
+| Lv-291 | 5855# ± 833# | 2837# ± 859# | 17272# ± 996# | 12442# ± 822# | 17973# ± 985# | 3634 |
+| Lv-292 | 7182# ± 985# | 3336# ± 1059# | 16052# ± 965# | 12314# ± 1088# | 16314# ± 918# | 3637 |
+| Lv-293 | 5636# ± 920# | 3321# ± 869# | 17099# ± 897# | 12640# ± 784# | 17483# ± 869# | 3639 |
+
+Qβ− comes from the mass-file line in the first table. Qα, S₂n, S₂p, Q₂β−, Qεp and Qβ−n come from reaction part 1; Q₄β− and the last table come from part 2. Qεp is electron-capture/proton energy balance; Qβ−n is beta-minus/neutron energy balance. These are evaluated mass combinations, not observations of decay modes, cross sections or reaction rates. Light-nuclide zero entries can be bookkeeping identities, without a physical A=0 residual. Definitions and original source strings are retained in the structured data.
 
 ## Binding-energy chart
 
@@ -45,4 +65,4 @@ Discrete source values and source-reported uncertainties. No interpolation, natu
 
 ## Remaining review
 
-Later measurements, state-specific decay branches, isomer Q-values, additional reaction channels and full claim-level review remain open. Existing authored values retain their own provenance; this companion does not overwrite them.
+Later measurements, state-specific decay branches, isomer Q-values, reaction rates, applicability and full claim-level review remain open. Existing authored values retain their own provenance; this companion does not overwrite them.
