@@ -884,7 +884,7 @@ $$
 104.5^\circ
 $$
 
-This is an emergent molecular geometry.
+This is an emergent molecular geometry. The [shared water reference](../0001-Hydrogen-H/0001-Hydrogen-H-Water-Geometry.md) retains the NIST equilibrium parameters, source rounding and unknown uncertainty (SRC-000308). These isolated-molecule values are not a liquid-water structure.
 
 ---
 

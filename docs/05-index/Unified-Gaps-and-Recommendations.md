@@ -19,7 +19,7 @@ AME2020 coverage: 3,557 ground-state nuclides, 48,974 numeric quantities and 118
 | Record | Domain reviews | Domains without structured candidates | Reviewed panels / required | Image files | Markdown tables | Ionisation chart | AME ground states / chart |
 |---|---:|---:|---:|---:|---:|---|---|
 | [MAT:0000](../../records/0000-Origin-State/0000-Origin-State.md) | 9 | 4 | N/A / N/A | 13 | 4 | NOT APPLICABLE | N/A |
-| [MAT:0001](../../records/0001-Hydrogen-H/0001-Hydrogen-H.md) | 36 | 17 | 6 / 22 | 31 | 24 | GENERATED-DATA-CHART | 7 / GENERATED-DATA-CHART |
+| [MAT:0001](../../records/0001-Hydrogen-H/0001-Hydrogen-H.md) | 36 | 17 | 9 / 22 | 35 | 25 | GENERATED-DATA-CHART | 7 / GENERATED-DATA-CHART |
 | [MAT:0002](../../records/0002-Helium-He/0002-Helium-He.md) | 36 | 18 | 0 / 22 | 20 | 19 | GENERATED-DATA-CHART | 8 / GENERATED-DATA-CHART |
 | [MAT:0003](../../records/0003-Lithium-Li/0003-Lithium-Li.md) | 36 | 16 | 0 / 22 | 25 | 18 | GENERATED-DATA-CHART | 11 / GENERATED-DATA-CHART |
 | [MAT:0004](../../records/0004-Beryllium-Be/0004-Beryllium-Be.md) | 36 | 17 | 0 / 22 | 21 | 16 | GENERATED-DATA-CHART | 12 / GENERATED-DATA-CHART |

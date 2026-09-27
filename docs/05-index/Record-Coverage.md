@@ -9,14 +9,14 @@ Generated from actual record files. File and field counts show where material ex
 | Record | Manuscript status | Sections | Data files | Calculations | Experiments | Tables | Graphs | Visual files | Models | Source IDs | Nuclear states |
 |---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
 | [MAT:0000 Origin State](../../records/0000-Origin-State/0000-Origin-State.md) | RESEARCHED | 73 | 5 | 2 | 1 | 1 | 2 | 15 | 3 | 4 | NOT_APPLICABLE |
-| [MAT:0001 Hydrogen](../../records/0001-Hydrogen-H/0001-Hydrogen-H.md) | RESEARCHED | 120 | 21 | 3 | 1 | 9 | 13 | 24 | 4 | 43 | 7 |
+| [MAT:0001 Hydrogen](../../records/0001-Hydrogen-H/0001-Hydrogen-H.md) | RESEARCHED | 121 | 22 | 3 | 1 | 9 | 14 | 27 | 4 | 44 | 7 |
 | [MAT:0002 Helium](../../records/0002-Helium-He/0002-Helium-He.md) | RESEARCHED | 50 | 20 | 3 | 1 | 10 | 9 | 26 | 4 | 19 | 8 |
 | [MAT:0003 Lithium](../../records/0003-Lithium-Li/0003-Lithium-Li.md) | RESEARCHED | 95 | 27 | 4 | 1 | 10 | 14 | 28 | 5 | 17 | 16 |
 | [MAT:0004 Beryllium](../../records/0004-Beryllium-Be/0004-Beryllium-Be.md) | RESEARCHED | 76 | 27 | 5 | 1 | 9 | 11 | 26 | 5 | 18 | 21 |
 | [MAT:0005 Boron](../../records/0005-Boron-B/0005-Boron-B.md) | RESEARCHED | 39 | 32 | 3 | 1 | 8 | 10 | 17 | 4 | 26 | 23 |
 | [MAT:0006 Carbon](../../records/0006-Carbon-C/0006-Carbon-C.md) | RESEARCHED | 49 | 40 | 5 | 2 | 11 | 9 | 20 | 6 | 28 | 21 |
 | [MAT:0007 Nitrogen](../../records/0007-Nitrogen-N/0007-Nitrogen-N.md) | RESEARCHED | 39 | 38 | 5 | 2 | 11 | 7 | 11 | 3 | 32 | 23 |
-| [MAT:0008 Oxygen](../../records/0008-Oxygen-O/0008-Oxygen-O.md) | RESEARCHED | 52 | 41 | 1 | 1 | 10 | 12 | 20 | 4 | 39 | 24 |
+| [MAT:0008 Oxygen](../../records/0008-Oxygen-O/0008-Oxygen-O.md) | RESEARCHED | 52 | 41 | 1 | 1 | 10 | 12 | 20 | 4 | 40 | 24 |
 | [MAT:0009 Fluorine](../../records/0009-Fluorine-F/0009-Fluorine-F.md) | RESEARCHED | 58 | 43 | 1 | 1 | 10 | 16 | 21 | 3 | 38 | 25 |
 | [MAT:0010 Neon](../../records/0010-Neon-Ne/0010-Neon-Ne.md) | BASELINE | 44 | 16 | 1 | 1 | 1 | 3 | 11 | 0 | 8 | 25 |
 | [MAT:0011 Sodium](../../records/0011-Sodium-Na/0011-Sodium-Na.md) | RESEARCHED-IN-PROGRESS | 59 | 45 | 5 | 1 | 11 | 3 | 11 | 0 | 33 | 32 |

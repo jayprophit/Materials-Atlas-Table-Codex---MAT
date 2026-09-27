@@ -38,12 +38,30 @@ Nucleon counts and stable/radioactive classifications follow the ground-state en
 
 The NIST Handbook (SRC-000305) supplies the **air** wavelengths of neutral H I. The four one-decimal labels are display approximations; fine components are retained separately in the [source table and quantitative chart](0001-Hydrogen-H-Balmer-Reference.md). The illustration has schematic spacing and brightness, so it must not be used to extract wavelengths or intensities.
 
+## A06 — Water Molecule (H₂O)
+
+![Water molecule schematic with one oxygen and two hydrogens; approximate equilibrium angle 104.5 degrees and O-H distance 0.958 angstrom; atom sizes not to scale.](images/panels/0001-Hydrogen-H-PANEL-A06.png)
+
+The [shared water geometry reference](0001-Hydrogen-H-Water-Geometry.md) preserves the NIST source values, source rounding and missing uncertainty (SRC-000308). The diagram describes an isolated molecule at equilibrium, not fixed geometry in liquid water. Atom sizes and bonds are schematic.
+
 ## B09 — 3D Extruded Data Object
 
 ![Hydrogen conceptual data sculpture with identity, properties and connections rings. Not a physical model of an atom.](images/panels/0001-Hydrogen-H-PANEL-B09.png)
 
 This standalone dark blueprint panel follows the supplied template's data-object design. H and Z = 1 identify Hydrogen (SRC-000005). The glass, metal, rings and pedestal are visual metaphors for organising information. They are not measured material properties, a physical atomic model, an energy apparatus or evidence for a speculative mechanism. The artwork does not assert that the data record is complete.
 
+## B10 — 3D Cutaway (Internal Structure)
+
+![Hydrogen conceptual cutaway with five labelled information layers, H and Z=1; 1s and protium identity context. Not a physical atom model.](images/panels/0001-Hydrogen-H-PANEL-B10.png)
+
+Five labelled information layers follow the supplied cutaway template. H, Z = 1 and the atomic ground-state 1s context follow SRC-000005; protium's one proton and zero neutrons follow SRC-000008. The metal rings, glowing region and shell are conceptual data organisation. Their sizes and brightness are not measured atomic structure or probability density.
+
+## B11 — Exploded Layer View
+
+![Exploded Hydrogen data sculpture with six information layers; ground-state 1s and protium 1p/0n labels. Not physical atomic components.](images/panels/0001-Hydrogen-H-PANEL-B11.png)
+
+The six separated components represent identity, properties, structure, electronic data, nuclear data and the display base. The 1s and protium identity labels follow SRC-000005 and SRC-000008. The blue disc is a layout metaphor, not the shape of a 1s orbital; this panel does not depict disassembling an atom. It complements the assembled B09 object and B10 cutaway.
+
 ## Remaining panels
 
-A06–A09, B01–B08 and B10–B13 remain pending. Their exact separate-image requirements and crosswalk to V01–V18 are tracked in the panel image plan. Neither the supplied composite posters nor existing supplementary artwork count as these separate deliverables.
+A07–A09, B01–B08 and B12–B13 remain pending. Their exact separate-image requirements and crosswalk to V01–V18 are tracked in the panel image plan. Neither the supplied composite posters nor existing supplementary artwork count as these separate deliverables.

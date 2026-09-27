@@ -3291,3 +3291,8 @@ The [NUBASE2020 nuclear state catalogue](0001-Hydrogen-H-Nuclear-Evaluation.md) 
 
 
 [Balmer air-wavelength source table and quantitative chart](0001-Hydrogen-H-Balmer-Reference.md) retain selected fine components and explicit UNKNOWN wavelength uncertainty (SRC-000305).
+
+
+## Source-bound water molecular geometry
+
+The [shared Hydrogen–Oxygen water reference](0001-Hydrogen-H-Water-Geometry.md) provides state-qualified equilibrium geometry, source rounding and a separate A06 illustration (SRC-000308).
