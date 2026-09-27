@@ -1,0 +1,22 @@
+{
+  "id": "docs/02-data/11-Epistemic-Graph.md",
+  "key": "b99b82a62c58efc0b91c",
+  "mat": null,
+  "title": "11 — Epistemic Graph",
+  "section": "Data",
+  "lane": "reference",
+  "body": "# 11 — Epistemic Graph\n\nEpistemic relationships over MAT claim epistemic states\n(REQ-epistemic-graph, P26, owner mat).\n\n## What it is\n\n`scripts/epistemic-graph.mjs` stores typed edges between canonical claim IDs\nfrom the Claim Registry (`scripts/claims.mjs`) and answers deterministic\ngraph queries: neighbours (directional), `supportsFor`, `contradictionsFor`,\nand bounded transitive `traverse`. Tests:\n`scripts/tests/epistemic-graph.test.mjs` (16 tests, `node --test`).\n\n## What it is not\n\n- Not a second claim store. Edges reference canonical claim IDs; claim text\n  is never copied, and adding an edge never edits a claim.\n- Not a truth engine. RECORDED != VERIFIED; CONTRADICTION != RESOLVED;\n  RETRIEVED != ENDORSED. No truth/certainty scores, no automatic\n  contradiction resolution, no automatic status promotion.\n- Not a memory system, vector store, RAG pipeline, or context compiler.\n- Not the materials knowledge graph (`records/*.yaml` element/isotope\n  relationships — a different domain, untouched).\n- Not Aetherius EvidenceGraph (execution/programme evidence — another\n  repository, untouched).\n\n## Relations\n\n- `SUPPORTS`, `CONTRADICTS`, `DERIVED_FROM` — explicitly authored with\n  evidence refs and provenance. Directional; never inferred from similarity.\n- `SUPERSEDES` — derived only, projected from the registry's canonical\n  `supersedes` fields via `projectSupersession()`. Never authored\n  (`supersedes-derived-only` rejection); the registry stays the single\n  supersession owner.\n\n## Edge identity\n\nIdentity is the (from, relation, to) triple; evidence is a set that unions\nmonotonically. Identical re-adds are idempotent; new evidence merges. Unknown\nclaim refs are rejected (never fabricated into placeholder nodes); self-edges\nare rejected for every relation.\n\n## Traversal\n\n`traverse()` is cycle-safe (visited set), bounded (`maxDepth`, default 10),\nand deterministic (canonical neighbour order, sorted frontiers). It never\nfollows `CONTRADICTS` unless explicitly asked — contradiction is not a path.\n",
+  "bodyHash": "a92add3773ebaa2d40071eeb774482987460960ad6535977c55c328383fa3da4",
+  "header": {},
+  "structured": [],
+  "assets": [],
+  "sources": [],
+  "missingSources": [],
+  "counts": {
+    "figures": 0,
+    "graphs": 0,
+    "tables": 0,
+    "sources": 0
+  },
+  "reviewStatus": "NEEDS_REVIEW"
+}

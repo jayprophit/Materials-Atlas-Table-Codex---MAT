@@ -31,7 +31,9 @@ for(const sec of json('book/manifest.json').chapters||[])for(const item of sec.i
  const isMain=folder&&item.id===folder+'/'+folder.split('/')[1]+'.md';
  const files=isMain?walkFiles(folder,f=>f.endsWith('.yaml')):[];
  const structured=files.map(path=>{const docs=YAML.parseAllDocuments(read(path));const errors=docs.flatMap(d=>d.errors);if(errors.length)throw new Error(path+': '+errors.map(e=>e.message).join('; '));return {path,data:docs.length===1?docs[0].toJSON():docs.map(d=>d.toJSON())}});
- const sourceIds=[...new Set((id?body+'\n'+files.map(read).join('\n'):'').match(/SRC-\d{6}\b/g)||[])].sort();
+ // Reference manuals contain fenced example IDs, not actual scientific citations.
+ const citationText=id?body+'\n'+files.map(read).join('\n'):body.replace(/(^|\n)```[^\n]*\n[\s\S]*?\n```(?=\n|$)/g,'\n');
+ const sourceIds=[...new Set(citationText.match(/SRC-\d{6}\b/g)||[])].sort();
  const missingSources=sourceIds.filter(s=>!sourceMap.has(s));
  const assets=isMain?walkFiles(folder,f=>/\.(svg|png|jpg|webp|glb)$/i.test(f)):[];
  details[key]={...record,body,bodyHash:createHash('sha256').update(body).digest('hex'),header:frontMatter(body),

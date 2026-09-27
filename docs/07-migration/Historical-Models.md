@@ -24,3 +24,7 @@ The Studio adapts the supplied book's manuscript and page workspace, parchment/p
 
 Source identity and image rights must be established before historical reference artwork is distributed. No renderer may map proposed elements to chemical-element IDs beyond Z=118. Any future alternate geometry should take element IDs from the canonical catalogue and store layout coordinates separately from scientific properties.
 
+
+## Original Russell source now available
+
+The complete 1926 source (SRC-000324) and its original diagrams are preserved in the [Russell primary-source collection](Russell-1926-Primary-Source.md). The older nine-octave JSON remains explicitly unverified; the source has ten octaves. No legacy values were deleted or promoted to measured atomic frequencies.
