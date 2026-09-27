@@ -1,6 +1,6 @@
 # Advanced MAT enrichment — exact resume checkpoint
 
-Updated: 26 September 2026. Overall request remains PARTIAL. No element is certified fully advanced.
+Updated: 27 September 2026. Overall request remains PARTIAL. No element is certified fully advanced.
 
 ## Canonical repository
 
@@ -19,7 +19,7 @@ Master: C:/Users/jpowe/Desktop/Projects/Materials-Atlas-Table-Codex---MAT. Exist
 
 Use data/quality/element-scope-0000-0188.json for all 188 identities and 36 domain statuses each, with foundation separate. Recognised records retain their 652-item state-flow audits; the proposed catalogue inherits the same review profile with all requirements pending. Advanced-completion, state-flow, unified-gap and MAT-TODO files remain the authoritative review queues.
 
-There are 10,924 work items: 4,248 recognised domain reviews, nine foundation reviews, 2,520 proposed domain reviews, 2,596 recognised panel slots, 1,540 proposed panel slots and eleven programme objectives. Nine complete, 10,915 open. Scientific status: zero fully advanced, 118 partial, 70 proposed pending. Counts are not scientific-completion percentages.
+There are 10,926 work items: 4,248 recognised domain reviews, nine foundation reviews, 2,520 proposed domain reviews, 2,596 recognised panel slots, 1,540 proposed panel slots and thirteen programme objectives. Nine complete, 10,917 open. Scientific status: zero fully advanced, 118 partial, 70 proposed pending. Counts are not scientific-completion percentages.
 
 ## Native conversation export recovered
 
@@ -57,7 +57,7 @@ Focused water tests: two passed. Full current-batch validation/build results and
 ## Exact next steps
 
 1. Recheck HEAD, status, remote and this checkpoint at the canonical root. Preserve later work.
-2. Next light image: Hydrogen A07 (astrophysical occurrence); next dark sequence: B01–B08, then B12–B13. Verify species, geometry, conditions and sources, then produce one reviewed panel. Thirteen Hydrogen slots remain, followed by the other elements' unique 22-panel sets. Do not use composite posters as completed individual placeholders.
+2. DATA-FIRST PRIORITY (user change 27 September): defer further generated illustrations. Read docs/09-production/Data-First-Audit.md and data/quality/data-first-audit.json. Review 0000–0012 claim-level architecture, enrich 0013–0118, then separately proposed 0119–0188; source-backed tables and calculated charts can proceed. After the data review, resume the remaining 22-panel requirements.
 3. Continue claim-level materials, isotope-specific NMR, spectroscopy, phases, anisotropy, defects, surfaces, alloys/process history, extreme conditions, quantum behaviour, electrochemistry, geochemistry, biology, refining/recycling, relationships, lineage and experiments. Review all 56 supplied documents, especially candidate Neon/Aluminium content, against original sources before promotion.
 4. Research proposed entries independently using peer-reviewed models and explicit assumptions. The pending-only builder deliberately refuses to overwrite accepted claims/assets. Extend the claim schema safely before inserting physical predictions; never copy recognised element values into these entries.
 5. Review the private export and attachment queue via REVIEW-NEXT.md. Keyword mentions do not prove project membership. Keep synced Genesis sources read-only and raw exports out of Git.
@@ -76,3 +76,9 @@ New gap MAT-PROGRAMME-SOURCE-REGISTRY-SCOPE: the global source registry has lega
 Current water-batch checks: 19 benchmark checks passed (18 integrity suites plus 83 core tests), five Studio unit tests and the 756-chapter production build passed. Studio browser evidence is not fully green: startup timed out before the first run; retry passed six of seven tests; a traced isolated all-element test reached Americium but its valid JSON response took 8.492 seconds against the five-second visibility assertion. Preserve .mat-local/water-trace-summary.log and trace.zip. MAT-PROGRAMME-RELEASE remains open for loading latency. Do not loosen assertions or claim all 118 loaded successfully in this run. Current reader results: five passed, one failed, zero skipped/flaky. Firefox navigation/theme reload exceeded 90 seconds waiting for DOMContentLoaded; teardown also timed out. Firefox scientific content and both Chromium/WebKit checks passed. See data/quality/reader-browser-results.json.
 
 Delivery checkpoint updated 27 September 2026: water batch scientifically validated; browser release tasks remain open. Implementation commit 594ac9c7967de5e477f19871a69fe8de31ce4955 changed 57 files and was successfully pushed to origin/main without force. GitHub reports two moderate dependency alerts; dependency review remains open. This metadata follow-up records delivery.
+
+## Data-first priority and duplicate audit — 27 September
+
+Generated illustrations deferred at user request. scripts/audit-data-first.mjs inspected 13 reference packages, 119 canonical records and 2,838 active tracked files: zero exact-byte duplicate groups and zero recognised-identity conflicts. This excludes archive/private/deployment copies and does not certify semantic/visual deduplication. No files deleted. Studio periodic layout now derives placement from canonical element metadata rather than a second 118-item list. Programme tasks DATA-FIRST and CANONICAL-IDENTITY added; unfinished image tasks are explicitly deferred. No new scientific values were added by this audit. Full enrichment remains open.
+
+Data-first batch verification: all 18 integrity suites passed; 83 core tests passed; six Studio tests passed (including distinct placement for all 118 identities); full book/publication/Studio production build passed with 757 chapters and zero unresolved source IDs. No browser E2E rerun in this batch: prior Studio loading and Firefox failures remain unresolved. Next scientific target is Aluminium, with 18 domains lacking structured candidates in the current discovery audit. Full scientific enrichment and semantic/visual deduplication remain OPEN.

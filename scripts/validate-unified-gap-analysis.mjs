@@ -39,4 +39,6 @@ for(const r of report.records){
 }
 if(report.summary.ame2020_ground_states!==ame.chemical_element_ground_states||report.summary.ame2020_charts!==ameCharts.elements.length||report.summary.ame2020_numeric_quantities!==ame.elements.reduce((n,e)=>n+Object.values(e.numeric_by_metric).reduce((a,b)=>a+b,0),0))throw new Error('AME gap summary mismatch');
 if(!ledger.tasks.find(t=>t.id==='MAT-PROGRAMME-MASTER')?.title.includes('Complete the authorised MAT master-repository audit'))throw new Error('Explicit owner objective missing');
+for(const task of ledger.tasks){const phase=task.kind.includes('PANEL')?'DEFERRED-ILLUSTRATIONS':'DATA-FIRST';if(task.execution_phase!==phase)throw new Error('Data-first execution phase missing '+task.id);if(task.kind.includes('PANEL')&&task.status==='OPEN'&&task.priority!==4)throw new Error('Unfinished illustration not deferred '+task.id);}
+for(const id of ['DATA-FIRST','CANONICAL-IDENTITY'])if(!ledger.tasks.some(t=>t.id==='MAT-PROGRAMME-'+id))throw new Error('User priority objective missing '+id);
 console.log(`Unified gap coverage: ${report.records.length} records, ${ledger.tasks.length} unique tracked work items.`);

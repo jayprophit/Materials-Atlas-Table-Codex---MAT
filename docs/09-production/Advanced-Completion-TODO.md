@@ -47,3 +47,12 @@ The first comparison found 56/56 requested documents and 14 exact matches to alr
 ## Resume checkpoint
 
 Continue from `MAT-ADVANCED-RESUME.md`, this work list, the reference comparison and the per-element completion matrices. Do not mark an image complete because a placeholder was registered, or a scientific domain complete because a heading or value exists.
+
+## Data-first execution priority — 27 September 2026
+
+- [ ] Complete claim-level scientific review and enrichment before further generated illustrations: 0000–0012 reference architecture, then 0013–0118 and separate proposed 0119–0188.
+- [ ] Produce supported tables and calculated charts during the data phase.
+- [ ] Review semantic/visual duplicates and canonical ownership, preserving source evidence and repairing references before removal. Exact-byte active-file audit currently found no duplicates.
+- [x] Remove Studio’s independently maintained 118-position catalogue; use canonical element metadata.
+
+See [data-first audit](Data-First-Audit.md). Existing reviewed images remain intact; the 22-panel requirement is deferred, not cancelled.
