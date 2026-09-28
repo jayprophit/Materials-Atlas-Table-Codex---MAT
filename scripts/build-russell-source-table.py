@@ -177,6 +177,7 @@ pages=[112,114,116,118,120]
 result={'registry_id':'MAT:REG:RUSSELL-TEN-OCTAVES-1926','source_id':'SRC-000324','source_pdf':'data/research/sources/russell-universal-one-1926-loc.pdf',
     'scope':'Every name/position/number row in the ten-octave table on printed pages 92,94,96,98,100. Full source PDF and page OCR preserve additional prose, diagrams, annotations and ambiguous columns.',
     'entry_count':len(entries),'evidence_lane':'HISTORICAL-AUTHOR-MODEL','completion':{'row_index':'COMPLETE-FIRST-TRANSCRIPTION','all_cells_reviewed':False,'scientific_validation':False},
+    'unjoined_property_cells':'data/research/russell-1926-p118-property-cells.json',
     'transliteration_rules':['Plus, minus and equals signs are symbolic source notation, not ionic charge or hertz.','The source double-tone glyph is represented by [double-tone]; the facsimile is authoritative.','Source spelling Aluminum is retained here; canonical MAT element naming remains Aluminium.','Blank values are null and never zero. Historical numeric values are not modern accepted measurements.'],
     'page_notes':{'114':['Luminon atomic mass carries an asterisk with Approximate footnote.','Source asserts rising/falling melting points; this is not a validated law.'],
         '116':['Seventh octave prints positions 4E- through 4A- beside number codes 703E- through 703A-. The discrepancy is preserved.','Tellurium and iodine carry an asterisk. The source questions their masses and asserts iodine should be heavier; do not apply that claim to current isotope/atomic-weight data.'],

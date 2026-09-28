@@ -8,6 +8,7 @@ const suites = [
   "scripts/validate-ame2020.mjs",
   "scripts/validate-hydrogen-balmer.mjs",
   "scripts/validate-water-geometry.mjs",
+  "scripts/validate-thermochemistry.mjs",
   "scripts/validate-proposed-elements.mjs",
   "scripts/validate-advanced-completion.mjs",
   "scripts/validate-unified-gap-analysis.mjs",

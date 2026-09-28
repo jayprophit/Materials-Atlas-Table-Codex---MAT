@@ -77,4 +77,6 @@ for(const name of ['records','docs','assets','book','archive'])cpSync(join(root,
 // Private intake under .mat-local is deliberately outside these public roots.
 for(const name of ['catalog','constants','indexes','intake','navigation','quality','registries','research','schema','vocabularies'])
  cpSync(join(root,'data',name),join(pub,'data',name),{recursive:true});
+// The production guide links to the canonical resume checkpoint at the root.
+cpSync(join(root,'MAT-ADVANCED-RESUME.md'),join(pub,'MAT-ADVANCED-RESUME.md'));
 console.log('Publication: '+records.length+' chapters, '+elements.length+' selectable elements; unresolved sources: '+missingSources.join(', '));

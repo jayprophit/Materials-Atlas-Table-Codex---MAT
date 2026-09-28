@@ -28,6 +28,16 @@ test('Russell source index preserves ten octaves, disputed notation and unresolv
  const legacy=JSON.parse(readFileSync(new URL('../../book/data/russell-periodic.json',import.meta.url),'utf8'));
  assert.equal(legacy.octaves.length,9);assert.equal(legacy.frequency_range_status,'UNVERIFIED-LEGACY-MAPPING');
 });
+test('displaced Russell property cells retain coordinates and no invented name associations',()=>{
+ const d=read('russell-1926-p118-property-cells.json');
+ assert.deepEqual(d.counts,{property_rows:28,nonblank_cells:73,symbol:28,atomic_mass:27,melting_point:18});
+ assert.equal(new Set(d.entries.map(r=>r.id)).size,28);
+ assert.ok(d.entries.every(r=>r.joined_name_row_id===null));
+ const tantalum=d.entries.find(r=>r.cells.some(c=>c.field==='symbol'&&c.raw_ocr==='Ta'));
+ assert.ok(tantalum.top_points<431);assert.equal(tantalum.cells.find(c=>c.field==='atomic_mass').raw_ocr,'181.5');
+ for(const r of d.entries)for(const c of r.cells){const [x,y,x1,y1]=c.bbox_points;assert.ok(x<x1&&y<y1&&x1<=d.page_size_points[0]&&y1<=d.page_size_points[1]);}
+});
+
 test('2015 import preserves source coverage and program expressions without inventing units',()=>{
  const d=read('spooky2-frequency-list-2015.json');
  assert.equal(d.entries.length,6004);assert.equal(d.unparsed_segments.length,0);

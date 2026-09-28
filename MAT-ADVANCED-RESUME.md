@@ -1,6 +1,6 @@
 # Advanced MAT enrichment — exact resume checkpoint
 
-Updated: 27 September 2026. Overall request remains PARTIAL. No element is certified fully advanced.
+Updated: 28 September 2026. Overall request remains PARTIAL. No element is certified fully advanced.
 
 ## Canonical repository
 
@@ -133,3 +133,26 @@ Implementation commit de3497ae1bc30f29da252baff536aa252dd64859 changed 72 files 
 Final checks: all 18 integrity suites passed; 104 core assertions, eight Studio tests and TypeScript checks passed; the five focused source-preservation tests were repeated after final accession changes and passed. The final 763-chapter book/publication/Studio build passed with no unresolved registry IDs. Codex browser checks covered source search, literal tokens, PDF page links, Russell chapter navigation, bar-chart selection and a 390-pixel viewport with no horizontal page overflow. The temporary viewport was restored. GitHub still reports the two previously tracked moderate dependency alerts; DEPENDENCIES and full reader release review remain OPEN.
 
 Continue at the source-review and DATA-FIRST steps above. Exact PDF preservation is complete for these four retrieved files; complete OCR/diagram interpretation, independent transcription review, later editions, the full handbook and scientific validation are not complete. A metadata-only follow-up commit records this delivery receipt.
+
+
+## Data-first continuation — 28 September
+
+Started from clean main at e08a1fd24f2dac25c485338c4fd1567f9d19f6e2. Continued the original-source task and then enriched eight elements (0013–0020) with 32 NIST Shomate fits, 256 coefficient values, 3,232 calculated state/temperature rows (9,696 thermal quantities), eight tables/CSVs and eight phase-specific heat-capacity charts. Sources SRC-000325–SRC-000332 retain sixteen exact NIST responses. Thermal parent status is PARTIAL. Other scientific gaps and all 22-panel requirements remain open.
+
+Russell PDF page 118 now has 28 coordinate-bound property rows / 73 nonblank cells: 28 symbols, 27 mass strings and 18 melting-point strings. All cells received a first visual check against the retained facsimile; name-row joins remain null because the printed columns are displaced. This resolves preservation/extraction of those cells, not their intended historical associations or scientific validity.
+
+Offline reproduction and element links: docs/09-production/Thermochemistry-Data-First-Batch.md. The new supplemental schema and thermochemistry validator check source hashes, schema, ID uniqueness, per-element basis, phase/range constraints, CSV/chart hashes and 183 publisher-rounded comparison rows. Derivative identities and rejected extrapolation have focused tests. No new bitmap illustrations or duplicate periodic tables were created.
+
+Exact next steps: continue thermal source review at Scandium (0021), then subsequent elements, while also filling the still-missing practical/structural/transport domains beginning with Aluminium. Check P/S allotrope and Ca alpha/beta reference states before equilibrium/latent-heat calculations. Source fit limits do not establish transitions. Do not extrapolate across the Al 933–933.45 K gap or the Ca liquid/gas gap. Coefficient uncertainty remains UNKNOWN. Resolve Russell associations explicitly; review remaining handbook image text, reading order and later source editions.
+
+The wider master audit, archive consolidation, scientific acceptance, 22-panel imagery, full reader release checks and dependency alerts remain on the TODO list. Validation, browser review and Git delivery for this continuation will be recorded below after the batch checks.
+
+The final consistency pass reconciles the eight parent Markdown/structured record versions at 1.2.0, dates them 2026-09-28, repairs the existing split revision tables and preserves BASELINE/PARTIAL acceptance. MAT-PROGRAMME-RECORD-METADATA tracks this audit across the remaining catalogue. Run `npm run audit:refresh` after source/data changes: the command rebuilds coverage, advanced and state-flow reports, then the proposed scope and unified gaps in dependency order, preventing stale parent hashes. Next run should retain this order.
+
+Current browser evidence includes successful navigation from the Phosphorus parent thermal section to its supplement and 21-row calculated table. Its chart loads at its canonical SVG location; CSV/coefficients/source links are visible. Saved proof: `.mat-local/qa/thermochemistry-reader-2026-09-28.png`. The user-facing preview remains at http://127.0.0.1:4175/. No local manuscript draft was created by these checks.
+
+Final continuation checks: the full 19-suite integrity run passed without reported errors or warnings. After revision reconciliation, all six affected data/audit validators passed; nine focused thermal/frequency tests and all eight Studio tests passed. The full core run had 108 passing assertions. The final book/publication/TypeScript/Studio build passed with 780 chapters, 118 selectable elements and zero unresolved source IDs, followed by a passing book-sync check. Forty-nine live publication files matched canonical SHA-256 values, including every new chart, coefficient file, CSV and retained NIST snapshot.
+
+The 390-pixel phone review found that inherited anywhere-wrapping split numerical tokens. Markdown tables now have a keyboard-focusable horizontal scroll region and normal word wrapping. A repeat check showed a 303-pixel scroll viewport containing the 484-pixel table, intact values, working right-arrow scrolling and no page overflow (375-pixel page width within a 390-pixel viewport). The temporary viewport was restored and the Phosphorus chart left open. Earlier Firefox/loading failures still require the full release review.
+
+New reader gap MAT-PROGRAMME-MATHEMATICAL-RENDERING: Hydrogen currently displays raw TeX and some migrated equation separators become headings. Preserve the equations and repair source block boundaries/rendering, then check scientific notation, print and EPUB. This older issue is not resolved by the thermal or table-layout batch. The next scientific accession remains Scandium; all 118 recognised elements remain partially advanced, and the 70 proposed entries remain pending.

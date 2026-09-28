@@ -10,6 +10,12 @@ These are historical author claims, including proposed substances and symbolic t
 
 The older MAT nine-octave file remains available as an explicitly unverified reconstruction. It conflicts with this ten-octave source, and its electromagnetic frequency ranges are not substantiated by this citation. No legacy records were deleted.
 
+## Displaced ninth-octave property columns
+
+The [coordinate-bound property-cell dataset](../../data/research/russell-1926-p118-property-cells.json) retains all 73 nonblank cells on PDF page 118: 28 symbols, 27 atomic-mass strings and 18 melting-point strings. Each cell has its source page, literal OCR text and location in PDF points, checked against the facsimile in a first visual review. Blank cells are absent, never zero. The original column heading supplies degrees Celsius for melting points; it does not supply a mass unit.
+
+The Ta/181.5/2900 row is printed above the Tantalum name row; the Pb/207.2/327 row is also displaced from Lead. Joining by horizontal alignment would therefore create incorrect associations. The property columns remain searchable as source cells with no assigned name-row or canonical element ID. Resolving intended associations requires explicit editorial review. The source scan and its printed layout remain authoritative for what was printed; historical numbers remain separate from modern measurements.
+
 ## Original charts and table pages
 
 The images below are source-page facsimiles, not generated reinterpretations. PDF page numbers are one-based; printed book pagination differs. Open the PDF for the original scan resolution.
