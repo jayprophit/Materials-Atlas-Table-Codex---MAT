@@ -8,6 +8,8 @@ Every existing record is represented. Image files, tables and detected fields ar
 
 AME2020 coverage: 3,557 ground-state nuclides, 48,974 numeric quantities and 118 binding-energy charts. These cover fifteen evaluated quantities, with source uncertainties, estimate markers and explicit missing values. Isomer and observed-branch acceptance remains open. Quantitative charts do not count toward the 22 standalone panels.
 
+Thermochemistry: 67 source fits across 15 elements, with 1 explicitly recorded source-availability gap. Per-record species, dates, source IDs and fit-review notes are in the machine-readable report. Calculated heat capacity, entropy and enthalpy increments do not complete transport, expansion, phase diagrams or independent scientific review.
+
 - Priority 1: Complete provenance and acceptance review before assigning a fully advanced status. All element-domain cells currently require scientific acceptance; source/heading presence is only discovery evidence.
 - Priority 1: Keep one canonical owner per dataset and project, using versioned references for shared data. Peer desktop repositories have independent work in progress; a shared programme does not imply safe file-level merging.
 - Priority 2: Prioritise scientific data across all elements; defer generated illustrations until the data-first review is completed. User priority changed on 27 September: tables and calculated charts may proceed; the 9+13 image requirement remains queued.
@@ -40,13 +42,13 @@ AME2020 coverage: 3,557 ground-state nuclides, 48,974 numeric quantities and 118
 | [MAT:0019](../../records/0019-Potassium-K/0019-Potassium-K.md) | 36 | 24 | 0 / 22 | 4 | 12 | GENERATED-DATA-CHART | 29 / GENERATED-DATA-CHART |
 | [MAT:0020](../../records/0020-Calcium-Ca/0020-Calcium-Ca.md) | 36 | 24 | 0 / 22 | 4 | 12 | GENERATED-DATA-CHART | 29 / GENERATED-DATA-CHART |
 | [MAT:0021](../../records/0021-Scandium-Sc/0021-Scandium-Sc.md) | 36 | 24 | 0 / 22 | 3 | 10 | GENERATED-DATA-CHART | 29 / GENERATED-DATA-CHART |
-| [MAT:0022](../../records/0022-Titanium-Ti/0022-Titanium-Ti.md) | 36 | 24 | 0 / 22 | 3 | 10 | GENERATED-DATA-CHART | 29 / GENERATED-DATA-CHART |
-| [MAT:0023](../../records/0023-Vanadium-V/0023-Vanadium-V.md) | 36 | 24 | 0 / 22 | 3 | 10 | GENERATED-DATA-CHART | 29 / GENERATED-DATA-CHART |
-| [MAT:0024](../../records/0024-Chromium-Cr/0024-Chromium-Cr.md) | 36 | 24 | 0 / 22 | 3 | 10 | GENERATED-DATA-CHART | 30 / GENERATED-DATA-CHART |
-| [MAT:0025](../../records/0025-Manganese-Mn/0025-Manganese-Mn.md) | 36 | 24 | 0 / 22 | 3 | 10 | GENERATED-DATA-CHART | 31 / GENERATED-DATA-CHART |
-| [MAT:0026](../../records/0026-Iron-Fe/0026-Iron-Fe.md) | 36 | 24 | 0 / 22 | 3 | 10 | GENERATED-DATA-CHART | 32 / GENERATED-DATA-CHART |
-| [MAT:0027](../../records/0027-Cobalt-Co/0027-Cobalt-Co.md) | 36 | 24 | 0 / 22 | 3 | 10 | GENERATED-DATA-CHART | 32 / GENERATED-DATA-CHART |
-| [MAT:0028](../../records/0028-Nickel-Ni/0028-Nickel-Ni.md) | 36 | 24 | 0 / 22 | 3 | 10 | GENERATED-DATA-CHART | 35 / GENERATED-DATA-CHART |
+| [MAT:0022](../../records/0022-Titanium-Ti/0022-Titanium-Ti.md) | 36 | 24 | 0 / 22 | 4 | 12 | GENERATED-DATA-CHART | 29 / GENERATED-DATA-CHART |
+| [MAT:0023](../../records/0023-Vanadium-V/0023-Vanadium-V.md) | 36 | 24 | 0 / 22 | 4 | 12 | GENERATED-DATA-CHART | 29 / GENERATED-DATA-CHART |
+| [MAT:0024](../../records/0024-Chromium-Cr/0024-Chromium-Cr.md) | 36 | 24 | 0 / 22 | 4 | 12 | GENERATED-DATA-CHART | 30 / GENERATED-DATA-CHART |
+| [MAT:0025](../../records/0025-Manganese-Mn/0025-Manganese-Mn.md) | 36 | 24 | 0 / 22 | 4 | 12 | GENERATED-DATA-CHART | 31 / GENERATED-DATA-CHART |
+| [MAT:0026](../../records/0026-Iron-Fe/0026-Iron-Fe.md) | 36 | 24 | 0 / 22 | 4 | 12 | GENERATED-DATA-CHART | 32 / GENERATED-DATA-CHART |
+| [MAT:0027](../../records/0027-Cobalt-Co/0027-Cobalt-Co.md) | 36 | 24 | 0 / 22 | 4 | 12 | GENERATED-DATA-CHART | 32 / GENERATED-DATA-CHART |
+| [MAT:0028](../../records/0028-Nickel-Ni/0028-Nickel-Ni.md) | 36 | 24 | 0 / 22 | 4 | 12 | GENERATED-DATA-CHART | 35 / GENERATED-DATA-CHART |
 | [MAT:0029](../../records/0029-Copper-Cu/0029-Copper-Cu.md) | 36 | 24 | 0 / 22 | 3 | 10 | GENERATED-DATA-CHART | 33 / GENERATED-DATA-CHART |
 | [MAT:0030](../../records/0030-Zinc-Zn/0030-Zinc-Zn.md) | 36 | 24 | 0 / 22 | 3 | 10 | GENERATED-DATA-CHART | 33 / GENERATED-DATA-CHART |
 | [MAT:0031](../../records/0031-Gallium-Ga/0031-Gallium-Ga.md) | 36 | 24 | 0 / 22 | 3 | 10 | GENERATED-DATA-CHART | 33 / GENERATED-DATA-CHART |

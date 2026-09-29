@@ -19,6 +19,18 @@ for(const e of proposed.entries){
 for(const r of advanced.records)for(const [id,d]of Object.entries(r.domains))if(d.applicability!=='NOT APPLICABLE')expected.push(`MAT-${r.mat_id.slice(4)}-DOMAIN-${id}`);
 for(const e of panels.elements)for(const p of e.panels)expected.push(`MAT-${e.record_id.slice(4)}-PANEL-${p.panel_id}`);
 const ids=new Set();for(const t of ledger.tasks){if(ids.has(t.id))throw new Error('Duplicate task '+t.id);ids.add(t.id);if(!t.acceptance||!t.owner)throw new Error('Task lacks acceptance/owner');if((t.kind==='SCIENTIFIC-REVIEW'||t.kind.startsWith('PROPOSED-'))&&t.status!=='OPEN')throw new Error('Scientific review auto-certified');}
+const thermal=read('data/catalog/thermochemistry-evaluation-index.json');
+if(!report.inputs.some(i=>i.path==='data/catalog/thermochemistry-evaluation-index.json'))throw new Error('Missing thermal audit input');
+if(report.thermochemistry?.fit_count!==thermal.fit_count||report.thermochemistry?.source_gap_count!==thermal.source_gap_count)throw new Error('Thermal audit counts disagree');
+for(const e of thermal.elements){
+ const entry=report.records.find(r=>r.record_id===e.record_id)?.thermochemistry;
+ if(entry?.fit_count!==e.heat_capacity_fits.length||entry?.source_id!==e.source_id||entry?.molar_basis!==e.molar_basis||entry?.status!=='PARTIAL')throw new Error('Thermal per-record coverage mismatch '+e.record_id);
+ for(const note of e.review_notes??[])if(!ledger.tasks.some(t=>t.id==='MAT-'+e.record_id.slice(4)+'-THERMAL-'+note.note_id&&t.status==='OPEN'))throw new Error('Missing thermal fit review task');
+}
+for(const gap of thermal.source_gaps){
+ if(report.records.find(r=>r.record_id===gap.record_id)?.thermochemistry?.status!=='INSUFFICIENT DATA')throw new Error('Thermal source gap promoted');
+ if(!ledger.tasks.some(t=>t.id==='MAT-'+gap.record_id.slice(4)+'-THERMAL-SOURCE-GAP'&&t.status==='OPEN'))throw new Error('Missing thermal source gap task');
+}
 for(const id of expected)if(!ids.has(id))throw new Error('Missing task '+id);
 for(const e of panels.elements)for(const p of e.panels){
  const task=ledger.tasks.find(t=>t.id===`MAT-${e.record_id.slice(4)}-PANEL-${p.panel_id}`);

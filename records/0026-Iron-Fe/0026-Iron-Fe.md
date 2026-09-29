@@ -8,10 +8,10 @@ atomic_number: 26
 record_class: CHEMICAL_ELEMENT
 parent_id: "MAT:0000"
 schema_version: "1.0.0"
-record_version: "1.0.0"
+record_version: "1.2.0"
 status: BASELINE
 created: "2026-09-08"
-updated: "2026-09-08"
+updated: "2026-09-29"
 contributors: []
 ```
 
@@ -158,6 +158,12 @@ Susceptibility, ordering, permeability, magnetic moments.
 ---
 
 # 12. Thermal and Thermodynamic Properties
+
+<!-- NIST-THERMOCHEMISTRY-SUPPLEMENT -->
+[Iron thermal functions](0026-Iron-Fe-Thermochemistry.md) provides 7 NIST Shomate fits, explicit species/phase limits, equations, a heat-capacity chart and tables. Calculated uncertainty remains UNKNOWN. Source: SRC-000338. Wider thermal properties remain PARTIAL.
+
+![Iron heat capacity by phase and valid source temperature interval](graphs/0026-Iron-Fe-GRAPH-009-Heat-Capacity.svg)
+<!-- /NIST-THERMOCHEMISTRY-SUPPLEMENT -->
 
 ```html
 <!-- MAT-VISUAL: V10 -->
@@ -365,7 +371,7 @@ quantum: PLANNED
 spectral: PLANNED
 electrical: PLANNED
 magnetic: PLANNED
-thermal: PLANNED
+thermal: PARTIAL
 mechanical: PLANNED
 chemical: PLANNED
 materials: PLANNED
@@ -384,8 +390,8 @@ visuals: PLANNED
 | Version | Date | Change |
 |---|---|---|
 | 1.0.0 | 2026-09-08 | Initial baseline scaffold (superseded numeric claims; retained in Git history) |
-
 | 1.1.0 | 2026-09-08 | Source-backed baseline correction: PubChem/CIAAW, null semantics, prediction labels |
+| 1.2.0 | 2026-09-29 | Added source-bound NIST thermal fits, calculated functions and charts; wider thermal review remains PARTIAL. |
 
 ## Evaluated nuclear data and review
 

@@ -33,3 +33,20 @@ test('overlapping allotropes and molecular chlorine retain separate source ident
  const chlorine=data.elements.find(e=>e.z===17);assert.equal(chlorine.molar_basis,'mol Cl2');assert.equal(chlorine.atoms_per_source_formula,2);
  assert.ok(shomate(chlorine.heat_capacity_fits[0],300).heat_capacity_J_mol_K>30);
 });
+
+test('transition-metal alternatives and a no-fit source review preserve their distinct meanings',()=>{
+ const ti=data.elements.find(e=>e.z===22).heat_capacity_fits.filter(f=>f.phase==='SOLID');
+ assert.deepEqual(ti.map(f=>f.phase_label_as_reported),['α phase','α phase','β phase']);
+ assert.equal(ti.filter(f=>f.temperature_range.min<=500&&f.temperature_range.max>=500).length,2);
+ const iron=data.elements.find(e=>e.z===26).heat_capacity_fits.filter(f=>f.phase==='SOLID');
+ assert.equal(iron.filter(f=>f.phase_label_as_reported==='α-δ phase').length,4);
+ assert.equal(iron.filter(f=>f.phase_label_as_reported==='γ phase').length,1);
+ assert.equal(iron.filter(f=>f.temperature_range.min<=1000&&f.temperature_range.max>=1000).length,2);
+ const mn=data.elements.find(e=>e.z===25).heat_capacity_fits.filter(f=>f.phase==='SOLID');
+ assert.equal(mn.length,4);assert.ok(mn.every(f=>f.phase_label_as_reported==='UNSPECIFIED-IN-FIT-TABLE'));
+ const scandium=data.source_gaps.find(e=>e.z===21);
+ assert.equal(scandium.fit_count,0);assert.equal(scandium.heat_capacity_status,'INSUFFICIENT DATA');
+ assert.ok(!data.elements.some(e=>e.z===21));
+ assert.equal(data.elements.find(e=>e.z===13).retrieved,'2026-09-28');
+ assert.equal(data.elements.find(e=>e.z===28).retrieved,'2026-09-29');
+});

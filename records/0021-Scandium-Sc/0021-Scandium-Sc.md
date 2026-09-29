@@ -8,10 +8,10 @@ atomic_number: 21
 record_class: CHEMICAL_ELEMENT
 parent_id: "MAT:0000"
 schema_version: "1.0.0"
-record_version: "1.0.0"
+record_version: "1.1.2"
 status: BASELINE
 created: "2026-09-08"
-updated: "2026-09-08"
+updated: "2026-09-29"
 contributors: []
 ```
 
@@ -158,6 +158,10 @@ Susceptibility, ordering, permeability, magnetic moments.
 ---
 
 # 12. Thermal and Thermodynamic Properties
+
+<!-- NIST-THERMOCHEMISTRY-SOURCE-GAP -->
+[Scandium thermal source review](0021-Scandium-Sc-Thermochemistry-Source-Review.md): no Shomate heat-capacity fit was found in this dated WebBook accession; the JANAF index has no linked table. Sources SRC-000333 and SRC-000341. Applicable primary measurements still need review. Values remain UNKNOWN; this is not a claim that no measurements exist.
+<!-- /NIST-THERMOCHEMISTRY-SOURCE-GAP -->
 
 ```html
 <!-- MAT-VISUAL: V10 -->
@@ -384,8 +388,8 @@ visuals: PLANNED
 | Version | Date | Change |
 |---|---|---|
 | 1.0.0 | 2026-09-08 | Initial baseline scaffold (superseded numeric claims; retained in Git history) |
-
 | 1.1.0 | 2026-09-08 | Source-backed baseline correction: PubChem/CIAAW, null semantics, prediction labels |
+| 1.1.2 | 2026-09-29 | Recorded bounded thermal source-availability review; no heat-capacity fit accepted. |
 
 ## Evaluated nuclear data and review
 

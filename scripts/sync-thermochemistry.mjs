@@ -41,7 +41,7 @@ for(const item of catalogue.elements){
    uncertainty:'Coefficient errors and covariance are not supplied. Calculated uncertainty remains UNKNOWN; extra floating-point digits are computational, not measurement precision.',
    extrapolation:'DISABLED. The 298.15 K reference in the formula does not authorise evaluating a liquid or gas fit outside its published interval.',
    pressure:'Standard-state thermochemical convention; no pressure-temperature phase diagram, thermal conductivity or diffusivity follows from these fits.'},
-  equations,heat_capacity_fits:item.heat_capacity_fits,table:{path:tablePath,csv:csvPath,samples_per_fit:101},graph:{path:graphPath,scope:'Calculated molar heat capacity; not a measured phase diagram'},
+  equations,heat_capacity_fits:item.heat_capacity_fits,...(item.review_notes?{review_notes:item.review_notes}:{}),table:{path:tablePath,csv:csvPath,samples_per_fit:101},graph:{path:graphPath,scope:'Calculated molar heat capacity; not a measured phase diagram'},
   remaining:{thermal_conductivity:'INSUFFICIENT DATA',thermal_diffusivity:'INSUFFICIENT DATA',thermal_expansion:'INSUFFICIENT DATA',pressure_dependence:'INSUFFICIENT DATA',latent_heats:'SEPARATE-SOURCE-REVIEW-REQUIRED',independent_scientific_review:'PENDING'}};
  add(dataPath,'# '+marker+'\n'+YAML.stringify(model,{lineWidth:120}));
  const series=item.heat_capacity_fits.map(fit=>({fit_id:fit.fit_id,phase:fit.phase,label:fit.phase_label_as_reported,
@@ -58,6 +58,11 @@ for(const item of catalogue.elements){
  const fitRows=item.heat_capacity_fits.map(f=>`| ${f.phase}:${f.source_column} | ${cell(f.phase_label_as_reported)} | ${f.temperature_range.min}–${f.temperature_range.max} | ${cell(f.comment_as_reported)} |`).join('\n');
  const speciesNote=item.source_formula==='Cl2'?'The chlorine basis is one mole of Cl₂ molecules, containing two moles of chlorine atoms. No factor-of-two conversion to atomic chlorine has been applied.':`The source formula is ${item.source_formula}. Condensed data are expressed per mole of this elemental formula; the gas entry describes atomic ${item.source_formula}, not all species in an equilibrium vapour.`;
  add(chapter,`# ${item.name} — thermal functions and phase-specific heat capacity\n\n<!-- ${marker} -->\n\n${item.heat_capacity_fits.length} published Shomate fits are available in this dated NIST Chemistry WebBook extraction. ${speciesNote} The element's wider thermal domain remains PARTIAL.\n\n[Parent record](${stem}.md) · [Structured coefficients](data/structured/${stem}-NIST-Thermochemistry.yaml) · [Calculated table](tables/${path.basename(tablePath)}) · [CSV](tables/${path.basename(csvPath)})\n\nSource: **${item.source_id}**, [NIST Chemistry WebBook](${item.snapshot.url}), retrieved ${item.retrieved}. [Retained coefficient source](../../${item.snapshot.path}) and [publisher's rounded comparison table](../../${item.publisher_table_snapshot.path}) preserve the exact downloaded bytes and their SHA-256 hashes. The original evaluation is Chase (1998), with each earlier review date retained below.\n\n## Applicable states and intervals\n\n| Fit | Source phase variant | Valid T / K | Source comment |\n|---|---|---:|---|\n${fitRows}\n\nA fit interval describes where the publisher supplies coefficients. Its endpoints are not automatically melting points, boiling points or equilibrium phase boundaries. Alternative solid phases may have overlapping ranges. The source's unspecified crystal structure is UNKNOWN. Each gas fit concerns its listed species; dissociation and ionisation equilibria are not calculated. Standard thermochemical functions do not supply arbitrary-pressure behaviour.\n\n## Equations and reference states\n\nWith t = T/1000 and T in kelvin, use the exact source A–H coefficients in their published mixed-unit convention:\n\n- Cp° = A + B·t + C·t² + D·t³ + E/t², in J mol⁻¹ K⁻¹.\n- H°(T)−H°(298.15 K) = A·t + B·t²/2 + C·t³/3 + D·t⁴/4 − E/t + F − H, in kJ mol⁻¹.\n- S° = A·ln(t) + B·t + C·t²/2 + D·t³/3 − E/(2·t²) + G, in J mol⁻¹ K⁻¹.\n\nThe last H is a coefficient, not the temperature-dependent enthalpy. Phase-specific reference offsets matter: do not splice enthalpy increments from different phases or interpret coefficient H as latent heat. The 298.15 K reference does not permit extrapolating a high-temperature fit down to 298.15 K. Outside-range evaluation is rejected. Unpublished coefficient uncertainty and covariance remain UNKNOWN; no error bars or extra physical precision are invented.\n\n## Heat-capacity chart\n\n![${item.name}: molar heat capacity calculated separately for each published phase and valid fit range](graphs/${path.basename(graphPath)})\n\nEach panel uses its own temperature scale. Lines sample the published equation; they are not observations or phase-stability predictions. Unknown uncertainties are not zero. These calculated charts supplement the chapter and do not replace any of the 22 requested illustrations.\n\n## Validation and outstanding thermal data\n\nThe calculation is checked against the publisher's separately tabulated rounded values and the thermodynamic identities dH/dT = Cp and dS/dT = Cp/T. These checks verify transcription and arithmetic, not independent experimental validity. The source tables retain older evaluations; later measurements and application-specific state conditions need separate review. Thermal conductivity, diffusivity, expansion, pressure dependence, transition enthalpies and a phase diagram remain INSUFFICIENT DATA in this supplement. Existing phase-reference values are preserved for later source reconciliation.\n`);
+ if(item.review_notes?.length){
+  const output=outputs.find(o=>o.file===chapter);
+  const notes='## Fit-specific scientific review\n\n'+item.review_notes.map(n=>`**${n.status}: ${n.note_id}.** ${n.text} Source: ${item.source_id}. Evidence: ${n.evidence_status}.`).join('\n\n')+'\n\n';
+  output.body=output.body.replace('## Heat-capacity chart',notes+'## Heat-capacity chart');
+ }
  const masterPath=`${dir}/data/structured/${stem}.yaml`;
  let master=read(masterPath);
  // Record the additive revision without changing BASELINE scientific status.
@@ -90,7 +95,39 @@ for(const item of catalogue.elements){
    if(existing)doc.setIn([key,manifest[key].indexOf(existing)],entry);else doc.get(key).add(entry);
    outputs.push({file:manifestPath,body:doc.toString({lineWidth:120})});
  }
- plots.push({record_id:item.record_id,name:item.name,stem,source_id:item.source_id,molar_basis:item.molar_basis,input:dataPath,csv:csvPath,chart:graphPath,series});
+ plots.push({record_id:item.record_id,name:item.name,stem,source_id:item.source_id,retrieved:item.retrieved,molar_basis:item.molar_basis,input:dataPath,csv:csvPath,chart:graphPath,series});
+}
+for(const gap of catalogue.source_gaps??[]){
+ const element=baseline.find(e=>e.z===gap.z);if(element.name!==gap.name)throw new Error('Gap canonical name mismatch');
+ const stem=element.chapterPath.split('/')[1],dir='records/'+stem;
+ const dataPath=`${dir}/data/structured/${stem}-Thermochemistry-Source-Review.yaml`,chapter=`${dir}/${stem}-Thermochemistry-Source-Review.md`;
+ const review={registry_id:gap.record_id+':REG:THERMOCHEMISTRY-SOURCE-REVIEW',record_id:gap.record_id,schema_version:'1.0.0',record_version:'1.0.0',
+  status:'INSUFFICIENT DATA',source_ids:[gap.source_id,gap.coverage_index.source_id],source_review:gap,
+  heat_capacity:{value:null,unit:'J mol^-1 K^-1',status:'INSUFFICIENT DATA',uncertainty:'UNKNOWN',
+   reason:'This source review accepts no elemental heat-capacity value or fit. Absence from these two dated sources is not absence from all literature.'},
+  derived_tables_and_charts:'NOT-GENERATED; NO-ACCEPTED-FIT',scientific_completion:'PENDING'};
+ add(dataPath,'# '+marker+'\n'+YAML.stringify(review,{lineWidth:120}));
+ add(chapter,`# ${gap.name} — thermal source review and remaining gap\n\n<!-- ${marker} -->\n\n**Heat-capacity fit: INSUFFICIENT DATA in this accession.** The search result is source-specific and does not establish that measurements are absent from the scientific literature. No heat-capacity curve or calculated thermodynamic table has been generated from it.\n\n[Parent record](${stem}.md) · [Structured review](data/structured/${stem}-Thermochemistry-Source-Review.yaml)\n\n## Sources checked\n\n- **${gap.source_id}:** [NIST Chemistry WebBook, elemental ${gap.source_formula}](${gap.snapshot.url}), retrieved ${gap.retrieved}. The retained page has no Shomate heat-capacity table. [Exact downloaded page](../../${gap.snapshot.path}).\n- **${gap.coverage_index.source_id}:** [NIST-JANAF PDF catalogue](${gap.coverage_index.snapshot.url}), retrieved ${gap.coverage_index.retrieved}. Its ${gap.name} cell is unlinked and marked inactive. This records the coverage of this dated index. [Exact downloaded index](../../${gap.coverage_index.snapshot.path}).\n\nBoth files retain their original bytes, byte counts and SHA-256 hashes in the structured review. Existing parent-record density and melting/boiling references are preserved; they do not supply a heat-capacity function.\n\n## Next source review\n\n${gap.next_action} Record experimental method, sample purity, phase, temperature/pressure range, stated uncertainty and any reference-state conversions. A compound containing ${gap.name} has a different molar basis and must not be substituted for elemental ${gap.source_formula}. Heat capacity, standard entropy, enthalpy increments and their uncertainties remain UNKNOWN in this supplement until an applicable source is accepted. Wider thermal completion remains pending.\n`);
+ const masterPath=`${dir}/data/structured/${stem}.yaml`,mainPath=`${dir}/${stem}.md`;
+ const doc=YAML.parseDocument(read(masterPath));
+ if(doc.getIn(['thermal','status'])!=='PLANNED')throw new Error('Existing authored thermal data requires manual gap review');
+ const parentVersion=doc.get('record_version')==='1.1.1'?'1.1.2':doc.get('record_version');
+ const parentUpdated=String(doc.get('updated'))<gap.retrieved?gap.retrieved:String(doc.get('updated'));
+ doc.set('record_version',parentVersion);doc.set('updated',parentUpdated);
+ doc.setIn(['thermal','source_review_file'],dataPath);doc.setIn(['thermal','source_review_chapter'],chapter);
+ doc.setIn(['thermal','source_review_status'],'INSUFFICIENT DATA');
+ doc.setIn(['thermal','source_ids'],[gap.source_id,gap.coverage_index.source_id]);
+ outputs.push({file:masterPath,body:doc.toString({lineWidth:120})});
+ let main=read(mainPath).replace(/^record_version:.*$/m,'record_version: "'+parentVersion+'"').replace(/^updated:.*$/m,'updated: "'+parentUpdated+'"');
+ main=main.replace(/(\| 1\.0\.0 \|[^\r\n]+)\r?\n\r?\n(\| 1\.1\.0 \|)/,'$1\n$2');
+ const revision='| 1.1.2 | '+gap.retrieved+' | Recorded bounded thermal source-availability review; no heat-capacity fit accepted. |';
+ if(!main.includes(revision))main=main.replace(/(\| 1\.1\.0 \|[^\r\n]+)/,'$1\n'+revision);
+ const start='<!-- NIST-THERMOCHEMISTRY-SOURCE-GAP -->',end='<!-- /NIST-THERMOCHEMISTRY-SOURCE-GAP -->';
+ const block=`${start}\n[${gap.name} thermal source review](${stem}-Thermochemistry-Source-Review.md): no Shomate heat-capacity fit was found in this dated WebBook accession; the JANAF index has no linked table. Sources ${gap.source_id} and ${gap.coverage_index.source_id}. Applicable primary measurements still need review. Values remain UNKNOWN; this is not a claim that no measurements exist.\n${end}`;
+ if(main.includes(start))main=main.replace(new RegExp(start+'[\\s\\S]*?'+end),block);
+ else main=main.replace(/(# 12\. Thermal and Thermodynamic Properties\r?\n)/,'$1\n'+block+'\n');
+ if(!main.includes(start))throw new Error('Locked gap thermal heading not found');
+ outputs.push({file:mainPath,body:main});
 }
 // Preflight every target before writing generated data or additive authored links.
 for(const {file,body}of outputs){fs.mkdirSync(path.dirname(file),{recursive:true});fs.writeFileSync(file,body);}

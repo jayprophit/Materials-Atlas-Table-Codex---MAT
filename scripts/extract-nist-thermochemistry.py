@@ -12,12 +12,8 @@ import re
 import sys
 
 ROOT = Path(__file__).resolve().parents[1]
-INPUT = Path(sys.argv[1]) if len(sys.argv) > 1 else ROOT / 'data/catalog/sources'
-DATE = '2026-09-28'
-ITEMS = [(13, 'Aluminium', 'Al', '7429905', 'JANAFS'), (14, 'Silicon', 'Si', '7440213', 'JANAFL'),
-         (15, 'Phosphorus', 'P', '7723140', 'JANAFS'), (16, 'Sulfur', 'S', '7704349', 'JANAFS'),
-         (17, 'Chlorine', 'Cl2', '7782505', 'JANAFG'), (18, 'Argon', 'Ar', '7440371', 'JANAFG'),
-         (19, 'Potassium', 'K', '7440097', 'JANAFS'), (20, 'Calcium', 'Ca', '7440702', 'JANAFS')]
+INPUT = Path(sys.argv[1]) if len(sys.argv) > 1 else None
+ACCESSIONS = json.loads((ROOT / 'data/catalog/nist-thermochemistry-accessions.json').read_text(encoding='utf-8'))
 
 
 class Tables(HTMLParser):
@@ -62,12 +58,12 @@ def number(raw):
     return float(raw.replace('×10', 'e').replace('−', '-'))
 
 
-def accession(z, suffix, url):
-    filename = f'nist-thermochemistry-{z:04}-{DATE}{suffix}.html.txt'
+def retain(filename, input_filename, url):
     target = ROOT / 'data/catalog/sources' / filename
-    source = INPUT / filename if INPUT == target.parent else INPUT / f'nist-thermo-{z:04}{suffix}.html'
+    candidate = INPUT / input_filename if INPUT is not None else target
+    source = candidate if candidate.exists() else target
     data = source.read_bytes()
-    assert b'webbook.nist.gov' in data and b'J/mol*K' in data and b'kJ/mol' in data
+    assert b'NIST' in data and b'<html' in data.lower(), 'Source is not the expected NIST HTML response'
     if target.exists():
         assert target.read_bytes() == data, 'Refusing to replace a dated source snapshot'
     else:
@@ -76,16 +72,47 @@ def accession(z, suffix, url):
                                 'bytes': len(data), 'sha256': hashlib.sha256(data).hexdigest()}
 
 
+def accession(item, suffix, url):
+    z, date = item['z'], item['retrieved']
+    return retain(f'nist-thermochemistry-{z:04}-{date}{suffix}.html.txt',
+                  f'nist-thermo-{z:04}{suffix}.html', url)
+
+
 def build():
-    elements = []
-    for z, name, expected_formula, cas, table_type in ITEMS:
-        source_id = f'SRC-{z + 312:06}'
+    elements, gaps = [], []
+    index = ACCESSIONS['coverage_index']
+    index_text, index_snapshot = retain(index['filename'], index['input_filename'], index['url'])
+    seen = set()
+    for item in ACCESSIONS['accessions']:
+        z, name, expected_formula = item['z'], item['name'], item['formula']
+        cas, table_type, source_id = item['cas_digits'], item['comparison_table_type'], item['source_id']
+        assert z not in seen, 'Duplicate element accession'
+        seen.add(z)
         url = f'https://webbook.nist.gov/cgi/cbook.cgi?ID=C{cas}&Mask=FFFF'
-        text, snapshot = accession(z, '', url)
-        table_text, table_snapshot = accession(z, '-table', url + f'&Table=on&Type={table_type}')
+        text, snapshot = accession(item, '', url)
         formula_html = re.search(r'Formula</a>:</strong> (.*?)</li>', text, re.S).group(1)
         formula = html.unescape(re.sub(r'<[^>]+>', '', formula_html)).strip()
         assert formula == expected_formula, (name, formula)
+        if item['expected_content'] == 'NO-SHOMATE-IN-RETAINED-PAGE':
+            assert not any('Heat Capacity (Shomate Equation)' in str(t['label']) for t in parse(text))
+            assert table_type is None
+            # An unlinked grey cell establishes coverage of this dated JANAF index
+            # only. It does not establish that no measurements exist elsewhere.
+            cells = re.findall(r'<td\b[^>]*>.*?</td>', index_text, re.S | re.I)
+            cell = next(c for c in cells if re.search(r'\b' + re.escape(formula) + r'\b', re.sub(r'<[^>]+>', ' ', c)))
+            assert '<a ' not in cell.lower(), 'JANAF coverage changed; review before retaining a gap'
+            gaps.append({'record_id': f'MAT:{z:04}', 'z': z, 'name': name, 'source_formula': formula,
+                         'source_id': source_id, 'retrieved': item['retrieved'], 'snapshot': snapshot,
+                         'coverage_index': {'source_id': index['source_id'], 'retrieved': index['retrieved'],
+                                            'snapshot': index_snapshot, 'element_cell_as_reported': cell},
+                         'heat_capacity_status': 'INSUFFICIENT DATA', 'fit_count': 0,
+                         'source_review_result': 'NO-SHOMATE-IN-RETAINED-PAGE',
+                         'scope': 'No Shomate table in the retained elemental WebBook page; the retained JANAF PDF index has no linked table for this element. This is a bounded source-availability result, not a claim that thermal measurements do not exist.',
+                         'next_action': 'Review primary elemental heat-capacity measurements or a separate assessed thermodynamic source. Verify phase, molar basis, temperature, uncertainty and licence before accession. Do not substitute compound data.'})
+            continue
+        assert item['expected_content'] == 'PUBLISHED-SHOMATE'
+        table_text, table_snapshot = accession(item, '-table', url + f'&Table=on&Type={table_type}')
+        assert 'J/mol*K' in text and 'kJ/mol' in text
         fits = []
         for table in parse(text):
             if 'Heat Capacity (Shomate Equation)' not in str(table['label']):
@@ -133,13 +160,16 @@ def build():
         elements.append({'record_id': f'MAT:{z:04}', 'z': z, 'name': name, 'source_id': source_id,
                          'source_formula': formula, 'molar_basis': 'mol ' + formula,
                          'atoms_per_source_formula': 2 if formula == 'Cl2' else 1,
-                         'retrieved': DATE, 'snapshot': snapshot, 'publisher_table_snapshot': table_snapshot,
-                         'heat_capacity_fits': fits, 'publisher_calculation_checks': anchors})
+                         'retrieved': item['retrieved'], 'snapshot': snapshot, 'publisher_table_snapshot': table_snapshot,
+                         'heat_capacity_fits': fits, 'publisher_calculation_checks': anchors,
+                         **({'review_notes': item['review_notes']} if item.get('review_notes') else {})})
     output = {'registry_id': 'MAT:CATALOG:NIST-THERMOCHEMISTRY', 'generated_by': 'scripts/extract-nist-thermochemistry.py',
-              'retrieved': DATE, 'scope': 'Reviewed accession for Z=13–20. The whole catalogue remains partial.',
-              'element_count': len(elements), 'fit_count': sum(len(e['heat_capacity_fits']) for e in elements), 'elements': elements}
+              'retrieved': max(i['retrieved'] for i in ACCESSIONS['accessions']),
+              'scope': 'Dated, explicitly configured element accessions. Source-availability gaps are separate from accepted fits; the whole catalogue remains partial.',
+              'element_count': len(elements), 'fit_count': sum(len(e['heat_capacity_fits']) for e in elements),
+              'source_gap_count': len(gaps), 'elements': elements, 'source_gaps': gaps}
     (ROOT / 'data/catalog/thermochemistry-evaluation-index.json').write_text(json.dumps(output, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
-    print(json.dumps({'elements': len(elements), 'fits': output['fit_count'], 'publisher_check_rows': sum(len(e['publisher_calculation_checks']) for e in elements)}))
+    print(json.dumps({'elements': len(elements), 'source_gaps': len(gaps), 'fits': output['fit_count'], 'publisher_check_rows': sum(len(e['publisher_calculation_checks']) for e in elements)}))
 
 
 if __name__ == '__main__':

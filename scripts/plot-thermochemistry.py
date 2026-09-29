@@ -47,13 +47,13 @@ for item in items:
         ax.legend(fontsize=9, loc='best')
     fig.suptitle(item['name'] + ' — phase-specific heat capacity', fontsize=19, x=.06, ha='left')
     fig.text(.06,.13,'Basis: '+item['molar_basis']+'. Separate phase scales. Curves are calculated; dots mark fit limits, not phase boundaries.',fontsize=10)
-    fig.text(.06,.083,'Source: NIST Chemistry WebBook / Chase (1998) • '+item['source_id']+' • retrieved 2026-09-28.',fontsize=10)
+    fig.text(.06,.083,'Source: NIST Chemistry WebBook / Chase (1998) • '+item['source_id']+' • retrieved '+item['retrieved']+'.',fontsize=10)
     fig.text(.06,.036,'No extrapolation or phase blending. Coefficient uncertainty: UNKNOWN. No equilibrium speciation is calculated.',fontsize=10)
     fig.subplots_adjust(left=.065,right=.985,bottom=.28,top=.83,wspace=.32)
     target=ROOT/item['chart'];target.parent.mkdir(parents=True,exist_ok=True)
     fig.savefig(target,metadata={'Date':None,'Creator':'MAT plot-thermochemistry.py; matplotlib '+matplotlib.__version__})
     target.write_bytes(('\n'.join(line.rstrip() for line in target.read_text(encoding='utf-8').splitlines())+'\n').encode('utf-8'))
-    if item['name'] in ('Phosphorus','Calcium','Argon'):
+    if item['name'] in ('Phosphorus','Calcium','Argon','Titanium','Iron','Manganese','Nickel'):
         fig.savefig(ROOT/f".mat-local/thermochemistry-{item['stem'][:4]}.png",dpi=130)
     plt.close(fig)
     receipts.append({'record_id':item['record_id'],'source_id':item['source_id'],'input':item['input'],
