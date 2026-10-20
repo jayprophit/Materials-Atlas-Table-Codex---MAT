@@ -1,0 +1,150 @@
+# =============================================================================
+# BUILD MANIFEST — Materials Atlas Table Codex (MAT)
+# =============================================================================
+# Authoritative record of how this project is built, tested and verified, and
+# of what is still broken. Read by Aetherius-OS's build manifest registry
+# (docs/BUILD-MANIFEST-REGISTRY.yaml) and validated by
+# src/programme/buildManifest.ts.
+# =============================================================================
+schema_version: "1.0.0"
+
+project:
+  id: mat
+  name: Materials Atlas Table Codex
+  kind: tool
+  domain: mat
+  description: >-
+    The Materials Atlas validation toolchain and book build. Publishes
+    scientific records under book/, data/, records/ and archive/ as a
+    validated, navigable publication with a Playwright-backed studio.
+  repository: true
+  branch: main
+  languages: [javascript, typescript, markdown, json]
+
+toolchain:
+  build_system: node/scripts
+  package_manager: npm
+  requirements:
+    - name: node
+      version: ">=18"
+      required: true
+      purpose: build and validation scripts, node:test runner
+    - name: npm
+      version: ">=9"
+      required: true
+      purpose: dependency install and workspace scripts
+    - name: python
+      version: ">=3.11"
+      required: false
+      purpose: studio tooling
+
+commands:
+  - name: install
+    command: npm run setup
+    working_directory: .
+    timeout_minutes: 20
+  - name: validate
+    command: npm run validate
+    working_directory: .
+    timeout_minutes: 15
+  - name: test
+    command: npm test
+    working_directory: .
+    timeout_minutes: 20
+  - name: build
+    command: npm run build:book
+    working_directory: .
+    timeout_minutes: 15
+  - name: build-studio
+    command: npm run build:studio
+    working_directory: .
+    timeout_minutes: 30
+    requires: [test]
+  - name: verify
+    command: npm run validate && npm test && npm run build:book
+    working_directory: .
+    timeout_minutes: 45
+    requires: [validate, test, build]
+  - name: preview
+    command: npm run preview:book
+    working_directory: .
+    timeout_minutes: 0
+
+dependencies:
+  projects: [genesis]
+  external:
+    - ajv
+    - ajv-formats
+    - yaml
+
+status:
+  state: VERIFIED
+  last_verified: "2026-10-20"
+  summary: >-
+    The validation toolchain and the core test suite both pass. 305 tests
+    across 6 suites, 0 failures, 184 seconds. The full validate command
+    passes with 0 errors and 40 warnings. The working tree is the larger
+    issue: 1,236 files are modified or untracked on branch main.
+  evidence:
+    - "npm run validate -> VALIDATE: all suites pass; validate:assets 0 error(s), 40 warning(s); validate:links, validate:ids and validate:booksync all 0 errors"
+    - "npm test -> 305 tests, 305 pass, 0 fail, 0 skipped, 183628ms"
+    - "git status --porcelain -> 1236 changed files on branch main"
+    - "package.json declares 58 scripts across validate:, build:, sync:, audit: and test: families"
+
+known_issues:
+  - id: MAT-DIR-001
+    severity: high
+    summary: >-
+      The working tree carries 1,236 modified or untracked files on main,
+      with no clear separation between generated output and source changes.
+    evidence: >-
+      git status --porcelain lists modifications to book/book.js,
+      book/build/book.mjs, book/build/offline-index.mjs, book/manifest.json,
+      book/offline-index.json, book/search-index.json, book/visuals-index.json
+      and book/identities.json among many others.
+    status: OPEN
+    todo_ref: TODO-MAT-001
+  - id: MAT-WARN-001
+    severity: low
+    summary: >-
+      The asset validator reports forty warnings, all of the same shape: a
+      structured record's table file exists on disk but its manifest slot
+      is still marked INVENTORIED rather than GENERATED or COMPLETE.
+    evidence: >-
+      "problem: 0009-Fluorine-F-TABLE-006-Geometry.md exists on disk but
+      slot status is INVENTORIED; expected: flip to GENERATED/COMPLETE when
+      the file lands" repeated across the record set.
+    status: OPEN
+    todo_ref: TODO-MAT-009
+  - id: MAT-DIR-002
+    severity: medium
+    summary: >-
+      Generated book output and source records are mixed in the same
+      directories, so a clean build cannot be distinguished from an edited
+      artifact.
+    evidence: >-
+      AGENTS.md states book/ is the publication source of truth and
+      data/, records/ and archive/ are read-only for audits, but the build
+      scripts write into book/build/ and book/ alongside the sources.
+    status: OPEN
+    todo_ref: TODO-MAT-002
+  - id: MAT-DIR-003
+    severity: low
+    summary: >-
+      The studio has its own nested npm workspace and its own Playwright
+      browser matrix, so the root verify command does not cover it.
+    evidence: >-
+      package.json: build:studio delegates to "npm --prefix studio run
+      build"; test:studio and test:e2e are separate scripts.
+    status: OPEN
+    todo_ref: TODO-MAT-003
+
+notes:
+  - >-
+    AGENTS.md is the standing project memory index. Scientific records under
+    book/, data/, records/ and archive/ are READ-ONLY for audits; tooling
+    work must never modify scientific content.
+  - >-
+    Verify builds with logs under .mat-local/ before claiming success.
+  - >-
+    Ask before deleting anything outside dist/, output/ and node_modules/.
