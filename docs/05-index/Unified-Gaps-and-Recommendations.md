@@ -1,14 +1,18 @@
 # MAT unified gaps and recommendations
 
+[Documentation comparison and prioritized recommendations](Documentation-Gap-Analysis-2026-10-03.md) · [Source navigation with internal/external references](Source-Navigation.md). This audit extends the existing programme ledger; it does not certify publication conformance or scientific completeness.
+
 [Machine-readable gap report](../../data/quality/unified-gap-analysis.json) · [Complete work-item ledger](../../data/quality/MAT-TODO.json)
 
 [Combined 0000–0188 scope](../../data/quality/element-scope-0000-0188.json) · [Proposed 119–188 research catalogue](Proposed-Elements-0119-0188.md)
+
+[Owner master update, 143 sections and reference-image review](../09-production/MAT-Master-Update-Review.md) — all section acceptance and image issues remain open; five bounded Hydrogen readings and one source-bound material projection are implemented.
 
 Every existing record is represented. Image files, tables and detected fields are not interchangeable with scientifically reviewed coverage. 0000 remains the foundation, not a chemical element. Each element requires both separate image sets.
 
 AME2020 coverage: 3,557 ground-state nuclides, 48,974 numeric quantities and 118 binding-energy charts. These cover fifteen evaluated quantities, with source uncertainties, estimate markers and explicit missing values. Isomer and observed-branch acceptance remains open. Quantitative charts do not count toward the 22 standalone panels.
 
-Thermochemistry: 67 source fits across 15 elements, with 1 explicitly recorded source-availability gap. Per-record species, dates, source IDs and fit-review notes are in the machine-readable report. Calculated heat capacity, entropy and enthalpy increments do not complete transport, expansion, phase diagrams or independent scientific review.
+Thermochemistry: 148 source fits across 45 elements, with 71 explicitly recorded source-availability gap. Per-record species, dates, source IDs and fit-review notes are in the machine-readable report. Calculated heat capacity, entropy and enthalpy increments do not complete transport, expansion, phase diagrams or independent scientific review.
 
 - Priority 1: Complete provenance and acceptance review before assigning a fully advanced status. All element-domain cells currently require scientific acceptance; source/heading presence is only discovery evidence.
 - Priority 1: Keep one canonical owner per dataset and project, using versioned references for shared data. Peer desktop repositories have independent work in progress; a shared programme does not imply safe file-level merging.
@@ -21,16 +25,16 @@ Thermochemistry: 67 source fits across 15 elements, with 1 explicitly recorded s
 | Record | Domain reviews | Domains without structured candidates | Reviewed panels / required | Image files | Markdown tables | Ionisation chart | AME ground states / chart |
 |---|---:|---:|---:|---:|---:|---|---|
 | [MAT:0000](../../records/0000-Origin-State/0000-Origin-State.md) | 9 | 4 | N/A / N/A | 13 | 4 | NOT APPLICABLE | N/A |
-| [MAT:0001](../../records/0001-Hydrogen-H/0001-Hydrogen-H.md) | 36 | 17 | 9 / 22 | 35 | 25 | GENERATED-DATA-CHART | 7 / GENERATED-DATA-CHART |
-| [MAT:0002](../../records/0002-Helium-He/0002-Helium-He.md) | 36 | 18 | 0 / 22 | 20 | 19 | GENERATED-DATA-CHART | 8 / GENERATED-DATA-CHART |
-| [MAT:0003](../../records/0003-Lithium-Li/0003-Lithium-Li.md) | 36 | 16 | 0 / 22 | 25 | 18 | GENERATED-DATA-CHART | 11 / GENERATED-DATA-CHART |
-| [MAT:0004](../../records/0004-Beryllium-Be/0004-Beryllium-Be.md) | 36 | 17 | 0 / 22 | 21 | 16 | GENERATED-DATA-CHART | 12 / GENERATED-DATA-CHART |
-| [MAT:0005](../../records/0005-Boron-B/0005-Boron-B.md) | 36 | 17 | 0 / 22 | 22 | 16 | GENERATED-DATA-CHART | 16 / GENERATED-DATA-CHART |
-| [MAT:0006](../../records/0006-Carbon-C/0006-Carbon-C.md) | 36 | 10 | 0 / 22 | 23 | 17 | GENERATED-DATA-CHART | 16 / GENERATED-DATA-CHART |
-| [MAT:0007](../../records/0007-Nitrogen-N/0007-Nitrogen-N.md) | 36 | 14 | 0 / 22 | 11 | 17 | GENERATED-DATA-CHART | 16 / GENERATED-DATA-CHART |
-| [MAT:0008](../../records/0008-Oxygen-O/0008-Oxygen-O.md) | 36 | 13 | 0 / 22 | 26 | 17 | GENERATED-DATA-CHART | 18 / GENERATED-DATA-CHART |
-| [MAT:0009](../../records/0009-Fluorine-F/0009-Fluorine-F.md) | 36 | 17 | 0 / 22 | 29 | 17 | GENERATED-DATA-CHART | 19 / GENERATED-DATA-CHART |
-| [MAT:0010](../../records/0010-Neon-Ne/0010-Neon-Ne.md) | 36 | 22 | 0 / 22 | 3 | 11 | GENERATED-DATA-CHART | 20 / GENERATED-DATA-CHART |
+| [MAT:0001](../../records/0001-Hydrogen-H/0001-Hydrogen-H.md) | 36 | 17 | 9 / 22 | 36 | 27 | GENERATED-DATA-CHART | 7 / GENERATED-DATA-CHART |
+| [MAT:0002](../../records/0002-Helium-He/0002-Helium-He.md) | 36 | 18 | 0 / 22 | 21 | 21 | GENERATED-DATA-CHART | 8 / GENERATED-DATA-CHART |
+| [MAT:0003](../../records/0003-Lithium-Li/0003-Lithium-Li.md) | 36 | 16 | 0 / 22 | 26 | 20 | GENERATED-DATA-CHART | 11 / GENERATED-DATA-CHART |
+| [MAT:0004](../../records/0004-Beryllium-Be/0004-Beryllium-Be.md) | 36 | 17 | 0 / 22 | 22 | 18 | GENERATED-DATA-CHART | 12 / GENERATED-DATA-CHART |
+| [MAT:0005](../../records/0005-Boron-B/0005-Boron-B.md) | 36 | 17 | 0 / 22 | 23 | 18 | GENERATED-DATA-CHART | 16 / GENERATED-DATA-CHART |
+| [MAT:0006](../../records/0006-Carbon-C/0006-Carbon-C.md) | 36 | 10 | 0 / 22 | 24 | 19 | GENERATED-DATA-CHART | 16 / GENERATED-DATA-CHART |
+| [MAT:0007](../../records/0007-Nitrogen-N/0007-Nitrogen-N.md) | 36 | 14 | 0 / 22 | 12 | 19 | GENERATED-DATA-CHART | 16 / GENERATED-DATA-CHART |
+| [MAT:0008](../../records/0008-Oxygen-O/0008-Oxygen-O.md) | 36 | 13 | 0 / 22 | 27 | 19 | GENERATED-DATA-CHART | 18 / GENERATED-DATA-CHART |
+| [MAT:0009](../../records/0009-Fluorine-F/0009-Fluorine-F.md) | 36 | 17 | 0 / 22 | 30 | 19 | GENERATED-DATA-CHART | 19 / GENERATED-DATA-CHART |
+| [MAT:0010](../../records/0010-Neon-Ne/0010-Neon-Ne.md) | 36 | 22 | 0 / 22 | 4 | 13 | GENERATED-DATA-CHART | 20 / GENERATED-DATA-CHART |
 | [MAT:0011](../../records/0011-Sodium-Na/0011-Sodium-Na.md) | 36 | 12 | 0 / 22 | 3 | 17 | GENERATED-DATA-CHART | 23 / GENERATED-DATA-CHART |
 | [MAT:0012](../../records/0012-Magnesium-Mg/0012-Magnesium-Mg.md) | 36 | 5 | 0 / 22 | 3 | 18 | GENERATED-DATA-CHART | 23 / GENERATED-DATA-CHART |
 | [MAT:0013](../../records/0013-Aluminium-Al/0013-Aluminium-Al.md) | 36 | 18 | 0 / 22 | 4 | 12 | GENERATED-DATA-CHART | 23 / GENERATED-DATA-CHART |
@@ -46,23 +50,23 @@ Thermochemistry: 67 source fits across 15 elements, with 1 explicitly recorded s
 | [MAT:0023](../../records/0023-Vanadium-V/0023-Vanadium-V.md) | 36 | 24 | 0 / 22 | 4 | 12 | GENERATED-DATA-CHART | 29 / GENERATED-DATA-CHART |
 | [MAT:0024](../../records/0024-Chromium-Cr/0024-Chromium-Cr.md) | 36 | 24 | 0 / 22 | 4 | 12 | GENERATED-DATA-CHART | 30 / GENERATED-DATA-CHART |
 | [MAT:0025](../../records/0025-Manganese-Mn/0025-Manganese-Mn.md) | 36 | 24 | 0 / 22 | 4 | 12 | GENERATED-DATA-CHART | 31 / GENERATED-DATA-CHART |
-| [MAT:0026](../../records/0026-Iron-Fe/0026-Iron-Fe.md) | 36 | 24 | 0 / 22 | 4 | 12 | GENERATED-DATA-CHART | 32 / GENERATED-DATA-CHART |
+| [MAT:0026](../../records/0026-Iron-Fe/0026-Iron-Fe.md) | 36 | 23 | 0 / 22 | 6 | 14 | GENERATED-DATA-CHART | 32 / GENERATED-DATA-CHART |
 | [MAT:0027](../../records/0027-Cobalt-Co/0027-Cobalt-Co.md) | 36 | 24 | 0 / 22 | 4 | 12 | GENERATED-DATA-CHART | 32 / GENERATED-DATA-CHART |
 | [MAT:0028](../../records/0028-Nickel-Ni/0028-Nickel-Ni.md) | 36 | 24 | 0 / 22 | 4 | 12 | GENERATED-DATA-CHART | 35 / GENERATED-DATA-CHART |
-| [MAT:0029](../../records/0029-Copper-Cu/0029-Copper-Cu.md) | 36 | 24 | 0 / 22 | 3 | 10 | GENERATED-DATA-CHART | 33 / GENERATED-DATA-CHART |
-| [MAT:0030](../../records/0030-Zinc-Zn/0030-Zinc-Zn.md) | 36 | 24 | 0 / 22 | 3 | 10 | GENERATED-DATA-CHART | 33 / GENERATED-DATA-CHART |
-| [MAT:0031](../../records/0031-Gallium-Ga/0031-Gallium-Ga.md) | 36 | 24 | 0 / 22 | 3 | 10 | GENERATED-DATA-CHART | 33 / GENERATED-DATA-CHART |
+| [MAT:0029](../../records/0029-Copper-Cu/0029-Copper-Cu.md) | 36 | 24 | 0 / 22 | 4 | 12 | GENERATED-DATA-CHART | 33 / GENERATED-DATA-CHART |
+| [MAT:0030](../../records/0030-Zinc-Zn/0030-Zinc-Zn.md) | 36 | 24 | 0 / 22 | 4 | 12 | GENERATED-DATA-CHART | 33 / GENERATED-DATA-CHART |
+| [MAT:0031](../../records/0031-Gallium-Ga/0031-Gallium-Ga.md) | 36 | 24 | 0 / 22 | 4 | 12 | GENERATED-DATA-CHART | 33 / GENERATED-DATA-CHART |
 | [MAT:0032](../../records/0032-Germanium-Ge/0032-Germanium-Ge.md) | 36 | 24 | 0 / 22 | 3 | 10 | GENERATED-DATA-CHART | 33 / GENERATED-DATA-CHART |
 | [MAT:0033](../../records/0033-Arsenic-As/0033-Arsenic-As.md) | 36 | 24 | 0 / 22 | 3 | 10 | GENERATED-DATA-CHART | 33 / GENERATED-DATA-CHART |
 | [MAT:0034](../../records/0034-Selenium-Se/0034-Selenium-Se.md) | 36 | 24 | 0 / 22 | 3 | 10 | GENERATED-DATA-CHART | 33 / GENERATED-DATA-CHART |
-| [MAT:0035](../../records/0035-Bromine-Br/0035-Bromine-Br.md) | 36 | 24 | 0 / 22 | 3 | 10 | GENERATED-DATA-CHART | 34 / GENERATED-DATA-CHART |
-| [MAT:0036](../../records/0036-Krypton-Kr/0036-Krypton-Kr.md) | 36 | 24 | 0 / 22 | 3 | 10 | GENERATED-DATA-CHART | 35 / GENERATED-DATA-CHART |
-| [MAT:0037](../../records/0037-Rubidium-Rb/0037-Rubidium-Rb.md) | 36 | 24 | 0 / 22 | 3 | 10 | GENERATED-DATA-CHART | 34 / GENERATED-DATA-CHART |
-| [MAT:0038](../../records/0038-Strontium-Sr/0038-Strontium-Sr.md) | 36 | 24 | 0 / 22 | 3 | 10 | GENERATED-DATA-CHART | 35 / GENERATED-DATA-CHART |
+| [MAT:0035](../../records/0035-Bromine-Br/0035-Bromine-Br.md) | 36 | 24 | 0 / 22 | 4 | 12 | GENERATED-DATA-CHART | 34 / GENERATED-DATA-CHART |
+| [MAT:0036](../../records/0036-Krypton-Kr/0036-Krypton-Kr.md) | 36 | 24 | 0 / 22 | 4 | 12 | GENERATED-DATA-CHART | 35 / GENERATED-DATA-CHART |
+| [MAT:0037](../../records/0037-Rubidium-Rb/0037-Rubidium-Rb.md) | 36 | 24 | 0 / 22 | 4 | 12 | GENERATED-DATA-CHART | 34 / GENERATED-DATA-CHART |
+| [MAT:0038](../../records/0038-Strontium-Sr/0038-Strontium-Sr.md) | 36 | 24 | 0 / 22 | 4 | 12 | GENERATED-DATA-CHART | 35 / GENERATED-DATA-CHART |
 | [MAT:0039](../../records/0039-Yttrium-Y/0039-Yttrium-Y.md) | 36 | 24 | 0 / 22 | 3 | 10 | GENERATED-DATA-CHART | 35 / GENERATED-DATA-CHART |
-| [MAT:0040](../../records/0040-Zirconium-Zr/0040-Zirconium-Zr.md) | 36 | 24 | 0 / 22 | 3 | 10 | GENERATED-DATA-CHART | 37 / GENERATED-DATA-CHART |
-| [MAT:0041](../../records/0041-Niobium-Nb/0041-Niobium-Nb.md) | 36 | 24 | 0 / 22 | 3 | 10 | GENERATED-DATA-CHART | 38 / GENERATED-DATA-CHART |
-| [MAT:0042](../../records/0042-Molybdenum-Mo/0042-Molybdenum-Mo.md) | 36 | 24 | 0 / 22 | 3 | 10 | GENERATED-DATA-CHART | 39 / GENERATED-DATA-CHART |
+| [MAT:0040](../../records/0040-Zirconium-Zr/0040-Zirconium-Zr.md) | 36 | 24 | 0 / 22 | 4 | 12 | GENERATED-DATA-CHART | 37 / GENERATED-DATA-CHART |
+| [MAT:0041](../../records/0041-Niobium-Nb/0041-Niobium-Nb.md) | 36 | 24 | 0 / 22 | 4 | 12 | GENERATED-DATA-CHART | 38 / GENERATED-DATA-CHART |
+| [MAT:0042](../../records/0042-Molybdenum-Mo/0042-Molybdenum-Mo.md) | 36 | 24 | 0 / 22 | 4 | 12 | GENERATED-DATA-CHART | 39 / GENERATED-DATA-CHART |
 | [MAT:0043](../../records/0043-Technetium-Tc/0043-Technetium-Tc.md) | 36 | 24 | 0 / 22 | 3 | 10 | GENERATED-DATA-CHART | 40 / GENERATED-DATA-CHART |
 | [MAT:0044](../../records/0044-Ruthenium-Ru/0044-Ruthenium-Ru.md) | 36 | 24 | 0 / 22 | 3 | 10 | GENERATED-DATA-CHART | 41 / GENERATED-DATA-CHART |
 | [MAT:0045](../../records/0045-Rhodium-Rh/0045-Rhodium-Rh.md) | 36 | 24 | 0 / 22 | 3 | 10 | GENERATED-DATA-CHART | 41 / GENERATED-DATA-CHART |
@@ -73,10 +77,10 @@ Thermochemistry: 67 source fits across 15 elements, with 1 explicitly recorded s
 | [MAT:0050](../../records/0050-Tin-Sn/0050-Tin-Sn.md) | 36 | 24 | 0 / 22 | 3 | 10 | GENERATED-DATA-CHART | 42 / GENERATED-DATA-CHART |
 | [MAT:0051](../../records/0051-Antimony-Sb/0051-Antimony-Sb.md) | 36 | 24 | 0 / 22 | 3 | 10 | GENERATED-DATA-CHART | 41 / GENERATED-DATA-CHART |
 | [MAT:0052](../../records/0052-Tellurium-Te/0052-Tellurium-Te.md) | 36 | 24 | 0 / 22 | 3 | 10 | GENERATED-DATA-CHART | 42 / GENERATED-DATA-CHART |
-| [MAT:0053](../../records/0053-Iodine-I/0053-Iodine-I.md) | 36 | 24 | 0 / 22 | 3 | 10 | GENERATED-DATA-CHART | 42 / GENERATED-DATA-CHART |
-| [MAT:0054](../../records/0054-Xenon-Xe/0054-Xenon-Xe.md) | 36 | 24 | 0 / 22 | 3 | 10 | GENERATED-DATA-CHART | 43 / GENERATED-DATA-CHART |
-| [MAT:0055](../../records/0055-Caesium-Cs/0055-Caesium-Cs.md) | 36 | 24 | 0 / 22 | 3 | 10 | GENERATED-DATA-CHART | 42 / GENERATED-DATA-CHART |
-| [MAT:0056](../../records/0056-Barium-Ba/0056-Barium-Ba.md) | 36 | 24 | 0 / 22 | 3 | 10 | GENERATED-DATA-CHART | 42 / GENERATED-DATA-CHART |
+| [MAT:0053](../../records/0053-Iodine-I/0053-Iodine-I.md) | 36 | 24 | 0 / 22 | 4 | 12 | GENERATED-DATA-CHART | 42 / GENERATED-DATA-CHART |
+| [MAT:0054](../../records/0054-Xenon-Xe/0054-Xenon-Xe.md) | 36 | 24 | 0 / 22 | 4 | 12 | GENERATED-DATA-CHART | 43 / GENERATED-DATA-CHART |
+| [MAT:0055](../../records/0055-Caesium-Cs/0055-Caesium-Cs.md) | 36 | 24 | 0 / 22 | 4 | 12 | GENERATED-DATA-CHART | 42 / GENERATED-DATA-CHART |
+| [MAT:0056](../../records/0056-Barium-Ba/0056-Barium-Ba.md) | 36 | 24 | 0 / 22 | 4 | 12 | GENERATED-DATA-CHART | 42 / GENERATED-DATA-CHART |
 | [MAT:0057](../../records/0057-Lanthanum-La/0057-Lanthanum-La.md) | 36 | 24 | 0 / 22 | 3 | 10 | GENERATED-DATA-CHART | 42 / GENERATED-DATA-CHART |
 | [MAT:0058](../../records/0058-Cerium-Ce/0058-Cerium-Ce.md) | 36 | 24 | 0 / 22 | 3 | 10 | GENERATED-DATA-CHART | 41 / GENERATED-DATA-CHART |
 | [MAT:0059](../../records/0059-Praseodymium-Pr/0059-Praseodymium-Pr.md) | 36 | 24 | 0 / 22 | 3 | 10 | GENERATED-DATA-CHART | 41 / GENERATED-DATA-CHART |
@@ -92,21 +96,21 @@ Thermochemistry: 67 source fits across 15 elements, with 1 explicitly recorded s
 | [MAT:0069](../../records/0069-Thulium-Tm/0069-Thulium-Tm.md) | 36 | 24 | 0 / 22 | 3 | 10 | GENERATED-DATA-CHART | 39 / GENERATED-DATA-CHART |
 | [MAT:0070](../../records/0070-Ytterbium-Yb/0070-Ytterbium-Yb.md) | 36 | 24 | 0 / 22 | 3 | 10 | GENERATED-DATA-CHART | 38 / GENERATED-DATA-CHART |
 | [MAT:0071](../../records/0071-Lutetium-Lu/0071-Lutetium-Lu.md) | 36 | 24 | 0 / 22 | 3 | 10 | GENERATED-DATA-CHART | 39 / GENERATED-DATA-CHART |
-| [MAT:0072](../../records/0072-Hafnium-Hf/0072-Hafnium-Hf.md) | 36 | 24 | 0 / 22 | 3 | 10 | GENERATED-DATA-CHART | 38 / GENERATED-DATA-CHART |
-| [MAT:0073](../../records/0073-Tantalum-Ta/0073-Tantalum-Ta.md) | 36 | 24 | 0 / 22 | 3 | 10 | GENERATED-DATA-CHART | 40 / GENERATED-DATA-CHART |
-| [MAT:0074](../../records/0074-Tungsten-W/0074-Tungsten-W.md) | 36 | 24 | 0 / 22 | 3 | 10 | GENERATED-DATA-CHART | 41 / GENERATED-DATA-CHART |
+| [MAT:0072](../../records/0072-Hafnium-Hf/0072-Hafnium-Hf.md) | 36 | 24 | 0 / 22 | 4 | 12 | GENERATED-DATA-CHART | 38 / GENERATED-DATA-CHART |
+| [MAT:0073](../../records/0073-Tantalum-Ta/0073-Tantalum-Ta.md) | 36 | 24 | 0 / 22 | 4 | 12 | GENERATED-DATA-CHART | 40 / GENERATED-DATA-CHART |
+| [MAT:0074](../../records/0074-Tungsten-W/0074-Tungsten-W.md) | 36 | 24 | 0 / 22 | 4 | 12 | GENERATED-DATA-CHART | 41 / GENERATED-DATA-CHART |
 | [MAT:0075](../../records/0075-Rhenium-Re/0075-Rhenium-Re.md) | 36 | 24 | 0 / 22 | 3 | 10 | GENERATED-DATA-CHART | 41 / GENERATED-DATA-CHART |
 | [MAT:0076](../../records/0076-Osmium-Os/0076-Osmium-Os.md) | 36 | 24 | 0 / 22 | 3 | 10 | GENERATED-DATA-CHART | 43 / GENERATED-DATA-CHART |
 | [MAT:0077](../../records/0077-Iridium-Ir/0077-Iridium-Ir.md) | 36 | 24 | 0 / 22 | 3 | 10 | GENERATED-DATA-CHART | 43 / GENERATED-DATA-CHART |
 | [MAT:0078](../../records/0078-Platinum-Pt/0078-Platinum-Pt.md) | 36 | 24 | 0 / 22 | 3 | 10 | GENERATED-DATA-CHART | 44 / GENERATED-DATA-CHART |
 | [MAT:0079](../../records/0079-Gold-Au/0079-Gold-Au.md) | 36 | 24 | 0 / 22 | 3 | 10 | GENERATED-DATA-CHART | 43 / GENERATED-DATA-CHART |
-| [MAT:0080](../../records/0080-Mercury-Hg/0080-Mercury-Hg.md) | 36 | 24 | 0 / 22 | 3 | 10 | GENERATED-DATA-CHART | 47 / GENERATED-DATA-CHART |
+| [MAT:0080](../../records/0080-Mercury-Hg/0080-Mercury-Hg.md) | 36 | 24 | 0 / 22 | 4 | 12 | GENERATED-DATA-CHART | 47 / GENERATED-DATA-CHART |
 | [MAT:0081](../../records/0081-Thallium-Tl/0081-Thallium-Tl.md) | 36 | 24 | 0 / 22 | 3 | 10 | GENERATED-DATA-CHART | 43 / GENERATED-DATA-CHART |
-| [MAT:0082](../../records/0082-Lead-Pb/0082-Lead-Pb.md) | 36 | 24 | 0 / 22 | 3 | 10 | GENERATED-DATA-CHART | 43 / GENERATED-DATA-CHART |
+| [MAT:0082](../../records/0082-Lead-Pb/0082-Lead-Pb.md) | 36 | 24 | 0 / 22 | 4 | 12 | GENERATED-DATA-CHART | 43 / GENERATED-DATA-CHART |
 | [MAT:0083](../../records/0083-Bismuth-Bi/0083-Bismuth-Bi.md) | 36 | 24 | 0 / 22 | 3 | 10 | GENERATED-DATA-CHART | 41 / GENERATED-DATA-CHART |
 | [MAT:0084](../../records/0084-Polonium-Po/0084-Polonium-Po.md) | 36 | 24 | 0 / 22 | 3 | 10 | GENERATED-DATA-CHART | 42 / GENERATED-DATA-CHART |
 | [MAT:0085](../../records/0085-Astatine-At/0085-Astatine-At.md) | 36 | 24 | 0 / 22 | 3 | 10 | GENERATED-DATA-CHART | 39 / GENERATED-DATA-CHART |
-| [MAT:0086](../../records/0086-Radon-Rn/0086-Radon-Rn.md) | 36 | 24 | 0 / 22 | 3 | 10 | GENERATED-DATA-CHART | 39 / GENERATED-DATA-CHART |
+| [MAT:0086](../../records/0086-Radon-Rn/0086-Radon-Rn.md) | 36 | 24 | 0 / 22 | 4 | 12 | GENERATED-DATA-CHART | 39 / GENERATED-DATA-CHART |
 | [MAT:0087](../../records/0087-Francium-Fr/0087-Francium-Fr.md) | 36 | 25 | 0 / 22 | 3 | 10 | GENERATED-DATA-CHART | 37 / GENERATED-DATA-CHART |
 | [MAT:0088](../../records/0088-Radium-Ra/0088-Radium-Ra.md) | 36 | 24 | 0 / 22 | 3 | 10 | GENERATED-DATA-CHART | 35 / GENERATED-DATA-CHART |
 | [MAT:0089](../../records/0089-Actinium-Ac/0089-Actinium-Ac.md) | 36 | 24 | 0 / 22 | 3 | 10 | GENERATED-DATA-CHART | 33 / GENERATED-DATA-CHART |

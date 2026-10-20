@@ -7,7 +7,9 @@ import { buildIdentityIndex } from "./identity-index.mjs";
 import { buildPeriodicIndex } from "./periodic-index.mjs";
 import { buildOfflineIndex } from "./offline-index.mjs";
 import { buildStyles } from "./styles.mjs";
+import { buildGlossary } from '../../scripts/build-glossary.mjs';
 
+buildGlossary();
 buildStyles();
 const { chapters, flat } = buildManifest();
 buildSearchIndex(flat);

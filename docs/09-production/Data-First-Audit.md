@@ -13,25 +13,25 @@ Recognised identities: 118; foundation separate; proposed research entries: 70. 
 
 | MAT:0000 | 4 | 270 |
 
-| MAT:0001 | 24 | 1258 |
+| MAT:0001 | 24 | 1262 |
 
-| MAT:0002 | 19 | 1005 |
+| MAT:0002 | 19 | 1006 |
 
-| MAT:0003 | 23 | 890 |
+| MAT:0003 | 23 | 898 |
 
-| MAT:0004 | 23 | 905 |
+| MAT:0004 | 23 | 913 |
 
-| MAT:0005 | 30 | 1072 |
+| MAT:0005 | 30 | 1080 |
 
-| MAT:0006 | 37 | 1195 |
+| MAT:0006 | 37 | 1201 |
 
-| MAT:0007 | 35 | 1116 |
+| MAT:0007 | 35 | 1122 |
 
-| MAT:0008 | 43 | 1510 |
+| MAT:0008 | 43 | 1516 |
 
-| MAT:0009 | 44 | 1438 |
+| MAT:0009 | 44 | 1444 |
 
-| MAT:0010 | 15 | 789 |
+| MAT:0010 | 15 | 793 |
 
 | MAT:0011 | 44 | 1591 |
 
@@ -96,7 +96,7 @@ Candidate fields are only locations to inspect. A shared value or identical numb
 
 | MAT:0025 | 12 | nmr_nuclear_moments, crystal_polymorph_phase, lattice, electrical, optical, magnetic, mechanical, anisotropy, deformation_slip_twinning, defects_dislocations, surfaces_interfaces_corrosion, compounds_materials, alloys_processing, high_pressure_temperature, superconductivity_quantum, electrochemistry_batteries, geochemistry, biology_toxicology, astrophysics_nuclear_relationships, production_refining_recycling, people_lineage, experiments, migration_audit, schema_validation |
 
-| MAT:0026 | 12 | nmr_nuclear_moments, crystal_polymorph_phase, lattice, electrical, optical, magnetic, mechanical, anisotropy, deformation_slip_twinning, defects_dislocations, surfaces_interfaces_corrosion, compounds_materials, alloys_processing, high_pressure_temperature, superconductivity_quantum, electrochemistry_batteries, geochemistry, biology_toxicology, astrophysics_nuclear_relationships, production_refining_recycling, people_lineage, experiments, migration_audit, schema_validation |
+| MAT:0026 | 13 | nmr_nuclear_moments, crystal_polymorph_phase, lattice, electrical, optical, magnetic, mechanical, anisotropy, deformation_slip_twinning, defects_dislocations, surfaces_interfaces_corrosion, compounds_materials, high_pressure_temperature, superconductivity_quantum, electrochemistry_batteries, geochemistry, biology_toxicology, astrophysics_nuclear_relationships, production_refining_recycling, people_lineage, experiments, migration_audit, schema_validation |
 
 | MAT:0027 | 12 | nmr_nuclear_moments, crystal_polymorph_phase, lattice, electrical, optical, magnetic, mechanical, anisotropy, deformation_slip_twinning, defects_dislocations, surfaces_interfaces_corrosion, compounds_materials, alloys_processing, high_pressure_temperature, superconductivity_quantum, electrochemistry_batteries, geochemistry, biology_toxicology, astrophysics_nuclear_relationships, production_refining_recycling, people_lineage, experiments, migration_audit, schema_validation |
 

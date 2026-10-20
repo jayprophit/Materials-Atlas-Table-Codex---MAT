@@ -29,7 +29,7 @@
 | [MAT:0023 Vanadium](../../records/0023-Vanadium-V/0023-Vanadium-V.md) | BASELINE | 44 | 23 | 12 | 24 |
 | [MAT:0024 Chromium](../../records/0024-Chromium-Cr/0024-Chromium-Cr.md) | BASELINE | 41 | 24 | 12 | 24 |
 | [MAT:0025 Manganese](../../records/0025-Manganese-Mn/0025-Manganese-Mn.md) | BASELINE | 47 | 25 | 12 | 24 |
-| [MAT:0026 Iron](../../records/0026-Iron-Fe/0026-Iron-Fe.md) | BASELINE | 48 | 26 | 12 | 24 |
+| [MAT:0026 Iron](../../records/0026-Iron-Fe/0026-Iron-Fe.md) | BASELINE | 48 | 26 | 13 | 23 |
 | [MAT:0027 Cobalt](../../records/0027-Cobalt-Co/0027-Cobalt-Co.md) | BASELINE | 58 | 27 | 12 | 24 |
 | [MAT:0028 Nickel](../../records/0028-Nickel-Ni/0028-Nickel-Ni.md) | BASELINE | 55 | 28 | 12 | 24 |
 | [MAT:0029 Copper](../../records/0029-Copper-Cu/0029-Copper-Cu.md) | BASELINE | 51 | 29 | 12 | 24 |

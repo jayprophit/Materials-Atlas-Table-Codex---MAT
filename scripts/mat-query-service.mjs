@@ -7,6 +7,9 @@
 import { readFileSync, readdirSync, existsSync } from "node:fs";
 import { join } from "node:path";
 import YAML from "yaml";
+import {loadReadingComparison} from './mat-reading.mjs';
+import {loadMaterialExample} from './mat-material.mjs';
+import {loadNeutralHydrogen} from './mat-atomic.mjs';
 
 export const SERVICE_VERSION = "1.0.0";
 const root = join(import.meta.dirname, "..");
@@ -115,7 +118,7 @@ export function readProperty(doc, path) {
     return { property: path, found: true, kind: "scalar", value: node, evidence_class: "UNKNOWN" };
   }
   const isMeasurement =
-    "value" in node || "minimum" in node || "maximum" in node || "evidence_type" in node;
+    "value" in node || "frequency" in node || "minimum" in node || "maximum" in node || "evidence_type" in node;
   if (!isMeasurement) {
     return {
       property: path,
@@ -130,7 +133,8 @@ export function readProperty(doc, path) {
     property: path,
     found: true,
     kind: "measurement",
-    value: node.value ?? null,
+    value: Object.hasOwn(node,'value') ? node.value??null : node.frequency??null,
+    value_field: Object.hasOwn(node,'value')?'value':Object.hasOwn(node,'frequency')?'frequency':null,
     minimum: node.minimum ?? null,
     maximum: node.maximum ?? null,
     unit: node.unit ?? null,
@@ -142,6 +146,8 @@ export function readProperty(doc, path) {
     source_alias: node.source_alias ?? null,
     source_locator: node.source_locator ?? null,
     method: node.method ?? null,
+    conditions: node.conditions ?? null,
+    mechanism: node.mechanism ?? null,
   };
 }
 
@@ -197,6 +203,9 @@ export function startServer({ port = 8472, host = "127.0.0.1" } = {}) {
         if (url.pathname === "/search") {
           return send(200, { results: search(url.searchParams.get("q") || "") });
         }
+        if (url.pathname === "/readings") return send(200,loadReadingComparison());
+        if (url.pathname === "/materials") return send(200,{materials:[loadMaterialExample()]});
+        if (url.pathname === "/atoms") return send(200,{atoms:[loadNeutralHydrogen()]});
         return send(404, { error: "unknown endpoint" });
       } catch (error) {
         return send(500, { error: String((error && error.message) || error) });
@@ -218,6 +227,9 @@ Usage:
   node scripts/mat-query-service.mjs --symbol H --property ionization.first [--property atomic_weight]
   node scripts/mat-query-service.mjs --mat-id MAT:0026 --property density
   node scripts/mat-query-service.mjs --search iron [--json]
+  node scripts/mat-query-service.mjs --readings [--pretty]
+  node scripts/mat-query-service.mjs --materials [--pretty]
+  node scripts/mat-query-service.mjs --atoms [--pretty]
   node scripts/mat-query-service.mjs --serve [--port 8472]
 Options: --json (default pretty), --pretty`);
 }
@@ -234,6 +246,12 @@ if (isMain) {
   const out = (obj) => console.log(asJson ? JSON.stringify(obj) : JSON.stringify(obj, null, 2));
   if (argv.includes("--help") || argv.includes("-h")) {
     printUsage();
+  } else if (argv.includes('--materials')) {
+    out({materials:[loadMaterialExample()]});
+  } else if (argv.includes('--atoms')) {
+    out({atoms:[loadNeutralHydrogen()]});
+  } else if (argv.includes('--readings')) {
+    out(loadReadingComparison());
   } else if (get("--search")) {
     out({ results: search(get("--search")) });
   } else if (get("--symbol") || get("--mat-id")) {

@@ -11,4 +11,4 @@ async function audit(script){
 const results=await Promise.allSettled(['build-record-coverage.mjs','build-advanced-completion.mjs','build-state-flow-audit.mjs'].map(audit));
 for(const result of results)if(result.status==='rejected')throw result.reason;
 // Scope derives from advanced+state; unified gaps derive from that scope.
-for(const script of ['build-proposed-elements.mjs','build-unified-gap-analysis.mjs','audit-data-first.mjs'])await audit(script);
+for(const script of ['build-proposed-elements.mjs','build-mat-update-intake.mjs','build-unified-gap-analysis.mjs','audit-data-first.mjs'])await audit(script);

@@ -390,3 +390,11 @@ visuals: PLANNED
 ## Evaluated nuclear data and review
 
 The [NUBASE2020 nuclear state catalogue](0010-Neon-Ne-Nuclear-Evaluation.md) provides 25 evaluated states with uncertainties, qualifiers and source-line provenance. This dated evaluation does not make the whole material record complete.
+
+<!-- NIST-THERMOCHEMISTRY-CURATED-SUPPLEMENT -->
+[Neon thermal functions](0010-Neon-Ne-Thermochemistry.md) adds 1 source-bound NIST Shomate fits for **MAT:0010:ATOM:Ne** (ATOM), defined by the unchanged [canonical owner](data/structured/0010-Neon-Ne-Neutral-Atom.yaml) at `/entity`. Parent element identity: [unchanged master](data/structured/0010-Neon-Ne.yaml) at `/identity`. This DEFINITIONAL identifier supplies no measured state, isotope, excitation, medium or measurement conditions. Source: **SRC-000518**, retrieved 2026-10-08. Basis: **mol Ne**; 1 atom per source formula. Valid source intervals: UNSPECIFIED-IN-FIT-TABLE: 298–6000 K.
+
+Molecular spin-isomer scope is **NOT-APPLICABLE-TO-MONATOMIC-SPECIES**. Isotopic composition is **UNSPECIFIED-IN-RETAINED-FIT**. These monatomic gas-species fits do not supply dimer data, infer an isotope mixture or establish cryogenic equilibrium, a superfluid transition or a phase envelope. Published fit limits forbid extrapolation. Calculated uncertainty remains UNKNOWN; wider thermal properties remain PARTIAL. This additive supplement preserves the authored parent, its metadata and existing scientific classifications.
+
+![Neon heat capacity by phase and valid source temperature interval](graphs/0010-Neon-Ne-GRAPH-009-Heat-Capacity.svg)
+<!-- /NIST-THERMOCHEMISTRY-CURATED-SUPPLEMENT -->

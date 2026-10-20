@@ -15,6 +15,7 @@ import {
 import { initSearch as initSearchMod } from "./modules/search.mjs";
 import { initAtlas as initAtlasMod } from "./modules/atlas.mjs";
 import { initCharts } from "./modules/charts.mjs";
+import { glossaryLookup, normalizeTerm } from "./modules/glossary.mjs";
 
 const $ = (id) => document.getElementById(id);
 const GUIDE = ["Start here", "Front matter", "Foundations", "Data", "Methodology", "Visualization", "Index", "Governance", "Migration", "Back matter"];
@@ -1448,38 +1449,28 @@ function initCitations() {
 }
 
 /* ---------- hover glossary ---------- */
-const GLOSSARY = {
-  "electronegativity": "A measure of an atom's ability to attract bonding electrons (Pauling scale).",
-  "ionization energy": "The energy required to remove an electron from a gaseous atom or ion.",
-  "atomic radius": "Half the distance between two nuclei of the same element in a bonded state.",
-  "isotope": "Atoms of the same element with different numbers of neutrons.",
-  "allotrope": "Different structural forms of the same element (e.g., diamond vs. graphite for carbon).",
-  "halflife": "The time for half of a radioactive sample to decay.",
-  "oxidation state": "The degree of oxidation (loss of electrons) of an atom in a compound.",
-  "electron configuration": "The distribution of electrons in an atom's orbitals.",
-  "periodic table": "A tabular arrangement of chemical elements organized by atomic number.",
-  "covalent bond": "A chemical bond formed by sharing electron pairs between atoms.",
-  "metallic bond": "A bond formed by the sharing of free electrons among a lattice of metal atoms.",
-  "band gap": "The energy difference between the top of the valence band and the bottom of the conduction band.",
-  "crystal field": "The model describing the breaking of degeneracy of electron orbital energies in a solid.",
-  "causali e": "An original theoretical framework by the author exploring causal relationships in material states.",
-};
+let glossaryTerms = new Map();
 let glossaryTooltip = null;
 function initGlossary() {
+  getJSON('./data/glossary.json', null).then(data => {
+    if (data) glossaryTerms = glossaryLookup(data);
+  }).catch(error => console.error('MAT glossary unavailable:', error));
   glossaryTooltip = document.createElement("div");
   glossaryTooltip.className = "glossary-tooltip";
   glossaryTooltip.hidden = true;
   document.body.appendChild(glossaryTooltip);
   const reader = $("reader");
   reader.addEventListener("mouseover", (e) => {
-    const text = e.target.textContent?.toLowerCase().trim();
-    if (text && GLOSSARY[text]) {
-      glossaryTooltip.textContent = GLOSSARY[text];
+    const text = e.target.textContent?.trim();
+    const term = text ? glossaryTerms.get(normalizeTerm(text)) : null;
+    if (term) {
+      glossaryTooltip.textContent = term.definition + ' · ' + (term.domain === 'AUTHORED-FRAMEWORK' ? 'Authored conceptual framework; source review pending.' : 'MAT editorial definition; source review pending.');
+      glossaryTooltip.dataset.termId = term.term_id;
       glossaryTooltip.hidden = false;
       const rect = e.target.getBoundingClientRect();
       glossaryTooltip.style.left = rect.left + "px";
       glossaryTooltip.style.top = (rect.bottom + 4) + "px";
-    }
+    } else glossaryTooltip.hidden = true;
   });
   reader.addEventListener("mouseout", (e) => {
     if (glossaryTooltip) glossaryTooltip.hidden = true;

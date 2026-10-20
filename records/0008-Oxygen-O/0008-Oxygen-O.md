@@ -1556,3 +1556,11 @@ The legacy ozone geometry also checks out: NIST’s CCCBDB experimental geometry
 ## Evaluated nuclear data and review
 
 The [NUBASE2020 nuclear state catalogue](0008-Oxygen-O-Nuclear-Evaluation.md) provides 24 evaluated states with uncertainties, qualifiers and source-line provenance. This dated evaluation does not make the whole material record complete.
+
+<!-- NIST-THERMOCHEMISTRY-CURATED-SUPPLEMENT -->
+[Oxygen thermal functions](0008-Oxygen-O-Thermochemistry.md) adds 3 source-bound NIST Shomate fits for **MAT:0008:MOL:O2** (MOLECULE), defined by the unchanged [canonical owner](data/structured/0008-Oxygen-O.yaml) at `/ordinary_molecular_state`. Source: **SRC-000516**, retrieved 2026-10-06. Basis: **mol O2**; 2 atoms per source formula. Valid source intervals: UNSPECIFIED-IN-FIT-TABLE: 100–700 K; UNSPECIFIED-IN-FIT-TABLE: 700–2000 K; UNSPECIFIED-IN-FIT-TABLE: 2000–6000 K.
+
+Spin-isomer scope and isotopic composition are **UNSPECIFIED-IN-RETAINED-FIT**. These gas-species fits do not substitute atomic data, infer a normal/para/ortho mixture, calculate dissociation or establish a cryogenic phase envelope. Published fit limits forbid extrapolation. Calculated uncertainty remains UNKNOWN; wider thermal properties remain PARTIAL. This additive supplement preserves the authored parent, its metadata and existing scientific classifications.
+
+![Oxygen heat capacity by phase and valid source temperature interval](graphs/0008-Oxygen-O-GRAPH-013-Heat-Capacity.svg)
+<!-- /NIST-THERMOCHEMISTRY-CURATED-SUPPLEMENT -->

@@ -1,5 +1,7 @@
 # Process Template
 
+Tooling contract: [universal core stage 1](../docs/02-data/12-Universal-Core-Stage-1.md). Ordered steps reference input/output states, parameters and provenance. Preserve every product, co-product, by-product and residual; recovery and conservation acceptance require separate evidence.
+
 ```yaml
 process_id:
 name:

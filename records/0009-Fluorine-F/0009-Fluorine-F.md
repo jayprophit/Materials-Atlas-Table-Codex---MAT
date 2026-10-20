@@ -1774,3 +1774,11 @@ RSC gives elemental F₂ melting at **53.48 K** and boiling at **85.04 K**. It a
 ## Evaluated nuclear data and review
 
 The [NUBASE2020 nuclear state catalogue](0009-Fluorine-F-Nuclear-Evaluation.md) provides 25 evaluated states with uncertainties, qualifiers and source-line provenance. This dated evaluation does not make the whole material record complete.
+
+<!-- NIST-THERMOCHEMISTRY-CURATED-SUPPLEMENT -->
+[Fluorine thermal functions](0009-Fluorine-F-Thermochemistry.md) adds 1 source-bound NIST Shomate fits for **MAT:0009:MOL:F2** (MOLECULE), defined by the unchanged [canonical owner](data/structured/0009-Fluorine-F.yaml) at `/ordinary_molecular_state`. Source: **SRC-000517**, retrieved 2026-10-07. Basis: **mol F2**; 2 atoms per source formula. Valid source intervals: UNSPECIFIED-IN-FIT-TABLE: 298–6000 K.
+
+Spin-isomer scope and isotopic composition are **UNSPECIFIED-IN-RETAINED-FIT**. These gas-species fits do not substitute atomic data, infer a normal/para/ortho mixture, calculate dissociation or establish a cryogenic phase envelope. Published fit limits forbid extrapolation. Calculated uncertainty remains UNKNOWN; wider thermal properties remain PARTIAL. This additive supplement preserves the authored parent, its metadata and existing scientific classifications.
+
+![Fluorine heat capacity by phase and valid source temperature interval](graphs/0009-Fluorine-F-GRAPH-013-Heat-Capacity.svg)
+<!-- /NIST-THERMOCHEMISTRY-CURATED-SUPPLEMENT -->

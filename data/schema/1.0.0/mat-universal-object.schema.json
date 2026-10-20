@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mat-codex.local/schema/1.0.0/mat-universal-object.schema.json",
+  "title": "Additive MAT universal object projection, stage 1",
+  "description": "Common contract over canonical owners; not a replacement for legacy record schemas or scientific acceptance.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "object_ref", "object_class", "recognition", "atomic_number", "owner", "state", "readings", "composition", "process_genome", "links", "layers", "requirement_profile"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "object_ref": {"type": "string", "pattern": "^MAT(?:-PROPOSED)?:[0-9]{4,}(?::[A-Za-z0-9_+.-]+)*$"},
+    "object_class": {"type": "string", "enum": ["FOUNDATION_REFERENCE", "CHEMICAL_ELEMENT", "ISOTOPE", "NUCLEAR_STATE", "PARTICLE", "QUANTUM_STATE", "QUANTUM_FIELD", "ELECTRONIC_STATE", "ATOM", "ION", "MOLECULE", "COMPOUND", "ALLOY", "MATERIAL", "COMPOSITE", "PHASE", "SAMPLE", "BATCH", "PROCESS", "ENVIRONMENT", "FIELD", "WAVE", "BIOLOGICAL_SYSTEM", "MODEL", "MEASUREMENT", "EXPERIMENT", "APPLICATION", "FAILURE", "DISCOVERY_CANDIDATE"]},
+    "recognition": {"enum": ["FOUNDATION", "RECOGNISED", "PROPOSED-NOT-RECOGNISED", "NOT-AN-ELEMENT"]},
+    "atomic_number": {"type": ["integer", "null"], "minimum": 1},
+    "owner": {"$ref": "#/$defs/owner"},
+    "state": {"$ref": "#/$defs/state"},
+    "readings": {"type": "array", "items": {"$ref": "#/$defs/reading"}},
+    "composition": {"anyOf": [{"type": "null"}, {"$ref": "#/$defs/composition"}]},
+    "process_genome": {"type": "array", "items": {"$ref": "#/$defs/processStep"}},
+    "links": {"type": "array", "items": {"type": "object", "additionalProperties": false, "required": ["relation", "target_ref", "evidence_refs"], "properties": {
+      "relation": {"enum": ["COMPOSITION", "PROCESS", "STRUCTURE", "PROPERTY", "PERFORMANCE", "FAILURE", "INPUT", "PRIMARY_PRODUCT", "CO_PRODUCT", "BY_PRODUCT", "RESIDUAL", "WASTE_HEAT", "CLAIM", "EVIDENCE", "SOURCE", "PATENT", "PRIOR_ART", "NEGATIVE_RESULT", "MODEL", "BIOMIMETIC_ANALOGUE", "RECONSTRUCTION_CANDIDATE"]},
+      "target_ref": {"type": "string", "minLength": 1}, "evidence_refs": {"type": "array", "items": {"type": "string"}}
+    }}},
+    "layers": {"type": "object", "additionalProperties": false, "required": ["MAT_RAW", "MAT_VECTOR", "MAT_FINGERPRINT"], "properties": {
+      "MAT_RAW": {"const": "OWNER-REFERENCES-ONLY"}, "MAT_VECTOR": {"const": "NOT-COMPUTED"}, "MAT_FINGERPRINT": {"const": "NOT-COMPUTED"}
+    }},
+    "requirement_profile": {"const": "docs/02-data/01-Universal-Schema.md"}
+  },
+  "$defs": {
+    "owner": {"type": "object", "additionalProperties": false, "required": ["path", "pointer", "sha256"], "properties": {
+      "path": {"type": "string", "minLength": 1}, "pointer": {"type": "string"}, "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+    }},
+    "state": {"type": "object", "additionalProperties": false, "required": ["state_ref", "conditions", "reference_frame_ref", "time_ref", "validity", "status"], "properties": {
+      "state_ref": {"type": ["string", "null"]}, "conditions": {"type": "array", "items": {"$ref": "#/$defs/reading"}},
+      "reference_frame_ref": {"type": ["string", "null"]}, "time_ref": {"type": ["string", "null"]},
+      "scale": {"enum": [null, "FUNDAMENTAL", "SUBATOMIC", "NUCLEAR", "ATOMIC", "MOLECULAR", "NANO", "MICRO", "MESO", "MACRO", "HUMAN", "INDUSTRIAL", "PLANETARY", "STELLAR", "GALACTIC", "COSMOLOGICAL"]},
+      "validity": {"type": ["string", "null"]}, "status": {"enum": ["UNRESOLVED", "EXPLICIT-CANDIDATE"]}
+    }},
+    "reading": {"type": "object", "additionalProperties": false, "required": ["metric", "value", "null_state", "unit", "uncertainty", "evidence_type", "provenance", "state_ref", "reference_frame_ref", "validity"], "properties": {
+      "metric": {"type": "string", "minLength": 1}, "value": {"type": ["number", "null"]},
+      "null_state": {"enum": [null, "UNKNOWN", "NOT-MEASURED", "NOT-AVAILABLE", "NOT-APPLICABLE", "NOT-ESTABLISHED", "BELOW-DETECTION-LIMIT"]},
+      "unit": {"type": "string", "minLength": 1}, "uncertainty": {"type": ["number", "null"], "minimum": 0},
+      "evidence_type": {"enum": ["MEASURED", "EVALUATED", "CALCULATED", "DERIVED", "SIMULATED", "THEORETICAL", "PREDICTED", "HISTORICAL", "PHILOSOPHICAL", "RELIGIOUS-TRADITIONAL", "SPECULATIVE", "DISPUTED", "FALSIFIED", "FICTIONAL", "AUTHOR-FRAMEWORK", "UNVERIFIED"]},
+      "component_ref": {"type": "string", "pattern": "^MAT(?:-PROPOSED)?:[0-9]{4,}(?::[A-Za-z0-9_+.-]+)*$"},
+      "source_value_status": {"enum": ["CERTIFIED", "REFERENCE", "INFORMATION"]},
+      "uncertainty_context": {"type": "object", "additionalProperties": false, "required": ["kind", "confidence_level", "coverage_factor"], "properties": {
+        "kind": {"const": "EXPANDED"}, "confidence_level": {"type": "number", "minimum": 0, "maximum": 1}, "coverage_factor": {"type": ["number", "null"], "exclusiveMinimum": 0}
+      }},
+      "qualifier": {"enum": [null, "APPROXIMATE", "RECOMMENDED"]},
+      "provenance": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/owner"}},
+      "state_ref": {"type": "string", "minLength": 1}, "reference_frame_ref": {"type": ["string", "null"]}, "validity": {"type": ["string", "null"]}
+    }},
+    "composition": {"type": "object", "additionalProperties": false, "required": ["unit", "basis", "constraint", "coverage", "components"], "properties": {
+      "unit": {"enum": ["wt%", "at%", "mol%", "vol%", "ppm", "ppb", "phase_fraction", "isotope_fraction"]},
+      "basis": {"enum": ["MASS", "ATOM_COUNT", "AMOUNT", "VOLUME"]}, "constraint": {"enum": ["VARIABLE", "FIXED_STOICHIOMETRIC"]}, "coverage": {"enum": ["COMPLETE", "PARTIAL"]},
+      "components": {"type": "array", "minItems": 1, "items": {"type": "object", "additionalProperties": false, "required": ["object_ref", "value"], "properties": {"object_ref": {"type": "string", "minLength": 1}, "value": {"type": "number", "minimum": 0}}}}
+    }},
+    "processStep": {"type": "object", "additionalProperties": false, "required": ["process_ref", "input_state_refs", "output_state_refs", "parameters", "provenance"], "properties": {
+      "process_ref": {"type": "string", "minLength": 1}, "input_state_refs": {"type": "array", "minItems": 1, "items": {"type": "string"}}, "output_state_refs": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+      "parameters": {"type": "array", "items": {"$ref": "#/$defs/reading"}}, "provenance": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/owner"}}
+    }}
+  }
+}

@@ -4,8 +4,13 @@ import {join,dirname} from 'node:path';
 import {createHash} from 'node:crypto';
 import YAML from 'yaml';
 import {walkFiles,frontMatter} from './lib.mjs';
+import {buildGlossary} from './build-glossary.mjs';
+import {publicationCitations} from './publication-citations.mjs';
+import {buildChartProjection} from './mat-chart-projection.mjs';
+import {copyTemperatureReferenceCode} from './publication-reference-code.mjs';
 const root=join(import.meta.dirname,'..'), out=join(root,'data/publication/generated');
 mkdirSync(out,{recursive:true});
+buildGlossary({check:true});
 const read=p=>readFileSync(join(root,p),'utf8').replace(/\r\n/g,'\n');
 const json=p=>JSON.parse(read(p));
 const write=(p,v)=>{
@@ -18,6 +23,7 @@ const write=(p,v)=>{
 };
 const registry=YAML.parse(read('data/registries/sources.yaml')).sources;
 const sourceMap=new Map(registry.map(s=>[s.source_id,s]));
+const navigationDiagnostics=json('data/indexes/source-navigation.json').unresolved_references.map(r=>r.source_id);
 const catalog=json('data/catalog/elements-baseline.json');
 const elements=json('book/data/elements-118.json').elements;
 const records=[],details={};
@@ -33,12 +39,11 @@ for(const sec of json('book/manifest.json').chapters||[])for(const item of sec.i
  const structured=files.map(path=>{const docs=YAML.parseAllDocuments(read(path));const errors=docs.flatMap(d=>d.errors);if(errors.length)throw new Error(path+': '+errors.map(e=>e.message).join('; '));return {path,data:docs.length===1?docs[0].toJSON():docs.map(d=>d.toJSON())}});
  // Reference manuals contain fenced example IDs, not actual scientific citations.
  const citationText=id?body+'\n'+files.map(read).join('\n'):body.replace(/(^|\n)```[^\n]*\n[\s\S]*?\n```(?=\n|$)/g,'\n');
- const sourceIds=[...new Set(citationText.match(/SRC-\d{6}\b/g)||[])].sort();
- const missingSources=sourceIds.filter(s=>!sourceMap.has(s));
+ const {sourceIds,missingSources,referenceDiagnostics}=publicationCitations(citationText,item.id,sourceMap,navigationDiagnostics);
  const assets=isMain?walkFiles(folder,f=>/\.(svg|png|jpg|webp|glb)$/i.test(f)):[];
  details[key]={...record,body,bodyHash:createHash('sha256').update(body).digest('hex'),header:frontMatter(body),
  structured,assets,sources:sourceIds.map(s=>sourceMap.get(s)||{source_id:s,status:'UNRESOLVED'}),
- missingSources,counts:{figures:assets.filter(p=>/\/(images|diagrams)\//.test(p)).length,
+ missingSources,...(referenceDiagnostics.length?{referenceDiagnostics}:{}),counts:{figures:assets.filter(p=>/\/(images|diagrams)\//.test(p)).length,
  graphs:assets.filter(p=>p.includes('/graphs/')).length,tables:isMain?walkFiles(folder,f=>f.endsWith('.md')).filter(p=>p.includes('/tables/')).length:0,sources:sourceIds.length},
  reviewStatus:missingSources.length?'BLOCKED':'NEEDS_REVIEW'};
  write(join(out,'chapters',key+'.json'),details[key]);
@@ -67,8 +72,7 @@ write(join(out,'publication-elements.json'),{elements,catalog:catalog.catalog});
 write(join(out,'publication-metadata.json'),{title:'Materials Atlas Table Codex',schemaVersion:'2.0.0',language:'en',edition:'Working draft',missingSources,releaseReady:false,notice:'Curated denotes chapter coverage, not scientific validation or peer review.'});
 write(join(out,'publication-index.json'),{elements:elements.map(e=>({z:e.z,matId:e.matId,name:e.name})),records,sections:[...new Set(records.map(r=>r.section))]});
 write(join(out,'publication-periodic.json'),{standard:{elements},historical:{notice:'Russell and alternative models are research references, not established physical laws.',russell:json('book/data/russell-periodic.json')}});
-write(join(out,'publication-charts.json'),{charts:[],notice:'Legacy unsourced chart datasets excluded from publication projection.'});
-write(join(out,'publication-glossary.json'),{glossary:[],chapter:records.find(r=>/Glossary/.test(r.title))?.id||null});
+write(join(out,'publication-charts.json'),buildChartProjection(root));
 const pub=join(root,'studio/public');
 mkdirSync(pub,{recursive:true});
 cpSync(out,join(pub,'data/publication/generated'),{recursive:true});
@@ -79,4 +83,8 @@ for(const name of ['catalog','constants','indexes','intake','navigation','qualit
  cpSync(join(root,'data',name),join(pub,'data',name),{recursive:true});
 // The production guide links to the canonical resume checkpoint at the root.
 cpSync(join(root,'MAT-ADVANCED-RESUME.md'),join(pub,'MAT-ADVANCED-RESUME.md'));
+// Keep the continuation link in exported production notes usable as well.
+if(existsSync(join(root,'MAT_CODEX_CONTINUATION_HANDOFF.md')))
+ cpSync(join(root,'MAT_CODEX_CONTINUATION_HANDOFF.md'),join(pub,'MAT_CODEX_CONTINUATION_HANDOFF.md'));
+copyTemperatureReferenceCode(root,pub);
 console.log('Publication: '+records.length+' chapters, '+elements.length+' selectable elements; unresolved sources: '+missingSources.join(', '));

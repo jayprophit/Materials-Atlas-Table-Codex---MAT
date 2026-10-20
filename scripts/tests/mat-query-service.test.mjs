@@ -7,9 +7,21 @@ import {
   search,
   readProperty,
   query,
+  startServer,
 } from "../mat-query-service.mjs";
 
 describe("mat-query-service", () => {
+  it('preserves frequency fields and explicit null values in existing observations',()=>{
+    const r=query({symbol:'H',properties:['spectral.hyperfine_21cm']}).results[0];
+    assert.equal(r.kind,'measurement');assert.equal(r.value_field,'frequency');assert.equal(r.unit,'Hz');assert.equal(r.evidence_type,null);
+    assert.equal(readProperty({x:{value:null,frequency:1,unit:'Hz'}},'x').value,null);
+  });
+  it('exports canonical reading/relationship comparison through the existing read-only server',async()=>{
+    const server=await startServer({port:0});
+    try{const port=server.address().port;const r=await fetch('http://127.0.0.1:'+port+'/readings');assert.equal(r.status,200);
+      const data=await r.json();assert.equal(data.readings.length,5);assert.equal(data.readings.at(-1).evidence_type,'MEASURED');assert.ok(data.relationships.some(r=>r.type==='FORMS-MOLECULE'));
+    }finally{server.closeAllConnections();await new Promise(resolve=>server.close(resolve));}
+  });
   it("finds hydrogen by symbol with real header fields", () => {
     const record = findRecord({ symbol: "H" });
     assert.ok(record);

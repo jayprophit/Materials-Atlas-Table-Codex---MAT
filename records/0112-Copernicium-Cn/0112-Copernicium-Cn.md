@@ -8,10 +8,10 @@ atomic_number: 112
 record_class: CHEMICAL_ELEMENT
 parent_id: "MAT:0000"
 schema_version: "1.0.0"
-record_version: "1.0.0"
+record_version: "1.1.2"
 status: BASELINE
 created: "2026-09-08"
-updated: "2026-09-08"
+updated: "2026-10-05"
 contributors: []
 ```
 
@@ -158,6 +158,10 @@ Susceptibility, ordering, permeability, magnetic moments.
 ---
 
 # 12. Thermal and Thermodynamic Properties
+
+<!-- NIST-THERMOCHEMISTRY-SOURCE-GAP -->
+[Copernicium thermal source review](0112-Copernicium-Cn-Thermochemistry-Source-Review.md): The retained WebBook query returned no matching species; no elemental identity or heat-capacity data are accepted; the retained JANAF PDF index has no linked table for this element. This is a bounded source-availability result, not a claim that thermal measurements do not exist. Sources: SRC-000501, SRC-000341. No heat-capacity value or fit is accepted; applicable primary measurements still need review. Values remain UNKNOWN.
+<!-- /NIST-THERMOCHEMISTRY-SOURCE-GAP -->
 
 ```html
 <!-- MAT-VISUAL: V10 -->
@@ -384,8 +388,8 @@ visuals: PLANNED
 | Version | Date | Change |
 |---|---|---|
 | 1.0.0 | 2026-09-08 | Initial baseline scaffold (superseded numeric claims; retained in Git history) |
-
 | 1.1.0 | 2026-09-08 | Source-backed baseline correction: PubChem/CIAAW, null semantics, prediction labels |
+| 1.1.2 | 2026-10-05 | Recorded bounded thermal source-availability review; no heat-capacity fit accepted. |
 
 ## Evaluated nuclear data and review
 

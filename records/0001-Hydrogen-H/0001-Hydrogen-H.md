@@ -3296,3 +3296,11 @@ The [NUBASE2020 nuclear state catalogue](0001-Hydrogen-H-Nuclear-Evaluation.md) 
 ## Source-bound water molecular geometry
 
 The [shared Hydrogen–Oxygen water reference](0001-Hydrogen-H-Water-Geometry.md) provides state-qualified equilibrium geometry, source rounding and a separate A06 illustration (SRC-000308).
+
+<!-- NIST-THERMOCHEMISTRY-CURATED-SUPPLEMENT -->
+[Hydrogen thermal functions](0001-Hydrogen-H-Thermochemistry.md) adds 3 source-bound NIST Shomate fits for **MAT:0001:MOL:H2** (MOLECULE), defined by the unchanged [canonical owner](data/structured/0001-Hydrogen-H.yaml) at `/molecular_states/H2`. Source: **SRC-000508**, retrieved 2026-10-05. Basis: **mol H2**; 2 atoms per source formula. Valid source intervals: UNSPECIFIED-IN-FIT-TABLE: 298–1000 K; UNSPECIFIED-IN-FIT-TABLE: 1000–2500 K; UNSPECIFIED-IN-FIT-TABLE: 2500–6000 K.
+
+Spin-isomer scope and isotopic composition are **UNSPECIFIED-IN-RETAINED-FIT**. These gas-species fits do not substitute atomic data, infer a normal/para/ortho mixture, calculate dissociation or establish a cryogenic phase envelope. Published fit limits forbid extrapolation. Calculated uncertainty remains UNKNOWN; wider thermal properties remain PARTIAL. This additive supplement preserves the authored parent, its metadata and existing scientific classifications.
+
+![Hydrogen heat capacity by phase and valid source temperature interval](graphs/0001-Hydrogen-H-GRAPH-009-Heat-Capacity.svg)
+<!-- /NIST-THERMOCHEMISTRY-CURATED-SUPPLEMENT -->

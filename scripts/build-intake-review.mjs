@@ -5,9 +5,11 @@ import YAML from 'yaml';
 import {sha256} from './intake-lib.mjs';
 import {parseNubase} from './nubase.mjs';
 import {walkFiles} from './lib.mjs';
+import {replaceNuclearReviewNote,flushLegacyIntakeWrites} from './intake-review-preservation.mjs';
 const root=join(import.meta.dirname,'..');
 const read=p=>readFileSync(join(root,p),'utf8').replace(/\r\n/g,'\n');
-const write=(p,s)=>{mkdirSync(dirname(join(root,p)),{recursive:true});writeFileSync(join(root,p),s);};
+const pending=new Map(),allowedParentChanges=new Map();
+const write=(p,s)=>pending.set(join(root,p),s);
 const plan=JSON.parse(read('data/intake/mat-42-52.json'));
 const nuclear=JSON.parse(read('data/catalog/nuclear-evaluation-index.json'));
 const rows=parseNubase(read(nuclear.source.snapshot));
@@ -65,7 +67,7 @@ for(const o of plan.operations.filter(o=>/Isotope-\d+-/.test(o.path))){
    limit:'Numeric agreement only; uncertainty, qualifiers, branching, later evidence and scientific validation are separate checks.'});
  }
 }
-const registry=YAML.parse(read(sourcesPath)).sources;
+const registry=YAML.parse(document.toString({lineWidth:120})).sources;
 for(const prefix of ['0011-Sodium-Na','0012-Magnesium-Mg','0013-Aluminium-Al']){
  const dir='records/'+prefix,number=prefix.slice(0,4),name=prefix.split('-')[1];
  const selected=plan.operations.filter(o=>o.path.startsWith(dir+'/'));
@@ -80,11 +82,13 @@ for(const prefix of ['0011-Sodium-Na','0012-Magnesium-Mg','0013-Aluminium-Al']){
 // Every published element gets a direct route to its newly populated evaluation.
 for(const e of nuclear.elements){
  const folder=e.chapter.split('/').slice(0,2).join('/'),stem=folder.split('/')[1],main=folder+'/'+stem+'.md';
- let text=read(main);
+ const original=readFileSync(join(root,main));
+ let text=original.toString('utf8');
  const note=`\n## Evaluated nuclear data and review\n\nThe [NUBASE2020 nuclear state catalogue](${stem}-Nuclear-Evaluation.md) provides ${e.states} evaluated states with uncertainties, qualifiers and source-line provenance.${['0011','0012','0013'].includes(stem.slice(0,4))?` See the [research intake and claims review](${stem}-Research-Intake.md) for the supplied expansion.`:''} This dated evaluation does not make the whole material record complete.\n`;
- if(text.includes('\n## Evaluated nuclear data and review\n'))text=text.replace(/\n## Evaluated nuclear data and review\n[\s\S]*?(?=\n## |$)/,note);
- else text+=note;
+ text=replaceNuclearReviewNote(text,note);
+ allowedParentChanges.set(join(root,main),{before:original,after:text});
  write(main,text);
 }
 write('data/intake/mat-42-52-claims.json',JSON.stringify({intake_id:plan.intake_id,claims,numeric_half_life_comparisons:comparisons,conflicts:claims.filter(c=>c.status==='CONFLICT').length,remaining_review:'All source claims retain independent scientific review requirements.'},null,2)+'\n');
+flushLegacyIntakeWrites(pending,{allowedParentChanges});
 console.log(`Intake review: ${claims.length} claims, ${comparisons} numeric half-life comparisons; ${claims.filter(c=>c.status==='CONFLICT').length} conflicts.`);

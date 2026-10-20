@@ -7,12 +7,75 @@
     "registry_id": {"type": "string", "pattern": "^MAT:[0-9]{4}:REG:NIST-THERMOCHEMISTRY$"},
     "record_id": {"type": "string", "pattern": "^MAT:[0-9]{4}$"},
     "source_id": {"type": "string", "pattern": "^SRC-[0-9]{6}$"},
+    "parent_integration": {"const": "CURATED-APPEND-ONLY"},
+    "subject": {"$ref": "#/definitions/subject"},
+    "asset_slots": {"$ref": "#/definitions/asset_slots"},
+    "review_notes": {"type": "array", "items": {"$ref": "#/definitions/review_note"}},
     "species": {"type": "object", "required": ["source_formula", "molar_basis", "atoms_per_source_formula", "pressure"], "properties": {
       "source_formula": {"type": "string", "minLength": 1}, "molar_basis": {"type": "string", "minLength": 1}, "atoms_per_source_formula": {"type": "integer", "minimum": 1}
     }},
     "heat_capacity_fits": {"type": "array", "minItems": 1, "items": {"$ref": "#/definitions/fit"}}
   },
+  "allOf": [
+    {"if": {"required": ["parent_integration"]}, "then": {"required": ["subject"]}},
+    {"if": {"required": ["subject"]}, "then": {"required": ["parent_integration"]}},
+    {"if": {"required": ["asset_slots"]}, "then": {"required": ["parent_integration", "subject"]}}
+  ],
   "definitions": {
+    "review_note": {
+      "type": "object", "required": ["note_id", "status", "evidence_status", "text"],
+      "properties": {
+        "note_id": {"type": "string", "minLength": 1, "pattern": "\\S"},
+        "status": {"type": "string", "minLength": 1, "pattern": "\\S"},
+        "evidence_status": {"type": "string", "minLength": 1, "pattern": "\\S"},
+        "text": {"type": "string", "minLength": 1, "pattern": "\\S"}
+      }
+    },
+    "asset_slots": {
+      "type": "object", "additionalProperties": false, "required": ["table", "graph"],
+      "properties": {
+        "table": {"type": "integer", "minimum": 1, "maximum": 9007199254740991},
+        "graph": {"type": "integer", "minimum": 1, "maximum": 9007199254740991}
+      }
+    },
+    "subject": {
+      "type": "object", "additionalProperties": false,
+      "required": ["object_ref", "object_class", "owner", "spin_isomer_scope", "isotopic_composition"],
+      "properties": {
+        "object_ref": {"type": "string", "pattern": "^MAT:[0-9]{4}:(MOL|ATOM):[A-Za-z0-9+-]+$"},
+        "object_class": {"enum": ["MOLECULE", "ATOM"]},
+        "owner": {"$ref": "#/definitions/owner_binding"},
+        "identity_owner": {"$ref": "#/definitions/master_identity_owner"},
+        "spin_isomer_scope": {"enum": ["UNSPECIFIED-IN-RETAINED-FIT", "NOT-APPLICABLE-TO-MONATOMIC-SPECIES"]},
+        "isotopic_composition": {"const": "UNSPECIFIED-IN-RETAINED-FIT"}
+      },
+      "oneOf": [
+        {"not": {"required": ["identity_owner"]}, "properties": {"owner": {"$ref": "#/definitions/master_subject_owner"}}},
+        {"required": ["identity_owner"], "properties": {"object_class": {"const": "ATOM"}, "owner": {"$ref": "#/definitions/neutral_definition_owner"}, "spin_isomer_scope": {"const": "NOT-APPLICABLE-TO-MONATOMIC-SPECIES"}}}
+      ],
+      "allOf": [
+        {"if": {"properties": {"object_class": {"const": "ATOM"}}, "required": ["object_class"]}, "then": {"properties": {"spin_isomer_scope": {"const": "NOT-APPLICABLE-TO-MONATOMIC-SPECIES"}}}},
+        {"if": {"properties": {"object_class": {"const": "MOLECULE"}}, "required": ["object_class"]}, "then": {"properties": {"spin_isomer_scope": {"const": "UNSPECIFIED-IN-RETAINED-FIT"}}}}
+      ]
+    },
+    "owner_binding": {
+          "type": "object", "additionalProperties": false, "required": ["path", "pointer", "sha256"],
+          "properties": {
+            "path": {"type": "string"},
+            "pointer": {"type": "string", "pattern": "^/"},
+            "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+          }
+    },
+    "master_subject_owner": {"allOf": [{"$ref": "#/definitions/owner_binding"}, {"properties": {"path": {"pattern": "^records/([0-9]{4}-[A-Za-z0-9-]+)/data/structured/\\1\\.yaml$"}}}]},
+    "master_identity_owner": {
+      "type": "object", "additionalProperties": false, "required": ["path", "pointer", "sha256"],
+      "properties": {
+        "path": {"type": "string", "pattern": "^records/([0-9]{4}-[A-Za-z0-9-]+)/data/structured/\\1\\.yaml$"},
+        "pointer": {"enum": ["/identity", ""], "description": "Explicit nested identity or JSON Pointer root; no inferred fallback."},
+        "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+      }
+    },
+    "neutral_definition_owner": {"allOf": [{"$ref": "#/definitions/owner_binding"}, {"properties": {"path": {"pattern": "^records/([0-9]{4}-[A-Za-z0-9-]+)/data/structured/\\1-Neutral-Atom\\.yaml$"}, "pointer": {"const": "/entity"}}}]},
     "coefficient": {"type": "object", "required": ["raw", "value"], "additionalProperties": false, "properties": {"raw": {"type": "string", "minLength": 1}, "value": {"type": "number"}}},
     "fit": {
       "type": "object",

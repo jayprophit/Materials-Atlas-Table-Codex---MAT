@@ -4,6 +4,8 @@
 
 The Source Index provides human-readable navigation into MAT's global source registry.
 
+The [generated source directory and backlinks](Source-Navigation.md) now provide actual registered sources, original external destinations, retained local snapshots and internal citing files. Search these in the Studio reader's Resources → Browse source navigation section. [Documentation gap analysis](Documentation-Gap-Analysis-2026-10-03.md) records remaining bibliographic and terminology work. The format guidance below remains applicable; missing metadata stays explicit.
+
 ---
 
 # Source ID Format

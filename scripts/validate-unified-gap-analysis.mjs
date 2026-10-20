@@ -20,6 +20,12 @@ for(const r of advanced.records)for(const [id,d]of Object.entries(r.domains))if(
 for(const e of panels.elements)for(const p of e.panels)expected.push(`MAT-${e.record_id.slice(4)}-PANEL-${p.panel_id}`);
 const ids=new Set();for(const t of ledger.tasks){if(ids.has(t.id))throw new Error('Duplicate task '+t.id);ids.add(t.id);if(!t.acceptance||!t.owner)throw new Error('Task lacks acceptance/owner');if((t.kind==='SCIENTIFIC-REVIEW'||t.kind.startsWith('PROPOSED-'))&&t.status!=='OPEN')throw new Error('Scientific review auto-certified');}
 const thermal=read('data/catalog/thermochemistry-evaluation-index.json');
+if(!report.inputs.some(i=>i.path==='data/quality/mat-update-intake.json'))throw new Error('Owner master update missing from audit inputs');
+const masterUpdate=read('data/quality/mat-update-intake.json');
+const documentation=read('data/research/mat-documentation-review.json');
+if(JSON.stringify(report.documentation)!==JSON.stringify(documentation)||!report.inputs.some(i=>i.path==='data/research/mat-documentation-review.json'))throw Error('Stale documentation comparison');
+if(!ledger.tasks.some(t=>t.id==='MAT-PROGRAMME-DOCUMENTATION'&&t.status==='OPEN'))throw Error('Missing documentation requirement owner');
+for(const section of masterUpdate.sections)if(!ledger.tasks.some(t=>t.id===section.task_id&&t.status==='OPEN'))throw new Error('Missing or auto-completed owner requirement '+section.task_id);
 if(!report.inputs.some(i=>i.path==='data/catalog/thermochemistry-evaluation-index.json'))throw new Error('Missing thermal audit input');
 if(report.thermochemistry?.fit_count!==thermal.fit_count||report.thermochemistry?.source_gap_count!==thermal.source_gap_count)throw new Error('Thermal audit counts disagree');
 for(const e of thermal.elements){

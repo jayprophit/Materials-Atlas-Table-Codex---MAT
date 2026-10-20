@@ -1069,3 +1069,11 @@ visuals:
 ## Evaluated nuclear data and review
 
 The [NUBASE2020 nuclear state catalogue](0005-Boron-B-Nuclear-Evaluation.md) provides 23 evaluated states with uncertainties, qualifiers and source-line provenance. This dated evaluation does not make the whole material record complete.
+
+<!-- NIST-THERMOCHEMISTRY-CURATED-SUPPLEMENT -->
+[Boron thermal functions](0005-Boron-B-Thermochemistry.md) adds 1 source-bound NIST Shomate fits for **MAT:0005:ATOM:B** (ATOM), defined by the unchanged [canonical owner](data/structured/0005-Boron-B.yaml) at `/atomic_states/0`. Source: **SRC-000512**, retrieved 2026-10-06. Basis: **mol B**; 1 atom per source formula. Valid source intervals: UNSPECIFIED-IN-FIT-TABLE: 4137.895–6000 K.
+
+Molecular spin-isomer scope is **NOT-APPLICABLE-TO-MONATOMIC-SPECIES**. Isotopic composition is **UNSPECIFIED-IN-RETAINED-FIT**. These monatomic gas-species fits do not supply dimer data, infer an isotope mixture or establish cryogenic equilibrium, a superfluid transition or a phase envelope. Published fit limits forbid extrapolation. Calculated uncertainty remains UNKNOWN; wider thermal properties remain PARTIAL. This additive supplement preserves the authored parent, its metadata and existing scientific classifications.
+
+![Boron heat capacity by phase and valid source temperature interval](graphs/0005-Boron-B-GRAPH-011-Heat-Capacity.svg)
+<!-- /NIST-THERMOCHEMISTRY-CURATED-SUPPLEMENT -->

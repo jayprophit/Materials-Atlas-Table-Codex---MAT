@@ -35,7 +35,7 @@ export function buildOfflineIndex(manifest) {
   const dataFiles = [
     "./data/elements-118.json", "./data/chart-datasets.json",
     "./data/russell-periodic.json", "./data/combined-periodic.json",
-    "./data/publication/metadata.json"
+    "./data/publication/metadata.json", "./data/glossary.json"
   ];
   const app = ["./", "./index.html", "./3d.html", "./styles.css", "./book.js", "./reader-core.mjs",
     "./math-config.js", "./manifest.json", "./search-index.json", "./visuals-index.json",

@@ -1252,3 +1252,11 @@ The NIST molecular compilation gives ground-state \(N_2\) \(X\,^1\Sigma_g^+\) wi
 ## Evaluated nuclear data and review
 
 The [NUBASE2020 nuclear state catalogue](0007-Nitrogen-N-Nuclear-Evaluation.md) provides 23 evaluated states with uncertainties, qualifiers and source-line provenance. This dated evaluation does not make the whole material record complete.
+
+<!-- NIST-THERMOCHEMISTRY-CURATED-SUPPLEMENT -->
+[Nitrogen thermal functions](0007-Nitrogen-N-Thermochemistry.md) adds 3 source-bound NIST Shomate fits for **MAT:0007:MOL:N2** (MOLECULE), defined by the unchanged [canonical owner](data/structured/0007-Nitrogen-N.yaml) at `/ordinary_molecular_state`. Source: **SRC-000515**, retrieved 2026-10-06. Basis: **mol N2**; 2 atoms per source formula. Valid source intervals: UNSPECIFIED-IN-FIT-TABLE: 100–500 K; UNSPECIFIED-IN-FIT-TABLE: 500–2000 K; UNSPECIFIED-IN-FIT-TABLE: 2000–6000 K.
+
+Spin-isomer scope and isotopic composition are **UNSPECIFIED-IN-RETAINED-FIT**. These gas-species fits do not substitute atomic data, infer a normal/para/ortho mixture, calculate dissociation or establish a cryogenic phase envelope. Published fit limits forbid extrapolation. Calculated uncertainty remains UNKNOWN; wider thermal properties remain PARTIAL. This additive supplement preserves the authored parent, its metadata and existing scientific classifications.
+
+![Nitrogen heat capacity by phase and valid source temperature interval](graphs/0007-Nitrogen-N-GRAPH-013-Heat-Capacity.svg)
+<!-- /NIST-THERMOCHEMISTRY-CURATED-SUPPLEMENT -->

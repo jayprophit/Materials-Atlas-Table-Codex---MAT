@@ -2277,3 +2277,11 @@ The bulk reference values above are consistent with current-accessible WebElemen
 ## Evaluated nuclear data and review
 
 The [NUBASE2020 nuclear state catalogue](0003-Lithium-Li-Nuclear-Evaluation.md) provides 16 evaluated states with uncertainties, qualifiers and source-line provenance. This dated evaluation does not make the whole material record complete.
+
+<!-- NIST-THERMOCHEMISTRY-CURATED-SUPPLEMENT -->
+[Lithium thermal functions](0003-Lithium-Li-Thermochemistry.md) adds 1 source-bound NIST Shomate fits for **MAT:0003:ATOM:Li** (ATOM), defined by the unchanged [canonical owner](data/structured/0003-Lithium-Li.yaml) at `/states/0`. Source: **SRC-000510**, retrieved 2026-10-06. Basis: **mol Li**; 1 atom per source formula. Valid source intervals: UNSPECIFIED-IN-FIT-TABLE: 1620.12–6000 K.
+
+Molecular spin-isomer scope is **NOT-APPLICABLE-TO-MONATOMIC-SPECIES**. Isotopic composition is **UNSPECIFIED-IN-RETAINED-FIT**. These monatomic gas-species fits do not supply dimer data, infer an isotope mixture or establish cryogenic equilibrium, a superfluid transition or a phase envelope. Published fit limits forbid extrapolation. Calculated uncertainty remains UNKNOWN; wider thermal properties remain PARTIAL. This additive supplement preserves the authored parent, its metadata and existing scientific classifications.
+
+![Lithium heat capacity by phase and valid source temperature interval](graphs/0003-Lithium-Li-GRAPH-010-Heat-Capacity.svg)
+<!-- /NIST-THERMOCHEMISTRY-CURATED-SUPPLEMENT -->

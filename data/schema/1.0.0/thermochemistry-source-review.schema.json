@@ -2,21 +2,286 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Bounded thermal source-availability review; no physical values accepted",
   "type": "object",
-  "required": ["registry_id", "record_id", "status", "source_ids", "source_review", "heat_capacity", "derived_tables_and_charts", "scientific_completion"],
+  "required": [
+    "registry_id",
+    "record_id",
+    "status",
+    "source_ids",
+    "source_review",
+    "heat_capacity",
+    "derived_tables_and_charts",
+    "scientific_completion"
+  ],
   "properties": {
-    "registry_id": {"type": "string", "pattern": "^MAT:[0-9]{4}:REG:THERMOCHEMISTRY-SOURCE-REVIEW$"},
-    "record_id": {"type": "string", "pattern": "^MAT:[0-9]{4}$"},
-    "status": {"const": "INSUFFICIENT DATA"},
-    "source_ids": {"type": "array", "minItems": 2, "uniqueItems": true, "items": {"type": "string", "pattern": "^SRC-[0-9]{6}$"}},
+    "registry_id": {
+      "type": "string",
+      "pattern": "^MAT:[0-9]{4}:REG:THERMOCHEMISTRY-SOURCE-REVIEW$"
+    },
+    "record_id": {
+      "type": "string",
+      "pattern": "^MAT:[0-9]{4}$"
+    },
+    "status": {
+      "const": "INSUFFICIENT DATA"
+    },
+    "source_ids": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^SRC-[0-9]{6}$"
+      }
+    },
     "heat_capacity": {
-      "type": "object", "required": ["value", "unit", "status", "uncertainty", "reason"],
-      "properties": {"value": {"type": "null"}, "unit": {"const": "J mol^-1 K^-1"}, "status": {"const": "INSUFFICIENT DATA"}, "uncertainty": {"const": "UNKNOWN"}, "reason": {"type": "string", "minLength": 1}}
+      "type": "object",
+      "required": [
+        "value",
+        "unit",
+        "status",
+        "uncertainty",
+        "reason"
+      ],
+      "properties": {
+        "value": {
+          "type": "null"
+        },
+        "unit": {
+          "const": "J mol^-1 K^-1"
+        },
+        "status": {
+          "const": "INSUFFICIENT DATA"
+        },
+        "uncertainty": {
+          "const": "UNKNOWN"
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
     },
     "source_review": {
-      "type": "object", "required": ["source_id", "retrieved", "snapshot", "coverage_index", "fit_count", "source_review_result", "scope", "next_action"],
-      "properties": {"fit_count": {"const": 0}, "source_review_result": {"const": "NO-SHOMATE-IN-RETAINED-PAGE"}, "scope": {"type": "string", "minLength": 1}, "next_action": {"type": "string", "minLength": 1}}
+      "type": "object",
+      "required": [
+        "source_id",
+        "retrieved",
+        "snapshot",
+        "coverage_index",
+        "fit_count",
+        "source_review_result",
+        "scope",
+        "next_action"
+      ],
+      "properties": {
+        "fit_count": {
+          "const": 0
+        },
+        "source_review_result": {
+          "enum": [
+            "NO-SHOMATE-IN-RETAINED-PAGE",
+            "NO-MATCH-IN-RETAINED-PAGE",
+            "LOOKUP-NOT-RETRIEVED"
+          ]
+        },
+        "scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "next_action": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^SRC-[0-9]{6}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "retrieved": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "reviewed": {
+          "type": "string",
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+        },
+        "snapshot": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/snapshot"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "source_formula": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "requested_formula": {
+          "type": "string",
+          "minLength": 1
+        },
+        "coverage_index": {
+          "type": "object",
+          "required": [
+            "source_id",
+            "retrieved",
+            "snapshot",
+            "element_cell_as_reported"
+          ],
+          "properties": {
+            "source_id": {
+              "type": "string",
+              "pattern": "^SRC-[0-9]{6}$"
+            },
+            "retrieved": {
+              "type": "string",
+              "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+            },
+            "snapshot": {
+              "$ref": "#/definitions/snapshot"
+            },
+            "element_cell_as_reported": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "element_cell_status": {
+              "enum": [
+                "UNLINKED",
+                "LINKED-REQUIRES-SEPARATE-REVIEW",
+                "ABSENT"
+              ]
+            }
+          }
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "source_review_result": {
+                "const": "LOOKUP-NOT-RETRIEVED"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "reviewed",
+              "requested_formula",
+              "retrieval_status"
+            ],
+            "properties": {
+              "source_id": {
+                "type": "null"
+              },
+              "snapshot": {
+                "type": "null"
+              },
+              "retrieved": {
+                "type": "null"
+              },
+              "source_formula": {
+                "type": "null"
+              },
+              "retrieval_status": {
+                "const": "NOT-RETRIEVED"
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "source_id": {
+                "type": "string",
+                "pattern": "^SRC-[0-9]{6}$"
+              },
+              "snapshot": {
+                "$ref": "#/definitions/snapshot"
+              },
+              "retrieved": {
+                "type": "string",
+                "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "source_review_result": {
+                "const": "NO-MATCH-IN-RETAINED-PAGE"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "requested_formula",
+              "species_identity_status"
+            ],
+            "properties": {
+              "source_formula": {
+                "type": "null"
+              },
+              "species_identity_status": {
+                "const": "UNRESOLVED"
+              }
+            }
+          }
+        }
+      ]
     },
-    "derived_tables_and_charts": {"const": "NOT-GENERATED; NO-ACCEPTED-FIT"},
-    "scientific_completion": {"const": "PENDING"}
+    "derived_tables_and_charts": {
+      "const": "NOT-GENERATED; NO-ACCEPTED-FIT"
+    },
+    "scientific_completion": {
+      "const": "PENDING"
+    }
+  },
+  "definitions": {
+    "snapshot": {
+      "type": "object",
+      "required": [
+        "path",
+        "url",
+        "bytes",
+        "sha256"
+      ],
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "url": {
+          "type": "string",
+          "pattern": "^https://"
+        },
+        "bytes": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      }
+    }
   }
 }

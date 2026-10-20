@@ -1353,3 +1353,11 @@ The SI Brochure still defines the dalton/unified atomic mass unit as **one twelf
 ## Evaluated nuclear data and review
 
 The [NUBASE2020 nuclear state catalogue](0006-Carbon-C-Nuclear-Evaluation.md) provides 21 evaluated states with uncertainties, qualifiers and source-line provenance. This dated evaluation does not make the whole material record complete.
+
+<!-- NIST-THERMOCHEMISTRY-CURATED-SUPPLEMENT -->
+[Carbon thermal functions](0006-Carbon-C-Thermochemistry.md) adds 1 source-bound NIST Shomate fits for **MAT:0006:ATOM:C** (ATOM), defined by the unchanged [canonical owner](data/structured/0006-Carbon-C.yaml) at `/states/0`. Source: **SRC-000513**, retrieved 2026-10-06. Basis: **mol C**; 1 atom per source formula. Valid source intervals: UNSPECIFIED-IN-FIT-TABLE: 298–6000 K.
+
+Molecular spin-isomer scope is **NOT-APPLICABLE-TO-MONATOMIC-SPECIES**. Isotopic composition is **UNSPECIFIED-IN-RETAINED-FIT**. These monatomic gas-species fits do not supply dimer data, infer an isotope mixture or establish cryogenic equilibrium, a superfluid transition or a phase envelope. Published fit limits forbid extrapolation. Calculated uncertainty remains UNKNOWN; wider thermal properties remain PARTIAL. This additive supplement preserves the authored parent, its metadata and existing scientific classifications.
+
+![Carbon heat capacity by phase and valid source temperature interval](graphs/0006-Carbon-C-GRAPH-013-Heat-Capacity.svg)
+<!-- /NIST-THERMOCHEMISTRY-CURATED-SUPPLEMENT -->
