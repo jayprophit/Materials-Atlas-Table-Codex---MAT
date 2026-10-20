@@ -375,6 +375,16 @@ The displayed Created and Updated dates are page-edit dates, not a verified calc
 
 The next bounded step checks the saved inventory for the exact [Copyright & Disclaimers link](https://www.nist.gov/copyrights-disclaimers) from this response, reuses any matching saved policy body, or permits one native request only if still uncaptured. A footer link is not itself a reuse grant. Source locators, complete response evidence, failed read-helper outcomes and independent review are retained under .mat-local/srd141-hydrogen-provider-2026-10-20.
 
+### SRD 141 — NIST policy scope and retained rights guidance, 20 October 2026
+
+One complete native response from [NIST’s general policy page](https://www.nist.gov/copyrights-disclaimers) is retained with headers and hashes. It describes general conditions for NIST information, including an exception for marked copyrighted material, requested attribution and product-specific notices.
+
+The software and data sections remain distinct. MAT has not applied the software conditions to the Hydrogen table or used the data-quality statement as a reuse licence. No source-specific reuse right or numerical value was admitted.
+
+The page links to [research-product licensing guidance](https://www.nist.gov/open/copyright-fair-use-and-licensing-statements-srd-data-software-and-technical-series-publications). Fresh dedup found two retained response records and existing rights-review artifacts. Those inputs must be reused with their original scopes and retrieval limits. One response was requested directly; the other records an alias route. Their body hashes differ, and only the direct capture explicitly records complete reading. No new request to that guidance page was made.
+
+The visible creation and update dates, 20 September 2021 and 2 June 2026, are page-edit dates. They do not identify the Hydrogen calculation revision. The table, paper/erratum, full-state and uncertainty limitations remain open. Exact source locators and independent review remain under .mat-local/srd141-policy-context-2026-10-20.
+
 ## Exact continuation
 
-Reuse the retained Hydrogen response and exact table context. Resolve its source-specific reuse basis through the exact retained policy link and saved capture inventory, retaining UNKNOWN data revision/full-state/physical-uncertainty fields and the separate physical Hydrogen owner. The existing [selector](../../data/research/mat-update-review.json), [TODO](../../data/quality/MAT-TODO.json) and [handoff](../../MAT_CODEX_CONTINUATION_HANDOFF.md) retain the exact executable continuation and wider programme.
+Reuse the retained general policy and the two existing licensing responses and reviews; do not request them again or inherit their earlier SRD124 scope as Hydrogen permission. Resolve only the supported source-specific applicability gap, or retain that dependency and select another existing authorized data/table gap. The [selector](../../data/research/mat-update-review.json), [TODO](../../data/quality/MAT-TODO.json) and [handoff](../../MAT_CODEX_CONTINUATION_HANDOFF.md) retain the exact executable checkpoint and remaining gates.
