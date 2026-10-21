@@ -33,7 +33,33 @@ test('periodic navigation, keyboard search, mobile and accessibility',async({pag
 });
 test('resolved Carbon citations retain draft review and failed loads can retry',async({page})=>{
  await page.goto('/');await page.getByRole('button',{name:'01Write',exact:true}).click();await page.locator('.elements-folder > summary').click();await page.getByRole('button',{name:'Open Carbon',exact:true}).click();await expect(page.locator('#manuscript')).toBeVisible();
- await page.getByRole('button',{name:/05Review/}).click();await expect(page.locator('.review')).toContainText('SRC-000084');await expect(page.locator('.review')).toContainText('No unresolved registry IDs detected');await expect(page.locator('.review')).toContainText('Scientific and editorial review remain required');
+ /* The workflow has a step for charts and tables, so REVIEW is the sixth
+    step. The name is matched by its word and not by its number, so a step
+    being added does not silently break this. */
+ await page.getByRole('button',{name:/Review/}).click();
+ /* The review panel is about the chapter that is open, so it has to name
+    that chapter's sources. The test reads them from the published data
+    rather than naming one, because the chapter is rewritten as the work
+    goes on and a source id written into the test goes stale. The record is
+    chosen by the same rule the studio uses: the first record with the
+    element's MAT id. */
+ const elements=await (await page.request.get('/data/publication/generated/publication-elements.json')).json();
+ const carbon=elements.elements.find((e:any)=>e.name==='Carbon');
+ const records=await (await page.request.get('/data/publication/generated/publication-records.json')).json();
+ const record=records.find((r:any)=>r.mat===carbon.matId);
+ const chapter=await (await page.request.get('/data/publication/generated/chapters/'+record.key+'.json')).json();
+ const sourceIds=(chapter.sources||[]).map((s:any)=>String(s.source_id));
+ expect(sourceIds.length).toBeGreaterThan(0);
+ await expect(page.locator('.review')).toContainText('No unresolved chapter citation IDs detected');
+ await expect(page.locator('.review')).toContainText('Scientific and editorial review remain required');
+ for(const sourceId of sourceIds)await expect(page.locator('.review')).toContainText(sourceId);
  await page.route('**/publication-elements.json',r=>r.fulfill({status:503,body:'offline'}));await page.reload();await expect(page.getByRole('alert')).toContainText('503');
- await page.unroute('**/publication-elements.json');await page.getByRole('button',{name:'Retry',exact:true}).click();await expect(page.locator('#manuscript')).toBeVisible();
+ /* The page was RELOADED to fail the load, so the studio is a fresh
+    session again and it comes back to its home page. The retry restores
+    the catalogue, which is what a retry is for, and the chapter is then
+    opened the way a reader would open it. */
+ await page.unroute('**/publication-elements.json');await page.getByRole('button',{name:'Retry',exact:true}).click();
+ await expect(page.getByRole('heading',{name:'Explore the Materials Atlas'})).toBeVisible();
+ await expect(page.getByRole('alert')).toHaveCount(0);
+ await page.getByRole('button',{name:'01Write',exact:true}).click();await page.locator('.elements-folder > summary').click();await page.getByRole('button',{name:'Open Carbon',exact:true}).click();await expect(page.locator('#manuscript')).toBeVisible();
 });
