@@ -395,6 +395,24 @@ These are transcription and reproduction checks, not new measurements or whole-d
 
 The source review also clarifies two repeated Reference/Comment labels: their solid-table locators are lines 637–638 under the table at line 615. The initial QA report used earlier matching labels with the same text; its original bytes remain retained alongside the scoped correction. This changes no coefficient, calculation or owner status.
 
+### Copper liquid coefficient and provenance checks, 21 October 2026
+
+The existing Copper liquid fit MAT:0029:THERMO:SHOMATE:LIQUID:01 uses SRC-000347. Independent checks matched eight coefficients and the liquid table's own phase, range, molar basis, reference and comment against the retained [coefficient source](../../data/catalog/sources/nist-thermochemistry-0029-2026-10-04.html.txt). The table starts at line 567, covers 1358–2843 K, and has its own reference at line 589 and comment at lines 590–592. These locators are scoped to the liquid table.
+
+There is no liquid-specific rounded comparison table within the declared and original-capture evidence inspected. The saved [publisher comparison table](../../data/catalog/sources/nist-thermochemistry-0029-2026-10-04-table.html.txt) is solid-only; its twelve rows cannot validate the liquid fit. The liquid Table link is a navigation lead, not a retained response. No new source request was made, and liquid publisher-row numerical reproduction remains unavailable. This bounded finding does not establish absence elsewhere in the repository, an account or attachments.
+
+These are transcription and provenance checks, not new measurements or whole-domain scientific acceptance. Coefficient uncertainty, covariance and unspecified full state remain UNKNOWN. The existing Copper thermal task remains OPEN and scientific owner, source, index and fit review statuses are unchanged. No rights or panel credit was admitted. The next existing source check is Copper GAS:01 at line 472, using its own phase-specific evidence. Detailed checks and actual receipts are retained under .mat-local/copper-liquid-qa-2026-10-21.
+
+### Copper gas coefficient and provenance checks, 21 October 2026
+
+The existing Copper gas fit MAT:0029:THERMO:SHOMATE:GAS:01 uses SRC-000347. Independent checks matched eight coefficients and the gas table's own phase, range, molar basis, reference and comment against the retained [coefficient source](../../data/catalog/sources/nist-thermochemistry-0029-2026-10-04.html.txt). The table begins at line 472, covers 2843.261–6000 K, and has its own reference at line 494 and comment at lines 495–497. These locators are scoped to the gas table.
+
+There is no gas-specific rounded comparison table within the declared and original-capture evidence inspected. The saved [publisher comparison table](../../data/catalog/sources/nist-thermochemistry-0029-2026-10-04-table.html.txt) is solid-only; its twelve rows cannot validate the gas fit. The 101 existing generated gas samples come from the fit itself and are not independent publisher comparison evidence. The gas Table link is a navigation lead, not a retained response. No new source request was made, and gas publisher-row numerical reproduction remains unavailable. This bounded finding does not establish absence elsewhere in the repository, an account or attachments.
+
+The uncertainty printed beside the nearby gas entropy value belongs to that separate entropy entry. It does not supply coefficient uncertainty or covariance for this fit. Coefficient uncertainty, covariance and unspecified full state remain UNKNOWN. The fit interval does not by itself identify a boiling temperature, stability range, latent heat, ionisation, dissociation or equilibrium.
+
+These are transcription and provenance checks, not new measurements or whole-domain scientific acceptance. The existing Copper thermal task remains OPEN and scientific owner, source, index and fit review statuses are unchanged. No rights or panel credit was admitted. The next different existing task is Zinc SOLID:01 at its source line 614; its five retained publisher rows require their own independent checks after deduplicating prior Zinc work. Detailed current evidence and actual receipts are retained under .mat-local/copper-gas-qa-2026-10-21.
+
 ## Exact continuation
 
-Resume any unfinished current output/review gates, then review the existing Copper liquid fit with its own retained source and check evidence. Keep the Hydrogen reuse dependency held and avoid repeating completed policy or Copper solid checks. The [selector](../../data/research/mat-update-review.json), [TODO](../../data/quality/MAT-TODO.json) and [handoff](../../MAT_CODEX_CONTINUATION_HANDOFF.md) retain the exact executable checkpoint.
+Finish any current gas output/review gate, then inspect existing Zinc solid-fit evidence after deduplicating previous Zinc QA. Keep Copper liquid/gas publisher-row reproduction unavailable until their own qualified comparison responses exist. The [selector](../../data/research/mat-update-review.json), [TODO](../../data/quality/MAT-TODO.json) and [handoff](../../MAT_CODEX_CONTINUATION_HANDOFF.md) retain the exact checkpoint.
