@@ -8,7 +8,17 @@ import {Marked} from '../vendor/marked.mjs';
 const root=join(import.meta.dirname,'../..');
 function filesAt(dir,test){
   if(!existsSync(join(root,dir)))return [];
-  return readdirSync(join(root,dir)).flatMap(name=>{
+  // The directory is SORTED. readdirSync returns the entries in the
+  // order the filesystem hands them over, which is not the same order
+  // on every platform and not the same order on every run, so a
+  // generated index carried the machine's directory order into the
+  // repository. The comparison the CI does is byte for byte, so the
+  // order has to be decided here and not by the filesystem.
+  //
+  // The sort is by UTF-16 code unit, which is what JavaScript's
+  // default comparison does, and it is the same comparison on every
+  // platform.
+  return readdirSync(join(root,dir)).sort().flatMap(name=>{
     const path=dir+'/'+name;
     return statSync(join(root,path)).isDirectory()?filesAt(path,test):test(path)?[path]:[];
   });
